@@ -508,36 +508,42 @@
         "image_ih6gke": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c.png",
             "row": "1"
           }
         },
         "image_8gK7BT": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03.png",
             "row": "1"
           }
         },
         "image_HgaEDW": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda.png",
             "row": "1"
           }
         },
         "image_UMt6Nt": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/bdacbd67e1f86deb51755842cf0a81fe3dd6144f.png",
             "row": "2"
           }
         },
         "image_nDafnr": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Dino_2S_1.1_e76dacbc-bb1d-4bae-896d-dc3202b923b3.png",
             "row": "2"
           }
         },
         "image_iPpA47": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/9b16c36e20747dacbfe855023c102e44da0233e4.png",
             "row": "2"
           }
         }
@@ -575,30 +581,35 @@
         "image_fD7Y3y": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/38c1e78f04e8ffc91ad26863b8220c8fc4f8ac46.png",
             "row": "1"
           }
         },
         "image_wxBgwy": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/38c1e78f04e8ffc91ad26863b8220c8fc4f8ac46.png",
             "row": "1"
           }
         },
         "image_VD6dhP": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Dino_2S_1.1_e76dacbc-bb1d-4bae-896d-dc3202b923b3.png",
             "row": "1"
           }
         },
         "image_QfLeXq": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/9b16c36e20747dacbfe855023c102e44da0233e4.png",
             "row": "2"
           }
         },
         "image_PWfNNC": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Dino3S1.4.png",
             "row": "2"
           }
         },
@@ -632,7 +643,7 @@
         "gap_desktop": 24,
         "image_height_mobile": 180,
         "gap_mobile": 12,
-        "padding_top": 0,
+        "padding_top": 16,
         "padding_bottom": 0
       }
     }
