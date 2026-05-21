@@ -1,0 +1,412 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .custom-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: {{ section.settings.mobile_height }}vh;
+    overflow: hidden;
+  }
+
+  .custom-hero__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .custom-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
+
+  .custom-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+  }
+
+  .custom-hero__content-wrapper {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .custom-hero__box {
+    text-align: center;
+    max-width: 60rem;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .custom-hero__title {
+    margin: 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .custom-hero__text {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: rgb(var(--color-foreground));
+  }
+
+  .custom-hero__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .custom-hero__buttons .button {
+    width: 100%;
+    border-radius: 4rem; /* Pill shape from design */
+  }
+
+  /* Desktop Layout */
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .custom-hero {
+      min-height: {{ section.settings.desktop_height }}vh;
+    }
+
+    .custom-hero__content-wrapper {
+      justify-content: {{ section.settings.desktop_content_position }};
+    }
+
+    .custom-hero__box {
+      text-align: {{ section.settings.desktop_text_alignment }};
+      align-items: {% if section.settings.desktop_text_alignment == 'left' %}flex-start{% elsif section.settings.desktop_text_alignment == 'right' %}flex-end{% else %}center{% endif %};
+      padding: 6rem 0;
+    }
+
+    .custom-hero__buttons {
+      flex-direction: row;
+      width: auto;
+      gap: 1.5rem;
+    }
+
+    .custom-hero__buttons .button {
+      width: auto;
+      min-width: 18rem;
+    }
+  }
+
+  /* Image toggling for Desktop vs Mobile */
+  .custom-hero__image--mobile {
+    display: block;
+  }
+  .custom-hero__image--desktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-hero__image--mobile {
+      display: none;
+    }
+    .custom-hero__image--desktop {
+      display: block;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-hero section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" {{ section.shopify_attributes }}>
+  
+  <div class="custom-hero__media">
+    <div class="custom-hero__overlay"></div>
+    
+    {%- if section.settings.image != blank -%}
+      {%- liquid
+        assign desktop_class = 'custom-hero__image--desktop'
+        if section.settings.mobile_image == blank
+          assign desktop_class = ''
+        endif
+      -%}
+      {{ section.settings.image | image_url: width: 3840 | image_tag:
+        loading: 'lazy',
+        class: desktop_class,
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+      }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+
+    {%- if section.settings.mobile_image != blank -%}
+      {{ section.settings.mobile_image | image_url: width: 1100 | image_tag:
+        loading: 'lazy',
+        class: 'custom-hero__image--mobile',
+        widths: '375, 550, 750, 1100'
+      }}
+    {%- endif -%}
+  </div>
+
+  <div class="page-width custom-hero__content-wrapper">
+    <div class="custom-hero__box">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          
+          {%- when 'heading' -%}
+            <h2 class="custom-hero__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+              {{ block.settings.heading | escape }}
+            </h2>
+            
+          {%- when 'text' -%}
+            <div class="custom-hero__text" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+            
+          {%- when 'buttons' -%}
+            <div class="custom-hero__buttons" {{ block.shopify_attributes }}>
+              {%- if block.settings.button_label_1 != blank -%}
+                <a {% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} 
+                   class="button {% if block.settings.button_style_1 == 'secondary' %}button--secondary{% else %}button--primary{% endif %}">
+                  {{- block.settings.button_label_1 | escape -}}
+                </a>
+              {%- endif -%}
+              
+              {%- if block.settings.button_label_2 != blank -%}
+                <a {% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} 
+                   class="button {% if block.settings.button_style_2 == 'secondary' %}button--secondary{% else %}button--primary{% endif %}">
+                  {{- block.settings.button_label_2 | escape -}}
+                </a>
+              {%- endif -%}
+            </div>
+            
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Hero Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image (Optional)",
+      "info": "Overrides desktop image on smaller screens."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Image overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4",
+      "info": "Controls text and button colors. Scheme 4 usually pairs well with dark image overlays."
+    },
+    {
+      "type": "header",
+      "content": "Desktop Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 40,
+      "max": 100,
+      "step": 10,
+      "unit": "vh",
+      "label": "Desktop section height",
+      "default": 70
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "flex-start",
+      "label": "Desktop content position"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Desktop text alignment"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 40,
+      "max": 100,
+      "step": 10,
+      "unit": "vh",
+      "label": "Mobile section height",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Comfort now, Pay later.",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Medium" },
+            { "value": "h1", "label": "Large" },
+            { "value": "h0", "label": "Extra Large" }
+          ],
+          "default": "h1",
+          "label": "Heading size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Explore our products",
+          "label": "Primary button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Primary button link"
+        },
+        {
+          "type": "select",
+          "id": "button_style_1",
+          "options": [
+            { "value": "primary", "label": "Solid" },
+            { "value": "secondary", "label": "Outline" }
+          ],
+          "default": "primary",
+          "label": "Primary button style"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "default": "Learn more",
+          "label": "Secondary button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "Secondary button link"
+        },
+        {
+          "type": "select",
+          "id": "button_style_2",
+          "options": [
+            { "value": "primary", "label": "Solid" },
+            { "value": "secondary", "label": "Outline" }
+          ],
+          "default": "secondary",
+          "label": "Secondary button style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero Banner",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "text" },
+        { "type": "buttons" }
+      ]
+    }
+  ]
+}
+{% endschema %}
