@@ -1,0 +1,313 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .bento-categories__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .bento-categories__item {
+    position: relative;
+    display: block;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    text-decoration: none;
+    /* Sets a base height for mobile */
+    min-height: 250px; 
+    isolation: isolate;
+  }
+
+  /* Desktop Bento Grid Layout */
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .bento-categories__grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, minmax(280px, auto));
+      gap: 1.5rem;
+    }
+
+    /* 1st Block: Large Left */
+    .bento-categories__item:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+      min-height: 100%;
+    }
+    
+    /* 2nd Block: Top Right */
+    .bento-categories__item:nth-child(2) {
+      grid-column: 3 / 5;
+      grid-row: 1 / 2;
+    }
+    
+    /* 3rd Block: Bottom Middle */
+    .bento-categories__item:nth-child(3) {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+    
+    /* 4th Block: Bottom Right */
+    .bento-categories__item:nth-child(4) {
+      grid-column: 4 / 5;
+      grid-row: 2 / 3;
+    }
+  }
+
+  /* Image setup */
+  .bento-categories__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .bento-categories__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Overlay for readability if needed */
+  .bento-categories__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.05); /* Slight darkening, adjustable */
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Pill Button */
+  .bento-categories__pill {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 3;
+    background-color: #ffffff;
+    color: #121212;
+    padding: 1rem 1.6rem;
+    border-radius: 4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.05rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .bento-categories__pill .icon-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  /* --- Hover Animations --- */
+  .bento-categories__item:hover .bento-categories__image {
+    transform: scale(1.05);
+  }
+
+  .bento-categories__item:hover .icon-arrow {
+    transform: translateX(4px);
+  }
+
+  @media screen and (min-width: 750px) {
+    .bento-categories__pill {
+      bottom: 2rem;
+      right: 2rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    
+    {%- if section.settings.title != blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+        <h2 class="title {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    <ul class="bento-categories__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li>
+          <a href="{{ block.settings.link | default: '#' }}" 
+             class="bento-categories__item" 
+             {{ block.shopify_attributes }} 
+             aria-label="{{ block.settings.button_label | escape }}">
+            
+            <div class="bento-categories__image-wrapper">
+              {%- if block.settings.image != blank -%}
+                {%- liquid
+                   assign image_class = 'bento-categories__image'
+                   assign sizes = '(min-width: 750px) 50vw, 100vw'
+                -%}
+                {{ block.settings.image | image_url: width: 1500 | image_tag: 
+                  loading: 'lazy', 
+                  class: image_class, 
+                  sizes: sizes, 
+                  widths: '375, 550, 750, 1100, 1500, 1780' 
+                }}
+              {%- else -%}
+                {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'bento-categories__image placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            
+            <div class="bento-categories__overlay"></div>
+
+            {%- if block.settings.button_label != blank -%}
+              <div class="bento-categories__pill">
+                <span>{{ block.settings.button_label | escape }}</span>
+                <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
+                </svg>
+              </div>
+            {%- endif -%}
+            
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bento Categories",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Shop by <em>category</em>",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.all.image.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Category Name",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bento Categories",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "button_label": "Sofas"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "button_label": "Beds"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "button_label": "Mattresses"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "button_label": "Storage Boxes"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
