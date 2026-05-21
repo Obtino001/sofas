@@ -149,6 +149,7 @@
           "type": "faq-blocks",
           "name": "Materials & Care",
           "settings": {
+            "custom_image": "shopify://shop_images/material-symbols-light_local-shipping-outline.svg",
             "question": "Materials & Care",
             "faq_content_type": "manual",
             "answer": ""
