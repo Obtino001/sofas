@@ -1,0 +1,342 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_reviews_XX9YT4": {
+          "type": "product-reviews",
+          "settings": {
+            "flow_text": "Heavy periods",
+            "flow_bg_color": "#fff2f6",
+            "star_width": 70,
+            "review_text": "4.7 (92 Reviews)",
+            "link_url": "",
+            "text_color": "#2B2B2B",
+            "margin_top": 0,
+            "margin_bottom": 10
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "text_YJpJae": {
+          "type": "text",
+          "settings": {
+            "text": "Feel safe and comfortable all day with Nora High Waist.A soft, stretchy fit with built-in protection that absorbs flow while staying breathable and discreet.",
+            "text_style": "body"
+          }
+        },
+        "multi_icon_xn8fhg": {
+          "type": "multi-icon",
+          "settings": {
+            "icon_size_1": 46,
+            "icon_size_m_1": 30,
+            "text-1": "Absorbs equivalent of 5 tampons",
+            "icon_size_2": 46,
+            "icon_size_m_2": 30,
+            "text-2": "Absorbs equivalent of 5 tampons",
+            "icon_size_3": 46,
+            "icon_size_m_3": 30,
+            "text-3": "Absorbs equivalent of 5 tampons",
+            "text-size": 14
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle",
+            "show_variant_images_in_swatches": false,
+            "size_guide_page": false,
+            "trigger_tag": "størrelse",
+            "trigger_label": "Size Guide",
+            "color_primary": "#8a2468",
+            "color_secondary": "#fb499b",
+            "color_tertiary": "#fceced",
+            "title": "Size Guide",
+            "show_xs": true,
+            "val_xs_int": "34 - 36",
+            "val_xs_cm": "88 - 93",
+            "show_s": true,
+            "val_s_int": "38",
+            "val_s_cm": "94 - 99",
+            "show_m": true,
+            "val_m_int": "40 - 42",
+            "val_m_cm": "100 - 105",
+            "show_l": true,
+            "val_l_int": "44",
+            "val_l_cm": "106 - 111",
+            "show_xl": true,
+            "val_xl_int": "46",
+            "val_xl_cm": "112 - 117",
+            "show_xxl": true,
+            "val_xxl_int": "48 - 50",
+            "val_xxl_cm": "118 - 123",
+            "box_title": "How to measure?",
+            "bullet_1": "Stand naturally and measure around your hips at the widest point, where your body is fullest.",
+            "bullet_2": "Keep the measuring tape snug but not tight, and make sure it's level all the way around.",
+            "bullet_3": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure.",
+            "note_text": "If you come between the two sizes, choose the small one."
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "delivery_payment_mB6BTN": {
+          "type": "delivery_payment",
+          "settings": {
+            "text": "Buy now & get it delivered in 2-3 days",
+            "margin_bottom": 16
+          }
+        },
+        "pills_xFGRwJ": {
+          "type": "pills",
+          "settings": {
+            "text_color": "#c8a97e",
+            "custom_svg": "",
+            "benefit_1": "Waterproof",
+            "benefit_2": "2 Year Warranty",
+            "benefit_3": "Swiss Movement",
+            "benefit_4": "Premium Leather",
+            "benefit_5": "",
+            "benefit_6": ""
+          }
+        },
+        "text_e49ryr": {
+          "type": "text",
+          "settings": {
+            "text": "<em><strong>Note: </strong></em><em>The 60-day guarantee applies to new customers and covers one pair only.</em>",
+            "text_style": "subtitle"
+          }
+        },
+        "faq_blocks_NkWNgc": {
+          "type": "faq-blocks",
+          "name": "Product Description",
+          "settings": {
+            "question": "Product Description",
+            "faq_content_type": "product_description",
+            "answer": ""
+          }
+        },
+        "faq_blocks_CkKVjD": {
+          "type": "faq-blocks",
+          "name": "Materials & Care",
+          "settings": {
+            "question": "Materials & Care",
+            "faq_content_type": "manual",
+            "answer": ""
+          }
+        },
+        "faq_blocks_FN9CnF": {
+          "type": "faq-blocks",
+          "name": "Shipping",
+          "settings": {
+            "question": "Shipping",
+            "faq_content_type": "manual",
+            "answer": ""
+          }
+        },
+        "faq_blocks_k8EnCc": {
+          "type": "faq-blocks",
+          "name": "Size Guide",
+          "settings": {
+            "question": "Size Guide",
+            "faq_content_type": "manual",
+            "answer": ""
+          }
+        },
+        "upsell_product_jgWVE7": {
+          "type": "upsell_product",
+          "settings": {
+            "upsell__heading": "Complete your look",
+            "drawer_mobile_arrows": false,
+            "drawer_enable_autoplay": false,
+            "drawer_autoplay_interval": 3,
+            "drawer_mobile_slides": 1.5,
+            "drawer_tablet_slides": 2,
+            "drawer_desktop_slides": 2,
+            "drawer_mobile_spacing": 10,
+            "drawer_desktop_spacing": 10
+          }
+        }
+      },
+      "block_order": [
+        "product_reviews_XX9YT4",
+        "title",
+        "price",
+        "text_YJpJae",
+        "multi_icon_xn8fhg",
+        "variant_picker",
+        "buy_buttons",
+        "delivery_payment_mB6BTN",
+        "pills_xFGRwJ",
+        "text_e49ryr",
+        "faq_blocks_NkWNgc",
+        "faq_blocks_CkKVjD",
+        "faq_blocks_FN9CnF",
+        "faq_blocks_k8EnCc",
+        "upsell_product_jgWVE7"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "columns",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "full_popup",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "show_main_arrows": true,
+        "show_main_pagination": true,
+        "show_thumbs_arrows": true,
+        "enable_group_by_color": true,
+        "color_option_name": "Color",
+        "fancybox_show_all": false,
+        "trigger_label": "Size Guide",
+        "default_metric": true,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "sereluna_guarantee_section_AK3U7q": {
+      "type": "sereluna-guarantee-section",
+      "blocks": {
+        "shape_UmiJpj": {
+          "type": "shape",
+          "settings": {
+            "width_desktop": 200,
+            "width_mobile": 150,
+            "vertical_alignment": "bottom",
+            "pos_y_desktop": -52,
+            "horizontal_alignment": "right",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": -70,
+            "pos_x_mobile": 0,
+            "z_index": 2
+          }
+        },
+        "shape_4GGrP7": {
+          "type": "shape",
+          "settings": {
+            "width_desktop": 155,
+            "width_mobile": 150,
+            "vertical_alignment": "top",
+            "pos_y_desktop": -72,
+            "horizontal_alignment": "right",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": -52,
+            "pos_x_mobile": 0,
+            "z_index": 1
+          }
+        },
+        "shape_RawXnN": {
+          "type": "shape",
+          "settings": {
+            "width_desktop": 235,
+            "width_mobile": 150,
+            "vertical_alignment": "top",
+            "pos_y_desktop": 30,
+            "horizontal_alignment": "left",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": 46,
+            "pos_x_mobile": 0,
+            "z_index": 2
+          }
+        },
+        "shape_8KtVnd": {
+          "type": "shape",
+          "settings": {
+            "width_desktop": 270,
+            "width_mobile": 200,
+            "vertical_alignment": "top",
+            "pos_y_desktop": -18,
+            "horizontal_alignment": "left",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": -24,
+            "pos_x_mobile": 0,
+            "z_index": 1
+          }
+        },
+        "heading_3zUj3k": {
+          "type": "heading",
+          "settings": {
+            "title": "Try Sereluna risk-free"
+          }
+        },
+        "description_iMjCqF": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Your comfort matters.<br/>If Sereluna isn’t the right fit for you, our 60-day guarantee means you’re not taking any risk.</p>"
+          }
+        },
+        "description_HaCbwR": {
+          "type": "description",
+          "settings": {
+            "text": "<p>We’re here to help — whether that’s a size change, advice, or a refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "shape_UmiJpj",
+        "shape_4GGrP7",
+        "shape_RawXnN",
+        "shape_8KtVnd",
+        "heading_3zUj3k",
+        "description_iMjCqF",
+        "description_HaCbwR"
+      ],
+      "name": "Risk Free Banner",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "sereluna_guarantee_section_AK3U7q"
+  ]
+}

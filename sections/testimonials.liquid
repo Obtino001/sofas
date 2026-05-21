@@ -1,0 +1,408 @@
+{% schema %}
+{
+  "name": "Testimonial Marquee",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "card_color_scheme",
+      "label": "Card Color Scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "header",
+      "content": "Top Area ('As seen in')"
+    },
+    {
+      "type": "text",
+      "id": "seen_in_text",
+      "label": "Small Heading",
+      "default": "As seen in"
+    },
+    {
+      "type": "image_picker",
+      "id": "seen_in_logos",
+      "label": "Logos Image (Transparent PNG)"
+    },
+    {
+      "type": "image_picker",
+      "id": "seen_in_logos_2",
+      "label": "Logos Image (Transparent PNG) 2"
+    },
+    {
+      "type": "header",
+      "content": "Main Heading Area"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "What our customers say"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading / Rating Text",
+      "default": "<p>Rated 4.8 out of 5 Stars (466 Reviews) on</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "rating_logo",
+      "label": "Rating Partner Logo (e.g., RaveCapture)"
+    },
+    {
+      "type": "header",
+      "content": "Footer Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Marquee Settings"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 120,
+      "step": 2,
+      "unit": "s",
+      "label": "Animation Speed",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "options": [
+        { "value": "normal", "label": "Right to Left" },
+        { "value": "reverse", "label": "Left to Right" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "card_width_desktop",
+      "min": 250,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Card Width (Desktop)",
+      "default": 350
+    },
+    {
+      "type": "range",
+      "id": "card_width_mobile",
+      "min": 200,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Card Width (Mobile)",
+      "default": 280
+    },
+    {
+      "type": "header",
+      "content": "Layout Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Anna H."
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Review Text",
+          "default": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Slider",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  .ts-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+
+  .ts-header-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .ts-header-wrapper .h1 {
+    margin: 10px;
+  }
+
+  .ts-seen-in-box {
+    background-color: #FFF2F2; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .ts-seen-in-box img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .ts-subheading-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .ts-subheading-wrapper p {
+    margin: 0;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 125%;
+    letter-spacing: 1%;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .ts-subheading-wrapper img {
+    height: 26px;
+    width: auto;
+  }
+
+  .ts-marquee-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .ts-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-marquee {{ section.settings.speed }}s linear infinite {{ section.settings.direction }};
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  {% if section.settings.pause_on_hover %}
+  .ts-marquee-track:hover {
+    animation-play-state: paused;
+  }
+  {% endif %}
+
+  @keyframes scroll-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); }
+  }
+
+  .ts-card-wrapper {
+    width: {{ section.settings.card_width_mobile }}px;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .ts-card-wrapper {
+      width: {{ section.settings.card_width_desktop }}px;
+    }
+  }
+
+  .ts-card {
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    .ts-card { padding: 24px; min-height: 200px; }
+    .ts-marquee-track{
+      animation: scroll-marquee 25s linear infinite {{ section.settings.direction }};
+    }
+  }
+
+  .ts-main-headin.h1 {
+    margin-bottom: 5px;
+  }
+
+  .ts-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .ts-card-author {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 125%;
+    text-transform: capitalize;
+    margin: 0;
+    color: white;
+  }
+
+  .ts-stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .ts-card-text {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 125%;
+    color: #FFFFFF;
+  }
+
+  .ts-footer-action {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+{%- endstyle -%}
+
+<div class="ts-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="page-width">
+    
+    <div class="ts-header-wrapper">
+      {% if section.settings.seen_in_text != blank or section.settings.seen_in_logos != blank %}
+        <h3 class="h1">{{ section.settings.seen_in_text }}</h3>
+        {% if section.settings.seen_in_logos != blank %}
+          <div class="ts-seen-in-box">
+            <img src="{{ section.settings.seen_in_logos | image_url: width: 600 }}" alt="As seen in" loading="lazy">
+            <img src="{{ section.settings.seen_in_logos_2 | image_url: width: 600 }}" alt="As seen in" loading="lazy">
+          </div>
+        {% endif %}
+      {% endif %}
+
+      <h2 class="ts-main-headin h1">{{ section.settings.heading }}</h2>
+      
+      <div class="ts-subheading-wrapper">
+        {{ section.settings.subheading }}
+        {% if section.settings.rating_logo != blank %}
+          <img src="{{ section.settings.rating_logo | image_url: width: 200 }}" alt="Rating Partner" loading="lazy">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="ts-marquee-container">
+    <div class="ts-marquee-track">
+      {%- capture marquee_content -%}
+        {%- for block in section.blocks -%}
+          <div class="ts-card-wrapper" {{ block.shopify_attributes }}>
+            <div class="ts-card color-{{ section.settings.card_color_scheme }} gradient">
+              <div class="ts-card-header">
+                <div class="ts-card-author">{{ block.settings.author }}</div>
+                <div class="ts-stars">
+                 {%- for i in (1..block.settings.stars) -%}
+                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M9.00002 13.7475L5.26502 15.9975C5.10002 16.1025 4.92752 16.1475 4.74752 16.1325C4.56752 16.1175 4.41002 16.0575 4.27502 15.9525C4.14002 15.8475 4.03502 15.7164 3.96002 15.5592C3.88502 15.402 3.87002 15.2256 3.91502 15.03L4.90502 10.7775L1.59752 7.91998C1.44752 7.78498 1.35392 7.63108 1.31672 7.45828C1.27952 7.28548 1.29062 7.11688 1.35002 6.95248C1.40942 6.78808 1.49942 6.65308 1.62002 6.54748C1.74062 6.44188 1.90562 6.37438 2.11502 6.34498L6.48002 5.96248L8.16752 1.95748C8.24252 1.77748 8.35892 1.64248 8.51672 1.55248C8.67452 1.46248 8.83562 1.41748 9.00002 1.41748C9.16442 1.41748 9.32552 1.46248 9.48332 1.55248C9.64112 1.64248 9.75752 1.77748 9.83252 1.95748L11.52 5.96248L15.885 6.34498C16.095 6.37498 16.26 6.44248 16.38 6.54748C16.5 6.65248 16.59 6.78748 16.65 6.95248C16.71 7.11748 16.7214 7.28638 16.6842 7.45918C16.647 7.63198 16.5531 7.78558 16.4025 7.91998L13.095 10.7775L14.085 15.03C14.13 15.225 14.115 15.4014 14.04 15.5592C13.965 15.717 13.86 15.8481 13.725 15.9525C13.59 16.0569 13.4325 16.1169 13.2525 16.1325C13.0725 16.1481 12.9 16.1031 12.735 15.9975L9.00002 13.7475Z" fill="white"/>
+                   </svg>
+                 {%- endfor -%}
+                </div>
+              </div>
+              
+              <p class="ts-card-text">{{ block.settings.content }}</p>
+              
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endcapture -%}
+      
+      {{ marquee_content }}
+      {{ marquee_content }}
+    </div>
+  </div>
+
+  <div class="page-width">
+    {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
+      <div class="ts-footer-action">
+        <a href="{{ section.settings.btn_link }}" class="button button--secondary">
+          {{ section.settings.btn_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+</div>

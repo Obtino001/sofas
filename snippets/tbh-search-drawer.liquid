@@ -1,0 +1,86 @@
+<div class="side-panel search-drawer" tabindex="-1" id="Search-Drawer">
+	<div class="side-panel-inner">
+		<div class="side-panel-header">
+			<div>
+				<form role="search" method="get" class="searchform" action="{{ routes.search_url }}">
+			<fieldset>
+						<label for="side-panel-search-input" class="visually-hidden">{{ 'general.search.search' | t }}</label>
+						<input id="side-panel-search-input" type="search" class="search-field" placeholder="Search" value="{{ search.terms | replace: '*', '' }}" name="q" autocomplete="off">
+					</fieldset>
+				</form>
+				<side-panel-close class="side-panel-close">{%- render 'svg-icons' with 'close' -%}</side-panel-close>
+			</div>
+		</div>
+		{%- if settings.predictive_search_enable -%}
+		<div class="side-panel-content side-panel-content--has-tabs">
+
+		</div>
+		{%- endif -%}
+		<div class="side-panel-content side-panel-content--initial">
+			<div class="thb-predictive-search">
+				{%- if settings.search_menu != blank -%}
+					<div class="thb-predictive-search--popular">
+						<h5 class="thb-predictive-search--label">Popular</h5>
+						<scroll-shadow>
+							<div>
+								{%- for link in settings.search_menu.links -%}
+								<a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+								{%- endfor -%}
+							</div>
+						</scroll-shadow>
+					</div>
+				{%- endif -%}
+				{%- if settings.search_product_collection -%}
+					<div class="thb-predictive-search--promotion">
+						<h5 class="thb-predictive-search--label">{{ settings.search_product_heading }}</h5>
+						<div class="thb-predictive-search--promotion-products">
+							<ul class="products collection row small-up-1 medium-up-2">
+								{%- for product in settings.search_product_collection.products limit: settings.search_product_collection_limit -%}
+									<li class="columns">
+										{%- render 'lx_productCard', product_obj: product, -%}
+									</li>
+								{%- endfor -%}
+							</ul>
+						</div>
+					</div>
+				{%- endif -%}
+			</div>
+		</div>
+
+	</div>
+</div>
+
+{% comment %} <link rel="stylesheet" href="{{ 'product-grid.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+<link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>
+	{% comment %} {{ 'product-grid.css' | asset_url | stylesheet_tag }} {% endcomment %}
+	{{ 'predictive-search.css' | asset_url | stylesheet_tag }}
+</noscript>
+<div class="ma-search-overlay tbh-search-overlay"> </div>
+<style>
+  body.tbh-search-open {
+    overflow: hidden !important;
+  }
+  .tbh-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 91;
+    backdrop-filter: blur(1px);
+    transition: 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  body.tbh-search-open .tbh-search-overlay,
+  .side-panel.search-drawer.active ~ .tbh-search-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+</style>
+<script src="{{ 'tbh-predictive-search.js' | asset_url }}" defer></script>
+<script type="module" src="{{ 'scroll-shadow.js' | asset_url }}" defer="defer"></script>

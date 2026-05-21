@@ -1,0 +1,610 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_KWryLt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MjXB4R": {
+          "type": "heading",
+          "settings": {
+            "heading": "About us",
+            "heading_size": "h1"
+          }
+        },
+        "text_BPxxKk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sereluna is a family-owned Norwegian brand creating high-quality, safe period underwear designed to make periods feel simpler and more comfortable.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MjXB4R",
+        "text_BPxxKk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "story_section_7bPWBD": {
+      "type": "story-section",
+      "blocks": {
+        "shape_QpdDcN": {
+          "type": "shape",
+          "settings": {
+            "image": "shopify://shop_images/Group_1413372228.svg",
+            "position": "top_right",
+            "offset_x": -11,
+            "offset_y": 30,
+            "shape_width": 130
+          }
+        },
+        "shape_QqyfbD": {
+          "type": "shape",
+          "settings": {
+            "image": "shopify://shop_images/Group_1413372229.svg",
+            "position": "bottom_left",
+            "offset_x": -10,
+            "offset_y": -10,
+            "shape_width": 140
+          }
+        },
+        "heading_kPbKdE": {
+          "type": "heading",
+          "settings": {
+            "heading": "How Sereluna started",
+            "heading_size": "h1"
+          }
+        },
+        "text_nY3iXe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sereluna was founded in 2022 by Charlotte, who struggled to find comfortable and safe alternatives to pads and tampons in Norway. While period underwear was already popular in other European countries, it was still hard to find in Norway. <br/><br/>Sereluna was created to change that — by offering high-quality period underwear designed to feel like regular underwear, made in Europe, and gentle on both the body and the environment.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "shape_QpdDcN",
+        "shape_QqyfbD",
+        "heading_kPbKdE",
+        "text_nY3iXe"
+      ],
+      "name": "Story Section",
+      "settings": {
+        "image": "shopify://shop_images/ec6b891506090fc38ed9eb6e0ddce5cb69d5db6e.png",
+        "layout": "image_first",
+        "color_scheme": "scheme-3",
+        "text_color": "",
+        "container_radius": 32,
+        "image_overlap_desktop_top": 200,
+        "image_overlap_desktop_bottom": 80,
+        "image_overlap_mobile": 148,
+        "image_radius": 24,
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    },
+    "obstacles_grid_fV6Qbb": {
+      "type": "obstacles-grid",
+      "blocks": {
+        "feature_DqQWeF": {
+          "type": "feature",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "title": "Sereluna is quality",
+            "subtitle": "We control the entire value chain",
+            "text": "<p>Sustainability is at the core of what we do. Our product helps reduce your carbon footprint — but we go further than that. We use organic cotton, and all materials are OEKO-TEX® Standard 100 certified. Our products are made in Europe, stored in Norway, and shipped in recyclable packaging (no plastic, thank you!).</p>",
+            "shape_1": "shopify://shop_images/Rectangle_251.svg",
+            "shape_1_width": 150,
+            "shape_1_x": 14,
+            "shape_1_y": 18,
+            "shape_1_width_mobile": 130,
+            "shape_1_x_mobile": 20,
+            "shape_1_y_mobile": 18,
+            "shape_2": "shopify://shop_images/Rectangle_244_2.svg",
+            "shape_2_width": 150,
+            "shape_2_x": 80,
+            "shape_2_y": 12,
+            "shape_2_width_mobile": 130,
+            "shape_2_x_mobile": 80,
+            "shape_2_y_mobile": 12,
+            "shape_3": "shopify://shop_images/Rectangle_243_5.svg",
+            "shape_3_width": 225,
+            "shape_3_x": 28,
+            "shape_3_y": 86,
+            "shape_3_width_mobile": 210,
+            "shape_3_x_mobile": 28,
+            "shape_3_y_mobile": 86
+          }
+        },
+        "feature_GDGDXK": {
+          "type": "feature",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "title": "Sereluna is quality",
+            "subtitle": "We control the entire value chain",
+            "text": "<p>Sustainability is at the core of what we do. Our product helps reduce your carbon footprint — but we go further than that. We use organic cotton, and all materials are OEKO-TEX® Standard 100 certified. Our products are made in Europe, stored in Norway, and shipped in recyclable packaging (no plastic, thank you!).</p>",
+            "shape_1": "shopify://shop_images/Rectangle_251.svg",
+            "shape_1_width": 150,
+            "shape_1_x": 20,
+            "shape_1_y": 18,
+            "shape_1_width_mobile": 130,
+            "shape_1_x_mobile": 20,
+            "shape_1_y_mobile": 18,
+            "shape_2": "shopify://shop_images/Rectangle_250.svg",
+            "shape_2_width": 150,
+            "shape_2_x": 20,
+            "shape_2_y": 90,
+            "shape_2_width_mobile": 130,
+            "shape_2_x_mobile": 20,
+            "shape_2_y_mobile": 90,
+            "shape_3": "shopify://shop_images/Rectangle_249.svg",
+            "shape_3_width": 125,
+            "shape_3_x": 84,
+            "shape_3_y": 74,
+            "shape_3_width_mobile": 120,
+            "shape_3_x_mobile": 84,
+            "shape_3_y_mobile": 74
+          }
+        },
+        "feature_4ArY3K": {
+          "type": "feature",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "title": "Sereluna is quality",
+            "subtitle": "We control the entire value chain",
+            "text": "<p>Sustainability is at the core of what we do. Our product helps reduce your carbon footprint — but we go further than that. We use organic cotton, and all materials are OEKO-TEX® Standard 100 certified. Our products are made in Europe, stored in Norway, and shipped in recyclable packaging (no plastic, thank you!).</p>",
+            "shape_1": "shopify://shop_images/Rectangle_253_1.svg",
+            "shape_1_width": 120,
+            "shape_1_x": 12,
+            "shape_1_y": 26,
+            "shape_1_width_mobile": 130,
+            "shape_1_x_mobile": 16,
+            "shape_1_y_mobile": 30,
+            "shape_2": "shopify://shop_images/Rectangle_254.svg",
+            "shape_2_width": 150,
+            "shape_2_x": 80,
+            "shape_2_y": 12,
+            "shape_2_width_mobile": 130,
+            "shape_2_x_mobile": 80,
+            "shape_2_y_mobile": 12,
+            "shape_3": "shopify://shop_images/Rectangle_255.svg",
+            "shape_3_width": 150,
+            "shape_3_x": 80,
+            "shape_3_y": 86,
+            "shape_3_width_mobile": 150,
+            "shape_3_x_mobile": 80,
+            "shape_3_y_mobile": 78
+          }
+        }
+      },
+      "block_order": [
+        "feature_DqQWeF",
+        "feature_GDGDXK",
+        "feature_4ArY3K"
+      ],
+      "name": "Custom Feature Blocks",
+      "settings": {
+        "heading": "What is Sereluna",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "card_radius": 26,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "our_values_KCptGT": {
+      "type": "our-values",
+      "blocks": {
+        "value_9cD4Jw": {
+          "type": "value",
+          "settings": {
+            "image": "shopify://shop_images/1880a1dfd3669a052c150a7a0add01ab1ad26659_1.jpg",
+            "title": "Women's Health",
+            "text": "<p>Sereluna was created because there are better alternatives to disposable period products. We believe women deserve better.</p>"
+          }
+        },
+        "value_tzBd7y": {
+          "type": "value",
+          "settings": {
+            "image": "shopify://shop_images/7ed9cbe82123bc6298ef240d3b98760724abfd7e_be3453e8-1f48-4ac4-b2d2-a36f703882b7.png",
+            "title": "Women's Health",
+            "text": "<p>Sereluna was created because there are better alternatives to disposable period products. We believe women deserve better.</p>"
+          }
+        },
+        "value_DcKyca": {
+          "type": "value",
+          "settings": {
+            "image": "shopify://shop_images/b5a93abf8a4339b084bc4fd0db3aa57bf7d3588a_3a8d3a9e-b811-4430-bb5a-c8133f2cba67.png",
+            "title": "Women's Health",
+            "text": "<p>Sereluna was created because there are better alternatives to disposable period products. We believe women deserve better.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "value_9cD4Jw",
+        "value_tzBd7y",
+        "value_DcKyca"
+      ],
+      "name": "Our Values",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "card_color_scheme": "scheme-3",
+        "heading": "Our values",
+        "columns_desktop": 3,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "testimonials_RUYBWp": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_KJJnfR": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_U9znP3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_LHpaqN": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_drJFCa": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_zxytm7": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_P3U7Un": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_WygERQ": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_fd8rqn": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_KJJnfR",
+        "testimonial_U9znP3",
+        "testimonial_LHpaqN",
+        "testimonial_drJFCa",
+        "testimonial_zxytm7",
+        "testimonial_P3U7Un",
+        "testimonial_WygERQ",
+        "testimonial_fd8rqn"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "color_scheme": "",
+        "card_color_scheme": "scheme-7bb5237c-90bc-4ff8-b9c6-9f6059b3117a",
+        "seen_in_text": "As seen in",
+        "seen_in_logos": "shopify://shop_images/image_2.png",
+        "seen_in_logos_2": "shopify://shop_images/vg-no-logo-vector_1.png",
+        "heading": "What our customers say",
+        "subheading": "<p>Rated 4.8 out of 5 Stars (466 Reviews) on</p>",
+        "rating_logo": "shopify://shop_images/3ae3b0124412cc868b2c6cca19b191d2e858b626.png",
+        "btn_text": "View All",
+        "btn_link": "",
+        "speed": 30,
+        "direction": "normal",
+        "pause_on_hover": true,
+        "card_width_desktop": 350,
+        "card_width_mobile": 280,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "collections_tabs_CftkD8": {
+      "type": "collections-tabs",
+      "blocks": {
+        "collection_i99y6c": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Moderate Flow",
+            "collection": "all"
+          }
+        },
+        "collection_JBLVXB": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Moderate Flow",
+            "collection": "all"
+          }
+        },
+        "collection_CjKg4X": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Moderate Flow",
+            "collection": "all"
+          }
+        },
+        "collection_YhUpAd": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Moderate Flow",
+            "collection": "all"
+          }
+        },
+        "collection_wjJ88g": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Moderate Flow",
+            "collection": "all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_i99y6c",
+        "collection_JBLVXB",
+        "collection_CjKg4X",
+        "collection_YhUpAd",
+        "collection_wjJ88g"
+      ],
+      "name": "Collection Tabs",
+      "settings": {
+        "title": "Shop by flow",
+        "heading_size": "h1",
+        "description": "",
+        "description_style": "body",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "spacing": 20,
+        "overflow": true,
+        "full_width": false,
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "show_controls_desktop": true,
+        "show_controls_mobile": true,
+        "controls_position": "middle",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": true,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "sereluna_guarantee_section_AK3U7q": {
+      "type": "sereluna-guarantee-section",
+      "blocks": {
+        "shape_UmiJpj": {
+          "type": "shape",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Rectangle_244_30a24d96-0d9b-4704-800c-ba56b8143479.svg",
+            "image_mobile": "shopify://shop_images/Rectangle_244_1.svg",
+            "width_desktop": 200,
+            "width_mobile": 150,
+            "vertical_alignment": "bottom",
+            "pos_y_desktop": -52,
+            "horizontal_alignment": "right",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": -70,
+            "pos_x_mobile": 0,
+            "z_index": 2
+          }
+        },
+        "shape_4GGrP7": {
+          "type": "shape",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Rectangle_243_2.svg",
+            "image_mobile": "shopify://shop_images/Rectangle_243_3.svg",
+            "width_desktop": 155,
+            "width_mobile": 150,
+            "vertical_alignment": "top",
+            "pos_y_desktop": -72,
+            "horizontal_alignment": "right",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": -52,
+            "pos_x_mobile": 0,
+            "z_index": 1
+          }
+        },
+        "shape_RawXnN": {
+          "type": "shape",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Rectangle_242_1.svg",
+            "image_mobile": "shopify://shop_images/Rectangle_242_2.svg",
+            "width_desktop": 235,
+            "width_mobile": 150,
+            "vertical_alignment": "top",
+            "pos_y_desktop": 30,
+            "horizontal_alignment": "left",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": 46,
+            "pos_x_mobile": 0,
+            "z_index": 2
+          }
+        },
+        "shape_8KtVnd": {
+          "type": "shape",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Rectangle_241_2.svg",
+            "image_mobile": "shopify://shop_images/Rectangle_241_3.svg",
+            "width_desktop": 270,
+            "width_mobile": 200,
+            "vertical_alignment": "top",
+            "pos_y_desktop": -18,
+            "horizontal_alignment": "left",
+            "pos_x_desktop": 0,
+            "pos_y_mobile": -24,
+            "pos_x_mobile": 0,
+            "z_index": 1
+          }
+        },
+        "heading_3zUj3k": {
+          "type": "heading",
+          "settings": {
+            "title": "Try Sereluna risk-free"
+          }
+        },
+        "description_iMjCqF": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Your comfort matters.<br/>If Sereluna isn’t the right fit for you, our 60-day guarantee means you’re not taking any risk.</p>"
+          }
+        },
+        "description_HaCbwR": {
+          "type": "description",
+          "settings": {
+            "text": "<p>We’re here to help — whether that’s a size change, advice, or a refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "shape_UmiJpj",
+        "shape_4GGrP7",
+        "shape_RawXnN",
+        "shape_8KtVnd",
+        "heading_3zUj3k",
+        "description_iMjCqF",
+        "description_HaCbwR"
+      ],
+      "name": "Risk Free Banner",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "faq_with_images_9bEYkm": {
+      "type": "faq-with-images",
+      "blocks": {
+        "faq_item_N4cpaP": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are period panties?",
+            "answer": "<p>Period panties look like regular underwear but have built-in absorbent protection that safely absorbs menstrual flow. They can replace pads and tampons.</p>"
+          }
+        },
+        "faq_item_GLXP7r": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are period panties?",
+            "answer": "<p>Period panties look like regular underwear but have built-in absorbent protection that safely absorbs menstrual flow. They can replace pads and tampons.</p>"
+          }
+        },
+        "faq_item_YW4GFc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are period panties?",
+            "answer": "<p>Period panties look like regular underwear but have built-in absorbent protection that safely absorbs menstrual flow. They can replace pads and tampons.</p>"
+          }
+        },
+        "faq_item_Dckzqr": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are period panties?",
+            "answer": "<p>Period panties look like regular underwear but have built-in absorbent protection that safely absorbs menstrual flow. They can replace pads and tampons.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_N4cpaP",
+        "faq_item_GLXP7r",
+        "faq_item_YW4GFc",
+        "faq_item_Dckzqr"
+      ],
+      "name": "FAQ with Images",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Frequently asked questions",
+        "accordion_bg": "#2B2B2B",
+        "accordion_text": "#ffffff",
+        "image_l1": "shopify://shop_images/14baa852027472691b3fce8f880e4cfbb3c6c4f0.jpg",
+        "image_l2": "shopify://shop_images/1880a1dfd3669a052c150a7a0add01ab1ad26659.jpg",
+        "image_l3": "shopify://shop_images/304d5baf558bd9c1e00b918bb6cb973c705d946e.jpg",
+        "image_r1": "shopify://shop_images/9641a96e670db7e00917d4f46a995736a56cdc01_1.jpg",
+        "image_r2": "shopify://shop_images/14baa852027472691b3fce8f880e4cfbb3c6c4f0.jpg",
+        "image_r3": "shopify://shop_images/304d5baf558bd9c1e00b918bb6cb973c705d946e.jpg",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+  },
+  "order": [
+    "main",
+    "rich_text_KWryLt",
+    "story_section_7bPWBD",
+    "obstacles_grid_fV6Qbb",
+    "our_values_KCptGT",
+    "testimonials_RUYBWp",
+    "sereluna_guarantee_section_AK3U7q",
+    "faq_with_images_9bEYkm",
+    "collections_tabs_CftkD8",
+  ]
+}
