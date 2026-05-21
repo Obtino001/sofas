@@ -12,6 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "title_and_price_miVkLd": {
+          "type": "title_and_price",
+          "settings": {
+            "show_discount_badge": true,
+            "review_text": "4.9 (22 Reviews)"
+          }
+        },
         "product_reviews_XX9YT4": {
           "type": "product-reviews",
           "settings": {
@@ -36,7 +43,9 @@
         "pills_xFGRwJ": {
           "type": "pills",
           "settings": {
+            "title": "Why you will love it:",
             "text_color": "#c8a97e",
+            "icon_color": "#111111",
             "custom_svg": "",
             "benefit_1": "Waterproof",
             "benefit_2": "2 Year Warranty",
@@ -183,17 +192,34 @@
           "settings": {
             "rating_1": 5,
             "verified_1": true,
+            "title_1": "The quality is unreal for this price point.",
+            "text_1": "Looks just like it does on the website, which is always a relief!",
             "author_1": "Caleb T.",
             "rating_2": 5,
             "verified_2": true,
+            "title_2": "",
+            "text_2": "",
             "author_2": "Caleb T.",
             "rating_3": 5,
             "verified_3": true,
-            "author_3": "Caleb T."
+            "title_3": "",
+            "text_3": "",
+            "author_3": "Caleb T.",
+            "rating_4": 5,
+            "verified_4": true,
+            "title_4": "",
+            "text_4": "",
+            "author_4": "",
+            "rating_5": 5,
+            "verified_5": true,
+            "title_5": "",
+            "text_5": "",
+            "author_5": ""
           }
         }
       },
       "block_order": [
+        "title_and_price_miVkLd",
         "product_reviews_XX9YT4",
         "title",
         "price",
