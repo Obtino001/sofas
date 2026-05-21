@@ -11,6 +11,20 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "announcement_bar_timer_jnccnD": {
+      "type": "announcement-bar-timer",
+      "name": "Announcement Timer",
+      "settings": {
+        "color_scheme": "",
+        "text": "30% OFF Store Wide | Sale ends in:",
+        "end_date": "2026/12/31 23:59:59",
+        "hide_on_expire": false,
+        "label_days": "Days",
+        "label_hours": "Hours",
+        "label_minutes": "Minutes",
+        "label_seconds": "Seconds"
+      }
+    },
     "header": {
       "type": "header",
       "blocks": {
@@ -161,6 +175,7 @@
     }
   },
   "order": [
+    "announcement_bar_timer_jnccnD",
     "header"
   ]
 }
