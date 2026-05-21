@@ -1,4 +1,3 @@
-
 <faq-item
   class="faqrs-item faq-blocks faq-block-{{ block.id }}{% if is_first %} faqrs-active{% endif %}"
   {{ block.shopify_attributes }}
@@ -13,25 +12,15 @@
       </div>
 
       <span class="faqrs-icon-wrap">
-        <svg
-          class="faqrs-icon-plus"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
+        <svg 
+          class="faqrs-icon-chevron" 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="12" 
+          height="8" 
+          viewBox="0 0 12 8" 
           fill="none"
         >
-          <path d="M18 12.998H13V17.998C13 18.2633 12.8946 18.5176 12.7071 18.7052C12.5196 18.8927 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8927 11.2929 18.7052C11.1054 18.5176 11 18.2633 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.99805C11 5.73283 11.1054 5.47848 11.2929 5.29094C11.4804 5.1034 11.7348 4.99805 12 4.99805C12.2652 4.99805 12.5196 5.1034 12.7071 5.29094C12.8946 5.47848 13 5.73283 13 5.99805V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z" fill="#921E72"/>
-        </svg>
-        <svg
-          class="faqrs-icon-minus"
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-        >
-          <path d="M15 10L5 10" stroke="#921E72" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+          <path d="M1 1.5L6 6.5L11 1.5" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
     </div>
@@ -55,10 +44,7 @@
   </div>
 </faq-item>
 
-
 <style>
-
-
 /* --------------------------------------------------------------------------
    3. FAQ STYLES
    -------------------------------------------------------------------------- */
@@ -67,22 +53,13 @@
     display: block;
     padding: 0;
     margin: 0 !important;
-    background-color: #fceced;
-    border-top: 1px solid #ecc9cd;
+    background-color: transparent;
+    border-bottom: 1px solid #f0f0f0; /* Light gray divider line */
 }
 
-.faq-blocks:first-of-type,
-.faqrs-container:first-of-type {
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-top: none;
-}
-
-.faq-blocks:last-of-type,
-.faqrs-container:last-of-type {
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    border-bottom: none;
+/* Optional: Add a top border to the very first item if needed */
+.faq-blocks:first-of-type {
+    border-top: 1px solid #f0f0f0;
 }
 
 /* --- 2. Typography & Headers --- */
@@ -105,11 +82,11 @@
 /* --- 3. Question / Trigger --- */
 .faqrs-question {
     width: 100%;
-    height: 65px;
+    min-height: 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0; /* Removed side padding for a flush layout */
     background: transparent;
     border: none;
     cursor: pointer;
@@ -119,59 +96,49 @@
 .faqrs-ques-wrap {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px; /* Spacing between the custom image icon and text */
 }
 
 .faqrs-ques {
     font-family: var(--font-body-family, inherit);
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 1.2;
-    color: #921e72;
+    color: #111111; /* Dark text */
     margin: 0;
     text-align: left;
+    text-transform: uppercase; /* Forces the text to uppercase like the image */
+    letter-spacing: 0.02em;
 }
 
 .faq-icon-img {
     flex-shrink: 0;
-    width: 24px;
+    width: 22px; /* Adjusted size to match the scale of the image */
     height: auto;
     object-fit: contain;
-    mix-blend-mode: multiply;
 }
 
 /* --- 4. Icons & Animation --- */
 .faqrs-icon-wrap {
     position: relative;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #EBE6E0; /* Light beige circle */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
 
-.faqrs-icon-minus,
-.faqrs-icon-plus {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+.faqrs-icon-chevron {
+    transition: transform 0.3s ease;
 }
 
-.faqrs-icon-wrap path { fill: #921e72; }
-.faqrs-icon-minus path { fill: none; stroke: #921e72; }
-
-/* Toggle Icon Visibility */
-faq-item:not(.faqrs-active) .faqrs-icon-minus,
-.faqrs-item:not(.faqrs-active) .faqrs-icon-minus {
-    display: none;
-}
-
-faq-item.faqrs-active .faqrs-icon-plus,
-.faqrs-item.faqrs-active .faqrs-icon-plus {
-    display: none;
+/* Toggle Icon Rotation - Flips the chevron when expanded */
+faq-item.faqrs-active .faqrs-icon-chevron,
+.faqrs-item.faqrs-active .faqrs-icon-chevron {
+    transform: rotate(180deg);
 }
 
 /* --- 5. Answer Body --- */
@@ -183,30 +150,17 @@ faq-item.faqrs-active .faqrs-icon-plus,
 
 faq-item.faqrs-active .faqrs-answer,
 .faqrs-item.faqrs-active .faqrs-answer {
-    max-height: 1000px; /* High enough value to clear content */
+    max-height: 1000px;
 }
 
 .faqrs-answer-inner {
-    padding: 0 20px 20px 20px;
-    color: #921e72;
-    font-size: 15px;
-    line-height: 1.5;
-    opacity: 0.85;
+    padding: 0 0 24px 0; /* Flush left, padding at the bottom */
+    color: #444444; /* Dark gray for readability */
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-/* Ensure child elements inside answer inherit style */
-.faqrs-answer-inner p { margin: 10px 0; }
-/* --------------------------------------------------------------------------
-   4. HEADER ICON COLORS
-   -------------------------------------------------------------------------- */
-header .header__icon svg,
-header .svg-wrapper svg,
-header .header__icon svg path,
-header .svg-wrapper svg path,
-header .header__icon svg *,
-header .svg-wrapper svg * {
-    stroke: var(--sl-brand-primary);
-    color: var(--sl-brand-primary);
+.faqrs-answer-inner p { 
+    margin: 10px 0; 
 }
-
-</style>
+  </style>
