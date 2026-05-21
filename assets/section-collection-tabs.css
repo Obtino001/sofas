@@ -16,13 +16,6 @@
   max-width: none;
 }
 
-/* ---------- Heading ---------- */
-
-.collection-tabs__heading-row {
-  padding: 0 1.5rem;
-  margin: 0 auto;
-  max-width: var(--page-width, 1400px);
-}
 
 .collection-tabs__heading-row--center {
   text-align: center;
