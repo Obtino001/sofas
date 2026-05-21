@@ -112,12 +112,40 @@
           "type": "collection",
           "settings": {
             "tab_title": "",
+            "tab_icon": "shopify://shop_images/Vector_72.svg",
+            "collection": "2-seater"
+          }
+        },
+        "collection_WjLqmy": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_icon": "shopify://shop_images/Vector_72.svg",
+            "collection": "2-seater"
+          }
+        },
+        "collection_mtDqWx": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_icon": "shopify://shop_images/Vector_72.svg",
+            "collection": "2-seater"
+          }
+        },
+        "collection_T97FFP": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_icon": "shopify://shop_images/Vector_72.svg",
             "collection": "2-seater"
           }
         }
       },
       "block_order": [
-        "collection_Y4nHjT"
+        "collection_Y4nHjT",
+        "collection_WjLqmy",
+        "collection_mtDqWx",
+        "collection_T97FFP"
       ],
       "name": "Collection Tabs",
       "settings": {
@@ -213,8 +241,7 @@
       "name": "Bento Categories",
       "settings": {
         "title": "Shop by <em>category</em>",
-        "heading_size": "h1",
-        "color_scheme": "",
+        "page_width": 1400,
         "padding_top": 36,
         "padding_bottom": 36
       }
