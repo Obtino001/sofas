@@ -569,7 +569,7 @@
         "direction_row_2": "right",
         "image_height_desktop": 280,
         "gap_desktop": 24,
-        "image_height_mobile": 180,
+        "image_height_mobile": 400,
         "gap_mobile": 12,
         "padding_top": 36,
         "padding_bottom": 0
