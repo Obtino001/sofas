@@ -1314,24 +1314,69 @@
       "name": "Pills",
       "limit": 1,
       "settings": [
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text & Icon Color",
-          "default": "#F5F2ED"
-        },
-        {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "Custom SVG Icon",
-          "info": "Paste SVG code here to override the default checkmark. Leave blank to use the default."
-        },
-        { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "60 days return guarantee" },
-        { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "Delivered within 2-3 days" },
-        { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Free shipping over NOK 800" },
-        { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Pay in Installments" },
-        { "type": "text", "id": "benefit_5", "label": "Benefit 5" },
-        { "type": "text", "id": "benefit_6", "label": "Benefit 6" }
+      {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Why you will love it:"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#111111"
+    },
+    {
+      "type": "html",
+      "id": "custom_svg",
+      "label": "Custom SVG Icon (Optional)",
+      "info": "Leave blank to use the default checkmark."
+    },
+    {
+      "type": "header",
+      "content": "List Items"
+    },
+    {
+      "type": "text",
+      "id": "benefit_1",
+      "label": "Item 1",
+      "default": "Premium solid foam cushions, no chopped filling, no sagging"
+    },
+    {
+      "type": "text",
+      "id": "benefit_2",
+      "label": "Item 2",
+      "default": "Fullback/Scatter design with a classic, structured look"
+    },
+    {
+      "type": "text",
+      "id": "benefit_3",
+      "label": "Item 3",
+      "default": "Soft touch will be easy to clean"
+    },
+    {
+      "type": "text",
+      "id": "benefit_4",
+      "label": "Item 4",
+      "default": "Solid wood frame with chrome feet for strength and style"
+    },
+    {
+      "type": "text",
+      "id": "benefit_5",
+      "label": "Item 5",
+      "default": "Medium firm seat height for comfort and posture"
+    },
+    {
+      "type": "text",
+      "id": "benefit_6",
+      "label": "Item 6"
+    }
       ]
     },
     {
@@ -1436,100 +1481,45 @@
       "name": "Trust card",
       "settings": [
        {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "transparent"
+      "type": "header", "content": "Review 1"
     },
+    { "type": "range", "id": "rating_1", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
+    { "type": "checkbox", "id": "verified_1", "label": "Verified", "default": true },
+    { "type": "text", "id": "title_1", "label": "Title", "default": "The quality is unreal for this price point." },
+    { "type": "textarea", "id": "text_1", "label": "Description", "default": "Looks just like it does on the website, which is always a relief!" },
+    { "type": "text", "id": "author_1", "label": "Author", "default": "Caleb T." },
     {
-      "type": "header",
-      "content": "Review 1"
+      "type": "header", "content": "Review 2"
     },
+    { "type": "range", "id": "rating_2", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
+    { "type": "checkbox", "id": "verified_2", "label": "Verified", "default": true },
+    { "type": "text", "id": "title_2", "label": "Title" },
+    { "type": "textarea", "id": "text_2", "label": "Description" },
+    { "type": "text", "id": "author_2", "label": "Author" },
     {
-      "type": "range",
-      "id": "rating_1",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "label": "Star Rating",
-      "default": 5
+      "type": "header", "content": "Review 3"
     },
+    { "type": "range", "id": "rating_3", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
+    { "type": "checkbox", "id": "verified_3", "label": "Verified", "default": true },
+    { "type": "text", "id": "title_3", "label": "Title" },
+    { "type": "textarea", "id": "text_3", "label": "Description" },
+    { "type": "text", "id": "author_3", "label": "Author" },
     {
-      "type": "checkbox",
-      "id": "verified_1",
-      "label": "Show Verified Badge",
-      "default": true
+      "type": "header", "content": "Review 4"
     },
+    { "type": "range", "id": "rating_4", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
+    { "type": "checkbox", "id": "verified_4", "label": "Verified", "default": true },
+    { "type": "text", "id": "title_4", "label": "Title" },
+    { "type": "textarea", "id": "text_4", "label": "Description" },
+    { "type": "text", "id": "author_4", "label": "Author" },
     {
-      "type": "richtext",
-      "id": "review_text_1",
-      "label": "Review Text",
-      "default": "<p>The quality is unreal for this price point.</p>"
+      "type": "header", "content": "Review 5"
     },
-    {
-      "type": "text",
-      "id": "author_1",
-      "label": "Author Name",
-      "default": "Caleb T."
-    },
-    {
-      "type": "header",
-      "content": "Review 2"
-    },
-    {
-      "type": "range",
-      "id": "rating_2",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "label": "Star Rating",
-      "default": 5
-    },
-    {
-      "type": "checkbox",
-      "id": "verified_2",
-      "label": "Show Verified Badge",
-      "default": true
-    },
-    {
-      "type": "richtext",
-      "id": "review_text_2",
-      "label": "Review Text"
-    },
-    {
-      "type": "text",
-      "id": "author_2",
-      "label": "Author Name"
-    },
-    {
-      "type": "header",
-      "content": "Review 3"
-    },
-    {
-      "type": "range",
-      "id": "rating_3",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "label": "Star Rating",
-      "default": 5
-    },
-    {
-      "type": "checkbox",
-      "id": "verified_3",
-      "label": "Show Verified Badge",
-      "default": true
-    },
-    {
-      "type": "richtext",
-      "id": "review_text_3",
-      "label": "Review Text"
-    },
-    {
-      "type": "text",
-      "id": "author_3",
-      "label": "Author Name"
-    }
+    { "type": "range", "id": "rating_5", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
+    { "type": "checkbox", "id": "verified_5", "label": "Verified", "default": true },
+    { "type": "text", "id": "title_5", "label": "Title" },
+    { "type": "textarea", "id": "text_5", "label": "Description" },
+    { "type": "text", "id": "author_5", "label": "Author" }
       ]
     },
     {
