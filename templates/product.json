@@ -33,6 +33,19 @@
           "type": "price",
           "settings": {}
         },
+        "pills_xFGRwJ": {
+          "type": "pills",
+          "settings": {
+            "text_color": "#c8a97e",
+            "custom_svg": "",
+            "benefit_1": "Waterproof",
+            "benefit_2": "2 Year Warranty",
+            "benefit_3": "Swiss Movement",
+            "benefit_4": "Premium Leather",
+            "benefit_5": "",
+            "benefit_6": ""
+          }
+        },
         "text_YJpJae": {
           "type": "text",
           "settings": {
@@ -107,19 +120,6 @@
             "margin_bottom": 16
           }
         },
-        "pills_xFGRwJ": {
-          "type": "pills",
-          "settings": {
-            "text_color": "#c8a97e",
-            "custom_svg": "",
-            "benefit_1": "Waterproof",
-            "benefit_2": "2 Year Warranty",
-            "benefit_3": "Swiss Movement",
-            "benefit_4": "Premium Leather",
-            "benefit_5": "",
-            "benefit_6": ""
-          }
-        },
         "text_e49ryr": {
           "type": "text",
           "settings": {
@@ -181,18 +181,14 @@
         "trust_card_D4xBC6": {
           "type": "trust-card",
           "settings": {
-            "bg_color": "rgba(0,0,0,0)",
             "rating_1": 5,
             "verified_1": true,
-            "review_text_1": "<p>The quality is unreal for this price point.</p>",
             "author_1": "Caleb T.",
             "rating_2": 5,
             "verified_2": true,
-            "review_text_2": "<p>The quality is unreal for this price point.</p>",
             "author_2": "Caleb T.",
             "rating_3": 5,
             "verified_3": true,
-            "review_text_3": "<p>The quality is unreal for this price point.</p>",
             "author_3": "Caleb T."
           }
         }
@@ -201,12 +197,12 @@
         "product_reviews_XX9YT4",
         "title",
         "price",
+        "pills_xFGRwJ",
         "text_YJpJae",
         "multi_icon_xn8fhg",
         "variant_picker",
         "buy_buttons",
         "delivery_payment_mB6BTN",
-        "pills_xFGRwJ",
         "text_e49ryr",
         "faq_blocks_NkWNgc",
         "faq_blocks_CkKVjD",

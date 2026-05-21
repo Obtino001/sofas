@@ -123,10 +123,6 @@
     display: block;
     margin-top: 0;
   }
-  .footer-block__brand-info .footer__list-social.list-social {
-    gap: 15px;
-    flex-direction: column-reverse;
-}
 }
 
 .footer-block:empty {
@@ -410,13 +406,6 @@
   height: auto;
   max-width: 100%;
 }
-.footer-block__brand-info {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .footer-block:only-child .footer-block__brand-info {
   text-align: center;
 }
@@ -429,14 +418,6 @@
 .footer-block-image > img,
 .footer-block__brand-info > img {
   height: auto;
-}
-
-.footer-block:only-child .footer-block__brand-info .footer__list-social.list-social {
-  justify-content: center;
-}
-
-.footer-block__brand-info .footer__list-social.list-social {
-    gap: 15px;
 }
 
 .footer-block__details-content .placeholder-svg {
