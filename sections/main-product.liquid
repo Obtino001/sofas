@@ -97,34 +97,47 @@
                 >
                   {{- block.settings.text -}}
                 </p>
-           {%- when 'title' -%}
-  <div class="product__title-wrapper" {{ block.shopify_attributes }}>
-    {%- if product.compare_at_price > product.price -%}
-      {%- assign save_amount = product.compare_at_price | minus: product.price -%}
-      {%- assign discount_percentage = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
-      <div class="product__hero-badge">
-        {{ discount_percentage }}% OFF | Save {{ save_amount | money_without_trailing_zeros }}
-      </div>
-    {%- endif -%}
-    <h1 class="product__title">
-      {{ product.title | escape }}
-    </h1>
+          {%- when 'title_and_price' -%}
+  <div class="product__title-price-container" {{ block.shopify_attributes }}>
     
-    {%- if product.metafields.custom.badge != blank -%}
-      <div class="product__custom-badge">
-        {{ product.metafields.custom.badge }}
+    <div class="product__title-column">
+      {%- if block.settings.show_discount_badge and product.compare_at_price > product.price -%}
+        {%- assign save_amount = product.compare_at_price | minus: product.price -%}
+        {%- assign discount_percentage = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+        <div class="product__hero-badge">
+          {{ discount_percentage }}% OFF | Save {{ save_amount | money_without_trailing_zeros }}
+        </div>
+      {%- endif -%}
+      
+      <h1 class="product__title">
+        {{ product.title | escape }}
+      </h1>
+      
+      {%- if block.settings.review_icon != blank or block.settings.review_text != blank -%}
+        <div class="product__review-container">
+          {%- if block.settings.review_icon != blank -%}
+            {{ block.settings.review_icon | image_url: width: 150 | image_tag: class: 'product__review-icon', loading: 'lazy' }}
+          {%- endif -%}
+          {%- if block.settings.review_text != blank -%}
+            <span class="product__review-text">{{ block.settings.review_text }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      
+    </div>
+
+    <div class="product__price-column">
+      <div id="price-{{ section.id }}" role="status">
+        {%- render 'custom-price',
+          product: product,
+          use_variant: true,
+          show_badges: true,
+          price_class: 'price--large'
+        -%}
       </div>
-    {%- endif -%}
+    </div>
+    
   </div>
-              {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'custom-price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
-                </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
