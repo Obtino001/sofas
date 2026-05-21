@@ -558,24 +558,6 @@
             "image": "shopify://shop_images/image_1.png",
             "row": "2"
           }
-        },
-        "image_Qzh3EA": {
-          "type": "image",
-          "settings": {
-            "row": "2"
-          }
-        },
-        "image_i7BDKY": {
-          "type": "image",
-          "settings": {
-            "row": "2"
-          }
-        },
-        "image_GLNnYe": {
-          "type": "image",
-          "settings": {
-            "row": "2"
-          }
         }
       },
       "block_order": [
@@ -585,10 +567,7 @@
         "image_jrPKmX",
         "image_iWmE8f",
         "image_EQwkf6",
-        "image_efiAg4",
-        "image_Qzh3EA",
-        "image_i7BDKY",
-        "image_GLNnYe"
+        "image_efiAg4"
       ],
       "name": "Marquee Gallery",
       "settings": {
@@ -606,6 +585,87 @@
         "image_height_mobile": 180,
         "gap_mobile": 12,
         "padding_top": 36,
+        "padding_bottom": 16
+      }
+    },
+    "instagram_gallery_itHmBn": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_gFNyx6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_aPGpHw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_WQPner": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_dMyKqr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "1"
+          }
+        },
+        "image_NNUBMb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        },
+        "image_AxgbFg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        },
+        "image_DDMyrH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_gFNyx6",
+        "image_aPGpHw",
+        "image_WQPner",
+        "image_dMyKqr",
+        "image_NNUBMb",
+        "image_AxgbFg",
+        "image_DDMyrH"
+      ],
+      "name": "Marquee Gallery",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "right",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 16,
         "padding_bottom": 36
       }
     }
@@ -620,6 +680,7 @@
     "custom_hero_banner_EpqzyB",
     "instagram_gallery_zreTaW",
     "faq_tabs_rxczBA",
-    "instagram_gallery_biMKMB"
+    "instagram_gallery_biMKMB",
+    "instagram_gallery_itHmBn"
   ]
 }
