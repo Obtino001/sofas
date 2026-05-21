@@ -2802,7 +2802,7 @@ details[open]>.header__submenu {
 
   /* Center menu items option */
   .header--menu-center .header__inline-menu {
-    justify-self: center;
+    justify-self: start;
     margin-left: 0;
   }
 
