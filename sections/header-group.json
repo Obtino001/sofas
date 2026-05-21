@@ -11,31 +11,6 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement_bar_ajwc4t": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement_H8c4xM": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_H8c4xM"
-      ],
-      "name": "t:sections.announcement-bar.presets.name",
-      "settings": {
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "color_scheme": "scheme-2b94d528-39a1-47d5-b412-16caf9d9759b",
-        "show_line_separator": true,
-        "show_social": false,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      }
-    },
     "header": {
       "type": "header",
       "blocks": {
@@ -148,7 +123,7 @@
             "link_color_1": "#ffffff",
             "link_2_text": "",
             "link_2_url": "",
-            "link_color_2": "#2B2B2B"
+            "link_color_2": "#2b2b2b"
           }
         }
       },
@@ -186,7 +161,6 @@
     }
   },
   "order": [
-    "announcement_bar_ajwc4t",
     "header"
   ]
 }
