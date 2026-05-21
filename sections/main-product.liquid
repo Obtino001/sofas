@@ -1435,43 +1435,101 @@
       "type": "trust-card",
       "name": "Trust card",
       "settings": [
-        {
-          "type": "header",
-          "content": "Content"
-        },
-        {
-          "type": "textarea",
-          "id": "review_text",
-          "label": "Endorsement Quote",
-          "default": "VIVORUM Cellular Renewal is one of the most thoughtfully formulated nightly supplements I've reviewed."
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "Author Name & Title",
-          "default": "Dr. A. Reynolds, MD"
-        },
-        {
-          "type": "image_picker",
-          "id": "avatar",
-          "label": "Doctor Avatar"
-        },
-        {
-          "type": "text",
-          "id": "badge_text",
-          "label": "Badge Text",
-          "default": "Recommended by doctors"
-        },
-        {
-          "type": "header",
-          "content": "Colors"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text Color",
-          "default": "#000000"
-        }
+       {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Review 1"
+    },
+    {
+      "type": "range",
+      "id": "rating_1",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Star Rating",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "verified_1",
+      "label": "Show Verified Badge",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "review_text_1",
+      "label": "Review Text",
+      "default": "<p>The quality is unreal for this price point.</p>"
+    },
+    {
+      "type": "text",
+      "id": "author_1",
+      "label": "Author Name",
+      "default": "Caleb T."
+    },
+    {
+      "type": "header",
+      "content": "Review 2"
+    },
+    {
+      "type": "range",
+      "id": "rating_2",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Star Rating",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "verified_2",
+      "label": "Show Verified Badge",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "review_text_2",
+      "label": "Review Text"
+    },
+    {
+      "type": "text",
+      "id": "author_2",
+      "label": "Author Name"
+    },
+    {
+      "type": "header",
+      "content": "Review 3"
+    },
+    {
+      "type": "range",
+      "id": "rating_3",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Star Rating",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "verified_3",
+      "label": "Show Verified Badge",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "review_text_3",
+      "label": "Review Text"
+    },
+    {
+      "type": "text",
+      "id": "author_3",
+      "label": "Author Name"
+    }
       ]
     },
     {
