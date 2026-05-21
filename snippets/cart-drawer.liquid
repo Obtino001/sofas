@@ -505,21 +505,26 @@
                     let day1 = date1.getDate();
                     let day2 = date2.getDate();
                     
-                    if (month1 === month2) {
-                      el.innerText = `${day1}-${day2} ${month1}`;
-                    } else {
-                      el.innerText = `${day1} ${month1} - ${day2} ${month2}`;
+                    let newText = (month1 === month2) ? `${day1}-${day2} ${month1}` : `${day1} ${month1} - ${day2} ${month2}`;
+                    if (el.innerText !== newText) {
+                      el.innerText = newText;
                     }
                   }
                 }
                 updateDeliveryDates();
                 
-                // Set up MutationObserver to re-evaluate on drawer content updates
                 const cartContainer = document.getElementById('CartDrawer');
                 if (cartContainer && !window.cartDeliveryObserverAttached) {
                   window.cartDeliveryObserverAttached = true;
-                  const observer = new MutationObserver(function() {
-                    updateDeliveryDates();
+                  const observer = new MutationObserver(function(mutations) {
+                    let shouldUpdate = false;
+                    for (let m of mutations) {
+                      if (m.target.id !== 'cart-drawer-delivery-date') {
+                        shouldUpdate = true;
+                        break;
+                      }
+                    }
+                    if (shouldUpdate) updateDeliveryDates();
                   });
                   observer.observe(cartContainer, { childList: true, subtree: true });
                 }
@@ -527,6 +532,7 @@
             </script>
           {%- endif -%}
         </div>
-      </div>\n    </div>
+      </div>
+    </div>
   </div>
 </cart-drawer>
