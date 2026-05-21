@@ -201,102 +201,21 @@
     },
     "instagram_gallery_kKrKtz": {
       "type": "instagram-gallery",
-      "blocks": {
-        "instagram_image_w4bheb": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_g7p7zG": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_aQxzLy": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_BxbfyW": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_rQ7TxA": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_7ekzLg": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_HmjtJL": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_MBjr6T": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_PeM8At": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_TExDNH": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_rcrwiV": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_image_dGTpRf": {
-          "type": "instagram_image",
-          "settings": {
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "instagram_image_w4bheb",
-        "instagram_image_g7p7zG",
-        "instagram_image_aQxzLy",
-        "instagram_image_BxbfyW",
-        "instagram_image_rQ7TxA",
-        "instagram_image_7ekzLg",
-        "instagram_image_HmjtJL",
-        "instagram_image_MBjr6T",
-        "instagram_image_PeM8At",
-        "instagram_image_TExDNH",
-        "instagram_image_rcrwiV",
-        "instagram_image_dGTpRf"
-      ],
       "name": "Instagram Gallery",
       "settings": {
         "color_scheme": "scheme-4",
-        "heading": "Our Instagram",
-        "subheading": "",
-        "subheading_link": "",
-        "columns_desktop": 6,
-        "columns_mobile": 2,
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "left",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
         "padding_top": 40,
         "padding_bottom": 52
       }
@@ -400,6 +319,73 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instagram_gallery_zreTaW": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_YQWYtD": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_NhbMPH": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_PLjpeF": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_fck6ix": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        },
+        "image_dzMAyg": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        },
+        "image_wkNjax": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_YQWYtD",
+        "image_NhbMPH",
+        "image_PLjpeF",
+        "image_fck6ix",
+        "image_dzMAyg",
+        "image_wkNjax"
+      ],
+      "name": "Marquee Gallery",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "left",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -409,6 +395,7 @@
     "bento_categories_aFbwVW",
     "instagram_gallery_kKrKtz",
     "icon_category_list_nG3Ni8",
-    "custom_hero_banner_EpqzyB"
+    "custom_hero_banner_EpqzyB",
+    "instagram_gallery_zreTaW"
   ]
 }
