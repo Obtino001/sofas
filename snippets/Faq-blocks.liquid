@@ -54,3 +54,159 @@
     </div>
   </div>
 </faq-item>
+
+
+<style>
+
+
+/* --------------------------------------------------------------------------
+   3. FAQ STYLES
+   -------------------------------------------------------------------------- */
+/* --- 1. Base Container & Structure --- */
+.faq-blocks {
+    display: block;
+    padding: 0;
+    margin: 0 !important;
+    background-color: #fceced;
+    border-top: 1px solid #ecc9cd;
+}
+
+.faq-blocks:first-of-type,
+.faqrs-container:first-of-type {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-top: none;
+}
+
+.faq-blocks:last-of-type,
+.faqrs-container:last-of-type {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom: none;
+}
+
+/* --- 2. Typography & Headers --- */
+.faqrs-title {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 4rem;
+}
+
+.faqrs-cat-title {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    line-height: 26px;
+}
+
+/* --- 3. Question / Trigger --- */
+.faqrs-question {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faqrs-ques-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.faqrs-ques {
+    font-family: var(--font-body-family, inherit);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #921e72;
+    margin: 0;
+    text-align: left;
+}
+
+.faq-icon-img {
+    flex-shrink: 0;
+    width: 24px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+/* --- 4. Icons & Animation --- */
+.faqrs-icon-wrap {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.faqrs-icon-minus,
+.faqrs-icon-plus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.faqrs-icon-wrap path { fill: #921e72; }
+.faqrs-icon-minus path { fill: none; stroke: #921e72; }
+
+/* Toggle Icon Visibility */
+faq-item:not(.faqrs-active) .faqrs-icon-minus,
+.faqrs-item:not(.faqrs-active) .faqrs-icon-minus {
+    display: none;
+}
+
+faq-item.faqrs-active .faqrs-icon-plus,
+.faqrs-item.faqrs-active .faqrs-icon-plus {
+    display: none;
+}
+
+/* --- 5. Answer Body --- */
+.faqrs-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+faq-item.faqrs-active .faqrs-answer,
+.faqrs-item.faqrs-active .faqrs-answer {
+    max-height: 1000px; /* High enough value to clear content */
+}
+
+.faqrs-answer-inner {
+    padding: 0 20px 20px 20px;
+    color: #921e72;
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+/* Ensure child elements inside answer inherit style */
+.faqrs-answer-inner p { margin: 10px 0; }
+/* --------------------------------------------------------------------------
+   4. HEADER ICON COLORS
+   -------------------------------------------------------------------------- */
+header .header__icon svg,
+header .svg-wrapper svg,
+header .header__icon svg path,
+header .svg-wrapper svg path,
+header .header__icon svg *,
+header .svg-wrapper svg * {
+    stroke: var(--sl-brand-primary);
+    color: var(--sl-brand-primary);
+}
+
+</style>
