@@ -256,107 +256,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "sereluna_guarantee_section_AK3U7q": {
-      "type": "sereluna-guarantee-section",
-      "blocks": {
-        "shape_UmiJpj": {
-          "type": "shape",
-          "settings": {
-            "width_desktop": 200,
-            "width_mobile": 150,
-            "vertical_alignment": "bottom",
-            "pos_y_desktop": -52,
-            "horizontal_alignment": "right",
-            "pos_x_desktop": 0,
-            "pos_y_mobile": -70,
-            "pos_x_mobile": 0,
-            "z_index": 2
-          }
-        },
-        "shape_4GGrP7": {
-          "type": "shape",
-          "settings": {
-            "width_desktop": 155,
-            "width_mobile": 150,
-            "vertical_alignment": "top",
-            "pos_y_desktop": -72,
-            "horizontal_alignment": "right",
-            "pos_x_desktop": 0,
-            "pos_y_mobile": -52,
-            "pos_x_mobile": 0,
-            "z_index": 1
-          }
-        },
-        "shape_RawXnN": {
-          "type": "shape",
-          "settings": {
-            "width_desktop": 235,
-            "width_mobile": 150,
-            "vertical_alignment": "top",
-            "pos_y_desktop": 30,
-            "horizontal_alignment": "left",
-            "pos_x_desktop": 0,
-            "pos_y_mobile": 46,
-            "pos_x_mobile": 0,
-            "z_index": 2
-          }
-        },
-        "shape_8KtVnd": {
-          "type": "shape",
-          "settings": {
-            "width_desktop": 270,
-            "width_mobile": 200,
-            "vertical_alignment": "top",
-            "pos_y_desktop": -18,
-            "horizontal_alignment": "left",
-            "pos_x_desktop": 0,
-            "pos_y_mobile": -24,
-            "pos_x_mobile": 0,
-            "z_index": 1
-          }
-        },
-        "heading_3zUj3k": {
-          "type": "heading",
-          "settings": {
-            "title": "Try Sereluna risk-free"
-          }
-        },
-        "description_iMjCqF": {
-          "type": "description",
-          "settings": {
-            "text": "<p>Your comfort matters.<br/>If Sereluna isn’t the right fit for you, our 60-day guarantee means you’re not taking any risk.</p>"
-          }
-        },
-        "description_HaCbwR": {
-          "type": "description",
-          "settings": {
-            "text": "<p>We’re here to help — whether that’s a size change, advice, or a refund.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "shape_UmiJpj",
-        "shape_4GGrP7",
-        "shape_RawXnN",
-        "shape_8KtVnd",
-        "heading_3zUj3k",
-        "description_iMjCqF",
-        "description_HaCbwR"
-      ],
-      "name": "Risk Free Banner",
-      "settings": {
-        "color_scheme": "scheme-3",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "sereluna_guarantee_section_AK3U7q"
+    "related-products"
   ]
 }
