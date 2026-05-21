@@ -16,6 +16,7 @@
           "type": "title_and_price",
           "settings": {
             "show_discount_badge": true,
+            "review_icon": "shopify://shop_images/material-symbols_star-rounded_1.svg",
             "review_text": "4.9 (22 Reviews)"
           }
         },
