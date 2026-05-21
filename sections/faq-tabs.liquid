@@ -1,0 +1,478 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .faq-tabs__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-tabs__title {
+    margin: 0 0 1rem 0;
+  }
+
+  .faq-tabs__description {
+    margin: 0;
+    font-size: 1.5rem;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  /* --- Tabs / Categories --- */
+  .faq-tabs__list {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1.5rem; /* Space for scrollbar on mobile */
+    margin-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide standard scrollbar */
+  }
+
+  .faq-tabs__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .faq-tabs__tab {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 2rem 1rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(var(--color-foreground), 0.15);
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    color: rgb(var(--color-foreground));
+    min-width: 24rem;
+  }
+
+  .faq-tabs__tab[aria-selected="true"] {
+    background: rgba(var(--color-foreground), 0.04);
+    border-color: rgba(var(--color-foreground), 0.3);
+  }
+
+  .faq-tabs__tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    background: rgba(var(--color-foreground), 0.06);
+    border-radius: 0.6rem;
+  }
+
+  .faq-tabs__tab-icon img,
+  .faq-tabs__tab-icon svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    object-fit: contain;
+    fill: currentColor;
+  }
+
+  .faq-tabs__tab-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .faq-tabs__tab-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .faq-tabs__tab-count {
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 0.7);
+    margin: 0;
+  }
+
+  /* --- Accordions --- */
+  .faq-tabs__content {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-accordion {
+    background: rgb(var(--color-background));
+    border: 1px solid rgba(var(--color-foreground), 0.15);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    /* Hidden by default, JS reveals matching categories */
+    display: none; 
+  }
+
+  .faq-accordion.is-active {
+    display: block;
+  }
+
+  .faq-accordion__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    list-style: none;
+    color: rgb(var(--color-foreground));
+  }
+
+  .faq-accordion__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-accordion__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: rgba(var(--color-foreground), 0.08);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-accordion__icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  details[open] .faq-accordion__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-accordion__body {
+    padding: 0 2rem 2rem 2rem;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground), 0.85);
+  }
+
+  .faq-accordion__body p:first-child {
+    margin-top: 0;
+  }
+  .faq-accordion__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .faq-tabs__list {
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: visible;
+    }
+    
+    .faq-tabs__tab {
+      min-width: auto;
+      padding-right: 3rem;
+    }
+  }
+{%- endstyle -%}
+
+<faq-tabs-component class="display-block color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    
+    <div class="faq-tabs__header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="faq-tabs__title {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="faq-tabs__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="faq-tabs__list" role="tablist">
+      {%- assign first_tab = true -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' -%}
+          {%- assign category_handle = block.settings.title | handleize -%}
+          
+          {%- comment -%} Dynamically count matching FAQs {%- endcomment -%}
+          {%- assign faq_count = 0 -%}
+          {%- for faq_block in section.blocks -%}
+            {%- if faq_block.type == 'faq' -%}
+              {%- assign target_handle = faq_block.settings.category_match | handleize -%}
+              {%- if target_handle == category_handle -%}
+                {%- assign faq_count = faq_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          <button class="faq-tabs__tab" 
+                  role="tab" 
+                  aria-selected="{% if first_tab %}true{% else %}false{% endif %}" 
+                  aria-controls="panel-{{ category_handle }}" 
+                  data-target="{{ category_handle }}"
+                  {{ block.shopify_attributes }}>
+            
+            <div class="faq-tabs__tab-icon">
+              {%- if block.settings.custom_svg != blank -%}
+                {{ block.settings.custom_svg }}
+              {%- elsif block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            
+            <div class="faq-tabs__tab-text-wrap">
+              <span class="faq-tabs__tab-title">{{ block.settings.title | escape }}</span>
+              <span class="faq-tabs__tab-count">{{ faq_count }} {{ section.settings.answers_label | escape }}</span>
+            </div>
+          </button>
+          {%- assign first_tab = false -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="faq-tabs__content color-{{ section.settings.accordion_color_scheme }}">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'faq' -%}
+          {%- assign target_handle = block.settings.category_match | handleize -%}
+          
+          <details class="faq-accordion" data-category="{{ target_handle }}" {{ block.shopify_attributes }}>
+            <summary class="faq-accordion__summary">
+              {{ block.settings.question | escape }}
+              <span class="faq-accordion__icon">
+                <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-accordion__body">
+              {{ block.settings.answer }}
+            </div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</faq-tabs-component>
+
+<script>
+  if (!customElements.get('faq-tabs-component')) {
+    class FaqTabs extends HTMLElement {
+      constructor() {
+        super();
+        this.tabs = this.querySelectorAll('[role="tab"]');
+        this.accordions = this.querySelectorAll('.faq-accordion');
+        
+        this.tabs.forEach(tab => {
+          tab.addEventListener('click', (e) => this.switchTab(e.currentTarget));
+        });
+
+        // Initialize first tab visually
+        if(this.tabs.length > 0) {
+          this.switchTab(this.tabs[0]);
+        }
+      }
+
+      switchTab(selectedTab) {
+        // Deselect all tabs
+        this.tabs.forEach(tab => tab.setAttribute('aria-selected', 'false'));
+        // Select clicked tab
+        selectedTab.setAttribute('aria-selected', 'true');
+
+        const targetCategory = selectedTab.dataset.target;
+
+        // Show/Hide accordions based on target
+        this.accordions.forEach(accordion => {
+          if (accordion.dataset.category === targetCategory) {
+            accordion.classList.add('is-active');
+          } else {
+            accordion.classList.remove('is-active');
+            // Optional: close accordion when hidden
+            accordion.removeAttribute('open'); 
+          }
+        });
+      }
+    }
+    customElements.define('faq-tabs-component', FaqTabs);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Tabs",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Expert <em>answers</em> to common <em>questions</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "default": "Browse questions by categories",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "answers_label",
+      "default": "answers",
+      "label": "Counter text label",
+      "info": "Displays after the number (e.g. '7 answers')"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "accordion_color_scheme",
+      "label": "Accordion Color Scheme",
+      "default": "scheme-2",
+      "info": "Useful if you want the accordions to have a slightly off-white/beige background against a white section."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Sofa related questions",
+          "label": "Category Name",
+          "info": "This name must exactly match the 'Link to Category' setting in your FAQ blocks."
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Code",
+          "info": "Paste raw SVG code for crisp icons."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Fallback Image"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_match",
+          "default": "Sofa related questions",
+          "label": "Link to Category",
+          "info": "Type the name of the Category Tab this belongs to."
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "default": "How long does delivery take?",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Tabs",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Sofa related questions"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How long does delivery take?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Are your sofas made in the UK?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What sizes are available?"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
