@@ -20,7 +20,7 @@
             "star_width": 70,
             "review_text": "4.7 (92 Reviews)",
             "link_url": "",
-            "text_color": "#2B2B2B",
+            "text_color": "#2b2b2b",
             "margin_top": 0,
             "margin_bottom": 10
           }
@@ -201,7 +201,7 @@
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "cover",
-        "gallery_layout": "columns",
+        "gallery_layout": "stacked",
         "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "full_popup",
