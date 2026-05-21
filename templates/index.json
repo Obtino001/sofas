@@ -43,8 +43,8 @@
       "settings": {
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "media_type": "image",
-        "image": "shopify://shop_images/Dino_2S_1.1_e76dacbc-bb1d-4bae-896d-dc3202b923b3.png",
-        "overlay_opacity": 15,
+        "image": "shopify://shop_images/image_1.png",
+        "overlay_opacity": 0,
         "heading_size_desktop": 48,
         "subheading_size_desktop": 16,
         "content_width": 650,
