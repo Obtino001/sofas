@@ -99,6 +99,13 @@
                 </p>
            {%- when 'title' -%}
   <div class="product__title-wrapper" {{ block.shopify_attributes }}>
+    {%- if product.compare_at_price > product.price -%}
+      {%- assign save_amount = product.compare_at_price | minus: product.price -%}
+      {%- assign discount_percentage = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+      <div class="product__hero-badge">
+        {{ discount_percentage }}% OFF | Save {{ save_amount | money_without_trailing_zeros }}
+      </div>
+    {%- endif -%}
     <h1 class="product__title">
       {{ product.title | escape }}
     </h1>

@@ -1803,3 +1803,101 @@ a.product__text {
   border: 15px;
   flex-shrink: 0;
 }
+
+/* ==========================================
+   MAIN PRODUCT 1-1 DESIGN REDESIGN OVERRIDES 
+   ========================================== */
+@media screen and (min-width: 750px) {
+  .product__info-wrapper .product__info-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-auto-rows: auto;
+    align-items: start;
+    row-gap: 8px;
+    column-gap: 30px;
+  }
+
+  .product__info-wrapper .product__info-container > * {
+    grid-column: 1 / -1;
+  }
+
+  .product__info-wrapper .product__title-wrapper { 
+    grid-column: 1; 
+    grid-row: 1; 
+    margin-bottom: 0;
+  }
+  .product__info-wrapper .rating-wrapper { 
+    grid-column: 1; 
+    grid-row: 2; 
+    align-self: start;
+    margin-top: 0;
+  }
+
+  .product__info-wrapper [id^="price-"] { 
+    grid-column: 2; 
+    grid-row: 1; 
+    justify-self: end; 
+    text-align: right; 
+    margin-bottom: 0;
+  }
+  .product__info-wrapper .installment { 
+    grid-column: 2; 
+    grid-row: 2; 
+    justify-self: end; 
+    text-align: right; 
+    margin: 0;
+  }
+  .product__info-wrapper .product__inventory { 
+    grid-column: 2; 
+    grid-row: 3; 
+    justify-self: end; 
+    text-align: right; 
+    margin-top: 0; 
+  }
+
+  /* Right column alignment fixes */
+  .product__info-wrapper .price {
+    align-items: flex-end;
+  }
+  .product__info-wrapper .price__container {
+    justify-content: flex-end;
+  }
+  .product__info-wrapper .price-item {
+    text-align: right;
+  }
+}
+
+.product__hero-badge {
+  display: inline-block;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.product__info-wrapper .product__title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/* Force price styling without font-family */
+.product__info-wrapper .price--large .price-item--sale {
+  color: #b22222;
+  font-size: 32px;
+  font-weight: 700;
+}
+.product__info-wrapper .price--large .price-item--regular {
+  color: #888888;
+  font-size: 18px;
+  text-decoration: line-through;
+}
+.product__info-wrapper .installment {
+  color: #888888;
+  font-size: 13px;
+}
+.product__info-wrapper .installment strong {
+  color: #121212;
+}
