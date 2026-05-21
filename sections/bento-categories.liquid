@@ -2,10 +2,6 @@
   .custom-bento-{{ section.id }} {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    max-width: {{ section.settings.page_width }}px;
-    margin: 0 auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
     box-sizing: border-box;
   }
 
@@ -161,7 +157,7 @@
   }
 {%- endstyle -%}
 
-<div class="custom-bento-{{ section.id }}">
+<div class="custom-bento-{{ section.id }} page-width">
   
   {%- if section.settings.title != blank -%}
     <div class="custom-bento__header">
@@ -215,16 +211,6 @@
       "id": "title",
       "default": "Shop by <em>category</em>",
       "label": "Heading"
-    },
-    {
-      "type": "range",
-      "id": "page_width",
-      "min": 1000,
-      "max": 1600,
-      "step": 100,
-      "unit": "px",
-      "label": "Desktop Max Width",
-      "default": 1400
     },
     {
       "type": "header",
