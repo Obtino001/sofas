@@ -152,6 +152,53 @@
         "padding_bottom": 36
       }
     },
+    "bento_categories_aFbwVW": {
+      "type": "bento-categories",
+      "blocks": {
+        "category_z3qTNx": {
+          "type": "category",
+          "settings": {
+            "button_label": "Sofas",
+            "link": ""
+          }
+        },
+        "category_4jQ8NV": {
+          "type": "category",
+          "settings": {
+            "button_label": "Beds",
+            "link": ""
+          }
+        },
+        "category_8bF6k6": {
+          "type": "category",
+          "settings": {
+            "button_label": "Mattresses",
+            "link": ""
+          }
+        },
+        "category_gELeBc": {
+          "type": "category",
+          "settings": {
+            "button_label": "Storage Boxes",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_z3qTNx",
+        "category_4jQ8NV",
+        "category_8bF6k6",
+        "category_gELeBc"
+      ],
+      "name": "Bento Categories",
+      "settings": {
+        "title": "Shop by <em>category</em>",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "instagram_gallery_kKrKtz": {
       "type": "instagram-gallery",
       "blocks": {
@@ -359,6 +406,7 @@
     "custom_banner_XE8idV",
     "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
+    "bento_categories_aFbwVW",
     "instagram_gallery_kKrKtz",
     "icon_category_list_nG3Ni8",
     "custom_hero_banner_EpqzyB"
