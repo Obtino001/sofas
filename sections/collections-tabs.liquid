@@ -81,7 +81,7 @@
 {{ 'section-collection-tabs.css' | asset_url | stylesheet_tag }}
 
 <div class="section-{{ section.id }} color-{{ section.settings.color_scheme }} isolate gradient collection-tabs">
-  <div class="collection-tabs__container section-{{ section.id }}-padding{% if section.settings.full_width %} collection-tabs--full-width{% endif %}" id="CollectionTabs-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="collection-tabs__container page-width section-{{ section.id }}-padding{% if section.settings.full_width %} collection-tabs--full-width{% endif %}" id="CollectionTabs-{{ section.id }}" data-section-id="{{ section.id }}">
 
     <div class="collection-tabs__heading-row {% if section.settings.heading_alignment == 'left' %}collection-tabs__heading-row--left{% else %}collection-tabs__heading-row--center{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {%- if section.settings.title != blank -%}
