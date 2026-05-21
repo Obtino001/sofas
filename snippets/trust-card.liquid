@@ -1,49 +1,53 @@
 
-  <div class="review-carousel-wrapper block-{{ block.id }}" style="background-color: {{ block.settings.bg_color | default: 'transparent' }};" {{ block.shopify_attributes }}>
-    <div class="review-container">
+  <div class="pdp-review-block block-{{ block.id }}" {{ block.shopify_attributes }}>
+    <div class="pdp-review-container">
       
-      <div class="review-nav">
-        <button class="review-prev" aria-label="Previous">
-          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      {%- comment -%} Navigation Arrows - Top Right {%- endcomment -%}
+      <div class="pdp-review-nav">
+        <button class="pdp-review-prev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button class="review-next" aria-label="Next">
-          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+        <button class="pdp-review-next" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
       </div>
 
-      <div class="review-slider">
+      <div class="pdp-review-slider">
         {%- for i in (1..5) -%}
-          {%- assign text_key = 'review_text_' | append: i -%}
-          {%- assign author_key = 'author_' | append: i -%}
           {%- assign rating_key = 'rating_' | append: i -%}
           {%- assign verified_key = 'verified_' | append: i -%}
+          {%- assign title_key = 'title_' | append: i -%}
+          {%- assign text_key = 'text_' | append: i -%}
+          {%- assign author_key = 'author_' | append: i -%}
 
-          {%- if block.settings[text_key] != blank -%}
-            <div class="review-slide">
-              <div class="review-card">
-                <div class="review-header">
-                  <div class="review-stars">
+          {%- if block.settings[title_key] != blank -%}
+            <div class="pdp-review-slide">
+              <div class="pdp-review-card">
+                
+                <div class="pdp-review-header">
+                  <div class="pdp-review-stars">
                     {%- assign current_rating = block.settings[rating_key] -%}
                     {% for star in (1..5) %}
-                      <svg class="star-icon {% if star <= current_rating %}filled{% endif %}" viewBox="0 0 24 24">
+                      <svg class="pdp-star {% if star <= current_rating %}is-filled{% endif %}" viewBox="0 0 24 24">
                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                       </svg>
                     {% endfor %}
                   </div>
                   {% if block.settings[verified_key] %}
-                    <div class="review-verified">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div class="pdp-review-verified">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                       <span>Verified</span>
                     </div>
                   {% endif %}
                 </div>
 
-                <div class="review-content">
-                  {{ block.settings[text_key] }}
+                <div class="pdp-review-body">
+                  <h4 class="pdp-review-title">{{ block.settings[title_key] }}</h4>
+                  <div class="pdp-review-text">{{ block.settings[text_key] }}</div>
                 </div>
 
-                <div class="review-author">
-                  — {{ block.settings[author_key] }}
+                <div class="pdp-review-footer">
+                  <span class="pdp-review-author">— {{ block.settings[author_key] }}</span>
                 </div>
               </div>
             </div>
@@ -54,51 +58,87 @@
   </div>
 
   <style>
-  /* Base structural styling */
-  .block-{{ block.id }}.review-carousel-wrapper { padding: 40px 0; margin: 20px 0; }
-  .review-container { max-width: 100%; position: relative; }
-  .review-nav { position: absolute; top: 15px; right: 25px; display: flex; gap: 10px; z-index: 10; }
-  .review-nav button { background: #d6d2cb; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; transition: background 0.3s; }
-  .review-nav button:hover { background: #b5b1a9; }
-  .review-nav svg { width: 20px; height: 20px; fill: currentColor; }
+    .pdp-review-block { margin: 25px 0; width: 100%; }
+    .pdp-review-container { position: relative; width: 100%; }
+    
+    /* Card Style */
+    .pdp-review-card {
+      background-color: #F9F7F2; /* Matches image beige */
+      border-radius: 35px; /* High radius like image */
+      padding: 35px 40px;
+      position: relative;
+    }
 
-  .review-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
-  .review-slider::-webkit-scrollbar { display: none; }
+    /* Navigation */
+    .pdp-review-nav {
+      position: absolute;
+      top: 30px;
+      right: 35px;
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+    .pdp-review-nav button {
+      background: #D8D3CC;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      padding: 0;
+    }
 
-  .review-slide { flex: 0 0 100%; scroll-snap-align: start; padding: 10px; }
-  .review-card { background: #f9f7f2; border-radius: 40px; padding: 40px 50px; min-height: 200px; }
-  .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-  .star-icon { width: 22px; height: 22px; fill: #e0e0e0; }
-  .star-icon.filled { fill: #1f5e3f; }
+    /* Header & Stars */
+    .pdp-review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .pdp-star { width: 20px; height: 20px; fill: #E0E0E0; }
+    .pdp-star.is-filled { fill: #1F5E3F; } /* Dark Green */
+    
+    .pdp-review-verified { display: flex; align-items: center; gap: 4px; font-size: 13px; color: #666; font-style: italic; }
+    .pdp-review-verified svg { width: 14px; height: 14px; }
 
-  .review-verified { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #666; font-weight: 500; }
-  .review-verified svg { width: 14px; height: 14px; }
+    /* Text areas */
+    .pdp-review-title { 
+      font-size: 17px; 
+      font-weight: 600; 
+      color: #333; 
+      margin: 0 0 8px 0; 
+      line-height: 1.4;
+    }
+    .pdp-review-text { 
+      font-size: 15px; 
+      color: #444; 
+      line-height: 1.6; 
+      margin-bottom: 15px;
+    }
+    .pdp-review-footer { text-align: right; }
+    .pdp-review-author { font-weight: 600; font-size: 15px; color: #333; }
 
-  .review-content { font-size: 18px; line-height: 1.5; color: #333; margin-bottom: 25px; font-weight: 400; }
-  .review-content p { margin: 0; }
-  .review-author { text-align: right; font-size: 16px; font-weight: 600; color: #333; }
+    /* Slider Logic */
+    .pdp-review-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .pdp-review-slider::-webkit-scrollbar { display: none; }
+    .pdp-review-slide { flex: 0 0 100%; scroll-snap-align: start; }
 
-  @media (max-width: 600px) {
-    .review-card { padding: 30px 25px; border-radius: 30px; }
-    .review-content { font-size: 16px; }
-    .review-nav { top: 10px; right: 15px; }
-  }
+    @media (max-width: 600px) {
+      .pdp-review-card { padding: 25px 30px; border-radius: 25px; }
+      .pdp-review-nav { top: 20px; right: 25px; }
+    }
   </style>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const wrapper = document.querySelector('.block-{{ block.id }}');
-    if (!wrapper) return;
-    
-    const slider = wrapper.querySelector('.review-slider');
-    const prevBtn = wrapper.querySelector('.review-prev');
-    const nextBtn = wrapper.querySelector('.review-next');
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => { slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' }); });
-    }
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => { slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' }); });
-    }
-  });
+    document.addEventListener('DOMContentLoaded', function() {
+      const b = document.querySelector('.block-{{ block.id }}');
+      const s = b.querySelector('.pdp-review-slider');
+      b.querySelector('.pdp-review-next').onclick = () => s.scrollBy({left: s.offsetWidth, behavior: 'smooth'});
+      b.querySelector('.pdp-review-prev').onclick = () => s.scrollBy({left: -s.offsetWidth, behavior: 'smooth'});
+    });
   </script>
