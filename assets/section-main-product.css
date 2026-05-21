@@ -1811,79 +1811,101 @@ a.product__text {
   .product__info-wrapper .product__info-container {
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-auto-rows: auto;
-    align-items: start;
-    row-gap: 8px;
-    column-gap: 30px;
+    align-items: flex-start;
+    column-gap: 40px;
+    grid-auto-flow: dense;
   }
-
+  
   .product__info-wrapper .product__info-container > * {
     grid-column: 1 / -1;
   }
 
-  .product__info-wrapper .product__title-wrapper { 
-    grid-column: 1; 
-    grid-row: 1; 
-    margin-bottom: 0;
-  }
-  .product__info-wrapper .rating-wrapper { 
-    grid-column: 1; 
-    grid-row: 2; 
-    align-self: start;
-    margin-top: 0;
+  .product__info-wrapper .product__title-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 8px;
   }
 
-  .product__info-wrapper [id^="price-"] { 
-    grid-column: 2; 
-    grid-row: 1; 
-    justify-self: end; 
-    text-align: right; 
-    margin-bottom: 0;
-  }
-  .product__info-wrapper .installment { 
-    grid-column: 2; 
-    grid-row: 2; 
-    justify-self: end; 
-    text-align: right; 
-    margin: 0;
-  }
-  .product__info-wrapper .product__inventory { 
-    grid-column: 2; 
-    grid-row: 3; 
-    justify-self: end; 
-    text-align: right; 
-    margin-top: 0; 
+  .product__info-wrapper .rating-wrapper {
+    grid-column: 1;
+    grid-row: 2;
   }
 
-  /* Right column alignment fixes */
-  .product__info-wrapper .price {
-    align-items: flex-end;
-  }
-  .product__info-wrapper .price__container {
-    justify-content: flex-end;
-  }
-  .product__info-wrapper .price-item {
+  /* Price and right-side elements */
+  .product__info-wrapper [id^="price-"] {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: flex-end;
     text-align: right;
+    margin-bottom: 0;
+  }
+
+  .product__info-wrapper .installment {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: flex-end;
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .product__info-wrapper .product__inventory {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: flex-end;
+    text-align: right;
+    margin-top: 8px;
   }
 }
 
-.product__hero-badge {
-  display: inline-block;
+/* Badge styling */
+.product__info-wrapper .product__hero-badge {
+  display: inline-flex;
+  align-items: center;
   background-color: #2b2b2b;
   color: #ffffff;
   font-size: 13px;
   font-weight: 500;
   padding: 6px 14px;
   border-radius: 20px;
-  margin-bottom: 16px;
-}
-.product__info-wrapper .product__title {
-  font-size: 32px;
-  line-height: 1.2;
-  font-weight: 600;
+  margin-bottom: 12px;
+  white-space: nowrap;
 }
 
-/* Force price styling without font-family */
+/* Title styling */
+.product__info-wrapper .product__title {
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Price block cleanup */
+.product__info-wrapper .price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.product__info-wrapper .price__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+.product__info-wrapper .price-item {
+  text-align: right;
+  line-height: 1.1;
+}
+
+/* Hide native Dawn price badges to match design */
+.product__info-wrapper .price .badge {
+  display: none !important;
+}
+
+/* Specific styling for prices matching design */
 .product__info-wrapper .price--large .price-item--sale {
   color: #b22222;
   font-size: 32px;
@@ -1893,11 +1915,15 @@ a.product__text {
   color: #888888;
   font-size: 18px;
   text-decoration: line-through;
+  margin-top: 4px;
 }
+
+/* Installment text styling */
 .product__info-wrapper .installment {
   color: #888888;
   font-size: 13px;
 }
 .product__info-wrapper .installment strong {
   color: #121212;
+  font-weight: 700;
 }
