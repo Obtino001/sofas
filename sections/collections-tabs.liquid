@@ -3,113 +3,9 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'slider-template.css' | asset_url | stylesheet_tag }}
 
-{% if section.settings.image_shape == 'blob' %}
+{%- if section.settings.image_shape == 'blob' -%}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
-
-{%- unless section.settings.quick_add == 'none' -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{%- endunless -%}
-
-{%- if section.settings.quick_add == 'standard' -%}
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-{%- if section.settings.quick_add == 'bulk' -%}
-  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-<style>
-  .section-{{ section.id }} {
-    --columns-desktop: {{ section.settings.columns_desktop }};
-    --columns-mobile: {{ section.settings.columns_mobile }};
-    --gap-desktop: {{ section.settings.spacing }}px;
-    --gap-mobile: {{ section.settings.spacing | divided_by: 1.5 }}px;
-  }
-
-  .section-{{ section.id }} .slider-template-section__swiper {
-    overflow: {% if section.settings.overflow %}visible{% else %}hidden{% endif %};
-  }
-
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-.collection-tabs-nav {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-    position: relative;
-    flex-wrap: inherit;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scroll-padding-left: 1.5rem;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 1rem;
-    margin-bottom: 30px;
-    scrollbar-width: none;
-}
-  
-.collection-tab-btn {
-    background: #FFF2F2;
-    border: none;
-    font-size: 16px;
-    font-family: inherit;
-    color: #F5F2ED;
-    cursor: pointer;
-    padding: 12px 25px;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    opacity: 1;
-    border-radius: 50px;
-}
-
-  .collection-tab-btn:hover {
-    opacity: 1;
-    background: #F5F2ED;
-    color: white;
-  }
-  
-  .collection-tab-btn.is-active {
-    opacity: 1;
-    background: #F5F2ED;
-    color: white;
-  }
-
-  /* --- Tab Panel Styles --- */
-  .collection-tab-panel {
-    display: none;
-    animation: fadeInTab 0.4s ease-in-out;
-  }
-
-  .collection-tab-panel.is-active {
-    display: block;
-  }
-
-  @keyframes fadeInTab {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media screen and (min-width: 800px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    .collection-tabs-nav {
-    justify-content: start;
-    }
-  }
-</style>
 
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
@@ -121,62 +17,187 @@
   endif
 
   assign mobile_slide_class = 'swiper-slide--multi'
-  assign mobile_swiper_slides = 2
+  assign mobile_swiper_slides = section.settings.columns_mobile_value | default: 1.2
   if section.settings.columns_mobile == '1'
     assign mobile_slide_class = 'swiper-slide--single'
     assign mobile_swiper_slides = 1.2
   endif
+
+  comment
+    Build a delivery date string ("28-29 March") based on section settings.
+  endcomment
+  assign now_seconds = 'now' | date: '%s' | plus: 0
+  assign min_days_seconds = section.settings.delivery_days_min | times: 86400
+  assign max_days_seconds = section.settings.delivery_days_max | times: 86400
+  assign min_delivery_ts = now_seconds | plus: min_days_seconds
+  assign max_delivery_ts = now_seconds | plus: max_days_seconds
+  assign min_day = min_delivery_ts | date: '%-d'
+  assign max_day = max_delivery_ts | date: '%-d'
+  assign min_month = min_delivery_ts | date: '%B'
+  assign max_month = max_delivery_ts | date: '%B'
+  if min_month == max_month
+    assign delivery_range = min_day | append: '-' | append: max_day | append: ' ' | append: max_month
+  else
+    assign delivery_range = min_day | append: ' ' | append: min_month | append: ' - ' | append: max_day | append: ' ' | append: max_month
+  endif
+  assign delivery_text = section.settings.delivery_label | default: '' | append: ' ' | append: delivery_range | strip
 -%}
 
-<div class="section-{{ section.id }} color-{{ section.settings.color_scheme }} isolate gradient {% if section.settings.overflow %}slider-template-section__overflow-hidden{% endif %}">
-  <div
-    class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
-    id="collection-{{ section.id }}"
-    data-id="{{ section.id }}"
-  >
-    <div class="collection__title center title-wrapper title-wrapper--no-top-margin page-width{% if section.settings.enable_slider_mobile %} title-wrapper--self-padded-tablet-down{% endif %}">
+<style>
+  .section-{{ section.id }} {
+    --ct-columns-desktop: {{ section.settings.columns_desktop }};
+    --ct-columns-mobile: {{ section.settings.columns_mobile }};
+    --ct-gap-desktop: {{ section.settings.spacing }}px;
+    --ct-gap-mobile: {{ section.settings.spacing | divided_by: 1.5 }}px;
+    --ct-tab-radius: {{ section.settings.tab_radius }}px;
+    --ct-card-radius: {{ section.settings.card_radius }}px;
+    --ct-image-bg: {{ section.settings.image_background }};
+    --ct-tab-bg: {{ section.settings.tab_background }};
+    --ct-tab-active-bg: {{ section.settings.tab_active_background }};
+    --ct-tab-color: {{ section.settings.tab_color }};
+    --ct-tab-active-color: {{ section.settings.tab_active_color }};
+    --ct-accent: {{ section.settings.accent_color }};
+    --ct-cart-bg: {{ section.settings.cart_btn_background }};
+    --ct-cart-color: {{ section.settings.cart_btn_color }};
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .section-{{ section.id }} .collection-tabs__swiper {
+    overflow: {% if section.settings.overflow %}visible{% else %}hidden{% endif %};
+  }
+</style>
+
+{{ 'section-collection-tabs.css' | asset_url | stylesheet_tag }}
+
+<div class="section-{{ section.id }} color-{{ section.settings.color_scheme }} isolate gradient collection-tabs">
+  <div class="collection-tabs__container section-{{ section.id }}-padding{% if section.settings.full_width %} collection-tabs--full-width{% endif %}" id="CollectionTabs-{{ section.id }}" data-section-id="{{ section.id }}">
+
+    <div class="collection-tabs__heading-row {% if section.settings.heading_alignment == 'left' %}collection-tabs__heading-row--left{% else %}collection-tabs__heading-row--center{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {%- if section.settings.title != blank -%}
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="collection-tabs__title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.title }}
         </h2>
       {%- endif -%}
-      
       {%- if section.settings.description != blank -%}
-        <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="collection-tabs__description rte {{ section.settings.description_style }}">
           {{ section.settings.description }}
-        </div>
-      {%- endif -%}
-
-      {%- if section.blocks.size > 0 -%}
-        <div class="collection-tabs-nav{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-          {%- for block in section.blocks -%}
-            <button class="collection-tab-btn {% if forloop.first %}is-active{% endif %}" data-target="Panel-{{ block.id }}-{{ section.id }}" {{ block.shopify_attributes }}>
-              {{ block.settings.tab_title | default: block.settings.collection.title | default: 'Collection' }}
-            </button>
-          {%- endfor -%}
         </div>
       {%- endif -%}
     </div>
 
-    <div class="{% unless section.settings.full_width %}page-width{% endunless %}">
-      
+    {%- if section.blocks.size > 0 -%}
+      <div class="collection-tabs__controls-row{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="collection-tabs__nav-wrapper">
+          <div class="collection-tabs__nav" role="tablist" aria-label="{{ section.settings.title | default: 'Collections' | escape }}">
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign tab_label = block.settings.tab_title | default: block.settings.collection.title | default: 'Collection'
+                assign panel_id = 'CollectionTabPanel-' | append: section.id | append: '-' | append: block.id
+                assign tab_id = 'CollectionTabBtn-' | append: section.id | append: '-' | append: block.id
+                assign is_first = forloop.first
+                assign tab_icon_alt = block.settings.tab_icon.alt | default: tab_label
+                assign icon_dim = section.settings.icon_size | times: 2
+              -%}
+              <button
+                type="button"
+                class="collection-tabs__tab {% if is_first %}is-active{% endif %}"
+                role="tab"
+                id="{{ tab_id }}"
+                aria-controls="{{ panel_id }}"
+                aria-selected="{% if is_first %}true{% else %}false{% endif %}"
+                data-target="{{ panel_id }}"
+                data-collection-url="{{ block.settings.collection.url | default: '#' }}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.tab_icon != blank -%}
+                  <span class="collection-tabs__tab-icon" style="--ct-icon-size: {{ section.settings.icon_size }}px;">
+                    {{ block.settings.tab_icon | image_url: width: icon_dim | image_tag:
+                       loading: 'lazy',
+                       width: section.settings.icon_size,
+                       height: section.settings.icon_size,
+                       alt: tab_icon_alt,
+                       class: 'collection-tabs__tab-icon-img'
+                    }}
+                  </span>
+                {%- endif -%}
+                <span class="collection-tabs__tab-label">{{ tab_label }}</span>
+              </button>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="collection-tabs__actions">
+          {%- if section.settings.show_view_all -%}
+            <a
+              href="#"
+              class="collection-tabs__view-all-btn"
+              data-collection-tabs-view-all
+              aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.title | escape }}"
+            >
+              <span>{{ section.settings.view_all_text | default: 'View All' }}</span>
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.show_arrows -%}
+            <div class="collection-tabs__arrows" role="group" aria-label="{{ 'general.slider.name' | t }}">
+              <button
+                type="button"
+                class="collection-tabs__arrow collection-tabs__arrow--prev"
+                data-collection-tabs-arrow="prev"
+                aria-label="{{ 'general.slider.previous_slide' | t }}"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="collection-tabs__arrow collection-tabs__arrow--next"
+                data-collection-tabs-arrow="next"
+                aria-label="{{ 'general.slider.next_slide' | t }}"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="collection-tabs__panels {% unless section.settings.full_width %}page-width{% endunless %}">
+
       {%- for block in section.blocks -%}
         {%- liquid
           assign collection = block.settings.collection
-          assign products_to_display = collection.all_products_count
-
-          assign more_in_collection = false
-          if collection.all_products_count > section.settings.products_to_show
-            assign products_to_display = section.settings.products_to_show
-            assign more_in_collection = true
-          endif
+          assign panel_id = 'CollectionTabPanel-' | append: section.id | append: '-' | append: block.id
+          assign tab_id = 'CollectionTabBtn-' | append: section.id | append: '-' | append: block.id
+          assign is_first = forloop.first
         -%}
-
-        <div class="collection-tab-panel {% if forloop.first %}is-active{% endif %}" id="Panel-{{ block.id }}-{{ section.id }}">
-          <slider-container class="slider-template-section block" data-block-id="{{ section.id }}-{{ block.id }}">
+        <div
+          class="collection-tabs__panel {% if is_first %}is-active{% endif %}"
+          id="{{ panel_id }}"
+          role="tabpanel"
+          aria-labelledby="{{ tab_id }}"
+          data-collection-url="{{ collection.url | default: '#' }}"
+          {% unless is_first %}hidden{% endunless %}
+        >
+          <slider-container class="collection-tabs__slider slider-template-section block" data-block-id="{{ section.id }}-{{ block.id }}">
             <div class="slider-template-section__container">
               <div
-                class="swiper js-slider-template-swiper slider-template-section__swiper"
+                class="swiper js-slider-template-swiper collection-tabs__swiper"
                 data-swiper-config='
                   {
                     "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
@@ -192,8 +213,6 @@
                 '
               >
                 <div class="swiper-wrapper">
-                  {% assign skip_card_product_styles = false %}
-
                   {%- if collection.products.size > 0 -%}
                     {% assign lazy_load = false %}
                     {% paginate collection.products by section.settings.products_to_show %}
@@ -208,20 +227,21 @@
                             style="--animation-order: {{ forloop.index }};"
                           {% endif %}
                         >
-                          {% render 'card-product',
+                          {% render 'card-product-tabs',
                             card_product: product,
-                            media_aspect_ratio: section.settings.image_ratio,
-                            image_shape: section.settings.image_shape,
-                            lazy_load: lazy_load,
-                            show_secondary_image: section.settings.show_secondary_image,
-                            show_vendor: section.settings.show_vendor,
-                            show_rating: section.settings.show_rating,
-                            skip_styles: skip_card_product_styles,
                             section_id: section.id,
-                            quick_add: section.settings.quick_add
+                            media_aspect_ratio: section.settings.image_ratio,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            show_rating: section.settings.show_rating,
+                            show_swatches: section.settings.show_swatches,
+                            swatch_option: section.settings.swatch_option_name,
+                            swatch_limit: section.settings.swatch_limit,
+                            show_delivery: section.settings.show_delivery,
+                            delivery_text: delivery_text,
+                            lazy_load: lazy_load,
+                            badge_position: section.settings.badge_position
                           %}
                         </div>
-                        {%- assign skip_card_product_styles = true -%}
                       {%- endfor -%}
                     {% endpaginate %}
                   {%- else -%}
@@ -243,12 +263,12 @@
                           endcase
                         %}
                         {%- assign placeholder_image = 'product-apparel-' | append: ridx -%}
-                        {% render 'card-product',
-                          show_vendor: section.settings.show_vendor,
+                        {% render 'card-product-tabs',
+                          section_id: section.id,
                           media_aspect_ratio: section.settings.image_ratio,
-                          image_shape: section.settings.image_shape,
-                          lazy_load: false,
-                          placeholder_image: placeholder_image
+                          placeholder_image: placeholder_image,
+                          show_delivery: section.settings.show_delivery,
+                          delivery_text: delivery_text
                         %}
                       </div>
                     {%- endfor -%}
@@ -256,89 +276,15 @@
                 </div>
               </div>
 
-              <div
-                class="
-                  slider-template-controls
-                  slider-template-controls--{{ section.settings.controls_position }}
-                  {% unless section.settings.show_controls_desktop %}slider-template--hide-desktop{% endunless %}
-                  {% unless section.settings.show_controls_mobile %}slider-template--hide-mobile{% endunless %}
-                "
-              >
-                {%- if section.settings.controls_position == 'bottom' -%}
-                  <div class="slider-template-progress-track">
-                    <div class="slider-template-progress-fill"></div>
-                  </div>
-                {%- endif -%}
-
-                {%- if section.settings.controls_position == 'dots' -%}
-                  <div class="slider-template-pagination"></div>
-                {%- endif -%}
-
-                {%- if section.settings.controls_position == 'bottom' or section.settings.controls_position == 'middle' -%}
-                  <div class="slider-template-controls-nav slider-template--hide-mobile">
-                    <button
-                      type="button"
-                      class="slider-template-arrow js-slider-template-prev"
-                      aria-label="{{ 'general.slider.previous_slide' | t }}"
-                    >
-                      {% render 'svg-icons', svg-icons: 'ma-caret-left' %}
-                    </button>
-                    <button
-                      type="button"
-                      class="slider-template-arrow js-slider-template-next"
-                      aria-label="{{ 'general.slider.next_slide' | t }}"
-                    >
-                      {% render 'svg-icons', svg-icons: 'ma-caret-right' %}
-                    </button>
-                  </div>
-                {%- endif -%}
-              </div>
-
-              {%- if section.settings.controls_position == 'dots' -%}
-                <div
-                  class="
-                    slider-template-controls
-                    slider-template-controls--middle
-                    {% unless section.settings.show_controls_desktop %}slider-template--hide-desktop{% endunless %}
-                  "
-                >
-                  <div class="slider-template-controls-nav">
-                    <button
-                      type="button"
-                      class="slider-template-arrow js-slider-template-prev"
-                      aria-label="{{ 'general.slider.previous_slide' | t }}"
-                    >
-                      {% render 'svg-icons', svg-icons: 'ma-caret-left' %}
-                    </button>
-                    <button
-                      type="button"
-                      class="slider-template-arrow js-slider-template-next"
-                      aria-label="{{ 'general.slider.next_slide' | t }}"
-                    >
-                      {% render 'svg-icons', svg-icons: 'ma-caret-right' %}
-                    </button>
-                  </div>
-                </div>
-              {%- endif -%}
+              {%- comment %} Hidden per-slider nav buttons - the visible header arrows delegate to these via JS. {% endcomment -%}
+              <button type="button" class="collection-tabs__hidden-nav js-slider-template-prev visually-hidden" aria-hidden="true" tabindex="-1">prev</button>
+              <button type="button" class="collection-tabs__hidden-nav js-slider-template-next visually-hidden" aria-hidden="true" tabindex="-1">next</button>
             </div>
           </slider-container>
-
-          {%- if section.settings.show_view_all and more_in_collection -%}
-            <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-              <a
-                href="{{ collection.url }}"
-                class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
-                aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: collection.title | escape }}"
-              >
-                {{ 'sections.featured_collection.view_all' | t }}
-              </a>
-            </div>
-          {%- endif -%}
-          
         </div>
       {%- else -%}
-        <div class="center page-width">
-          <p>Please add collection blocks in the theme editor to display tabs.</p>
+        <div class="collection-tabs__empty center">
+          <p>{{ 'onboarding.no_content' | t | default: 'Add collection blocks in the theme editor to display tabs.' }}</p>
         </div>
       {%- endfor -%}
 
@@ -350,38 +296,7 @@
   </div>
 </div>
 
-<script src="{{ 'slider-template.js' | asset_url }}" defer="defer"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const tabsSections = document.querySelectorAll('.section-{{ section.id }}');
-    
-    tabsSections.forEach(section => {
-      const tabButtons = section.querySelectorAll('.collection-tab-btn');
-      const tabPanels = section.querySelectorAll('.collection-tab-panel');
-
-      tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active classes
-          tabButtons.forEach(btn => btn.classList.remove('is-active'));
-          tabPanels.forEach(panel => panel.classList.remove('is-active'));
-
-          // Add active class to clicked button
-          this.classList.add('is-active');
-
-          // Show targeted panel
-          const targetId = this.getAttribute('data-target');
-          const activePanel = document.getElementById(targetId);
-          if (activePanel) {
-            activePanel.classList.add('is-active');
-            // Force Swiper to recalculate layout when it becomes visible
-            window.dispatchEvent(new Event('resize')); 
-          }
-        });
-      });
-    });
-  });
-</script>
+<script src="{{ 'collection-tabs.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
@@ -394,13 +309,14 @@
   "settings": [
     {
       "type": "header",
-      "content": "Text"
+      "content": "Heading"
     },
     {
       "type": "inline_richtext",
       "id": "title",
-      "default": "Our Collections",
-      "label": "Heading"
+      "default": "The perfect <i>sofa</i> for your <i>space</i>",
+      "label": "Heading",
+      "info": "Use <i>text</i> to italicise specific words."
     },
     {
       "type": "select",
@@ -414,6 +330,16 @@
       ],
       "default": "h1",
       "label": "Heading size"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
     },
     {
       "type": "richtext",
@@ -433,7 +359,83 @@
     },
     {
       "type": "header",
-      "content": "Collection Layout"
+      "content": "Tabs"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "label": "Tab icon size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "tab_radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Tab corner radius",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "tab_background",
+      "label": "Tab background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "tab_color",
+      "label": "Tab text color",
+      "default": "#1F1F1F"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_background",
+      "label": "Active tab background",
+      "default": "#EFE6D8"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_color",
+      "label": "Active tab text color",
+      "default": "#1F1F1F"
+    },
+    {
+      "type": "header",
+      "content": "View All & Arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' button in header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All button text",
+      "default": "View All"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show navigation arrows in header",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent / arrow color",
+      "default": "#1F1F1F"
+    },
+    {
+      "type": "header",
+      "content": "Slider"
     },
     {
       "type": "range",
@@ -442,7 +444,7 @@
       "max": 25,
       "step": 1,
       "default": 8,
-      "label": "Maximum products to show"
+      "label": "Maximum products to show per tab"
     },
     {
       "type": "range",
@@ -471,7 +473,7 @@
       "step": 2,
       "unit": "px",
       "label": "Space between cards",
-      "default": 20
+      "default": 16
     },
     {
       "type": "checkbox",
@@ -486,10 +488,6 @@
       "default": false
     },
     {
-      "type": "header",
-      "content": "Carousel Controls"
-    },
-    {
       "type": "checkbox",
       "id": "enable_slider_desktop",
       "label": "Enable slider on desktop",
@@ -500,29 +498,6 @@
       "id": "enable_slider_mobile",
       "label": "Enable slider on mobile",
       "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_controls_desktop",
-      "label": "Show controls on desktop",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_controls_mobile",
-      "label": "Show controls on mobile",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "controls_position",
-      "label": "Controls position",
-      "options": [
-        { "value": "bottom", "label": "Bottom" },
-        { "value": "middle", "label": "Middle" },
-        { "value": "dots", "label": "Dots" }
-      ],
-      "default": "bottom"
     },
     {
       "type": "checkbox",
@@ -551,6 +526,22 @@
       "content": "Product Card"
     },
     {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Card image corner radius",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Image background color",
+      "default": "#F5F1EB"
+    },
+    {
       "type": "select",
       "id": "image_ratio",
       "options": [
@@ -558,7 +549,7 @@
         { "value": "portrait", "label": "Portrait" },
         { "value": "square", "label": "Square" }
       ],
-      "default": "adapt",
+      "default": "square",
       "label": "Image ratio"
     },
     {
@@ -568,10 +559,6 @@
         { "value": "default", "label": "Default" },
         { "value": "arch", "label": "Arch" },
         { "value": "blob", "label": "Blob" },
-        { "value": "chevronleft", "label": "Chevron left" },
-        { "value": "chevronright", "label": "Chevron right" },
-        { "value": "diamond", "label": "Diamond" },
-        { "value": "parallelogram", "label": "Parallelogram" },
         { "value": "round", "label": "Round" }
       ],
       "default": "default",
@@ -580,52 +567,105 @@
     {
       "type": "checkbox",
       "id": "show_secondary_image",
-      "default": false,
+      "default": true,
       "label": "Show second image on hover"
     },
     {
       "type": "checkbox",
-      "id": "show_vendor",
-      "default": false,
-      "label": "Show product vendor"
-    },
-    {
-      "type": "checkbox",
       "id": "show_rating",
-      "default": false,
-      "label": "Show product rating"
+      "default": true,
+      "label": "Show product rating",
+      "info": "Requires a product rating app that uses the reviews metafields."
     },
     {
       "type": "select",
-      "id": "quick_add",
-      "default": "none",
-      "label": "Quick add",
+      "id": "badge_position",
+      "label": "Badge position",
       "options": [
-        { "value": "none", "label": "None" },
-        { "value": "standard", "label": "Standard" },
-        { "value": "bulk", "label": "Bulk" }
-      ]
+        { "value": "top-right", "label": "Top right" },
+        { "value": "top-left", "label": "Top left" }
+      ],
+      "default": "top-right"
     },
     {
       "type": "header",
-      "content": "View All Button"
+      "content": "Cart Icon Button"
+    },
+    {
+      "type": "color",
+      "id": "cart_btn_background",
+      "label": "Cart icon background",
+      "default": "#A37B4C"
+    },
+    {
+      "type": "color",
+      "id": "cart_btn_color",
+      "label": "Cart icon color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Color Swatches"
     },
     {
       "type": "checkbox",
-      "id": "show_view_all",
-      "default": true,
-      "label": "Enable 'View all' button"
+      "id": "show_swatches",
+      "label": "Show color swatches",
+      "default": true
     },
     {
-      "type": "select",
-      "id": "view_all_style",
-      "label": "View all style",
-      "options": [
-        { "value": "link", "label": "Link" },
-        { "value": "outline", "label": "Outline button" },
-        { "value": "solid", "label": "Solid button" }
-      ],
-      "default": "solid"
+      "type": "text",
+      "id": "swatch_option_name",
+      "label": "Product option to use as swatches",
+      "default": "Color",
+      "info": "Must match a product option name (e.g. Color, Colour, Fabric)."
+    },
+    {
+      "type": "range",
+      "id": "swatch_limit",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Maximum swatches to show",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Delivery Info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_delivery",
+      "label": "Show delivery date on cards",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "delivery_label",
+      "label": "Delivery label",
+      "default": "Order now & get it by"
+    },
+    {
+      "type": "range",
+      "id": "delivery_days_min",
+      "min": 1,
+      "max": 21,
+      "step": 1,
+      "label": "Earliest delivery in days",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "delivery_days_max",
+      "min": 1,
+      "max": 60,
+      "step": 3,
+      "label": "Latest delivery in days",
+      "default": 7
+    },
+    {
+      "type": "header",
+      "content": "Colors"
     },
     {
       "type": "color_scheme",
@@ -645,7 +685,7 @@
       "step": 4,
       "unit": "px",
       "label": "Top padding",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -655,20 +695,26 @@
       "step": 4,
       "unit": "px",
       "label": "Bottom padding",
-      "default": 36
+      "default": 60
     }
   ],
   "blocks": [
     {
       "type": "collection",
       "name": "Collection Tab",
-      "limit": 6,
+      "limit": 10,
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "Tab Title",
+          "label": "Tab title",
           "info": "Leave empty to use the collection's name."
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_icon",
+          "label": "Tab icon (HD)",
+          "info": "Upload a high-resolution icon (SVG/PNG recommended)."
         },
         {
           "type": "collection",
@@ -682,12 +728,11 @@
     {
       "name": "Collection Tabs",
       "blocks": [
-        {
-          "type": "collection"
-        },
-        {
-          "type": "collection"
-        }
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
       ]
     }
   ]

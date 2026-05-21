@@ -1,0 +1,218 @@
+{% comment %}
+  Renders a product card styled for the Collection Tabs section.
+
+  Accepts:
+  - card_product: {Object} Product Liquid object (optional)
+  - section_id: {String} Section id, used for unique ids
+  - media_aspect_ratio: {String} 'adapt' | 'portrait' | 'square'. Default 'adapt'.
+  - show_secondary_image: {Boolean} Default false.
+  - show_rating: {Boolean} Default false.
+  - show_swatches: {Boolean} Default false.
+  - swatch_option: {String} The name of the option used as colour (e.g. 'Color').
+  - swatch_limit: {Number} Max swatches to show.
+  - show_delivery: {Boolean} Default false.
+  - delivery_text: {String} Pre-computed delivery line (e.g. "Order now & get it by 28-29 March").
+  - lazy_load: {Boolean} Default true.
+  - placeholder_image: {String} Placeholder svg id.
+  - badge_position: {String} 'top-left' | 'top-right'. Default 'top-right'.
+{% endcomment %}
+
+{%- liquid
+  assign ratio = 1
+  if media_aspect_ratio == 'portrait'
+    assign ratio = 0.8
+  elsif media_aspect_ratio == 'square'
+    assign ratio = 1
+  elsif media_aspect_ratio == 'adapt' and card_product.featured_media
+    assign ratio = card_product.featured_media.aspect_ratio
+  endif
+  if ratio == 0 or ratio == null
+    assign ratio = 1
+  endif
+
+  assign swatch_key = swatch_option | default: 'Color' | downcase
+  assign found_option = null
+  if card_product
+    for option in card_product.options_with_values
+      assign option_name = option.name | downcase
+      if option_name == swatch_key
+        assign found_option = option
+        break
+      endif
+    endfor
+  endif
+-%}
+
+<div class="card-product-tabs card-wrapper underline-links-hover">
+  <div
+    class="card-product-tabs__inner"
+    style="--ct-ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+  >
+    {%- if card_product and card_product != empty -%}
+      <a
+        href="{{ card_product.url }}"
+        class="card-product-tabs__media"
+        aria-label="{{ card_product.title | escape }}"
+      >
+        <div class="card-product-tabs__media-inner">
+          {%- if card_product.featured_media -%}
+            {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+            <img
+              srcset="
+                {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+              "
+              src="{{ card_product.featured_media | image_url: width: 720 }}"
+              sizes="(min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+              alt="{{ card_product.featured_media.alt | escape }}"
+              class="card-product-tabs__image card-product-tabs__image--primary motion-reduce"
+              {% if lazy_load == false %}loading="eager"{% else %}loading="lazy"{% endif %}
+              width="{{ card_product.featured_media.width }}"
+              height="{{ card_product.featured_media.height }}"
+            >
+            {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+
+            {%- if show_secondary_image and card_product.media[1] != null -%}
+              <img
+                srcset="
+                  {%- if card_product.media[1].width >= 533 -%}{{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if card_product.media[1].width >= 720 -%}{{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+                  {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
+                "
+                src="{{ card_product.media[1] | image_url: width: 720 }}"
+                sizes="(min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ card_product.media[1].alt | escape }}"
+                class="card-product-tabs__image card-product-tabs__image--secondary motion-reduce"
+                loading="lazy"
+                width="{{ card_product.media[1].width }}"
+                height="{{ card_product.media[1].height }}"
+              >
+            {%- endif -%}
+          {%- else -%}
+            {{ placeholder_image | default: 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg card-product-tabs__image' }}
+          {%- endif -%}
+        </div>
+
+        {%- liquid
+          assign badge_label = ''
+          assign badge_modifier = ''
+          if card_product.metafields.custom.badge != blank
+            assign badge_label = card_product.metafields.custom.badge
+            assign badge_modifier = 'card-product-tabs__badge--custom'
+          elsif card_product.available == false
+            assign badge_label = 'products.product.sold_out' | t
+            assign badge_modifier = 'card-product-tabs__badge--soldout'
+          elsif card_product.compare_at_price > card_product.price and card_product.available
+            assign saved_percent = card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price
+            assign badge_label = saved_percent | append: '% OFF'
+            assign badge_modifier = 'card-product-tabs__badge--sale'
+          elsif card_product.created_at and card_product.tags contains 'new'
+            assign badge_label = 'sections.featured_collection.new_badge' | t | default: 'New'
+            assign badge_modifier = 'card-product-tabs__badge--new'
+          endif
+        -%}
+        {%- if badge_label != blank -%}
+          <span class="card-product-tabs__badge card-product-tabs__badge--{{ badge_position | default: 'top-right' }} {{ badge_modifier }}">
+            {{ badge_label }}
+          </span>
+        {%- endif -%}
+      </a>
+
+      <button
+        type="button"
+        class="card-product-tabs__cart-btn"
+        data-product-url="{{ card_product.url }}"
+        data-variant-id="{{ card_product.selected_or_first_available_variant.id }}"
+        aria-label="{{ 'products.product.add_to_cart' | t }} - {{ card_product.title | escape }}"
+      >
+        {{- 'icon-cart.svg' | inline_asset_content -}}
+      </button>
+
+      {%- if show_delivery and delivery_text != blank -%}
+        <div class="card-product-tabs__delivery">
+          {{- 'icon-truck.svg' | inline_asset_content -}}
+          <span>{{ delivery_text }}</span>
+        </div>
+      {%- endif -%}
+
+      <div class="card-product-tabs__content">
+        <div class="card-product-tabs__header">
+          <h3 class="card-product-tabs__title">
+            <a href="{{ card_product.url }}" class="full-unstyled-link" id="CardLink-{{ section_id }}-{{ card_product.id }}">
+              {{ card_product.title | escape }}
+            </a>
+          </h3>
+
+          {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+            {%- liquid
+              assign rating_value = card_product.metafields.reviews.rating.value.rating | default: card_product.metafields.reviews.rating.value
+              assign rating_max = card_product.metafields.reviews.rating.value.scale_max | default: 5
+              assign rating_count = card_product.metafields.reviews.rating_count | default: 0
+            -%}
+            <div class="card-product-tabs__rating" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: rating_value, rating_max: rating_max }}">
+              <span class="card-product-tabs__stars" aria-hidden="true" style="--rating: {{ rating_value | floor }}; --rating-max: {{ rating_max }};"></span>
+              {%- if rating_count > 0 -%}
+                <span class="card-product-tabs__rating-count">({{ rating_count }})</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="card-product-tabs__price">
+          {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+        </div>
+
+        {%- if show_swatches and found_option and found_option.values.size > 0 -%}
+          <div class="card-product-tabs__swatches" role="list">
+            {%- assign swatch_max = swatch_limit | default: 6 -%}
+            {%- for value in found_option.values limit: swatch_max -%}
+              {%- liquid
+                assign swatch_background = ''
+                if value.swatch.image
+                  assign swatch_image_url = value.swatch.image | image_url: width: 50
+                  assign swatch_background = 'url(' | append: swatch_image_url | append: ')'
+                elsif value.swatch.color
+                  assign swatch_background = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+                else
+                  assign swatch_background = value | downcase
+                endif
+              -%}
+              <span
+                class="card-product-tabs__swatch"
+                role="listitem"
+                title="{{ value | escape }}"
+                style="background: {{ swatch_background }};"
+              ></span>
+            {%- endfor -%}
+            {%- if found_option.values.size > swatch_max -%}
+              <span class="card-product-tabs__swatch card-product-tabs__swatch--more" aria-hidden="true">+{{ found_option.values.size | minus: swatch_max }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+      <div class="card-product-tabs__media">
+        <div class="card-product-tabs__media-inner">
+          {{ placeholder_image | default: 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg card-product-tabs__image' }}
+        </div>
+      </div>
+      <div class="card-product-tabs__content">
+        <div class="card-product-tabs__header">
+          <h3 class="card-product-tabs__title">
+            <a role="link" aria-disabled="true" class="full-unstyled-link">
+              {{ 'onboarding.product_title' | t }}
+            </a>
+          </h3>
+        </div>
+        <div class="card-product-tabs__price">
+          {% render 'price', placeholder: true, show_compare_at_price: true %}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
