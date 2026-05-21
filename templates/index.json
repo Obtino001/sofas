@@ -253,12 +253,114 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "icon_category_list_nG3Ni8": {
+      "type": "icon-category-list",
+      "blocks": {
+        "category_eegFtJ": {
+          "type": "category",
+          "settings": {
+            "title": "2 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_4NYgWA": {
+          "type": "category",
+          "settings": {
+            "title": "3 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_iUnEnp": {
+          "type": "category",
+          "settings": {
+            "title": "4 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_ThtFMW": {
+          "type": "category",
+          "settings": {
+            "title": "Corner Sofas",
+            "link": ""
+          }
+        },
+        "category_kthBRn": {
+          "type": "category",
+          "settings": {
+            "title": "Swivel Chairs",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_eegFtJ",
+        "category_4NYgWA",
+        "category_iUnEnp",
+        "category_ThtFMW",
+        "category_kthBRn"
+      ],
+      "name": "Icon Category Grid",
+      "settings": {
+        "title": "Sofas for every <em>space</em>",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_hero_banner_EpqzyB": {
+      "type": "custom-hero-banner",
+      "blocks": {
+        "heading_By7mTe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort now, Pay later.",
+            "heading_size": "h1"
+          }
+        },
+        "text_YDc4BF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
+          }
+        },
+        "buttons_nyNjni": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore our products",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_label_2": "Learn more",
+            "button_link_2": "",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_By7mTe",
+        "text_YDc4BF",
+        "buttons_nyNjni"
+      ],
+      "name": "Custom Hero Banner",
+      "settings": {
+        "overlay_opacity": 30,
+        "color_scheme": "",
+        "desktop_height": 70,
+        "desktop_content_position": "flex-start",
+        "desktop_text_alignment": "left",
+        "mobile_height": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "custom_banner_XE8idV",
     "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
-    "instagram_gallery_kKrKtz"
+    "instagram_gallery_kKrKtz",
+    "icon_category_list_nG3Ni8",
+    "custom_hero_banner_EpqzyB"
   ]
 }
