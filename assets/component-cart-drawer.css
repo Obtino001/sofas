@@ -1239,7 +1239,7 @@ h3.drawer-line-card__title {
 /* Header Styling */
 .drawer__header {
   padding: 20px 24px !important;
-  border-bottom: 1px solid #EAEAEA !important;
+  border-bottom: none !important;
   background: #FFFFFF !important;
 }
 .drawer__heading {
@@ -1389,9 +1389,8 @@ cart-drawer-items {
 .complete-set__title {
   margin: 0 16px;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
   color: #777777;
   font-weight: 700;
 }

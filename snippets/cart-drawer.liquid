@@ -329,12 +329,12 @@
 
           {%- if cart != empty -%}
             {% comment %} Inline complete your set upsells {% endcomment %}
-            {%- assign upsell_products = settings.upsell__products -%}
-            {%- if upsell_products == blank or upsell_products.size == 0 -%}
-              {%- assign upsell_products = collections.all.products -%}
+            {%- assign upsell_products = cart.items.first.product.metafields.intent.complementary_products.value -%}
+            {%- if upsell_products == blank -%}
+              {%- assign upsell_products = settings.upsell__products -%}
             {%- endif -%}
 
-            {%- if upsell_products != blank and upsell_products.size > 0 -%}
+            {%- if upsell_products != blank -%}
               <div class="cart-drawer__complete-set">
                 <div class="complete-set__header">
                   <span class="complete-set__line"></span>
@@ -419,10 +419,10 @@
               <div class="trust-badge__item">
                 <div class="trust-badge__icon">
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 16h16v12H12V16z" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
-                    <path d="M10 20h4M26 20h4" stroke="#121212" stroke-width="1.5"/>
-                    <path d="M20 12c3 0 5 1.5 5 4s-1.5 4-5 4" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M17 12l3-3v6l-3-3z" fill="#121212"/>
+                    <path d="M10 20a10 10 0 1 1 2.93 7.07L10 30" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 25v5h5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 18l4-2 4 2v6l-4 2-4-2v-6z" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M16 18l4 2 4-2M20 20v6" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
                   </svg>
                 </div>
                 <div class="trust-badge__content">
@@ -471,14 +471,11 @@
             </div>
 
             <div class="cart-drawer__payment-badges">
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-4c5b36444855476a6b5791c1071ab852.svg" alt="Visa"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/mastercard-6b2a095116f1c42f0221376d2994bf55.svg" alt="Mastercard"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/klarna-72e2cf17c1a89c89e248b6b15a51a5c6.svg" alt="Klarna"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/applepay-553b6fa0f074d2b23a9d989f66453966.svg" alt="Apple Pay"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/maestro-06d2038e94a8be4403164993108c9096.svg" alt="Maestro"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/googlepay-1a1a6b0c279c17823f66f9175b9f9393.svg" alt="Google Pay"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/unionpay-43a49da2e9a26315264b971a9386d946.svg" alt="UnionPay"></div>
-              <div class="payment-badge-card"><img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/discover-4d2b2c15ea51c5b8b98f23c90994bf55.svg" alt="Discover"></div>
+              {%- for type in shop.enabled_payment_types -%}
+                <div class="payment-badge-card">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </div>
+              {%- endfor -%}
             </div>
 
             <script>
