@@ -1,0 +1,263 @@
+{%- style -%}
+  .announcement-timer-section {
+    display: block;
+    width: 100%;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .announcement-timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .announcement-timer {
+      justify-content: flex-end;
+      padding: 0.8rem 0;
+      gap: 2rem;
+    }
+  }
+
+  .announcement-timer__message {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .countdown-timer-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .countdown-timer__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.2rem;
+  }
+
+  .countdown-timer__digit {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    color: rgb(var(--color-foreground));
+    font-variant-numeric: tabular-nums;
+  }
+
+  .countdown-timer__colon {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    color: rgb(var(--color-foreground));
+    margin-top: -0.1rem;
+  }
+
+  .countdown-timer__label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin-top: 0.4rem;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  /* Hidden state for JS */
+  countdown-timer:not(:defined) {
+    visibility: hidden;
+  }
+  .countdown-timer--hidden {
+    display: none !important;
+  }
+{%- endstyle -%}
+
+<div class="announcement-timer-section color-{{ section.settings.color_scheme }} gradient" 
+     role="region" 
+     aria-label="{{ 'sections.header.announcement' | t }}" 
+     {{ section.shopify_attributes }}>
+  <div class="page-width">
+    <div class="announcement-timer">
+      
+      {%- if section.settings.text != blank -%}
+        <div class="announcement-timer__message">
+          {{ section.settings.text | escape }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.end_date != blank -%}
+        <countdown-timer data-datetime="{{ section.settings.end_date | escape }}" data-hide-on-expire="{{ section.settings.hide_on_expire }}">
+          <div class="countdown-timer-wrapper">
+            <div class="countdown-timer__block">
+              <span class="countdown-timer__digit" data-days>00</span>
+              <span class="countdown-timer__label">{{ section.settings.label_days | escape }}</span>
+            </div>
+            
+            <span class="countdown-timer__colon">:</span>
+            
+            <div class="countdown-timer__block">
+              <span class="countdown-timer__digit" data-hours>00</span>
+              <span class="countdown-timer__label">{{ section.settings.label_hours | escape }}</span>
+            </div>
+            
+            <span class="countdown-timer__colon">:</span>
+            
+            <div class="countdown-timer__block">
+              <span class="countdown-timer__digit" data-minutes>00</span>
+              <span class="countdown-timer__label">{{ section.settings.label_minutes | escape }}</span>
+            </div>
+            
+            <span class="countdown-timer__colon">:</span>
+            
+            <div class="countdown-timer__block">
+              <span class="countdown-timer__digit" data-seconds>00</span>
+              <span class="countdown-timer__label">{{ section.settings.label_seconds | escape }}</span>
+            </div>
+          </div>
+        </countdown-timer>
+      {%- endif -%}
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  if (!customElements.get('countdown-timer')) {
+    class CountdownTimer extends HTMLElement {
+      constructor() {
+        super();
+        this.endDateString = this.dataset.datetime;
+        this.hideOnExpire = this.dataset.hideOnExpire === 'true';
+        this.parsedDate = new Date(this.endDateString.replace(/-/g, "/")).getTime();
+        
+        this.daysEl = this.querySelector('[data-days]');
+        this.hoursEl = this.querySelector('[data-hours]');
+        this.minutesEl = this.querySelector('[data-minutes]');
+        this.secondsEl = this.querySelector('[data-seconds]');
+      }
+
+      connectedCallback() {
+        if (!this.parsedDate || isNaN(this.parsedDate)) {
+          console.error('Countdown Timer: Invalid date format. Please use YYYY/MM/DD HH:MM:SS');
+          return;
+        }
+        
+        this.updateTimer();
+        this.interval = setInterval(this.updateTimer.bind(this), 1000);
+      }
+
+      disconnectedCallback() {
+        if (this.interval) clearInterval(this.interval);
+      }
+
+      updateTimer() {
+        const now = new Date().getTime();
+        const distance = this.parsedDate - now;
+
+        if (distance < 0) {
+          clearInterval(this.interval);
+          this.setZero();
+          if (this.hideOnExpire) {
+            this.closest('.announcement-timer-section').classList.add('countdown-timer--hidden');
+          }
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        this.updateElements(days, hours, minutes, seconds);
+      }
+
+      updateElements(days, hours, minutes, seconds) {
+        if (this.daysEl) this.daysEl.textContent = String(days).padStart(2, '0');
+        if (this.hoursEl) this.hoursEl.textContent = String(hours).padStart(2, '0');
+        if (this.minutesEl) this.minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (this.secondsEl) this.secondsEl.textContent = String(seconds).padStart(2, '0');
+      }
+
+      setZero() {
+        this.updateElements(0, 0, 0, 0);
+      }
+    }
+    
+    customElements.define('countdown-timer', CountdownTimer);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Announcement Timer",
+  "class": "section-announcement-timer",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "default": "30% OFF Store Wide | Sale ends in:",
+      "label": "Announcement text"
+    },
+    {
+      "type": "header",
+      "content": "Timer Settings"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date and Time",
+      "info": "Format: YYYY/MM/DD HH:MM:SS (e.g. 2026/12/31 23:59:59). Timezone is based on the user's browser.",
+      "default": "2026/12/31 23:59:59"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_expire",
+      "label": "Hide entire bar when timer expires",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Translations"
+    },
+    {
+      "type": "text",
+      "id": "label_days",
+      "label": "Days label",
+      "default": "Days"
+    },
+    {
+      "type": "text",
+      "id": "label_hours",
+      "label": "Hours label",
+      "default": "Hours"
+    },
+    {
+      "type": "text",
+      "id": "label_minutes",
+      "label": "Minutes label",
+      "default": "Minutes"
+    },
+    {
+      "type": "text",
+      "id": "label_seconds",
+      "label": "Seconds label",
+      "default": "Seconds"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Timer"
+    }
+  ]
+}
+{% endschema %}
