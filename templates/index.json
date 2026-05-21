@@ -386,6 +386,134 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "faq_tabs_rxczBA": {
+      "type": "faq-tabs",
+      "blocks": {
+        "category_qpEmBY": {
+          "type": "category",
+          "settings": {
+            "title": "Sofa related questions",
+            "custom_svg": ""
+          }
+        },
+        "category_LmHxAQ": {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions",
+            "custom_svg": ""
+          }
+        },
+        "faq_YdrqCY": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How long does delivery take?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_ac4RCN": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Are your sofas made in the UK?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_NVJcEw": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What sizes are available?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_qpEmBY",
+        "category_LmHxAQ",
+        "faq_YdrqCY",
+        "faq_ac4RCN",
+        "faq_NVJcEw"
+      ],
+      "name": "FAQ Tabs",
+      "settings": {
+        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "heading_size": "h1",
+        "description": "Browse questions by categories",
+        "answers_label": "answers",
+        "color_scheme": "",
+        "accordion_color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "instagram_gallery_FqEdXg": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_ih6gke": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_8gK7BT": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_HgaEDW": {
+          "type": "image",
+          "settings": {
+            "row": "1"
+          }
+        },
+        "image_UMt6Nt": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        },
+        "image_nDafnr": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        },
+        "image_iPpA47": {
+          "type": "image",
+          "settings": {
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_ih6gke",
+        "image_8gK7BT",
+        "image_HgaEDW",
+        "image_UMt6Nt",
+        "image_nDafnr",
+        "image_iPpA47"
+      ],
+      "name": "Marquee Gallery",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "enable_edge_fade": true,
+        "pause_on_hover": true,
+        "border_radius": 16,
+        "speed_row_1": 40,
+        "direction_row_1": "right",
+        "speed_row_2": 50,
+        "direction_row_2": "right",
+        "image_height_desktop": 280,
+        "gap_desktop": 24,
+        "image_height_mobile": 180,
+        "gap_mobile": 12,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -396,6 +524,8 @@
     "instagram_gallery_kKrKtz",
     "icon_category_list_nG3Ni8",
     "custom_hero_banner_EpqzyB",
-    "instagram_gallery_zreTaW"
+    "instagram_gallery_zreTaW",
+    "faq_tabs_rxczBA",
+    "instagram_gallery_FqEdXg"
   ]
 }
