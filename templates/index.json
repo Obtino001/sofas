@@ -75,6 +75,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/security_3_Vectorized.svg",
             "title": "Fast 7–10 Day Delivery"
           }
         },
@@ -82,6 +83,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/Group_3_1.svg",
             "title": "Interest-Free Payments"
           }
         },
@@ -89,6 +91,7 @@
           "type": "badge",
           "settings": {
             "custom_svg": "",
+            "image": "shopify://shop_images/security_3_Vectorized.svg",
             "title": "Premium Quality at Fair Prices"
           }
         }
