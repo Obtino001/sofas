@@ -1224,15 +1224,7 @@ h3.drawer-line-card__title {
   }
   .drawer__upsell-container { display: none !important; }
 }
-
-/* ==========================================
-   CART DRAWER 1-1 DESIGN REDESIGN OVERRIDES
-   ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-
-/* Apply font and global colors to cart drawer inner */
 .drawer__inner {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
   background-color: #FFFFFF !important;
 }
 
@@ -1243,7 +1235,6 @@ h3.drawer-line-card__title {
   background: #FFFFFF !important;
 }
 .drawer__heading {
-  font-family: 'Playfair Display', serif !important;
   font-size: 24px !important;
   font-weight: 600 !important;
   color: #121212 !important;
