@@ -12,15 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "trust_card_D4xBC6": {
-          "type": "trust-card",
-          "settings": {
-            "review_text": "VIVORUM Cellular Renewal is one of the most thoughtfully formulated nightly supplements I've reviewed.",
-            "author": "Dr. A. Reynolds, MD",
-            "badge_text": "Recommended by doctors",
-            "text_color": "#000000"
-          }
-        },
         "product_reviews_XX9YT4": {
           "type": "product-reviews",
           "settings": {
@@ -186,10 +177,27 @@
             "drawer_mobile_spacing": 10,
             "drawer_desktop_spacing": 10
           }
+        },
+        "trust_card_D4xBC6": {
+          "type": "trust-card",
+          "settings": {
+            "bg_color": "rgba(0,0,0,0)",
+            "rating_1": 5,
+            "verified_1": true,
+            "review_text_1": "<p>The quality is unreal for this price point.</p>",
+            "author_1": "Caleb T.",
+            "rating_2": 5,
+            "verified_2": true,
+            "review_text_2": "",
+            "author_2": "",
+            "rating_3": 5,
+            "verified_3": true,
+            "review_text_3": "",
+            "author_3": ""
+          }
         }
       },
       "block_order": [
-        "trust_card_D4xBC6",
         "product_reviews_XX9YT4",
         "title",
         "price",
@@ -204,7 +212,8 @@
         "faq_blocks_CkKVjD",
         "faq_blocks_FN9CnF",
         "faq_blocks_k8EnCc",
-        "upsell_product_jgWVE7"
+        "upsell_product_jgWVE7",
+        "trust_card_D4xBC6"
       ],
       "settings": {
         "enable_sticky_info": true,
