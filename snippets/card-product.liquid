@@ -16,6 +16,11 @@
   - horizontal_class: {Boolean} Add a card--horizontal class if set to true. Default: false (optional)
   - horizontal_quick_add: {Boolean} Changes the quick add button styles when set to true. Default: false (optional)
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
+  - show_delivery: {Boolean} Show delivery info strip below image. Default: false (optional)
+  - delivery_text: {String} Delivery info text. Default: '' (optional)
+  - show_swatches: {Boolean} Show color swatches below price. Default: false (optional)
+  - swatch_option: {String} Name of the color option. Default: 'Color' (optional)
+  - swatch_limit: {Number} Max swatches to display. Default: 6 (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -39,6 +44,16 @@
     if ratio == 0 or ratio == null
       assign ratio = 1
     endif
+
+    assign cp_swatch_key = swatch_option | default: 'Color' | downcase
+    assign cp_found_option = null
+    for option in card_product.options_with_values
+      assign option_name_lower = option.name | downcase
+      if option_name_lower == cp_swatch_key
+        assign cp_found_option = option
+        break
+      endif
+    endfor
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
@@ -122,14 +137,6 @@
             </div>
           </a>
         {%- endif -%}
-        {% comment %} {%- if card_product.metafields.reviews.rating.value != blank -%}
-          <div class="card-overlay-review">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 10.6925L4.095 12.4425C3.96667 12.5242 3.8325 12.5592 3.6925 12.5475C3.5525 12.5359 3.43 12.4892 3.325 12.4075C3.22 12.3259 3.13833 12.2239 3.08 12.1016C3.02167 11.9794 3.01 11.8422 3.045 11.69L3.815 8.38254L1.2425 6.16004C1.12583 6.05504 1.05303 5.93534 1.0241 5.80094C0.995165 5.66654 1.0038 5.53541 1.05 5.40754C1.0962 5.27967 1.1662 5.17467 1.26 5.09254C1.3538 5.01041 1.48213 4.95791 1.645 4.93504L5.04 4.63754L6.3525 1.52254C6.41083 1.38254 6.50137 1.27754 6.6241 1.20754C6.74683 1.13754 6.87213 1.10254 7 1.10254C7.12787 1.10254 7.25317 1.13754 7.3759 1.20754C7.49863 1.27754 7.58917 1.38254 7.6475 1.52254L8.96 4.63754L12.355 4.93504C12.5183 4.95837 12.6467 5.01087 12.74 5.09254C12.8333 5.17421 12.9033 5.27921 12.95 5.40754C12.9967 5.53587 13.0055 5.66724 12.9766 5.80164C12.9477 5.93604 12.8746 6.05551 12.7575 6.16004L10.185 8.38254L10.955 11.69C10.99 11.8417 10.9783 11.9789 10.92 12.1016C10.8617 12.2244 10.78 12.3263 10.675 12.4075C10.57 12.4887 10.4475 12.5354 10.3075 12.5475C10.1675 12.5597 10.0333 12.5247 9.905 12.4425L7 10.6925Z" fill="#2B2B2B"/>
-            </svg>
-            {{ card_product.metafields.reviews.rating.value | default: "0.0" }}
-          </div>
-        {%- endif -%} {% endcomment %}
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
         {% if quick_add == 'standard' %}
           <div class="quick-add no-js-hidden">
@@ -453,7 +460,7 @@
 
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
 
-            {% comment %} {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+            {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
               {% liquid
                 assign rating_decimal = 0
                 assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
@@ -487,9 +494,37 @@
                   {{ 'accessibility.total_reviews' | t -}}
                 </span>
               </p>
-            {%- endif -%} {% endcomment %}
+            {%- endif -%}
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+
+            {%- if show_swatches and cp_found_option and cp_found_option.values.size > 0 -%}
+              <div class="card-product__swatches" role="list" style="display:inline-flex;align-items:center;gap:0.375rem;margin-top:0.25rem;">
+                {%- assign cp_swatch_max = swatch_limit | default: 6 -%}
+                {%- for value in cp_found_option.values limit: cp_swatch_max -%}
+                  {%- liquid
+                    assign sw_bg = ''
+                    if value.swatch.image
+                      assign sw_img_url = value.swatch.image | image_url: width: 50
+                      assign sw_bg = 'url(' | append: sw_img_url | append: ')'
+                    elsif value.swatch.color
+                      assign sw_bg = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+                    else
+                      assign sw_bg = value | downcase
+                    endif
+                  -%}
+                  <span
+                    class="card-product__swatch"
+                    role="listitem"
+                    title="{{ value | escape }}"
+                    style="display:inline-block;width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,0.12);background:{{ sw_bg }};background-size:cover;background-position:center;box-shadow:inset 0 0 0 2px #fff;font-size:0;"
+                  ></span>
+                {%- endfor -%}
+                {%- if cp_found_option.values.size > cp_swatch_max -%}
+                  <span class="card-product__swatch card-product__swatch--more" style="display:inline-flex;align-items:center;justify-content:center;width:auto;min-width:24px;height:16px;border-radius:8px;background:rgba(0,0,0,0.04);color:rgba(31,31,31,0.7);font-size:0.6875rem;font-weight:600;padding:0 0.375rem;" aria-hidden="true">+{{ cp_found_option.values.size | minus: cp_swatch_max }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
                 {% liquid
@@ -573,6 +608,16 @@
             {%- endif -%}
           </div>
         </div>
+
+        {%- if show_delivery and delivery_text != blank -%}
+          <div class="card__delivery" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.5rem;padding:0.5rem 0.75rem;background:rgba(0,0,0,0.03);border-radius:8px;font-size:0.75rem;color:rgba(31,31,31,0.78);line-height:1.2;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+              <path d="M20 8H17V4H3C1.9 4 1 4.9 1 6V17H3C3 18.66 4.34 20 6 20C7.66 20 9 18.66 9 17H15C15 18.66 16.34 20 18 20C19.66 20 21 18.66 21 17H23V12L20 8ZM6 18.5C5.17 18.5 4.5 17.83 4.5 17C4.5 16.17 5.17 15.5 6 15.5C6.83 15.5 7.5 16.17 7.5 17C7.5 17.83 6.83 18.5 6 18.5ZM19.5 9.5L21.46 12H17V9.5H19.5ZM18 18.5C17.17 18.5 16.5 17.83 16.5 17C16.5 16.17 17.17 15.5 18 15.5C18.83 15.5 19.5 16.17 19.5 17C19.5 17.83 18.83 18.5 18 18.5Z" fill="currentColor"/>
+            </svg>
+            <span>{{ delivery_text }}</span>
+          </div>
+        {%- endif -%}
+
         <div class="card__badge {{ settings.badge_position }}">
           {%- if card_product.available == false -%}
             <span
