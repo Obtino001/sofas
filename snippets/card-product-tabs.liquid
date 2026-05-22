@@ -130,7 +130,12 @@
         data-variant-id="{{ card_product.selected_or_first_available_variant.id }}"
         aria-label="{{ 'products.product.add_to_cart' | t }} - {{ card_product.title | escape }}"
       >
-        {{- 'icon-cart.svg' | inline_asset_content -}}
+       <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+<path d="M5.75004 12.417L13.0167 11.8112C15.2909 11.622 15.8009 11.1253 16.0525 8.85783L16.5834 4.08366M4.08337 4.08366H4.50004M17.4167 4.08366H15.3334M7.00004 4.08366H12.8334M9.91671 7.00033V1.16699" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M4.08329 17.4163C5.00377 17.4163 5.74996 16.6701 5.74996 15.7497C5.74996 14.8292 5.00377 14.083 4.08329 14.083C3.16282 14.083 2.41663 14.8292 2.41663 15.7497C2.41663 16.6701 3.16282 17.4163 4.08329 17.4163Z" stroke="white" stroke-width="1.5"/>
+<path d="M13.25 17.4163C14.1705 17.4163 14.9167 16.6701 14.9167 15.7497C14.9167 14.8292 14.1705 14.083 13.25 14.083C12.3296 14.083 11.5834 14.8292 11.5834 15.7497C11.5834 16.6701 12.3296 17.4163 13.25 17.4163Z" stroke="white" stroke-width="1.5"/>
+<path d="M5.75 15.75H11.5833M0.75 0.75H1.555C2.3425 0.75 3.02833 1.27083 3.21917 2.0125L5.7 11.6467C5.76155 11.8876 5.76727 12.1394 5.71672 12.3829C5.66618 12.6264 5.5607 12.8551 5.40833 13.0517L4.60917 14.0833" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
       </button>
 
       {%- if show_delivery and delivery_text != blank -%}
