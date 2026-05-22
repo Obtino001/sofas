@@ -378,8 +378,6 @@
 .card-product-tabs__cart-btn svg {
   width: 18px;
   height: 18px;
-  fill: currentColor;
-  stroke: currentColor;
 }
 
 .card-product-tabs__cart-btn.is-loading {
