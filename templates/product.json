@@ -357,7 +357,6 @@
         "feature_4pzRm4": {
           "type": "feature",
           "settings": {
-            "custom_svg": "",
             "title": "UK Manufactured",
             "text": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
           }
@@ -365,7 +364,6 @@
         "feature_BP67yQ": {
           "type": "feature",
           "settings": {
-            "custom_svg": "",
             "title": "Flexible Financing",
             "text": "Spread the cost with interest-free payment options, making it easier to bring home the sofa you love."
           }
@@ -373,7 +371,6 @@
         "feature_iKTYpq": {
           "type": "feature",
           "settings": {
-            "custom_svg": "",
             "title": "Handcrafted Quality",
             "text": "Carefully made by skilled artisans using durable materials designed for everyday comfort and long-term use."
           }
@@ -381,7 +378,6 @@
         "feature_M8eBxa": {
           "type": "feature",
           "settings": {
-            "custom_svg": "",
             "title": "Risk-Free Guarantee",
             "text": "14-day returns with no hassle, so you can shop knowing you're fully covered."
           }
@@ -401,6 +397,82 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "newsletter_HjppWX": {
+      "type": "newsletter",
+      "name": "Custom Newsletter Banner",
+      "settings": {
+        "bg_color": "#EFEBE5",
+        "heading": "Sign up & get an <em>additional</em> 10% off now!",
+        "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
+        "input_placeholder": "Email Address",
+        "button_text": "Get 10% off",
+        "button_color": "#c3a67d",
+        "privacy_text": "By subscribing you agree to our <a href=\"/policies/privacy-policy\">Privacy Policy</a>.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "faq_tabs_Wn3fr4": {
+      "type": "faq-tabs",
+      "blocks": {
+        "category_gh4pJx": {
+          "type": "category",
+          "settings": {
+            "title": "Sofa related questions",
+            "custom_svg": ""
+          }
+        },
+        "category_R8YEXp": {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions",
+            "custom_svg": ""
+          }
+        },
+        "faq_MQmrUc": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How long does delivery take?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_yDi3DW": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Are your sofas made in the UK?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_UG6t8Q": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What sizes are available?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_gh4pJx",
+        "category_R8YEXp",
+        "faq_MQmrUc",
+        "faq_yDi3DW",
+        "faq_UG6t8Q"
+      ],
+      "name": "FAQ Tabs",
+      "settings": {
+        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "heading_size": "h1",
+        "description": "Browse questions by categories",
+        "answers_label": "answers",
+        "color_scheme": "",
+        "accordion_color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -408,6 +480,8 @@
     "usps_marquee_4jJ9LL",
     "related-products",
     "testimonials_PBD8Un",
-    "why_choose_us_3xV4cR"
+    "why_choose_us_3xV4cR",
+    "newsletter_HjppWX",
+    "faq_tabs_Wn3fr4"
   ]
 }
