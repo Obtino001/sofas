@@ -1703,86 +1703,6 @@
           "label": "Show variant images in swatches",
           "info": "Replaces color swatches with the actual variant image."
         },
-        { "type": "header", "content": "Size Chart" },
-        {
-          "type": "checkbox",
-          "id":"size_guide_page",
-          "label": "Show"
-        },
-        {
-          "type": "text",
-          "id": "trigger_tag",
-          "label": "Product Tag Trigger",
-          "info": "Leave blank to show on all products"
-        },
-        { "type": "text", "id": "trigger_label", "label": "Button Text", "default": "Size Guide" },
-
-        { "type": "header", "content": "Colors (Match Image)" },
-        { "type": "color", "id": "color_primary", "label": "Dark Magenta", "default": "#8a2468" },
-        { "type": "color", "id": "color_secondary", "label": "Bright Pink", "default": "#fb499b" },
-        { "type": "color", "id": "color_tertiary", "label": "Light Pink", "default": "#fceced" },
-
-        { "type": "header", "content": "Header Content" },
-        { "type": "text", "id": "title", "label": "Modal Title", "default": "Size Guide" },
-        { "type": "image_picker", "id": "avatar_image", "label": "Center Avatar Image" },
-
-        { "type": "header", "content": "Table Data: XS" },
-        { "type": "checkbox", "id": "show_xs", "label": "Show XS Row", "default": true },
-        { "type": "text", "id": "val_xs_int", "label": "Int. Sizes", "default": "34 - 36" },
-        { "type": "text", "id": "val_xs_cm", "label": "cm", "default": "88 - 93" },
-
-        { "type": "header", "content": "Table Data: S" },
-        { "type": "checkbox", "id": "show_s", "label": "Show S Row", "default": true },
-        { "type": "text", "id": "val_s_int", "label": "Int. Sizes", "default": "38" },
-        { "type": "text", "id": "val_s_cm", "label": "cm", "default": "94 - 99" },
-
-        { "type": "header", "content": "Table Data: M" },
-        { "type": "checkbox", "id": "show_m", "label": "Show M Row", "default": true },
-        { "type": "text", "id": "val_m_int", "label": "Int. Sizes", "default": "40 - 42" },
-        { "type": "text", "id": "val_m_cm", "label": "cm", "default": "100 - 105" },
-
-        { "type": "header", "content": "Table Data: L" },
-        { "type": "checkbox", "id": "show_l", "label": "Show L Row", "default": true },
-        { "type": "text", "id": "val_l_int", "label": "Int. Sizes", "default": "44" },
-        { "type": "text", "id": "val_l_cm", "label": "cm", "default": "106 - 111" },
-
-        { "type": "header", "content": "Table Data: XL" },
-        { "type": "checkbox", "id": "show_xl", "label": "Show XL Row", "default": true },
-        { "type": "text", "id": "val_xl_int", "label": "Int. Sizes", "default": "46" },
-        { "type": "text", "id": "val_xl_cm", "label": "cm", "default": "112 - 117" },
-
-        { "type": "header", "content": "Table Data: XXL" },
-        { "type": "checkbox", "id": "show_xxl", "label": "Show XXL Row", "default": true },
-        { "type": "text", "id": "val_xxl_int", "label": "Int. Sizes", "default": "48 - 50" },
-        { "type": "text", "id": "val_xxl_cm", "label": "cm", "default": "118 - 123" },
-
-        { "type": "header", "content": "Footer Section" },
-        { "type": "text", "id": "box_title", "label": "Instructions Title", "default": "How to measure?" },
-        {
-          "type": "textarea",
-          "id": "bullet_1",
-          "label": "Bullet Point 1",
-          "default": "Stand naturally and measure around your hips at the widest point, where your body is fullest."
-        },
-        {
-          "type": "textarea",
-          "id": "bullet_2",
-          "label": "Bullet Point 2",
-          "default": "Keep the measuring tape snug but not tight, and make sure it's level all the way around."
-        },
-        {
-          "type": "textarea",
-          "id": "bullet_3",
-          "label": "Bullet Point 3",
-          "default": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure."
-        },
-        {
-          "type": "textarea",
-          "id": "note_text",
-          "label": "Note Text",
-          "default": "If you come between the two sizes, choose the small one."
-        },
-        { "type": "image_picker", "id": "illustration_image", "label": "Measurement Illustration Image" }
       ]
     },
     {
@@ -2068,87 +1988,6 @@
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
         }
-      ]
-    },
-    {
-      "type": "size-chart",
-      "name": "Design Size Guide",
-      "settings": [
-        { "type": "header", "content": "Trigger Settings" },
-        {
-          "type": "text",
-          "id": "trigger_tag",
-          "label": "Product Tag Trigger",
-          "info": "Leave blank to show on all products"
-        },
-        { "type": "text", "id": "trigger_label", "label": "Button Text", "default": "Size Guide" },
-
-        { "type": "header", "content": "Colors (Match Image)" },
-        { "type": "color", "id": "color_primary", "label": "Dark Magenta", "default": "#8a2468" },
-        { "type": "color", "id": "color_secondary", "label": "Bright Pink", "default": "#fb499b" },
-        { "type": "color", "id": "color_tertiary", "label": "Light Pink", "default": "#fceced" },
-
-        { "type": "header", "content": "Header Content" },
-        { "type": "text", "id": "title", "label": "Modal Title", "default": "Size Guide" },
-        { "type": "image_picker", "id": "avatar_image", "label": "Center Avatar Image" },
-
-        { "type": "header", "content": "Table Data: XS" },
-        { "type": "checkbox", "id": "show_xs", "label": "Show XS Row", "default": true },
-        { "type": "text", "id": "val_xs_int", "label": "Int. Sizes", "default": "34 - 36" },
-        { "type": "text", "id": "val_xs_cm", "label": "cm", "default": "88 - 93" },
-
-        { "type": "header", "content": "Table Data: S" },
-        { "type": "checkbox", "id": "show_s", "label": "Show S Row", "default": true },
-        { "type": "text", "id": "val_s_int", "label": "Int. Sizes", "default": "38" },
-        { "type": "text", "id": "val_s_cm", "label": "cm", "default": "94 - 99" },
-
-        { "type": "header", "content": "Table Data: M" },
-        { "type": "checkbox", "id": "show_m", "label": "Show M Row", "default": true },
-        { "type": "text", "id": "val_m_int", "label": "Int. Sizes", "default": "40 - 42" },
-        { "type": "text", "id": "val_m_cm", "label": "cm", "default": "100 - 105" },
-
-        { "type": "header", "content": "Table Data: L" },
-        { "type": "checkbox", "id": "show_l", "label": "Show L Row", "default": true },
-        { "type": "text", "id": "val_l_int", "label": "Int. Sizes", "default": "44" },
-        { "type": "text", "id": "val_l_cm", "label": "cm", "default": "106 - 111" },
-
-        { "type": "header", "content": "Table Data: XL" },
-        { "type": "checkbox", "id": "show_xl", "label": "Show XL Row", "default": true },
-        { "type": "text", "id": "val_xl_int", "label": "Int. Sizes", "default": "46" },
-        { "type": "text", "id": "val_xl_cm", "label": "cm", "default": "112 - 117" },
-
-        { "type": "header", "content": "Table Data: XXL" },
-        { "type": "checkbox", "id": "show_xxl", "label": "Show XXL Row", "default": true },
-        { "type": "text", "id": "val_xxl_int", "label": "Int. Sizes", "default": "48 - 50" },
-        { "type": "text", "id": "val_xxl_cm", "label": "cm", "default": "118 - 123" },
-
-        { "type": "header", "content": "Footer Section" },
-        { "type": "text", "id": "box_title", "label": "Instructions Title", "default": "How to measure?" },
-        {
-          "type": "textarea",
-          "id": "bullet_1",
-          "label": "Bullet Point 1",
-          "default": "Stand naturally and measure around your hips at the widest point, where your body is fullest."
-        },
-        {
-          "type": "textarea",
-          "id": "bullet_2",
-          "label": "Bullet Point 2",
-          "default": "Keep the measuring tape snug but not tight, and make sure it's level all the way around."
-        },
-        {
-          "type": "textarea",
-          "id": "bullet_3",
-          "label": "Bullet Point 3",
-          "default": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure."
-        },
-        {
-          "type": "textarea",
-          "id": "note_text",
-          "label": "Note Text",
-          "default": "If you come between the two sizes, choose the small one."
-        },
-        { "type": "image_picker", "id": "illustration_image", "label": "Measurement Illustration Image" }
       ]
     },
     {
@@ -3271,26 +3110,6 @@
       "default": false,
       "label": "Fancybox: Show all images",
       "info": "Show all product images in lightbox even if filtered."
-    },
-    {
-      "type": "header",
-      "content": "Button Settings"
-    },
-    {
-      "type": "text",
-      "id": "trigger_label",
-      "label": "Trigger Button Label",
-      "default": "Size Guide"
-    },
-    {
-      "type": "header",
-      "content": "Default Unit"
-    },
-    {
-      "type": "checkbox",
-      "id": "default_metric",
-      "label": "Default to Metric (CM)",
-      "default": true
     },
     {
       "type": "header",
