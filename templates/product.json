@@ -83,37 +83,7 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle",
-            "show_variant_images_in_swatches": true,
-            "size_guide_page": false,
-            "trigger_tag": "størrelse",
-            "trigger_label": "Size Guide",
-            "color_primary": "#8a2468",
-            "color_secondary": "#fb499b",
-            "color_tertiary": "#fceced",
-            "title": "Size Guide",
-            "show_xs": true,
-            "val_xs_int": "34 - 36",
-            "val_xs_cm": "88 - 93",
-            "show_s": true,
-            "val_s_int": "38",
-            "val_s_cm": "94 - 99",
-            "show_m": true,
-            "val_m_int": "40 - 42",
-            "val_m_cm": "100 - 105",
-            "show_l": true,
-            "val_l_int": "44",
-            "val_l_cm": "106 - 111",
-            "show_xl": true,
-            "val_xl_int": "46",
-            "val_xl_cm": "112 - 117",
-            "show_xxl": true,
-            "val_xxl_int": "48 - 50",
-            "val_xxl_cm": "118 - 123",
-            "box_title": "How to measure?",
-            "bullet_1": "Stand naturally and measure around your hips at the widest point, where your body is fullest.",
-            "bullet_2": "Keep the measuring tape snug but not tight, and make sure it's level all the way around.",
-            "bullet_3": "For best accuracy, measure directly on your body or over thin clothing, and measure twice to be sure.",
-            "note_text": "If you come between the two sizes, choose the small one."
+            "show_variant_images_in_swatches": true
           }
         },
         "buy_buttons": {
@@ -121,6 +91,14 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
+          }
+        },
+        "payments_fYcAA7": {
+          "type": "Payments",
+          "settings": {
+            "pay_with_text": "Pay with",
+            "installments_text": "In installments with",
+            "margin_bottom": 20
           }
         },
         "delivery_payment_mB6BTN": {
@@ -222,6 +200,7 @@
         "multi_icon_xn8fhg",
         "variant_picker",
         "buy_buttons",
+        "payments_fYcAA7",
         "delivery_payment_mB6BTN",
         "faq_blocks_NkWNgc",
         "faq_blocks_CkKVjD",
@@ -248,8 +227,6 @@
         "enable_group_by_color": true,
         "color_option_name": "Color",
         "fancybox_show_all": true,
-        "trigger_label": "Size Guide",
-        "default_metric": true,
         "padding_top": 36,
         "padding_bottom": 12
       }
@@ -271,10 +248,56 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "usps_marquee_4jJ9LL": {
+      "type": "usps-marquee",
+      "blocks": {
+        "marquee_item_U6VakY": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Made in UK"
+          }
+        },
+        "marquee_item_YGNpBy": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Delivered in 7-10 Days"
+          }
+        },
+        "marquee_item_JUrN3t": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "text": "Premium Quality at Fair Prices"
+          }
+        }
+      },
+      "block_order": [
+        "marquee_item_U6VakY",
+        "marquee_item_YGNpBy",
+        "marquee_item_JUrN3t"
+      ],
+      "name": "Scrolling Marquee",
+      "settings": {
+        "bg_color": "#f5f4ef",
+        "text_color": "#1a1a1a",
+        "border_color": "transparent",
+        "speed": 20,
+        "pause_on_hover": false,
+        "font_size": 14,
+        "font_size_mobile": 12,
+        "icon_size": 24,
+        "item_spacing": 40,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "usps_marquee_4jJ9LL"
   ]
 }
