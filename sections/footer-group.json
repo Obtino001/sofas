@@ -49,6 +49,7 @@
         "brand_info_1": {
           "type": "brand_info",
           "settings": {
+            "brand_image": "shopify://shop_images/Group_27.svg",
             "logo_width": 180,
             "text": "<p>At Sofas'n'Beds, excellence isn't just a promise; it's our ethos. We meticulously source the finest materials to craft furniture that exceeds expectations.</p><p>Our commitment to quality is matched only by our dedication to exceptional service. Experience the difference with us today.</p>",
             "show_social": true
@@ -87,6 +88,7 @@
         "link_list_3"
       ],
       "settings": {
+        "margin_top": 0,
         "padding_top": 0,
         "padding_bottom": 0
       }
