@@ -76,8 +76,8 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
-        {% comment %} {% render 'product-media-gallery-swiper', variant_images: variant_images %} {% endcomment %}
+        {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
+        {% render 'product-media-gallery-swiper', variant_images: variant_images %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -3108,6 +3108,29 @@
       "id": "show_thumbs_arrows",
       "default": false,
       "label": "Show Thumbnail Arrows"
+    },
+    {
+      "type": "header",
+      "content": "Thumbnail Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "thumbs_layout_desktop",
+      "label": "Desktop Thumbnails Layout",
+      "options": [
+        { "value": "slider", "label": "Slider (Horizontal)" },
+        { "value": "grid", "label": "Grid (2x2)" }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "range",
+      "id": "thumbs_per_view_mobile",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "label": "Thumbnails per view (Mobile)",
+      "default": 4
     },
     {
       "type": "header",
