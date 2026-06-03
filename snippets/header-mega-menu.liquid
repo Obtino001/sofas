@@ -188,41 +188,104 @@
                         {%- if matched_link == menu_link and block.type != 'bottom' -%}
                           <div class="desktopMenu-linkList-container" style="width: {{ block.settings.column_size }};">
                           {% case block.type %}
-                          {% when 'megamenu' %}
-                            {% if block.settings.widget == 'menu' %}
-                                <div class="desktopMenu-linkList">
-                                  <div class="desktopMenu-title">{{ block.settings.menu_link_list_child.title }}</div>
-                                  {%- for childlink in block.settings.menu_link_list_child.links -%}
-                                      <a
-                                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                                        href="{{ childlink.url }}"
-                                        class="mega-menu__link link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                                        {% if childlink.current %}
-                                          aria-current="page"
-                                        {% endif %}
-                                      >
-                                        {{ childlink.title | escape }}
-                                      </a>
-                                  {%- endfor -%}
-                                </div>
-                              {% else %}
-                                <div class="desktopMenu-banner">
-                                  <img src="{{ block.settings.image | img_url: '600x' }}" width="100%" height="100%"/>
-                                  <div class="desktopBanner-title">
-                                    <a href="{{ block.settings.banner_link }}">{{ block.settings.banner_title }}</a>
-                                  </div>
-                                  <span class="desktopBanner_button">
-                                    <div class="link-animate">
-                                      <span>{{ block.settings.banner_button }}</span>
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="21.776" height="11.387" viewBox="0 0 21.776 11.387">
-                                        <g id="login-122_11dec90d-e3bd-4526-8cf2-574f67aae53b" transform="translate(-9.25 -22.941)">
-                                          <path id="layer2" d="M25.062,24l5.214,4.635-5.214,4.635M10,28.635H30.276" transform="translate(0 0)" fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                        </g>
-                                      </svg>
-                                    </div>
-                                  </span>
-                                </div>
-                              {% endif %}
+                        {% when 'megamenu' %}
+  {% if block.settings.widget == 'menu' %}
+    <div class="cx-menu-block">
+      {% if block.settings.menu_heading != blank %}
+        <div class="cx-menu-heading">
+          {{ block.settings.menu_heading }}
+        </div>
+      {% endif %}
+      <!-- Native Dawn classes kept here ONLY to maintain standard dropdown functionality -->
+      <ul class="menu-drawer__menu list-menu" role="list">
+        {%- for childlink in block.settings.menu_link_list_child.links -%}
+          <li>
+            <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
+              {{ childlink.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+  {% elsif block.settings.widget == 'image' %}
+    <div class="cx-img-banner">
+      {% if block.settings.image != blank %}
+        <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.banner_title }}" loading="lazy">
+      {% endif %}
+      <div class="cx-img-content">
+        {% if block.settings.banner_title != blank %}
+          <a href="{{ block.settings.banner_link }}" class="cx-img-title">
+            {{- block.settings.banner_title -}}
+          </a>
+        {% endif %}
+        {% if block.settings.banner_button != blank %}
+          <a href="{{ block.settings.banner_link }}" class="cx-img-btn">
+            {{- block.settings.banner_button -}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+  {% elsif block.settings.widget == 'image_grid_promo' %}
+    <div class="cx-promo-wrapper">
+      
+      <!-- Left Side: Image Grid -->
+      <div class="cx-promo-grid">
+        {%- for childlink in block.settings.menu_link_list_child.links limit: 6 -%}
+          <a href="{{ childlink.url }}" class="cx-promo-item">
+            <div class="cx-promo-img-wrap">
+              {%- if childlink.type == 'collection_link' and childlink.object.image != blank -%}
+                <img src="{{ childlink.object.image | image_url: width: 300 }}" alt="{{ childlink.title }}" loading="lazy">
+              {%- elsif childlink.type == 'product_link' and childlink.object.featured_image != blank -%}
+                <img src="{{ childlink.object.featured_image | image_url: width: 300 }}" alt="{{ childlink.title }}" loading="lazy">
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            <span class="cx-promo-title">{{ childlink.title }}</span>
+          </a>
+        {%- endfor -%}
+      </div>
+
+      <!-- Right Side: Promotional Banner with Timer -->
+      <div class="cx-promo-banner">
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 800 }}" class="cx-promo-bg" alt="{{ block.settings.banner_title }}" loading="lazy">
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg cx-promo-bg' }}
+        {% endif %}
+        
+        <div class="cx-promo-overlay"></div>
+        
+        <div class="cx-promo-content-box">
+          {% if block.settings.banner_title != blank %}
+            <h3 class="cx-promo-heading">{{ block.settings.banner_title }}</h3>
+          {% endif %}
+
+          {% if block.settings.timer_date != blank %}
+            <div class="cx-promo-timer-wrap">
+              <span class="cx-promo-timer-label">{{ block.settings.timer_label }}</span>
+              <div class="cx-promo-timer-display" data-end-time="{{ block.settings.timer_date }}">
+                <div class="cx-promo-timer-block"><span class="cx-time-hh">00</span>H</div> 
+                <span class="cx-promo-timer-colon">:</span>
+                <div class="cx-promo-timer-block"><span class="cx-time-mm">00</span>M</div> 
+                <span class="cx-promo-timer-colon">:</span>
+                <div class="cx-promo-timer-block"><span class="cx-time-ss">00</span>S</div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if block.settings.banner_button != blank %}
+            <a href="{{ block.settings.banner_link }}" class="cx-promo-btn">
+              {{ block.settings.banner_button }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  {% endif %}
                               {% when 'collections' %}
                                 <div class="desktopMenu-linkList">
                                   <div class="desktopMenu-title">{{ block.settings.heading }}</div>
