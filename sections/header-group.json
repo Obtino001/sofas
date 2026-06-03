@@ -35,10 +35,13 @@
             "title": "sofas",
             "widget": "menu",
             "menu_heading": "",
-            "menu_link_list_child": "",
-            "banner_title": "",
-            "banner_button": "",
-            "banner_link": ""
+            "menu_link_list_child": "main-menu",
+            "image": "shopify://shop_images/b4c4eeac9aecb49cd53bb774e8933ff0d9eda51f.png",
+            "banner_title": "10% off on corner  sofas",
+            "banner_button": "Explore corner sofas",
+            "banner_link": "",
+            "timer_label": "Sale ends in:",
+            "timer_date": ""
           }
         }
       },
