@@ -1,0 +1,317 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Typography & Layout */
+  .why-choose-container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .why-choose-heading {
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 0 0 40px 0;
+    color: currentColor;
+    font-weight: 400;
+  }
+
+  /* Applies the elegant serif styling to italicized words like "choose" */
+  .why-choose-heading em, 
+  .why-choose-heading i {
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .why-choose-main-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 50px;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Feature Items */
+  .why-choose-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    height: auto;
+  }
+
+  .why-choose-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 15px;
+    color: currentColor;
+  }
+
+  .why-choose-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .why-choose-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.3px;
+    color: currentColor;
+  }
+
+  .why-choose-text {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  /* Swiper Customizations */
+  .why-choose-swiper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Custom Line Pagination for Mobile */
+  .why-choose-pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative !important;
+    bottom: 0 !important;
+  }
+
+  .why-choose-pagination .swiper-pagination-bullet {
+    width: 35px;
+    height: 3px;
+    border-radius: 0;
+    background: currentColor;
+    opacity: 0.2;
+    margin: 0 !important;
+    transition: opacity 0.3s ease;
+  }
+
+  .why-choose-pagination .swiper-pagination-bullet-active {
+    opacity: 0.8;
+  }
+
+  /* Hide pagination on desktop since it shows all 4 items */
+  @media (min-width: 750px) {
+    .why-choose-pagination {
+      display: none !important;
+    }
+  }
+{%- endstyle -%}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="why-choose-container">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="why-choose-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.main_image != blank -%}
+      {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'why-choose-main-image', loading: 'lazy' }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'why-choose-main-image placeholder-svg' }}
+    {%- endif -%}
+
+    <div class="swiper why-choose-swiper" id="Swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide why-choose-item" {{ block.shopify_attributes }}>
+            
+            <div class="why-choose-icon">
+              {%- if block.settings.custom_svg != blank -%}
+                {{ block.settings.custom_svg }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              {%- endif -%}
+            </div>
+            
+            {%- if block.settings.title != blank -%}
+              <h3 class="why-choose-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            
+            {%- if block.settings.text != blank -%}
+              <p class="why-choose-text">{{ block.settings.text }}</p>
+            {%- endif -%}
+
+          </div>
+        {%- endfor -%}
+      </div>
+      
+      <div class="swiper-pagination why-choose-pagination"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const initWhyChooseSwiper = () => {
+      new Swiper('#Swiper-{{ section.id }}', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '#Swiper-{{ section.id }} .why-choose-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          750: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            allowTouchMove: false, // Prevents dragging on desktop
+          }
+        }
+      });
+    };
+
+    // Initialize Swiper if it's already loaded, otherwise wait for it
+    if (typeof Swiper !== 'undefined') {
+      initWhyChooseSwiper();
+    } else {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle.min.js"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initWhyChooseSwiper);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why <em>choose</em> Sofas'n'Beds",
+      "info": "Use italic text (Ctrl+I) to apply the elegant serif font style."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Sofa Image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Icon",
+          "info": "Paste raw SVG code here for the crispest icons."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "UK Manufactured"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Subtext",
+          "default": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "UK Manufactured",
+            "text": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Flexible Financing",
+            "text": "Spread the cost with interest-free payment options, making it easier to bring home the sofa you love."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Handcrafted Quality",
+            "text": "Carefully made by skilled artisans using durable materials designed for everyday comfort and long-term use."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Risk-Free Guarantee",
+            "text": "14-day returns with no hassle, so you can shop knowing you're fully covered."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
