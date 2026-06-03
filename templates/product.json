@@ -83,7 +83,7 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle",
-            "show_variant_images_in_swatches": false,
+            "show_variant_images_in_swatches": true,
             "size_guide_page": false,
             "trigger_tag": "størrelse",
             "trigger_label": "Size Guide",
