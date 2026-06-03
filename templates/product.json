@@ -45,7 +45,7 @@
           "type": "pills",
           "settings": {
             "title": "Why you will love it:",
-            "text_color": "#c8a97e",
+            "text_color": "#1f1f1f",
             "icon_color": "#111111",
             "custom_svg": "",
             "benefit_1": "Waterproof",
