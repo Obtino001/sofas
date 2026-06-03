@@ -14,7 +14,7 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "trust_badge_Ld8yBy": {
+        "trust_badge_1": {
           "type": "trust_badge",
           "settings": {
             "custom_svg": "",
@@ -22,74 +22,72 @@
             "text": "Quality craftsmanship you can trust"
           }
         },
-        "trust_badge_DWKqUr": {
+        "trust_badge_2": {
           "type": "trust_badge",
           "settings": {
             "custom_svg": "",
-            "title": "Made in the UK",
-            "text": "Quality craftsmanship you can trust"
+            "title": "Fast 7-10 Day Delivery",
+            "text": "No long waits-delivered across the UK"
           }
         },
-        "trust_badge_QNrJxQ": {
+        "trust_badge_3": {
           "type": "trust_badge",
           "settings": {
             "custom_svg": "",
-            "title": "Made in the UK",
-            "text": "Quality craftsmanship you can trust"
+            "title": "Interest-Free Payments",
+            "text": "Flexible options to suit your budget"
           }
         },
-        "trust_badge_YaCqiJ": {
+        "trust_badge_4": {
           "type": "trust_badge",
           "settings": {
             "custom_svg": "",
-            "title": "Made in the UK",
-            "text": "Quality craftsmanship you can trust"
+            "title": "14-Day Risk-Free Returns",
+            "text": "Shop with confidence, no questions asked"
           }
         },
-        "brand_info_K74Vke": {
+        "brand_info_1": {
           "type": "brand_info",
           "settings": {
             "logo_width": 180,
-            "text": "<p>At Sofas'n'Beds, excellence isn't just a promise; it's our ethos...</p>",
+            "text": "<p>At Sofas'n'Beds, excellence isn't just a promise; it's our ethos. We meticulously source the finest materials to craft furniture that exceeds expectations.</p><p>Our commitment to quality is matched only by our dedication to exceptional service. Experience the difference with us today.</p>",
             "show_social": true
           }
         },
-        "link_list_kVn87T": {
+        "link_list_1": {
           "type": "link_list",
           "settings": {
-            "heading": "Customer Service",
+            "heading": "CUSTOMER SERVICE",
             "menu": "customer-service"
           }
         },
-        "link_list_cqkHT6": {
+        "link_list_2": {
           "type": "link_list",
           "settings": {
-            "heading": "shop",
+            "heading": "SHOP",
             "menu": "shop-menu"
           }
         },
-        "link_list_KJrftH": {
+        "link_list_3": {
           "type": "link_list",
           "settings": {
-            "heading": "information",
+            "heading": "INFORMATION",
             "menu": "footer"
           }
         }
       },
       "block_order": [
-        "trust_badge_Ld8yBy",
-        "trust_badge_DWKqUr",
-        "trust_badge_QNrJxQ",
-        "trust_badge_YaCqiJ",
-        "brand_info_K74Vke",
-        "link_list_kVn87T",
-        "link_list_cqkHT6",
-        "link_list_KJrftH"
+        "trust_badge_1",
+        "trust_badge_2",
+        "trust_badge_3",
+        "trust_badge_4",
+        "brand_info_1",
+        "link_list_1",
+        "link_list_2",
+        "link_list_3"
       ],
       "settings": {
-        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "payment_enable": false,
-        "padding_top": 44,
+        "padding_top": 0,
         "padding_bottom": 0
       }
     }
