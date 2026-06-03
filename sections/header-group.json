@@ -31,8 +31,8 @@
         "megamenu_hHENWU": {
           "type": "megamenu",
           "settings": {
-            "column_size": "25%",
-            "title": "",
+            "column_size": "75%",
+            "title": "sofas",
             "widget": "menu",
             "menu_heading": "",
             "menu_link_list_child": "",
