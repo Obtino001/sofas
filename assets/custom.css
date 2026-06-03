@@ -268,3 +268,141 @@ body {
   font-size: 1.3rem;
   font-weight: 500;
 }
+
+/* Layout Wrapper */
+.cx-promo-wrapper {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Left Grid Styles */
+.cx-promo-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cx-promo-item {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+.cx-promo-item:hover .cx-promo-img-wrap img {
+  transform: scale(1.03);
+}
+
+.cx-promo-img-wrap {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: rgba(var(--color-foreground), 0.04);
+}
+
+.cx-promo-img-wrap img, 
+.cx-promo-img-wrap svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cx-promo-title {
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  text-align: center;
+}
+
+/* Right Banner Styles */
+.cx-promo-banner {
+  width: 42%;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+}
+
+.cx-promo-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.cx-promo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 2;
+}
+
+.cx-promo-content-box {
+  position: relative;
+  z-index: 3;
+  padding: 40px;
+  color: #FFFFFF;
+}
+
+.cx-promo-heading {
+  font-family: serif;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+  color: #FFFFFF;
+  max-width: 280px;
+}
+
+.cx-promo-timer-wrap {
+  margin-bottom: 25px;
+}
+
+.cx-promo-timer-label {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.cx-promo-timer-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cx-promo-timer-block, .cx-promo-timer-colon {
+  display: flex;
+  align-items: baseline;
+}
+
+.cx-promo-btn {
+  display: inline-block;
+  background-color: #D3A77C;
+  color: #FFFFFF;
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: background-color 0.2s ease;
+}
+
+.cx-promo-btn:hover {
+  background-color: #b8916a;
+}
