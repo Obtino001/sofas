@@ -255,7 +255,7 @@
         "show_thumbs_arrows": true,
         "enable_group_by_color": true,
         "color_option_name": "Color",
-        "fancybox_show_all": false,
+        "fancybox_show_all": true,
         "trigger_label": "Size Guide",
         "default_metric": true,
         "padding_top": 36,
