@@ -465,3 +465,35 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const timers = document.querySelectorAll('.cx-promo-timer-display');
+  
+  timers.forEach(timer => {
+    const endString = timer.getAttribute('data-end-time');
+    if (!endString) return;
+    
+    const endTime = new Date(endString).getTime();
+    if (isNaN(endTime)) return;
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endTime - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        timer.innerHTML = "Sale Ended";
+        return;
+      }
+
+      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timer.querySelector('.cx-time-hh').innerText = hours.toString().padStart(2, '0');
+      timer.querySelector('.cx-time-mm').innerText = minutes.toString().padStart(2, '0');
+      timer.querySelector('.cx-time-ss').innerText = seconds.toString().padStart(2, '0');
+    }, 1000);
+  });
+});
