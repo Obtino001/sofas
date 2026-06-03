@@ -205,6 +205,66 @@
         "padding_bottom": 36
       }
     },
+    "testimonials_FqAwzT": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_767mcf": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_KtBW7D": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_jhwEbi": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        },
+        "testimonial_9yqi4A": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anna H.",
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_767mcf",
+        "testimonial_KtBW7D",
+        "testimonial_jhwEbi",
+        "testimonial_9yqi4A"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "color_scheme": "",
+        "card_color_scheme": "",
+        "seen_in_text": "As seen in",
+        "heading": "What our customers say",
+        "subheading": "<p>Rated 4.8 out of 5 Stars (466 Reviews) on</p>",
+        "btn_text": "View All",
+        "btn_link": "",
+        "speed": 30,
+        "direction": "normal",
+        "pause_on_hover": true,
+        "card_width_desktop": 350,
+        "card_width_mobile": 280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "bento_categories_aFbwVW": {
       "type": "bento-categories",
       "blocks": {
@@ -678,6 +738,7 @@
     "custom_banner_XE8idV",
     "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
+    "testimonials_FqAwzT",
     "bento_categories_aFbwVW",
     "instagram_gallery_kKrKtz",
     "icon_category_list_nG3Ni8",
