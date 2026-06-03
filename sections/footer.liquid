@@ -38,28 +38,36 @@
       padding: 60px 0;
     }
   }
+  
   .trust-badge-card {
-    background: #f7f6f2;
+    background: {{ section.settings.card_bg_color | default: '#f7f6f2' }};
+    color: {{ section.settings.card_text_color | default: '#000000' }};
     border-radius: 8px;
     padding: 30px 20px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
   }
-  .trust-badge-card svg {
+  
+  .trust-badge-card svg,
+  .trust-badge-card img {
     width: 32px;
     height: 32px;
     margin-bottom: 15px;
+    object-fit: contain;
   }
+  
   .trust-badge-card h3 {
     font-size: 16px;
     font-weight: 600;
     margin: 0 0 8px 0;
-    color: #000;
+    color: {{ section.settings.card_text_color | default: '#000000' }};
   }
+  
   .trust-badge-card p {
     font-size: 13px;
     margin: 0;
-    color: #555;
+    color: {{ section.settings.card_text_color | default: '#000000' }};
+    opacity: 0.8;
     line-height: 1.4;
   }
 
@@ -145,8 +153,8 @@
     {%- for block in section.blocks -%}
       {%- if block.type == 'trust_badge' -%}
         <div class="trust-badge-card" {{ block.shopify_attributes }}>
-          {%- if block.settings.custom_svg != blank -%}
-            {{ block.settings.custom_svg }}
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
           {%- else -%}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           {%- endif -%}
@@ -241,6 +249,26 @@
   "name": "t:sections.footer.name",
   "settings": [
     {
+      "type": "header",
+      "content": "Trust Badge Cards"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#f7f6f2"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
       "type": "range",
       "id": "margin_top",
       "min": 0,
@@ -278,9 +306,9 @@
       "limit": 4,
       "settings": [
         {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "SVG Icon Code"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image"
         },
         {
           "type": "text",
