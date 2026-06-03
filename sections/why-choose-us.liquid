@@ -62,7 +62,8 @@
     color: currentColor;
   }
 
-  .why-choose-icon svg {
+  .why-choose-icon svg,
+  .why-choose-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -145,8 +146,8 @@
           <div class="swiper-slide why-choose-item" {{ block.shopify_attributes }}>
             
             <div class="why-choose-icon">
-              {%- if block.settings.custom_svg != blank -%}
-                {{ block.settings.custom_svg }}
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
               {%- else -%}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               {%- endif -%}
@@ -258,10 +259,9 @@
       "limit": 4,
       "settings": [
         {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "Custom SVG Icon",
-          "info": "Paste raw SVG code here for the crispest icons."
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image"
         },
         {
           "type": "text",
