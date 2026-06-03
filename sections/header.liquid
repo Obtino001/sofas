@@ -1065,86 +1065,104 @@
     {
       "type": "@app"
     },
+ {
+  "type": "megamenu",
+  "name": "Megamenu",
+  "settings": [
     {
-      "type": "megamenu",
-      "name": "Megamenu",
-      "settings": [
+      "type": "select",
+      "id": "column_size",
+      "label": "Column size",
+      "options": [
         {
-          "type": "select",
-          "id": "column_size",
-          "label": "Column size",
-          "options": [
-            {
-              "value": "25%",
-              "label": "25%"
-            },
-            {
-              "value": "50%",
-              "label": "50%"
-            },
-            {
-              "value": "75%",
-              "label": "75%"
-            }
-          ],
-          "default": "25%"
+          "value": "25%",
+          "label": "25%"
         },
         {
-          "type": "text",
-          "id": "title",
-          "label": "Menu Trigger Name",
-          "info": "Must match the main menu link title exactly."
+          "value": "50%",
+          "label": "50%"
         },
         {
-          "type": "radio",
-          "id": "widget",
-          "label": "Widget Type",
-          "options": [
-            { "value": "menu", "label": "Menu List" },
-            { "value": "image", "label": "Image Banner" }
-          ],
-          "default": "menu"
-        },
-        {
-          "type": "text",
-          "id": "menu_heading",
-          "label": "Heading (For Menu Type)"
-        },
-        {
-          "type": "header",
-          "content": "Menu Settings"
-        },
-        {
-          "type": "link_list",
-          "id": "menu_link_list_child",
-          "label": "Select Menu"
-        },
-        {
-          "type": "header",
-          "content": "Banner Settings"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Banner image"
-        },
-        {
-          "type": "text",
-          "id": "banner_title",
-          "label": "Banner Title"
-        },
-        {
-          "type": "text",
-          "id": "banner_button",
-          "label": "Banner Button Label"
-        },
-        {
-          "type": "url",
-          "id": "banner_link",
-          "label": "Banner URL"
+          "value": "75%",
+          "label": "75%"
         }
-      ]
+      ],
+      "default": "25%"
     },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Menu Trigger Name",
+      "info": "Must match the main menu link title exactly."
+    },
+    {
+      "type": "radio",
+      "id": "widget",
+      "label": "Widget Type",
+      "options": [
+        { "value": "menu", "label": "Menu List" },
+        { "value": "image", "label": "Image Banner" },
+        { "value": "image_grid_promo", "label": "Image Grid with Promo Banner" }
+      ],
+      "default": "menu"
+    },
+    {
+      "type": "header",
+      "content": "Menu Settings"
+    },
+    {
+      "type": "text",
+      "id": "menu_heading",
+      "label": "Heading (For Menu Type)"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_link_list_child",
+      "label": "Select Menu",
+      "info": "This menu drives the links for both the 'Menu List' and the 'Image Grid' left-side items."
+    },
+    {
+      "type": "header",
+      "content": "Banner Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner Title"
+    },
+    {
+      "type": "text",
+      "id": "banner_button",
+      "label": "Banner Button Label"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner URL"
+    },
+    {
+      "type": "header",
+      "content": "Timer Settings (For Image Grid Promo)"
+    },
+    {
+      "type": "text",
+      "id": "timer_label",
+      "label": "Timer Subheading",
+      "default": "Sale ends in:"
+    },
+    {
+      "type": "text",
+      "id": "timer_date",
+      "label": "Timer End Date",
+      "info": "Format: YYYY-MM-DDTHH:MM:SS (e.g. 2026-12-31T23:59:59)"
+    }
+  ]
+},
     {
       "type": "collections",
       "name": "Featured collections",
