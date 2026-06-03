@@ -1,5 +1,4 @@
-{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -213,8 +212,6 @@
 
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     new Swiper('.ts-swiper-{{ section.id }}', {
@@ -244,7 +241,7 @@
 
 {% schema %}
 {
-  "name": "Testimonial Slider",
+  "name": "Testimonial",
   "settings": [
     {
       "type": "color_scheme",
