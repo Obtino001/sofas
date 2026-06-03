@@ -118,7 +118,7 @@
     {%- if block.settings.review_icon != blank -%}
       <div class="product__review-icons" style="display: flex; align-items: center; gap: 2px;">
         {%- for i in (1..5) -%}
-          {{ block.settings.review_icon | image_url: width: 150 | image_tag: class: 'product__review-icon', loading: 'lazy' }}
+          {{ block.settings.review_icon | image_url: width: 10 | image_tag: class: 'product__review-icon', loading: 'lazy' }}
         {%- endfor -%}
       </div>
     {%- endif -%}
