@@ -406,3 +406,8 @@ body {
 .cx-promo-btn:hover {
   background-color: #b8916a;
 }
+.product__review-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
