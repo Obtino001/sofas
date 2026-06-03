@@ -1,0 +1,290 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .cn-wrapper {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  /* Left Column: Text */
+  .cn-text-column {
+    flex: 1 1 400px;
+    max-width: 550px;
+  }
+
+  .cn-heading {
+    font-size: clamp(28px, 4vw, 36px);
+    color: #333333;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  .cn-heading em, 
+  .cn-heading i {
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .cn-subtext {
+    font-size: 14px;
+    color: #4a4a4a;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Right Column: Form */
+  .cn-form-column {
+    flex: 1 1 500px;
+    max-width: 600px;
+  }
+
+  .cn-form-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .cn-input {
+    flex: 1;
+    height: 50px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .cn-input::placeholder {
+    color: #888;
+  }
+
+  .cn-input:focus {
+    border-color: #c3a67d;
+  }
+
+  .cn-button {
+    height: 50px;
+    background-color: {{ section.settings.button_color }};
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 0 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .cn-button:hover {
+    opacity: 0.9;
+  }
+
+  .cn-privacy-text {
+    font-size: 11px;
+    color: #666666;
+    margin: 12px 0 0 20px;
+    display: block;
+  }
+
+  .cn-privacy-text a {
+    color: #666666;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Success/Error Messages */
+  .cn-message {
+    margin-top: 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cn-message--success { color: #2E8B57; }
+  .cn-message--error { color: #D8000C; }
+  .cn-message svg { width: 14px; height: 14px; }
+
+  /* Mobile Adjustments */
+  @media screen and (max-width: 749px) {
+    .cn-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+    }
+    .cn-form-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .cn-button {
+      width: 100%;
+    }
+    .cn-privacy-text {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="cn-wrapper">
+    
+    <div class="cn-text-column">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="cn-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="cn-subtext">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="cn-form-column">
+      {% form 'customer', class: 'cn-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        <div class="cn-form-group">
+          <input
+            id="NewsletterForm-{{ section.id }}"
+            type="email"
+            name="contact[email]"
+            class="cn-input"
+            value="{{ form.email }}"
+            aria-required="true"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            placeholder="{{ section.settings.input_placeholder }}"
+            required
+          >
+          <button type="submit" class="cn-button" name="commit" id="Subscribe-{{ section.id }}">
+            {{ section.settings.button_text }}
+          </button>
+        </div>
+
+        {%- if section.settings.privacy_text != blank -%}
+          <span class="cn-privacy-text">{{ section.settings.privacy_text }}</span>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <div class="cn-message cn-message--error" id="Newsletter-error--{{ section.id }}">
+            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1-5a1 1 0 112 0 1 1 0 01-2 0zM6.5 3h1v5h-1V3z" fill="currentColor"/></svg>
+            {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+          </div>
+        {%- endif -%}
+        
+        {%- if form.posted_successfully? -%}
+          <div class="cn-message cn-message--success" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>
+            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1.85-4.65l-2.5-2.5 1.4-1.4 1.1 1.1 3.4-3.4 1.4 1.4-4.8 4.8z" fill="currentColor"/></svg>
+            Thanks for subscribing!
+          </div>
+        {%- endif -%}
+
+      {% endform %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Newsletter Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#EFEBE5"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sign up & get an <em>additional</em> 10% off now!",
+      "info": "Use italic formatting (Ctrl+I) to apply the serif styling."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Be the first to hear about new arrivals, exclusive offers, and home inspiration."
+    },
+    {
+      "type": "text",
+      "id": "input_placeholder",
+      "label": "Input Placeholder",
+      "default": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get 10% off"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#c3a67d"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "privacy_text",
+      "label": "Privacy Policy Text",
+      "default": "By subscribing you agree to our <a href='/policies/privacy-policy'>Privacy Policy</a>."
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Newsletter Banner"
+    }
+  ]
+}
+{% endschema %}
