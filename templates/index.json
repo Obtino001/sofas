@@ -125,21 +125,32 @@
           "type": "collection",
           "settings": {
             "tab_title": "",
-            "collection": "2-seater"
+            "tab_image": "shopify://shop_images/Vector_3.svg",
+            "collection": "3-seater"
           }
         },
         "collection_mtDqWx": {
           "type": "collection",
           "settings": {
             "tab_title": "",
-            "collection": "2-seater"
+            "tab_image": "shopify://shop_images/Vector_1.png",
+            "collection": "4-seater"
           }
         },
         "collection_T97FFP": {
           "type": "collection",
           "settings": {
             "tab_title": "",
-            "collection": "2-seater"
+            "tab_image": "shopify://shop_images/Vector_4.svg",
+            "collection": "corner-sofa"
+          }
+        },
+        "collection_7YXR9m": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_6.svg",
+            "collection": "arm-chairs"
           }
         }
       },
@@ -147,7 +158,8 @@
         "collection_Y4nHjT",
         "collection_WjLqmy",
         "collection_mtDqWx",
-        "collection_T97FFP"
+        "collection_T97FFP",
+        "collection_7YXR9m"
       ],
       "name": "Collection Tabs",
       "settings": {
