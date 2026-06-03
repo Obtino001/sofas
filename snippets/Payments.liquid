@@ -1,12 +1,107 @@
-<div class="WI_paymentIcons" bis_skin_checked="1" style="
-    margin-top: 10px;
-">
-  <ul class="payment-icons">
-    {% assign active_payments = 'visa,master,klarna,vipps' | split: ',' %}
-        {% for type in active_payments %}
-          {{ type | payment_type_svg_tag: class: 'dp-payment-icon' }}
-        {% endfor %}
-  </ul>
+<div class="payment-options-block-{{ block.id }}" {{ block.shopify_attributes }}>
+  <div class="po-left">
+    <span class="po-title">{{ block.settings.pay_with_text | default: 'Pay with' }}</span>
+    <div class="po-icons">
+      {% assign pay_methods = 'visa,master,apple_pay,maestro,diners_club,google_pay,discover' | split: ',' %}
+      {% for type in pay_methods %}
+        {{ type | payment_type_svg_tag: class: 'po-icon' }}
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div class="po-divider">
+    <span class="po-or">OR</span>
+  </div>
+  
+  <div class="po-right">
+    <span class="po-title">{{ block.settings.installments_text | default: 'In installments with' }}</span>
+    <div class="po-icons">
+      {{ 'klarna' | payment_type_svg_tag: class: 'po-icon klarna-icon' }}
+    </div>
+  </div>
 </div>
 
-{% comment %} Styles moved to sereluna.css {% endcomment %}
+{%- style -%}
+  .payment-options-block-{{ block.id }} {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: {{ block.settings.margin_bottom | default: 20 }}px;
+    background: #ffffff;
+    font-family: inherit;
+    max-width: 100%;
+  }
+  
+  .po-left {
+    flex: 1.5;
+    padding-right: 20px;
+  }
+  
+  .po-right {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .po-title {
+    display: block;
+    font-size: 13px;
+    color: #333333;
+    margin-bottom: 12px;
+  }
+  
+  .po-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .po-icon {
+    height: 28px;
+    width: auto;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background: #ffffff;
+  }
+
+  .klarna-icon {
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .po-divider {
+    position: relative;
+    width: 1px;
+    background-color: #e3e3e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .po-or {
+    position: absolute;
+    background: #ffffff;
+    padding: 4px 6px;
+    font-size: 12px;
+    color: #666666;
+  }
+
+  /* Mobile responsiveness */
+  @media screen and (max-width: 480px) {
+    .payment-options-block-{{ block.id }} {
+      flex-direction: column;
+      gap: 20px;
+      padding: 16px 12px;
+    }
+    .po-left, .po-right {
+      padding: 0;
+      flex: none;
+    }
+    .po-divider {
+      width: 100%;
+      height: 1px;
+    }
+  }
+{%- endstyle -%}
