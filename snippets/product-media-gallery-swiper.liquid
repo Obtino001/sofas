@@ -51,25 +51,33 @@
   }
 
   /* Custom Arrows */
-  .swiper-button-next, .swiper-button-prev { 
-    color: #000; 
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: #f2efe9 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    transition: background 0.2s ease !important;
     display: flex !important;
-    width: 40px !important;
-    height: 40px !important;
-    background: #f1ede9;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s ease;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: -22px !important;
+  }
+  .swiper-gallery-thumbs .swiper-button-next,
+  .swiper-gallery-thumbs .swiper-button-prev {
+    width: 32px !important;
+    height: 32px !important;
+    margin-top: -16px !important;
   }
   .swiper-button-next:hover, .swiper-button-prev:hover {
-    background: #e4dfda;
+    background-color: #e4dfda !important;
   }
   .swiper-button-next svg, .swiper-button-prev svg {
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
   }
   .swiper-button-prev:after, .swiper-button-next:after {
-    content: 'none';
+    content: none !important;
   }
   
   /* Custom Line Pagination */
