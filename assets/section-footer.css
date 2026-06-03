@@ -147,10 +147,11 @@
 }
 
 @media screen and (min-width: 750px) {
-  .footer-block--newsletter {
+.footer-block--newsletter {
     flex-wrap: nowrap;
-    justify-content: center;
-  }
+    justify-content: start;
+    flex-direction: column;
+}
 }
 
 
