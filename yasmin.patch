@@ -1,0 +1,588 @@
+﻿diff --git a/assets/app.js b/assets/app.js
+index 3c4834e..e44530f 100644
+--- a/assets/app.js
++++ b/assets/app.js
+@@ -132,8 +132,8 @@ if (!customElements.get('slider-container')) {
+ 
+             this._progressFill = this.querySelector('.slider-template-progress-fill');
+             this._paginationEl = this.querySelector('.slider-template-pagination');
+-            this._prevBtn = document.querySelector(`#collection-${this.dataset.blockId} .js-slider-template-prev`);
+-            this._nextBtn = document.querySelector(`#collection-${this.dataset.blockId} .js-slider-template-next`);
++            this._prevBtn = this.querySelector('.js-slider-template-prev') || document.querySelector(`#collection-${this.dataset.blockId} .js-slider-template-prev`);
++            this._nextBtn = this.querySelector('.js-slider-template-next') || document.querySelector(`#collection-${this.dataset.blockId} .js-slider-template-next`);
+ 
+             this._mql = window.matchMedia('(max-width: 749px)');
+             this._mql.addEventListener('change', this._onMediaChange);
+diff --git a/assets/component-card-collection.css b/assets/component-card-collection.css
+index 48b725f..7c36c64 100644
+--- a/assets/component-card-collection.css
++++ b/assets/component-card-collection.css
+@@ -215,3 +215,164 @@
+   }
+ }
+ 
++/* ==========================================================================
++   Redesigned Product Card Styles (Collection Tabs / Home Grid)
++   ========================================================================== */
++
++.collection-card__media {
++  background: #f6f4ee !important;
++  border-radius: 1.6rem !important;
++}
++
++.collection-card__discount {
++  position: absolute;
++  top: 1.2rem;
++  right: 1.2rem;
++  z-index: 2;
++  padding: 0.5rem 1rem;
++  background: #222222;
++  color: #ffffff;
++  border-radius: 2rem;
++  font-size: 1.1rem;
++  font-weight: 700;
++  letter-spacing: 0.05rem;
++  text-transform: uppercase;
++}
++
++.collection-card__quick-add {
++  background: #bd9e7b !important;
++  color: #ffffff !important;
++  width: 4rem !important;
++  height: 4rem !important;
++  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
++}
++
++.collection-card__quick-add:hover {
++  background: #ab8b68 !important;
++  transform: scale(1.08) !important;
++}
++
++.collection-card__quick-add svg {
++  width: 2rem !important;
++  height: 2rem !important;
++}
++
++.collection-card__delivery-banner {
++  display: flex;
++  align-items: center;
++  gap: 0.8rem;
++  background: #f4f4f4;
++  border-radius: 0.8rem;
++  padding: 0.8rem 1.2rem;
++  margin-top: 1.2rem;
++  width: 100%;
++  box-sizing: border-box;
++}
++
++.collection-card__delivery-banner .icon-truck {
++  color: #555555;
++  flex-shrink: 0;
++}
++
++.collection-card__delivery-banner .delivery-text {
++  font-size: 1.2rem;
++  color: #121212;
++  font-weight: 500;
++  letter-spacing: 0px;
++}
++
++.collection-card__header-row {
++  display: flex;
++  justify-content: space-between;
++  align-items: flex-start;
++  gap: 1.2rem;
++  margin-top: 1rem;
++}
++
++.collection-card__header-row .collection-card__title-link {
++  flex-grow: 1;
++}
++
++.collection-card__title {
++  font-size: 1.5rem !important;
++  font-weight: 700 !important;
++  color: #121212 !important;
++  line-height: 1.3 !important;
++}
++
++.collection-card__rating {
++  display: inline-flex;
++  align-items: center;
++  gap: 0.4rem;
++  flex-shrink: 0;
++  margin: 0;
++}
++
++.collection-card__rating .rating-star {
++  --color-rating-star: #0f766e !important;
++  --font-size: 1.3 !important;
++  --letter-spacing: 0.2 !important;
++}
++
++.collection-card__rating .rating-count {
++  font-size: 1.2rem;
++  color: #555555;
++  font-weight: 600;
++}
++
++.collection-card__price {
++  margin-top: 0.6rem !important;
++}
++
++.collection-card__price .price {
++  font-size: 1.5rem !important;
++}
++
++.collection-card__price .price-item--regular {
++  font-weight: 700 !important;
++}
++
++.collection-card__price .price--on-sale .price-item--sale {
++  color: #b83b3b !important;
++  font-weight: 800 !important;
++  font-size: 1.6rem !important;
++  margin-right: 0.8rem !important;
++}
++
++.collection-card__price .price--on-sale .price-item--regular {
++  color: #888888 !important;
++  text-decoration: line-through !important;
++  font-size: 1.3rem !important;
++}
++
++.collection-card__swatches {
++  display: flex;
++  gap: 0.8rem;
++  margin-top: 0.8rem;
++  flex-wrap: wrap;
++}
++
++.collection-card__swatch {
++  width: 2rem;
++  height: 2rem;
++  border-radius: 50%;
++  border: 1px solid #e0e0e0;
++  background-size: cover;
++  background-position: center;
++  background-image: var(--swatch-background);
++  cursor: pointer;
++  transition: border-color 0.2s ease, transform 0.2s ease, outline 0.2s ease;
++  position: relative;
++}
++
++.collection-card__swatch:hover {
++  transform: scale(1.1);
++}
++
++.collection-card__swatch.active {
++  border-color: #ffffff !important;
++  outline: 1.5px solid #121212 !important;
++  outline-offset: 1.5px !important;
++}
++
++
+diff --git a/sections/featured-collection.liquid b/sections/featured-collection.liquid
+index f55fcf0..5785da8 100644
+--- a/sections/featured-collection.liquid
++++ b/sections/featured-collection.liquid
+@@ -102,6 +102,80 @@
+   }
+   .menu-tab.active { background: #4A3B8C; color: #fff; border-color: #4A3B8C; }
+ 
++  /* --- BOTTOM NAVIGATION & VIEWall SPECS --- */
++  .slider-template-bottom-row {
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    gap: 1.6rem;
++    margin-top: 3.2rem;
++    margin-bottom: 2rem;
++    width: 100%;
++  }
++
++  .slider-template-view-all {
++    border: 1.5px solid #121212;
++    border-radius: 9999px;
++    padding: 1rem 2.8rem;
++    font-family: inherit;
++    font-size: 1.4rem;
++    font-weight: 600;
++    color: #121212;
++    text-decoration: none;
++    text-transform: capitalize;
++    display: inline-flex;
++    align-items: center;
++    justify-content: center;
++    background: transparent;
++    transition: all 0.3s ease;
++    cursor: pointer;
++  }
++
++  .slider-template-view-all:hover {
++    background: #121212;
++    color: #ffffff;
++  }
++
++  .slider-template-bottom-row .slider-template-controls-nav {
++    display: flex;
++    align-items: center;
++    gap: 1.2rem;
++  }
++
++  .slider-template-bottom-row .slider-template-arrow {
++    background: #eae5dd !important;
++    color: #121212 !important;
++    border-radius: 50% !important;
++    width: 4.4rem !important;
++    height: 4.4rem !important;
++    display: inline-flex !important;
++    align-items: center !important;
++    justify-content: center !important;
++    border: none !important;
++    cursor: pointer !important;
++    transition: all 0.3s ease !important;
++    opacity: 1 !important;
++    position: static !important;
++    box-shadow: none !important;
++    margin: 0 !important;
++  }
++
++  .slider-template-bottom-row .slider-template-arrow:hover {
++    background: #dcd7cf !important;
++    transform: scale(1.05);
++  }
++
++  .slider-template-bottom-row .slider-template-arrow.swiper-button-disabled {
++    opacity: 0.4 !important;
++    cursor: not-allowed !important;
++  }
++
++  .slider-template-bottom-row .slider-template-arrow svg {
++    width: 1.8rem !important;
++    height: 1.8rem !important;
++    stroke: currentColor !important;
++  }
++
+ {%- endstyle -%}
+ 
+ {%- liquid
+@@ -145,28 +219,6 @@
+           </h2>
+         {%- endif -%}
+ 
+-        <div class="view-all__icons" style="display: flex; align-items: center; gap: 15px;">
+-      {%- if section.settings.show_view_all -%}
+-  <a href="{{ section.settings.button_link }}" class="menu-view-all {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+-    {{ section.settings.button_label }} 
+-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+-      <path d="M2.91541 6.99707H11.0786" stroke="#534AB7" stroke-width="1.16618" stroke-linecap="round" stroke-linejoin="round"/>
+-      <path d="M6.99707 2.91504L11.0787 6.99665L6.99707 11.0783" stroke="#534AB7" stroke-width="1.16618" stroke-linecap="round" stroke-linejoin="round"/>
+-    </svg>
+-  </a>
+-{%- endif -%}
+-
+-          {%- if section.settings.controls_position == 'bottom' or section.settings.controls_position == 'middle' -%}
+-            <div class="slider-template-controls-nav">
+-              <button type="button" class="slider-template-arrow js-slider-template-prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
+-                {% render 'svg-icons', svg-icons: 'ma-caret-left' %}
+-              </button>
+-              <button type="button" class="slider-template-arrow js-slider-template-next" aria-label="{{ 'general.slider.next_slide' | t }}">
+-                {% render 'svg-icons', svg-icons: 'ma-caret-right' %}
+-              </button>
+-            </div>
+-          {%- endif -%}
+-        </div>
+       </div>
+ 
+       <!-- DYNAMIC TABS GENERATED FROM BLOCKS -->
+@@ -282,6 +334,28 @@
+                   </div>
+                 </div>
+ 
++                <div class="slider-template-bottom-row">
++                  {%- assign view_all_url = block.settings.collection.url | default: section.settings.button_link -%}
++                  {%- if section.settings.show_view_all and view_all_url != blank -%}
++                    <a href="{{ view_all_url }}" class="slider-template-view-all">
++                      {{ section.settings.button_label | default: 'View All' }}
++                    </a>
++                  {%- endif -%}
++
++                  <div class="slider-template-controls-nav">
++                    <button type="button" class="slider-template-arrow js-slider-template-prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
++                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++                        <polyline points="15 18 9 12 15 6"></polyline>
++                      </svg>
++                    </button>
++                    <button type="button" class="slider-template-arrow js-slider-template-next" aria-label="{{ 'general.slider.next_slide' | t }}">
++                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++                        <polyline points="9 18 15 12 9 6"></polyline>
++                      </svg>
++                    </button>
++                  </div>
++                </div>
++
+                 <div
+                   class="
+                     slider-template-controls
+@@ -376,6 +450,7 @@
+             if (swiperContainer && swiperContainer.swiper) {
+               swiperContainer.swiper.update();
+             }
++            document.dispatchEvent(new CustomEvent('tab-changed'));
+           } else {
+             content.style.display = 'none';
+           }
+diff --git a/snippets/card-collection-product.liquid b/snippets/card-collection-product.liquid
+index 0feed78..8fa5137 100644
+--- a/snippets/card-collection-product.liquid
++++ b/snippets/card-collection-product.liquid
+@@ -113,7 +113,9 @@
+       {%- if card_product.available == false -%}
+         <span class="collection-card__sold-out">{{ 'products.product.sold_out' | t }}</span>
+       {%- elsif card_product.compare_at_price > card_product.price -%}
+-        <span class="collection-card__sale">{{ 'products.product.on_sale' | t }}</span>
++        {%- assign discount_amount = card_product.compare_at_price | minus: card_product.price -%}
++        {%- assign discount_percentage = discount_amount | times: 100.0 | divided_by: card_product.compare_at_price | round -%}
++        <span class="collection-card__discount">{{ discount_percentage }}% OFF</span>
+       {%- endif -%}
+     </div>
+   </a>
+@@ -128,7 +130,15 @@
+           aria-label="{{ 'products.product.choose_options' | t }} - {{ card_product.title | escape }}"
+           data-product-url="{{ card_product.url }}"
+         >
+-          <span class="svg-wrapper">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
++          <span class="svg-wrapper">
++            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++              <circle cx="9" cy="21" r="1" fill="currentColor"></circle>
++              <circle cx="20" cy="21" r="1" fill="currentColor"></circle>
++              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
++              <line x1="12" y1="9" x2="12" y2="15"></line>
++              <line x1="9" y1="12" x2="15" y2="12"></line>
++            </svg>
++          </span>
+           {%- render 'loading-spinner' -%}
+         </button>
+       </modal-opener>
+@@ -167,7 +177,15 @@
+             aria-live="polite"
+             data-sold-out-message="true"
+           >
+-            <span class="svg-wrapper">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
++            <span class="svg-wrapper">
++              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++                <circle cx="9" cy="21" r="1" fill="currentColor"></circle>
++                <circle cx="20" cy="21" r="1" fill="currentColor"></circle>
++                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
++                <line x1="12" y1="9" x2="12" y2="15"></line>
++                <line x1="9" y1="12" x2="15" y2="12"></line>
++              </svg>
++            </span>
+             {%- render 'loading-spinner' -%}
+           </button>
+         {%- endform -%}
+@@ -175,50 +193,167 @@
+     {%- endif -%}
+   {%- endif -%}
+ 
+-  <div class="collection-card__content">
+-    {% comment %} {%- if card_product.tags.size > 0 -%}
+-      <div class="collection-card__tags">
+-        {%- assign tag_count = 0 -%}
+-        {%- for tag in card_product.tags -%}
+-          {%- unless tag contains '_' or tag contains 'meta-' -%}
+-            {%- if tag_count < 2 -%}
+-              <span class="collection-card__tag collection-card__tag--{% cycle 'a', 'b' %}">{{ tag }}</span>
+-              {%- assign tag_count = tag_count | plus: 1 -%}
+-            {%- endif -%}
+-          {%- endunless -%}
+-        {%- endfor -%}
+-      </div>
+-    {%- endif -%} {% endcomment %}
++  <!-- Delivery Information Banner -->
++  <div class="collection-card__delivery-banner js-delivery-date" data-min-days="2" data-max-days="3">
++    <svg class="icon-truck" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
++      <rect x="1" y="3" width="15" height="13"></rect>
++      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
++      <circle cx="5.5" cy="18.5" r="2.5"></circle>
++      <circle cx="18.5" cy="18.5" r="2.5"></circle>
++    </svg>
++    <span class="delivery-text">Order now & get it by...</span>
++  </div>
+ 
++  <div class="collection-card__content">
+     {%- if show_vendor and card_product.vendor != blank -%}
+       <p class="collection-card__vendor caption-with-letter-spacing light">{{ card_product.vendor }}</p>
+     {%- endif -%}
+ 
+-    <a href="{{ card_product.url }}" class="collection-card__title-link" id="title-{{ section_id }}-{{ card_product.id }}">
+-      <h3 class="collection-card__title">{{ card_product.title | escape }}</h3>
+-    </a>
+-
+-    {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+-      {% liquid
+-        assign rating_decimal = 0
+-        assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
+-        if decimal >= 0.3 and decimal <= 0.7
+-          assign rating_decimal = 0.5
+-        elsif decimal > 0.7
+-          assign rating_decimal = 1
+-        endif
+-      %}
+-      <div
+-        class="collection-card__rating rating"
+-        role="img"
+-        aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}"
+-      >
+-        <span aria-hidden="true" class="rating-star" style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
+-      </div>
+-    {%- endif -%}
++    <div class="collection-card__header-row">
++      <a href="{{ card_product.url }}" class="collection-card__title-link" id="title-{{ section_id }}-{{ card_product.id }}">
++        <h3 class="collection-card__title">{{ card_product.title | escape }}</h3>
++      </a>
++
++      {%- if show_rating -%}
++        {% liquid
++          assign rating_decimal = 0
++          if card_product.metafields.reviews.rating.value != blank
++            assign rating_val = card_product.metafields.reviews.rating.value.rating
++            assign rating_max = card_product.metafields.reviews.rating.value.scale_max
++            assign decimal = rating_val | modulo: 1
++            if decimal >= 0.3 and decimal <= 0.7
++              assign rating_decimal = 0.5
++            elsif decimal > 0.7
++              assign rating_decimal = 1
++            endif
++          else
++            assign rating_val = 5
++            assign rating_max = 5
++            assign rating_decimal = 0
++          endif
++          assign rating_count = card_product.metafields.reviews.rating_count | default: 18
++        %}
++        <div
++          class="collection-card__rating rating"
++          role="img"
++          aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: rating_val, rating_max: rating_max }}"
++        >
++          <span aria-hidden="true" class="rating-star" style="--rating: {{ rating_val | floor }}; --rating-max: {{ rating_max }}; --rating-decimal: {{ rating_decimal }};"></span>
++          <span class="rating-count">({{ rating_count }})</span>
++        </div>
++      {%- endif -%}
++    </div>
+ 
+     <div class="collection-card__price">
+       {%- render 'price', product: card_product, price_class: '', show_compare_at_price: true -%}
+     </div>
++
++    {%- for option in card_product.options_with_values -%}
++      {%- assign option_name_downcase = option.name | downcase -%}
++      {%- if option_name_downcase == 'color' or option_name_downcase == 'colour' -%}
++        <div class="collection-card__swatches">
++          {%- for value in option.values -%}
++            {%- liquid
++              assign swatch_value = null
++              if value.swatch.image
++                assign image_url = value.swatch.image | image_url: width: 50
++                assign swatch_value = 'url(' | append: image_url | append: ')'
++              elsif value.swatch.color
++                assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
++              endif
++
++              assign variant_image = null
++              for variant in card_product.variants
++                if variant.options contains value
++                  if variant.featured_media
++                    assign variant_image = variant.featured_media | image_url: width: 533
++                    break
++                  endif
++                endif
++              endfor
++            -%}
++            <span 
++              class="collection-card__swatch{% if forloop.first %} active{% endif %}" 
++              style="{% if swatch_value %}--swatch-background: {{ swatch_value }};{% else %}background-color: {{ value | split: ' ' | last | handle }};{% endif %}"
++              title="{{ value | escape }}"
++              {% if variant_image %}data-variant-image="{{ variant_image }}"{% endif %}
++            ></span>
++          {%- endfor -%}
++        </div>
++      {%- endif -%}
++    {%- endfor -%}
++  </div>
++
++  <script>
++    if (!window.hasInitializedDeliveryDates) {
++      window.hasInitializedDeliveryDates = true;
++      const updateDeliveryDates = () => {
++        document.querySelectorAll('.js-delivery-date').forEach(el => {
++          if (el.classList.contains('is-processed')) return;
++          el.classList.add('is-processed');
++          const minDays = parseInt(el.dataset.minDays || 2);
++          const maxDays = parseInt(el.dataset.maxDays || 3);
++          const today = new Date();
++          
++          const minDate = new Date(today);
++          minDate.setDate(today.getDate() + minDays);
++          
++          const maxDate = new Date(today);
++          maxDate.setDate(today.getDate() + maxDays);
++          
++          const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
++          
++          let dateStr = "";
++          if (minDate.getMonth() === maxDate.getMonth()) {
++            dateStr = `${minDate.getDate()}-${maxDate.getDate()} ${monthNames[minDate.getMonth()]}`;
++          } else {
++            dateStr = `${minDate.getDate()} ${monthNames[minDate.getMonth()]} - ${maxDate.getDate()} ${monthNames[maxDate.getMonth()]}`;
++          }
++          
++          const textEl = el.querySelector('.delivery-text');
++          if (textEl) {
++            textEl.textContent = `Order now & get it by ${dateStr}`;
++          }
++        });
++      };
++      document.addEventListener('DOMContentLoaded', updateDeliveryDates);
++      if (document.readyState === 'interactive' || document.readyState === 'complete') {
++        updateDeliveryDates();
++      }
++      document.addEventListener('tab-changed', updateDeliveryDates);
++    }
++
++    if (!window.hasInitializedSwatches) {
++      window.hasInitializedSwatches = true;
++      const setupSwatches = () => {
++        document.querySelectorAll('.collection-card__swatch').forEach(swatch => {
++          if (swatch.classList.contains('js-processed')) return;
++          swatch.classList.add('js-processed');
++          
++          const handler = (e) => {
++            const card = swatch.closest('.collection-card');
++            if (!card) return;
++            
++            card.querySelectorAll('.collection-card__swatch').forEach(s => s.classList.remove('active'));
++            swatch.classList.add('active');
++            
++            const newImgUrl = swatch.dataset.variantImage;
++            if (newImgUrl) {
++              const img = card.querySelector('.collection-card__image--primary');
++              if (img) img.src = newImgUrl;
++            }
++          };
++          
++          swatch.addEventListener('click', handler);
++          swatch.addEventListener('mouseenter', handler);
++        });
++      };
++      document.addEventListener('DOMContentLoaded', setupSwatches);
++      if (document.readyState === 'interactive' || document.readyState === 'complete') {
++        setupSwatches();
++      }
++      document.addEventListener('tab-changed', setupSwatches);
++    }
++  </script>
+   </div>
+ </div>

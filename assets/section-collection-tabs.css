@@ -138,6 +138,11 @@
   flex-shrink: 0;
 }
 
+.collection-tabs__actions--bottom {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .collection-tabs__view-all-btn {
   display: inline-flex;
   align-items: center;
@@ -271,8 +276,8 @@
   position: relative;
   display: block;
   overflow: hidden;
-  border-radius: var(--ct-card-radius, 12px);
-  background: var(--ct-image-bg, #f5f1eb);
+  border-radius: var(--ct-card-radius, 16px);
+  background: var(--ct-image-bg, #f6f4ee);
   aspect-ratio: 1 / 1;
 }
 
@@ -565,6 +570,12 @@
   .collection-tabs__actions {
     order: 1;
     margin-left: auto;
+  }
+
+  .collection-tabs__actions--bottom {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 1.5rem;
   }
 
   .collection-tabs__nav {

@@ -223,7 +223,26 @@
     setTimeout(refresh, 600);
   }
 
+  function initDeliveryDates() {
+    const deliveryEls = document.querySelectorAll('.js-delivery-date');
+    deliveryEls.forEach(el => {
+      const days = parseInt(el.getAttribute('data-days')) || 3;
+      const targetEl = el.querySelector('.delivery-date-calc');
+      if(targetEl) {
+        const now = new Date();
+        now.setDate(now.getDate() + days);
+        const day = now.getDate();
+        const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        const month = monthNames[now.getMonth()];
+        const nextDay = new Date(now);
+        nextDay.setDate(nextDay.getDate() + 1);
+        targetEl.textContent = `${day}-${nextDay.getDate()} ${month}`;
+      }
+    });
+  }
+
   function initAll() {
+    initDeliveryDates();
     $$(SECTION_SELECTOR).forEach(init);
   }
 
