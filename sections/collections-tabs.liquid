@@ -60,6 +60,7 @@
   class="
     section-{{ section.id }}
     collection-tabs
+    page-width
     color-{{ section.settings.color_scheme }}
     isolate
     gradient
@@ -76,7 +77,7 @@
     data-id="{{ section.id }}"
   >
     {%- comment -%} ===== Heading Row ===== {%- endcomment -%}
-    <div class="collection-tabs__heading-row collection-tabs__heading-row--{{ heading_align }} page-width{% if section.settings.enable_slider_mobile %} title-wrapper--self-padded-tablet-down{% endif %}">
+    <div class="collection-tabs__heading-row collection-tabs__heading-row--{{ heading_align }} {% if section.settings.enable_slider_mobile %} title-wrapper--self-padded-tablet-down{% endif %}">
       {%- if section.settings.title != blank -%}
         <h2 class="collection-tabs__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
@@ -92,7 +93,7 @@
 
     {%- comment -%} ===== Controls Row (Tabs + View All + Arrows) ===== {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
-      <div class="collection-tabs__controls-row page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="collection-tabs__controls-row {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <div class="collection-tabs__nav-wrapper">
           <div class="collection-tabs__nav" role="tablist" aria-label="{{ section.settings.title | strip_html | escape }}">
             {%- for block in section.blocks -%}
@@ -168,7 +169,7 @@
     {%- endif -%}
 
     {%- comment -%} ===== Tab Panels ===== {%- endcomment -%}
-    <div class="collection-tabs__panels {% unless section.settings.full_width %}page-width{% endunless %}">
+    <div class="collection-tabs__panels {% unless section.settings.full_width %}{% endunless %}">
       {%- for block in section.blocks -%}
         {%- liquid
           assign collection = block.settings.collection
@@ -295,7 +296,7 @@
         </div>
 
       {%- else -%}
-        <div class="collection-tabs__empty page-width">
+        <div class="collection-tabs__empty ">
           <p>Please add collection blocks in the theme editor to display tabs.</p>
         </div>
       {%- endfor -%}
