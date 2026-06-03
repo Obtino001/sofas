@@ -293,11 +293,69 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "testimonials_PBD8Un": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_tAh4Ym": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "This is a really solid piece of furniture. The material feels durable and it's well put together. You can tell it's going to last. Would buy from here again.",
+            "author": "Scarlet U.",
+            "product": ""
+          }
+        },
+        "testimonial_EyypDL": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "This is a really solid piece of furniture. The material feels durable and it's well put together. You can tell it's going to last. Would buy from here again.",
+            "author": "Scarlet U.",
+            "product": ""
+          }
+        },
+        "testimonial_V6JxFg": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "This is a really solid piece of furniture. The material feels durable and it's well put together. You can tell it's going to last. Would buy from here again.",
+            "author": "Scarlet U.",
+            "product": ""
+          }
+        },
+        "testimonial_DBPqNq": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "This is a really solid piece of furniture. The material feels durable and it's well put together. You can tell it's going to last. Would buy from here again.",
+            "author": "Scarlet U.",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_tAh4Ym",
+        "testimonial_EyypDL",
+        "testimonial_V6JxFg",
+        "testimonial_DBPqNq"
+      ],
+      "name": "Testimonial",
+      "settings": {
+        "color_scheme": "",
+        "card_color_scheme": "",
+        "heading": "What our customers say",
+        "btn_text": "View All",
+        "btn_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "main",
     "usps_marquee_4jJ9LL",
-    "related-products"
+    "related-products",
+    "testimonials_PBD8Un"
   ]
 }
