@@ -5,10 +5,13 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
 {%- style -%}
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
-    background-color: #EFEBE5; /* Matches the screenshot background */
+    background-color: #E8E4DB; /* Matched to mobile screenshot */
     color: #333333;
   }
   .section-{{ section.id }}-padding {
@@ -16,36 +19,22 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
   
-  /* Trust Badges Top Section */
-  .footer-trust-badges {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-    padding: 40px 5%;
+  /* Trust Badges Section */
+  .footer-trust-badges-wrapper {
+    padding: 40px 0;
     max-width: var(--page-width);
     margin: 0 auto;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-  }
-  @media screen and (min-width: 750px) {
-    .footer { margin-top: {{ section.settings.margin_top }}px; }
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-    .footer-trust-badges {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      padding: 60px 0;
-    }
   }
   
   .trust-badge-card {
-    background: {{ section.settings.card_bg_color | default: '#f7f6f2' }};
+    background: {{ section.settings.card_bg_color | default: '#F4F2EB' }};
     color: {{ section.settings.card_text_color | default: '#000000' }};
     border-radius: 8px;
     padding: 30px 20px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    height: 100%;
+    box-sizing: border-box;
   }
   
   .trust-badge-card svg,
@@ -57,23 +46,44 @@
   }
   
   .trust-badge-card h3 {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     margin: 0 0 8px 0;
     color: {{ section.settings.card_text_color | default: '#000000' }};
   }
   
   .trust-badge-card p {
-    font-size: 13px;
+    font-size: 12px;
     margin: 0;
     color: {{ section.settings.card_text_color | default: '#000000' }};
     opacity: 0.8;
     line-height: 1.4;
   }
 
-  /* Main Footer Overrides */
+  /* Custom Pagination for Trust Badges */
+  .tb-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    position: static !important;
+  }
+  .tb-pagination .swiper-pagination-bullet {
+    width: 25px;
+    height: 3px;
+    border-radius: 2px;
+    background: #ffffff;
+    opacity: 1;
+    margin: 0 !important;
+    transition: background 0.3s ease;
+  }
+  .tb-pagination .swiper-pagination-bullet-active {
+    background: #c3a67d;
+  }
+
+  /* Main Footer Layout */
   .footer__content-top {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 40px;
     max-width: var(--page-width);
     margin: 0 auto;
@@ -82,52 +92,51 @@
     justify-content: space-between;
     gap: 30px;
   }
-  .footer-block__brand-info {
-    flex: 1 1 300px;
-    max-width: 350px;
-  }
-  .footer__blocks-wrapper {
-    flex: 2 1 500px;
-    display: flex;
-    justify-content: space-around;
-  }
-  .footer-block--newsletter {
-    flex: 1 1 300px;
-    max-width: 350px;
-  }
+  
   .footer-block__heading {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 600;
     margin-bottom: 20px;
+    color: #000;
   }
   .footer-block__details-content p, .list-menu__item {
-    font-size: 14px;
-    color: #4a4a4a;
+    font-size: 13px;
+    color: #333;
     line-height: 1.6;
   }
-  
-  /* Newsletter Input Override */
+
+  /* Newsletter Base */
+  .footer-block--newsletter {
+    flex: 1 1 300px;
+    max-width: 350px;
+  }
   .newsletter-form__field-wrapper .field__input {
-    background: #f4f0ec;
+    background: #F4F2EB;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 25px;
     padding-left: 20px;
+    height: 45px;
+    color: #333;
   }
   .newsletter-form__button {
     background: #c3a67d;
     color: white;
     border-radius: 25px;
+    height: 45px;
     width: auto;
     padding: 0 25px;
     margin-top: 15px;
     right: 0;
     position: relative;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  /* Footer Bottom */
+  /* Footer Bottom Base */
   .footer__content-bottom {
     border-top: 1px solid rgba(0,0,0,0.1);
     padding: 25px 0;
@@ -145,33 +154,176 @@
     height: auto;
     margin-left: 8px;
   }
+
+  /* =========================================
+     MOBILE STYLES (1-1 MATCH)
+  ========================================= */
+  @media screen and (max-width: 749px) {
+    .footer-trust-badges-wrapper {
+      padding: 30px 15px;
+    }
+    
+    .footer__content-top {
+      flex-direction: column;
+      gap: 0;
+      padding-top: 10px;
+    }
+
+    /* Center Brand Info */
+    .footer-block__brand-info {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 0 15px;
+    }
+    .footer-block__brand-info img {
+      margin: 0 auto 20px auto !important;
+    }
+    .footer__list-social {
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    /* Accordion Menus */
+    .footer__blocks-wrapper {
+      flex-direction: column;
+      width: 100%;
+    }
+    .footer-accordion {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      width: 100%;
+      padding: 0 15px;
+    }
+    .footer-accordion:last-child {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .footer-accordion-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      cursor: pointer;
+    }
+    .footer-accordion-heading h2 {
+      margin: 0;
+      font-size: 13px;
+    }
+    .footer-accordion-heading svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.3s ease;
+    }
+    .footer-accordion-content {
+      display: none;
+      padding-bottom: 15px;
+    }
+    .footer-accordion.is-open .footer-accordion-content {
+      display: block;
+    }
+    .footer-accordion.is-open .footer-accordion-heading svg {
+      transform: rotate(180deg);
+    }
+
+    /* Newsletter Mobile */
+    .footer-block--newsletter {
+      text-align: center;
+      max-width: 100%;
+      padding: 40px 15px 10px;
+    }
+    .newsletter-form__field-wrapper .field__input {
+      width: 100%;
+    }
+    .newsletter-form__button {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    /* Footer Bottom Mobile */
+    .footer__content-bottom-wrapper {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+    }
+    .footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+    .dp-payment-icon {
+      margin-left: 0;
+    }
+  }
+
+  /* =========================================
+     DESKTOP STYLES
+  ========================================= */
+  @media screen and (min-width: 750px) {
+    .footer { margin-top: {{ section.settings.margin_top }}px; }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .footer-trust-badges-wrapper .swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .tb-pagination {
+      display: none !important;
+    }
+    
+    .footer-block__brand-info {
+      flex: 1 1 300px;
+    }
+    .footer__blocks-wrapper {
+      flex: 2 1 500px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .footer-accordion-heading svg {
+      display: none;
+    }
+    .footer-accordion-content {
+      display: block !important;
+    }
+    .footer-accordion-heading {
+      cursor: default;
+    }
+  }
 {%- endstyle -%}
 
 <div class="footer section-{{ section.id }}-padding">
   
-  <div class="footer-trust-badges">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'trust_badge' -%}
-        <div class="trust-badge-card" {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank -%}
-            {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          {%- endif -%}
-          <h3>{{ block.settings.title }}</h3>
-          <p>{{ block.settings.text }}</p>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
+  <div class="footer-trust-badges-wrapper swiper" id="FooterTrustSwiper-{{ section.id }}">
+    <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'trust_badge' -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="trust-badge-card">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              {%- endif -%}
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="swiper-pagination tb-pagination"></div>
   </div>
 
   <div class="footer__content-top">
+    
     {%- for block in section.blocks -%}
       {%- if block.type == 'brand_info' -%}
         <div class="footer-block__brand-info" {{ block.shopify_attributes }}>
           {%- if block.settings.brand_image != blank -%}
-            <div style="max-width: {{ block.settings.logo_width }}px; margin-bottom: 20px;">
-              {{ block.settings.brand_image | image_url: width: 400 | image_tag: loading: 'lazy', style: 'width: 100%; height: auto;' }}
+            <div style="max-width: {{ block.settings.logo_width }}px; margin-bottom: 20px; display: inline-block;">
+              {{ block.settings.brand_image | image_url: width: 400 | image_tag: loading: 'lazy', style: 'width: 100%; height: auto; display: block;' }}
             </div>
           {%- endif -%}
           <div class="footer-block__details-content rte">
@@ -187,17 +339,20 @@
     <div class="footer__blocks-wrapper">
       {%- for block in section.blocks -%}
         {%- if block.type == 'link_list' -%}
-          <div class="footer-block grid__item" {{ block.shopify_attributes }}>
-            {%- if block.settings.heading != blank -%}
-              <h2 class="footer-block__heading">{{- block.settings.heading -}}</h2>
-            {%- endif -%}
-            {%- if block.settings.menu != blank -%}
-              <ul class="footer-block__details-content list-unstyled">
-                {%- for link in block.settings.menu.links -%}
-                  <li><a href="{{ link.url }}" class="link link--text list-menu__item">{{ link.title | escape }}</a></li>
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
+          <div class="footer-accordion" {{ block.shopify_attributes }}>
+            <div class="footer-accordion-heading">
+              <h2 class="footer-block__heading">{{- block.settings.heading | default: 'Menu' -}}</h2>
+              <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="footer-accordion-content">
+              {%- if block.settings.menu != blank -%}
+                <ul class="footer-block__details-content list-unstyled">
+                  {%- for link in block.settings.menu.links -%}
+                    <li><a href="{{ link.url }}" class="link link--text list-menu__item">{{ link.title | escape }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -205,7 +360,7 @@
 
     <div class="footer-block--newsletter">
       <h2 class="footer-block__heading">GET ADDITIONAL 10% OFF</h2>
-      <p style="font-size: 14px; color: #4a4a4a; margin-bottom: 20px;">Be the first to hear about new arrivals, exclusive offers, and home inspiration.</p>
+      <p style="font-size: 13px; color: #333; margin-bottom: 20px;">Be the first to hear about new arrivals, exclusive offers, and home inspiration.</p>
       {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div class="newsletter-form__field-wrapper">
@@ -232,10 +387,10 @@
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper">
       <div class="footer__copyright caption">
-        <small class="copyright__content">Copyright &copy; {{ 'now' | date: '%Y' }} Powered by {{ shop.name }}. All rights reserved.</small>
+        <small class="copyright__content">Copyright &copy; {{ 'now' | date: '%Y' }} Powered by {{ shop.name | remove: '.co.uk' }}.co.uk All rights reserved.</small>
       </div>
       <div class="footer-right">
-        {% assign active_payments = 'visa,master,klarna,apple_pay,google_pay,diners_club,discover' | split: ',' %}
+        {% assign active_payments = 'visa,master,klarna,apple_pay,maestro,google_pay,diners_club,discover' | split: ',' %}
         {% for type in active_payments %}
           {{ type | payment_type_svg_tag: class: 'dp-payment-icon' }}
         {% endfor %}
@@ -243,6 +398,58 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // Initialize Swiper for Mobile Trust Badges
+    const initFooterSwiper = () => {
+      new Swiper('#FooterTrustSwiper-{{ section.id }}', {
+        slidesPerView: 1.2,
+        spaceBetween: 15,
+        centeredSlides: true,
+        loop: false,
+        pagination: {
+          el: '#FooterTrustSwiper-{{ section.id }} .tb-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          750: {
+            // Destroy swiper behavior on desktop since CSS Grid takes over
+            allowTouchMove: false,
+            preventClicks: false,
+            preventClicksPropagation: false
+          }
+        }
+      });
+    };
+
+    if (typeof Swiper !== 'undefined') {
+      initFooterSwiper();
+    } else {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle.min.js"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initFooterSwiper);
+      }
+    }
+
+    // Accordion Logic for Mobile Menus
+    const accordions = document.querySelectorAll('.footer-accordion-heading');
+    accordions.forEach(acc => {
+      acc.addEventListener('click', function() {
+        if (window.innerWidth < 750) {
+          const parent = this.parentElement;
+          // Optional: Close others
+          document.querySelectorAll('.footer-accordion').forEach(other => {
+            if (other !== parent) other.classList.remove('is-open');
+          });
+          parent.classList.toggle('is-open');
+        }
+      });
+    });
+
+  });
+</script>
 
 {% schema %}
 {
@@ -256,7 +463,7 @@
       "type": "color",
       "id": "card_bg_color",
       "label": "Card Background Color",
-      "default": "#f7f6f2"
+      "default": "#F4F2EB"
     },
     {
       "type": "color",
