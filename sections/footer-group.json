@@ -14,44 +14,9 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "trust_badge_1": {
-          "type": "trust_badge",
+        "brand_information_FR88yf": {
+          "type": "brand_information",
           "settings": {
-            "custom_svg": "",
-            "title": "Made in the UK",
-            "text": "Quality craftsmanship you can trust"
-          }
-        },
-        "trust_badge_2": {
-          "type": "trust_badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "Fast 7-10 Day Delivery",
-            "text": "No long waits-delivered across the UK"
-          }
-        },
-        "trust_badge_3": {
-          "type": "trust_badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "Interest-Free Payments",
-            "text": "Flexible options to suit your budget"
-          }
-        },
-        "trust_badge_4": {
-          "type": "trust_badge",
-          "settings": {
-            "custom_svg": "",
-            "title": "14-Day Risk-Free Returns",
-            "text": "Shop with confidence, no questions asked"
-          }
-        },
-        "brand_info_1": {
-          "type": "brand_info",
-          "settings": {
-            "brand_image": "shopify://shop_images/Group_27.svg",
-            "logo_width": 180,
-            "text": "<p>At Sofas'n'Beds, excellence isn't just a promise; it's our ethos. We meticulously source the finest materials to craft furniture that exceeds expectations.</p><p>Our commitment to quality is matched only by our dedication to exceptional service. Experience the difference with us today.</p>",
             "show_social": true
           }
         },
@@ -78,16 +43,24 @@
         }
       },
       "block_order": [
-        "trust_badge_1",
-        "trust_badge_2",
-        "trust_badge_3",
-        "trust_badge_4",
-        "brand_info_1",
+        "brand_information_FR88yf",
         "link_list_1",
         "link_list_2",
         "link_list_3"
       ],
       "settings": {
+        "brand_image_width": 100,
+        "color_scheme": "",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_description": "<p>Lorem ipsum dolor sit amet consectetur. Lorem nisl fermentum nunc felis venenatis nulla lacus justo</p>",
+        "newsletter_subtext": "<p>Lorem ipsum dolor sit amet consectetur. Lorem nisl fermentum nunc felis venenatis nulla lacus justo</p>",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
         "margin_top": 0,
         "padding_top": 0,
         "padding_bottom": 0
