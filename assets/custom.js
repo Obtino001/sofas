@@ -1,215 +1,4 @@
-class MaSlider extends HTMLElement {
-  constructor() {
-    super();
-    this.observer = null;
-    this.swiper = null;
-  }
 
-  connectedCallback() {
-    this.init();
-    this.observeChanges();
-  }
-
-  disconnectedCallback() {
-    if (this.observer) this.observer.disconnect();
-    if (this.swiper) this.swiper.destroy();
-  }
-
-  observeChanges() {
-    this.observer = new MutationObserver((mutations) => {
-      const swiperEl = this.querySelector('.js-swiper-template');
-      if (swiperEl && !swiperEl.classList.contains('swiper-initialized')) {
-        this.init();
-      }
-    });
-    this.observer.observe(this, { childList: true, subtree: true });
-  }
-
-  init() {
-    const swiperEl = this.querySelector('.js-swiper-template');
-    if (!swiperEl || swiperEl.classList.contains('swiper-initialized')) return;
-
-    if (typeof Swiper === 'undefined') {
-        console.warn('Swiper JS not loaded');
-        return;
-    }
-
-    const config = this.getConfig(swiperEl);
-    if (!config) return;
-
-    const params = {
-      slidesPerView: config.mobileSlides,
-      spaceBetween: config.mobileSpacing,
-      loop: false,
-      breakpoints: {
-        990: {
-          slidesPerView: config.tabletSlides,
-          spaceBetween: config.desktopSpacing,
-        },
-        1024: {
-          slidesPerView: config.desktopSlides,
-          spaceBetween: config.desktopSpacing,
-        }
-      },
-      navigation: {
-        nextEl: this.querySelector('.swiper-custom-next'),
-        prevEl: this.querySelector('.swiper-custom-prev')
-      },
-      on: {
-        init: (swiper) => this.updateProgress(swiper),
-        slideChange: (swiper) => this.updateProgress(swiper),
-        progress: (swiper) => this.updateProgress(swiper)
-      }
-    };
-
-    // --- NEW: Add Pagination Config ---
-    const paginationEl = this.querySelector('.swiper-custom-pagination');
-    if (paginationEl) {
-        params.pagination = {
-            el: paginationEl,
-            clickable: true,
-            type: 'bullets', // Change to 'fraction' if you want numbers
-        };
-    }
-
-    // Scrollbar Config
-    const scrollbarEl = this.querySelector('.swiper-custom-scrollbar');
-    if (scrollbarEl) {
-      params.scrollbar = {
-        el: scrollbarEl,
-        draggable: true,
-        hide: false
-      };
-    }
-
-    if (config.autoplay) {
-      params.autoplay = {
-        delay: config.autoplayInterval,
-        disableOnInteraction: false
-      };
-    }
-
-    this.swiper = new Swiper(swiperEl, params);
-  }
-
-  getConfig(el) {
-    try {
-      return JSON.parse(el.dataset.swiperConfig || '{}');
-    } catch (e) {
-      console.error(e);
-      return null;
-    }
-  }
-
-  updateProgress(swiper) {
-    const progressFill = this.querySelector('.swiper-progress-fill');
-    if (!progressFill) return;
-    
-    const percentage = Math.max(0, Math.min(100, swiper.progress * 100));
-    progressFill.style.width = `${percentage}%`;
-  }
-}
-
-customElements.define('ma-slider', MaSlider);
-
-
-
-  if (!customElements.get('custom-slider')) {
-    
-    class CustomSlider extends HTMLElement {
-      constructor() {
-        super();
-      }
-
-      connectedCallback() {
-        this.initSlider();
-      }
-
-      initSlider() {
-        const swiperEl = this.querySelector('swiper-container');
-        if (!swiperEl || !swiperEl.dataset.swiperConfig) return;
-        if (swiperEl.part && swiperEl.part.contains('initialized')) return;
-        
-        let config;
-        try {
-          config = JSON.parse(swiperEl.dataset.swiperConfig);
-        } catch (e) {
-          console.error('Invalid Swiper Config JSON', e);
-          return;
-        }
-
-        const nextBtn = this.querySelector('.swiper-custom-next');
-        const prevBtn = this.querySelector('.swiper-custom-prev');
-        const paginationEl = this.querySelector('.swiper-custom-pagination');
-        const scrollbarEl = this.querySelector('.swiper-custom-scrollbar');
-        const progressFill = this.querySelector('.swiper-progress-fill');
-        
-        const params = {
-          slidesPerView: config.mobileSlides,
-          spaceBetween: config.mobileSpacing,
-          loop: false,
-          breakpoints: {
-            990: {
-              slidesPerView: config.tabletSlides,
-              spaceBetween: config.desktopSpacing,
-            },
-            1024: {
-              slidesPerView: config.desktopSlides,
-              spaceBetween: config.desktopSpacing,
-            }
-          }
-        };
-
-        if (nextBtn && prevBtn) {
-          params.navigation = {
-            nextEl: nextBtn,
-            prevEl: prevBtn
-          };
-        }
-
-        if (paginationEl) {
-          params.pagination = {
-            el: paginationEl,
-            clickable: true
-          };
-        }
-
-        if (scrollbarEl) {
-          params.scrollbar = {
-            el: scrollbarEl,
-            draggable: true,
-            hide: false
-          };
-        }
-
-        if (config.autoplay) {
-          params.autoplay = {
-            delay: config.autoplayInterval,
-            disableOnInteraction: false
-          };
-        }
-
-        Object.assign(swiperEl, params);
-
-        swiperEl.initialize();
-        if (progressFill) {
-          swiperEl.addEventListener('swiperprogress', (e) => {
-            const [swiper, progress] = e.detail;
-            const percentage = Math.max(0, Math.min(100, progress * 100));
-            progressFill.style.width = `${percentage}%`;
-          });
-          
-          swiperEl.addEventListener('swiperslidechange', (e) => {
-            const [swiper] = e.detail;
-            const percentage = Math.max(0, Math.min(100, swiper.progress * 100));
-            progressFill.style.width = `${percentage}%`;
-          });
-        }
-      }
-    }
-
-    customElements.define('custom-slider', CustomSlider);
-}
 
   class FAQItem extends HTMLElement {
   constructor() {
@@ -260,10 +49,10 @@ customElements.define("faq-item", FAQItem);
 
 
 /* --------------------------------------------------------------------------
-   Slider Container
+   Slider Component
    -------------------------------------------------------------------------- */
-if (!customElements.get('slider-container')) {
-    class SliderContainer extends HTMLElement {
+if (!customElements.get('slider-component')) {
+    class SliderComponent extends HTMLElement {
         constructor() {
             super();
             this.swiperInstance = null;
@@ -284,16 +73,28 @@ if (!customElements.get('slider-container')) {
         }
 
         _setup() {
-            this.swiperEl = this.querySelector('.js-slider-template-swiper');
+            this.swiperEl = this.querySelector('.swiper') || this.querySelector('.js-slider-template-swiper') || this.querySelector('.js-swiper-template') || this.querySelector('swiper-container');
             if (!this.swiperEl) return;
 
-            this.config = this._parseConfig(this.swiperEl);
+            // If it's a swiper-container custom element, we'll replace it or handle it.
+            // Better to just let the standard JS initialize it if the classes match.
+            if (this.swiperEl.tagName.toLowerCase() === 'swiper-container') {
+                this.swiperEl.classList.add('swiper');
+                // The wrapper inside needs to be .swiper-wrapper but swiper-container uses Shadow DOM.
+                // It's recommended to change <swiper-container> to <div class="swiper"> in the liquid files.
+            }
+
+            this.config = this._parseConfig(this);
+            if (!this.config) {
+                this.config = this._parseConfig(this.swiperEl);
+            }
             if (!this.config) return;
 
-            this._progressFill = this.querySelector('.slider-template-progress-fill');
-            this._paginationEl = this.querySelector('.slider-template-pagination');
-            this._prevBtn = this.querySelector('.js-slider-template-prev');
-            this._nextBtn = this.querySelector('.js-slider-template-next');
+            this._progressFill = this.querySelector('.swiper-progress-fill') || this.querySelector('.slider-template-progress-fill');
+            this._paginationEl = this.querySelector('.swiper-pagination') || this.querySelector('.slider-template-pagination') || this.querySelector('.swiper-custom-pagination');
+            this._prevBtn = this.querySelector('.swiper-button-prev') || this.querySelector('.js-slider-template-prev') || this.querySelector('.swiper-custom-prev');
+            this._nextBtn = this.querySelector('.swiper-button-next') || this.querySelector('.js-slider-template-next') || this.querySelector('.swiper-custom-next');
+            this._scrollbarEl = this.querySelector('.swiper-scrollbar') || this.querySelector('.swiper-custom-scrollbar');
 
             this._mql = window.matchMedia('(max-width: 749px)');
             this._mql.addEventListener('change', this._onMediaChange);
@@ -308,8 +109,8 @@ if (!customElements.get('slider-container')) {
         _onMediaChange(e) {
             const isMobile = e.matches;
             const shouldEnable = isMobile
-                ? this.config.enableSliderMobile
-                : this.config.enableSliderDesktop;
+                ? (this.config.enableSliderMobile !== false)
+                : (this.config.enableSliderDesktop !== false);
 
             if (shouldEnable) {
                 this.classList.remove('slider-disabled');
@@ -350,16 +151,20 @@ if (!customElements.get('slider-container')) {
             if (this.swiperInstance) return;
 
             const swiperParams = {
-                slidesPerView: this.config.mobileSlides,
-                spaceBetween: this.config.mobileSpacing,
+                slidesPerView: this.config.mobileSlides || 1,
+                spaceBetween: this.config.mobileSpacing || 0,
                 loop: this.config.loop || false,
                 grabCursor: true,
                 mousewheel: { forceToAxis: true },
                 breakpoints: {
                     750: {
-                        slidesPerView: this.config.desktopSlides,
-                        spaceBetween: this.config.desktopSpacing,
+                        slidesPerView: this.config.tabletSlides || this.config.desktopSlides || 3,
+                        spaceBetween: this.config.desktopSpacing || 0,
                     },
+                    990: {
+                        slidesPerView: this.config.desktopSlides || 4,
+                        spaceBetween: this.config.desktopSpacing || 0,
+                    }
                 },
                 on: {
                     init: (swiper) => {
@@ -377,7 +182,7 @@ if (!customElements.get('slider-container')) {
                     el: this._paginationEl,
                     type: 'bullets',
                     clickable: true,
-                    dynamicBullets: this.config.desktopSlides > 5,
+                    dynamicBullets: (this.config.desktopSlides > 5),
                 };
             }
 
@@ -388,9 +193,17 @@ if (!customElements.get('slider-container')) {
                 };
             }
 
+            if (this._scrollbarEl) {
+                swiperParams.scrollbar = {
+                    el: this._scrollbarEl,
+                    draggable: true,
+                    hide: false
+                };
+            }
+
             if (this.config.autoplay) {
                 swiperParams.autoplay = {
-                    delay: this.config.autoplayInterval,
+                    delay: this.config.autoplayInterval || 3000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 };
@@ -399,7 +212,7 @@ if (!customElements.get('slider-container')) {
             try {
                 this.swiperInstance = new Swiper(this.swiperEl, swiperParams);
             } catch (err) {
-                console.warn('[slider-container] Swiper init failed:', err);
+                console.warn('[slider-component] Swiper init failed:', err);
             }
         }
 
@@ -433,13 +246,12 @@ if (!customElements.get('slider-container')) {
             try {
                 return JSON.parse(el.dataset.swiperConfig || '{}');
             } catch {
-                console.warn('[slider-container] Invalid data-swiper-config JSON.');
                 return null;
             }
         }
     }
 
-    customElements.define('slider-container', SliderContainer);
+    customElements.define('slider-component', SliderComponent);
 }
 
 

@@ -96,7 +96,7 @@
       {% for block in section.blocks %}
         <div id="sr-slider-{{ section.id }}-{{ block.id }}" class="sr-tab-content {% if forloop.first %}is-active{% endif %}">
           
-          <custom-slider class="template-slider-section" data-block-id="{{ block.id }}">
+          <slider-component class="template-slider-section" data-block-id="{{ block.id }}">
             <div class="slider-wrapper relative-container">
               
               <div class="swiper-custom-controls-nav">
@@ -112,9 +112,8 @@
                 </div>
               </div>
 
-              <swiper-container 
-                init="false" 
-                class="js-swiper-template"
+              <div 
+                class="swiper js-swiper-template"
                 data-swiper-config='{
                   "autoplay": {{ section.settings.enable_autoplay | default: false }},
                   "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
@@ -125,30 +124,32 @@
                   "desktopSpacing": {{ section.settings.desktop_spacing | default: 24 }}
                 }'
               >
-                {% for product in block.settings.collection.products %}
-                  <swiper-slide>
-                    {% render 'card-product',
-                      card_product: product,
-                      media_aspect_ratio: 'portrait',
-                      show_secondary_image: true,
-                      show_vendor: false,
-                      show_rating: false,
-                      lazy_load: true
-                    %}
-                  </swiper-slide>
-                {% else %}
-                  {%- for i in (1..4) -%}
-                    <swiper-slide>
-                       <div class="card-wrapper">
-                         {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
-                       </div>
-                    </swiper-slide>
-                  {%- endfor -%}
-                {% endfor %}
-              </swiper-container>
+                <div class="swiper-wrapper">
+                  {% for product in block.settings.collection.products %}
+                    <div class="swiper-slide">
+                      {% render 'card-product',
+                        card_product: product,
+                        media_aspect_ratio: 'portrait',
+                        show_secondary_image: true,
+                        show_vendor: false,
+                        show_rating: false,
+                        lazy_load: true
+                      %}
+                    </div>
+                  {% else %}
+                    {%- for i in (1..4) -%}
+                      <div class="swiper-slide">
+                         <div class="card-wrapper">
+                           {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+                         </div>
+                      </div>
+                    {%- endfor -%}
+                  {% endfor %}
+                </div>
+              </div>
 
             </div>
-          </custom-slider>
+          </slider-component>
 
         </div>
       {% endfor %}
@@ -234,12 +235,12 @@
   padding: 0 40px; /* Space for arrows */
 }
 
-.template-slider-section swiper-container { 
+.template-slider-section .swiper { 
   width: 100%; 
   display: block; 
 }
 
-.template-slider-section swiper-slide { 
+.template-slider-section .swiper-slide { 
   height: auto; 
 }
 

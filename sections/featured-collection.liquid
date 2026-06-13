@@ -3,7 +3,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<custom-slider class="template-slider-section" data-block-id="{{ section.id }}">
+<slider-component class="template-slider-section" data-block-id="{{ section.id }}">
   <div class="slider-wrapper relative-container container-x">
       <div class="l-cat-header">
       <div class="l-cat-title-group">
@@ -30,9 +30,8 @@
         </div>
     </div>
 
-    <swiper-container 
-        init="false" 
-        class="js-swiper-template"
+    <div 
+        class="swiper js-swiper-template"
         data-swiper-config='{
             "autoplay": {{ section.settings.enable_autoplay | default: false }},
             "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
@@ -43,8 +42,9 @@
             "desktopSpacing": {{ section.settings.desktop_spacing | default: 24 }}
         }'
     >
+      <div class="swiper-wrapper">
         {% for product in section.settings.collection.products %}
-            <swiper-slide>
+            <div class="swiper-slide">
                 {% render 'card-product',
                     card_product: product,
                     media_aspect_ratio: 'portrait',
@@ -53,9 +53,10 @@
                     show_rating: false,
                     lazy_load: true
                   %}
-            </swiper-slide>
+            </div>
         {%- endfor -%}
-    </swiper-container>
+      </div>
+    </div>
 
     <div class="swiper-custom-controls">
         <div class="swiper-progress-track
@@ -70,7 +71,7 @@
         {% unless section.settings.desktop_scrollbar %}hide-on-desktop{% endunless %}">
     </div>
   </div>
-</custom-slider>
+</slider-component>
 
 <style>
 /* Added padding for page-width */
@@ -104,8 +105,8 @@
 
 .template-slider-section .relative-container { position:relative; width:100%; margin: 0 auto; padding-top: 40px;
     padding-bottom: 40px;; }
-.template-slider-section swiper-container { width:100%; display:block; }
-.template-slider-section swiper-slide { height: auto; } /* Ensures cards are same height */
+.template-slider-section .swiper { width:100%; display:block; }
+.template-slider-section .swiper-slide { height: auto; } /* Ensures cards are same height */
 
 .template-slider-section .swiper-button-disabled { opacity:0.5; cursor: not-allowed; }
 
