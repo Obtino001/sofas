@@ -20,6 +20,20 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
+        "feature_promo_WtKGn9": {
+          "type": "feature_promo",
+          "settings": {
+            "insert_after": 8,
+            "color_scheme": "scheme-1",
+            "heading": "Discreet. Waterproof. Always with you.",
+            "text": "The Sereluna waterproof bag keeps used period underwear safely stored when you're on the go — no leaks, no worries.",
+            "feature_1": "100% waterproof & leak-proof",
+            "feature_2": "Hygienic & easy to clean",
+            "feature_3": "Perfect for work, school & travel",
+            "button_label": "Shop Waterproof Bag",
+            "button_link": ""
+          }
+        },
         "collection_item_WhT8CN": {
           "type": "collection_item",
           "settings": {
@@ -30,6 +44,7 @@
         }
       },
       "block_order": [
+        "feature_promo_WtKGn9",
         "collection_item_WhT8CN"
       ],
       "settings": {
