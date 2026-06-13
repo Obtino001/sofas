@@ -184,7 +184,7 @@
                         {% assign matched_link = block.settings.title | downcase %}
                         {% assign menu_link = link.title | downcase %}
                         {%- if matched_link == menu_link and block.type != 'bottom' -%}
-                          <div class="desktopMenu-linkList-container" style="width: {{ block.settings.column_size }};">
+                          <div class="desktopMenu-linkList-container" style="width: 100%;">
                           {% case block.type %}
                         {% when 'megamenu' %}
   {% if block.settings.widget == 'menu' %}
