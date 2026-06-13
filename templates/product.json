@@ -82,6 +82,7 @@
           "type": "faq-blocks",
           "name": "Product Description",
           "settings": {
+            "custom_image": "shopify://shop_images/Vector_32.svg",
             "question": "Product Description",
             "faq_content_type": "product_description",
             "answer": ""
@@ -91,7 +92,7 @@
           "type": "faq-blocks",
           "name": "Materials & Care",
           "settings": {
-            "custom_image": "shopify://shop_images/material-symbols-light_local-shipping-outline.svg",
+            "custom_image": "shopify://shop_images/Group_13.svg",
             "question": "Materials & Care",
             "faq_content_type": "manual",
             "answer": ""
@@ -101,6 +102,7 @@
           "type": "faq-blocks",
           "name": "Shipping",
           "settings": {
+            "custom_image": "shopify://shop_images/Vector_30.svg",
             "question": "Shipping",
             "faq_content_type": "manual",
             "answer": ""
@@ -110,6 +112,7 @@
           "type": "faq-blocks",
           "name": "Size Guide",
           "settings": {
+            "custom_image": "shopify://shop_images/Group_14.svg",
             "question": "Size Guide",
             "faq_content_type": "manual",
             "answer": ""
