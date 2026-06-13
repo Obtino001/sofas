@@ -27,6 +27,26 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "megamenu_D9RgwC": {
+          "type": "megamenu",
+          "settings": {
+            "column_size": "75%",
+            "title": "sofas",
+            "widget": "menu",
+            "menu_heading": "",
+            "menu_link_list_child": "main-menu-2",
+            "banner_title": "",
+            "banner_button": "",
+            "banner_link": "",
+            "timer_label": "Sale ends in:",
+            "timer_date": ""
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_D9RgwC"
+      ],
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
@@ -45,7 +65,10 @@
         "enable_customer_avatar": true,
         "margin_bottom": 0,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "drawer_show_search": true,
+        "drawer_show_account": true,
+        "drawer_show_footer": true
       }
     }
   },
