@@ -464,6 +464,7 @@
       ],
       "name": "Custom Hero Banner",
       "settings": {
+        "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe.png",
         "overlay_opacity": 30,
         "color_scheme": "",
         "desktop_height": 70,
