@@ -33,13 +33,13 @@
     <div 
         class="swiper js-swiper-template"
         data-swiper-config='{
-            "autoplay": {{ section.settings.enable_autoplay | default: false }},
-            "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
-            "mobileSlides": {{ section.settings.mobile_slides | default: 1.2 }},
-            "mobileSpacing": {{ section.settings.mobile_spacing | default: 16 }},
-            "desktopSlides": {{ section.settings.desktop_slides | default: 4 }},
-            "tabletSlides": {{ section.settings.tablet_slides | default: 3 }},
-            "desktopSpacing": {{ section.settings.desktop_spacing | default: 24 }}
+            "autoplay": {{ section.settings.enable_autoplay | default: false | json }},
+            "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 | json }},
+            "mobileSlides": {{ section.settings.mobile_slides | default: 1.2 | json }},
+            "mobileSpacing": {{ section.settings.mobile_spacing | default: 16 | json }},
+            "desktopSlides": {{ section.settings.desktop_slides | default: 4 | json }},
+            "tabletSlides": {{ section.settings.tablet_slides | default: 3 | json }},
+            "desktopSpacing": {{ section.settings.desktop_spacing | default: 24 | json }}
         }'
     >
       <div class="swiper-wrapper">

@@ -155,19 +155,17 @@
             <div class="slider-template-section__container">
               <div
                 class="swiper js-slider-template-swiper slider-template-section__swiper"
-                data-swiper-config='
-                  {
-                    "enableSliderDesktop": {{ section.settings.enable_slider_desktop }},
-                    "enableSliderMobile": {{ section.settings.enable_slider_mobile }},
-                    "loop": {{ section.settings.enable_loop | default: false }},
-                    "autoplay": {{ section.settings.enable_autoplay | default: false }},
-                    "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
-                    "mobileSlides": {{ mobile_swiper_slides }},
-                    "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 }},
-                    "desktopSlides": {{ section.settings.columns_desktop }},
-                    "desktopSpacing": {{ section.settings.spacing }}
-                  }
-                '
+                data-swiper-config='{
+                  "enableSliderDesktop": {{ section.settings.enable_slider_desktop | json }},
+                  "enableSliderMobile": {{ section.settings.enable_slider_mobile | json }},
+                  "loop": {{ section.settings.enable_loop | default: false | json }},
+                  "autoplay": {{ section.settings.enable_autoplay | default: false | json }},
+                  "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 | json }},
+                  "mobileSlides": {{ mobile_swiper_slides | default: 1.2 | json }},
+                  "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 | default: 16 | json }},
+                  "desktopSlides": {{ section.settings.columns_desktop | default: 4 | json }},
+                  "desktopSpacing": {{ section.settings.spacing | default: 24 | json }}
+                }'
               >
                 <div class="swiper-wrapper">
                   {%- if collection.products.size > 0 -%}
