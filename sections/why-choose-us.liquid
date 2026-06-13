@@ -11,9 +11,8 @@
     }
   }
 
-  /* Typography & Layout */
-  .why-choose-container {
-    max-width: var(--page-width);
+  .why-choose-wrapper {
+    max-width: var(--page-width, 1200px);
     margin: 0 auto;
     padding: 0 1.5rem;
     text-align: center;
@@ -22,13 +21,14 @@
   .why-choose-heading {
     font-size: clamp(28px, 4vw, 38px);
     margin: 0 0 40px 0;
-    color: currentColor;
+    color: rgb(var(--color-foreground));
     font-weight: 400;
   }
 
   /* Applies the elegant serif styling to italicized words like "choose" */
   .why-choose-heading em, 
   .why-choose-heading i {
+    font-family: "Georgia", "Times New Roman", serif; /* Elegant serif fallback */
     font-style: italic;
     font-weight: 500;
   }
@@ -41,25 +41,31 @@
     object-fit: contain;
   }
 
-  /* Feature Items */
+  /* Grid & Slider Layout */
+  .why-choose-grid {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 20px;
+  }
+
   .why-choose-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 10px;
-    height: auto;
+    width: 100%;
   }
 
   .why-choose-icon {
-    width: 100% !impo;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 45px;
     height: 45px;
     margin-bottom: 15px;
-    color: currentColor;
+    color: rgb(var(--color-foreground));
   }
 
   .why-choose-icon svg,
@@ -70,11 +76,11 @@
   }
 
   .why-choose-title {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     letter-spacing: 0.3px;
-    color: currentColor;
+    color: rgb(var(--color-foreground));
   }
 
   .why-choose-text {
@@ -82,53 +88,72 @@
     line-height: 1.5;
     margin: 0;
     opacity: 0.8;
+    color: rgb(var(--color-foreground));
   }
 
-  /* Swiper Customizations */
-  .why-choose-swiper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  /* Custom Line Pagination for Mobile */
+  /* Mobile Pagination */
   .why-choose-pagination {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    position: relative !important;
-    bottom: 0 !important;
+    display: none;
   }
 
-  .why-choose-pagination .swiper-pagination-bullet {
-    width: 35px;
-    height: 3px;
-    border-radius: 0;
-    background: currentColor;
-    opacity: 0.2;
-    margin: 0 !important;
-    transition: opacity 0.3s ease;
-  }
+  /* Mobile: Native CSS Scroll Snap */
+  @media screen and (max-width: 749px) {
+    .why-choose-grid {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      gap: 0; 
+    }
+    
+    .why-choose-grid::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
 
-  .why-choose-pagination .swiper-pagination-bullet-active {
-    opacity: 0.8;
-  }
+    .why-choose-item {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      padding: 0 15px;
+    }
 
-  /* Hide pagination on desktop since it shows all 4 items */
-  @media (min-width: 750px) {
     .why-choose-pagination {
-      display: none !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+    }
+
+    .why-choose-dot {
+      width: 35px;
+      height: 3px;
+      background-color: rgb(var(--color-foreground));
+      opacity: 0.15;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .why-choose-dot.is-active {
+      opacity: 0.85;
+    }
+  }
+
+  /* Desktop: Standard Grid */
+  @media screen and (min-width: 750px) {
+    .why-choose-grid {
+      grid-template-columns: repeat(4, 1fr);
+      display: grid;
+      gap: 30px;
     }
   }
 {%- endstyle -%}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="why-choose-container">
+  <div class="why-choose-wrapper">
     
     {%- if section.settings.heading != blank -%}
       <h2 class="why-choose-heading">{{ section.settings.heading }}</h2>
@@ -140,10 +165,10 @@
       {{ 'image' | placeholder_svg_tag: 'why-choose-main-image placeholder-svg' }}
     {%- endif -%}
 
-    <div class="swiper why-choose-swiper" id="Swiper-{{ section.id }}">
-      <div class="swiper-wrapper">
+    <div class="why-choose-slider-container">
+      <ul class="why-choose-grid" id="Slider-{{ section.id }}">
         {%- for block in section.blocks -%}
-          <div class="swiper-slide why-choose-item" {{ block.shopify_attributes }}>
+          <li class="why-choose-item" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             
             <div class="why-choose-icon">
               {%- if block.settings.image != blank -%}
@@ -161,45 +186,59 @@
               <p class="why-choose-text">{{ block.settings.text }}</p>
             {%- endif -%}
 
-          </div>
+          </li>
         {%- endfor -%}
-      </div>
+      </ul>
       
-      <div class="swiper-pagination why-choose-pagination"></div>
+      {%- if section.blocks.size > 1 -%}
+        <div class="why-choose-pagination" id="Slider-Pagination-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            <button class="why-choose-dot {% if forloop.first %}is-active{% endif %}" aria-label="Go to slide {{ forloop.index }}" data-index="{{ forloop.index0 }}"></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
     </div>
 
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const initWhyChooseSwiper = () => {
-      new Swiper('#Swiper-{{ section.id }}', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: '#Swiper-{{ section.id }} .why-choose-pagination',
-          clickable: true,
-        },
-        breakpoints: {
-          750: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-            allowTouchMove: false, // Prevents dragging on desktop
-          }
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionId = '{{ section.id }}';
+    const slider = document.querySelector(`#Slider-${sectionId}`);
+    const dots = document.querySelectorAll(`#Slider-Pagination-${sectionId} .why-choose-dot`);
+    const slides = slider.querySelectorAll('.why-choose-item');
+    
+    if (!slider || dots.length === 0) return;
+
+    // Smoothly update pagination dots on swipe/scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = entry.target.dataset.index;
+          dots.forEach(dot => dot.classList.remove('is-active'));
+          if(dots[index]) dots[index].classList.add('is-active');
         }
       });
-    };
+    }, {
+      root: slider,
+      threshold: 0.6 // Slide is considered active when 60% visible
+    });
 
-    // Initialize Swiper if it's already loaded, otherwise wait for it
-    if (typeof Swiper !== 'undefined') {
-      initWhyChooseSwiper();
-    } else {
-      const swiperScript = document.querySelector('script[src*="swiper-bundle.min.js"]');
-      if(swiperScript) {
-        swiperScript.addEventListener('load', initWhyChooseSwiper);
-      }
-    }
+    slides.forEach(slide => observer.observe(slide));
+
+    // Allow clicking the dots to smoothly scroll to the slide
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const slide = slides[index];
+        if (slide) {
+          slider.scrollTo({
+            left: slide.offsetLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   });
 </script>
 
