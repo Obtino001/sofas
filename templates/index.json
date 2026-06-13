@@ -751,6 +751,52 @@
         "padding_top": 16,
         "padding_bottom": 36
       }
+    },
+    "why_choose_us_kQm6Yp": {
+      "type": "why-choose-us",
+      "blocks": {
+        "feature_pPYeUC": {
+          "type": "feature",
+          "settings": {
+            "title": "UK Manufactured",
+            "text": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
+          }
+        },
+        "feature_dq4reR": {
+          "type": "feature",
+          "settings": {
+            "title": "Flexible Financing",
+            "text": "Spread the cost with interest-free payment options, making it easier to bring home the sofa you love."
+          }
+        },
+        "feature_3xFXLn": {
+          "type": "feature",
+          "settings": {
+            "title": "Handcrafted Quality",
+            "text": "Carefully made by skilled artisans using durable materials designed for everyday comfort and long-term use."
+          }
+        },
+        "feature_fJMD3h": {
+          "type": "feature",
+          "settings": {
+            "title": "Risk-Free Guarantee",
+            "text": "14-day returns with no hassle, so you can shop knowing you're fully covered."
+          }
+        }
+      },
+      "block_order": [
+        "feature_pPYeUC",
+        "feature_dq4reR",
+        "feature_3xFXLn",
+        "feature_fJMD3h"
+      ],
+      "name": "Why Choose Us",
+      "settings": {
+        "heading": "Why <em>choose</em> Sofas'n'Beds",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -765,6 +811,7 @@
     "instagram_gallery_zreTaW",
     "faq_tabs_rxczBA",
     "instagram_gallery_biMKMB",
-    "instagram_gallery_itHmBn"
+    "instagram_gallery_itHmBn",
+    "why_choose_us_kQm6Yp"
   ]
 }
