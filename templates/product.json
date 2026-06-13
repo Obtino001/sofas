@@ -488,14 +488,14 @@
           "type": "category",
           "settings": {
             "title": "Sofa related questions",
-            "custom_svg": ""
+            "icon": "check_mark"
           }
         },
         "category_R8YEXp": {
           "type": "category",
           "settings": {
             "title": "Bed related questions",
-            "custom_svg": ""
+            "icon": "check_mark"
           }
         },
         "faq_MQmrUc": {
