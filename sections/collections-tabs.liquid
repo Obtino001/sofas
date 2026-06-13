@@ -56,19 +56,13 @@
   }
 </style>
 
-<div
-  class="
-    section-{{ section.id }}
-    collection-tabs
-    page-width
-    color-{{ section.settings.color_scheme }}
-    isolate
-    gradient
-    {% if section.settings.overflow %}slider-template-section__overflow-hidden{% endif %}
-  "
->
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
   <div
     class="
+      section-{{ section.id }}
+      collection-tabs
+      {% unless section.settings.full_width %}page-width{% endunless %}
+      {% if section.settings.overflow %}slider-template-section__overflow-hidden{% endif %}
       collection
       section-{{ section.id }}-padding
       {% if section.settings.full_width %}collection--full-width{% endif %}
