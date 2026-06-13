@@ -117,9 +117,47 @@
               </button>
             {%- endfor -%}
           </div>
+
+        <div class="collection-tabs__actions collection-tabs__actions--desktop small-hide">
+          {%- liquid
+            assign first_block = section.blocks | first
+            assign first_collection = first_block.settings.collection
+            assign first_url = first_collection.url | default: '#'
+          -%}
+          {%- if section.settings.show_view_all -%}
+            <a
+              href="{{ first_url }}"
+              class="collection-tabs__view-all-btn"
+              data-collection-tabs-view-all
+              aria-label="{{ 'sections.featured_collection.view_all' | t }}"
+            >
+              <span>{{ section.settings.view_all_text | default: 'View All' }}</span>
+            </a>
+          {%- endif -%}
+
+          <div class="collection-tabs__arrows">
+            <button
+              type="button"
+              class="collection-tabs__arrow js-slider-template-prev"
+              data-collection-tabs-arrow="prev"
+              aria-label="{{ 'general.slider.previous_slide' | t }}"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="collection-tabs__arrow js-slider-template-next"
+              data-collection-tabs-arrow="next"
+              aria-label="{{ 'general.slider.next_slide' | t }}"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
-
-
       </div>
     {%- endif -%}
 
@@ -257,7 +295,7 @@
       {%- endfor -%}
     </div>
 
-    <div class="collection-tabs__actions collection-tabs__actions--bottom {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="collection-tabs__actions collection-tabs__actions--bottom large-up-hide medium-hide {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {%- liquid
         assign first_block = section.blocks | first
         assign first_collection = first_block.settings.collection

@@ -19,6 +19,7 @@
 .collection-tabs__tab-label { display: inline-block; }
 .collection-tabs__actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .collection-tabs__actions--bottom { justify-content: center; margin-top: 32px; }
+.collection-tabs__actions--desktop { margin-left: auto; }
 .collection-tabs__view-all-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border: 1px solid var(--ct-accent, #1f1f1f); border-radius: 50px; background: transparent; color: var(--ct-accent, #1f1f1f); font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background 0.25s ease, color 0.25s ease; line-height: 1; }
 .collection-tabs__view-all-btn:hover { background: var(--ct-accent, #1f1f1f); color: #ffffff; }
 .collection-tabs__arrows { display: flex; align-items: center; gap: 6px; }
