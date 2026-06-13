@@ -50,10 +50,6 @@
     --sl-transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.desktopMenu-Nav.page-width {
-    max-width: 1200px;
-}
-
 .kaching-bundles .kaching-bundles__bar-radio {
     display: none !important;
 }
