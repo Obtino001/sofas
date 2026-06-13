@@ -150,6 +150,12 @@ if (!customElements.get('slider-container')) {
         _initSlider() {
             if (this.swiperInstance) return;
 
+            // Prevent Swiper width calculation explosions
+            if (this.swiperEl) {
+                this.swiperEl.style.width = '100%';
+                this.swiperEl.style.minWidth = '0';
+            }
+
             const swiperParams = {
                 slidesPerView: this.config.mobileSlides || 1,
                 spaceBetween: this.config.mobileSpacing || 0,
@@ -166,6 +172,9 @@ if (!customElements.get('slider-container')) {
                         spaceBetween: this.config.desktopSpacing || 0,
                     }
                 },
+                observer: true,
+                observeParents: true,
+                watchSlidesProgress: true,
                 on: {
                     init: (swiper) => {
                         this.classList.add('is-initialized');
@@ -245,7 +254,11 @@ if (!customElements.get('slider-container')) {
         _parseConfig(el) {
             if (!el || !el.hasAttribute('data-swiper-config')) return null;
             try {
-                return JSON.parse(el.dataset.swiperConfig);
+                const parsed = JSON.parse(el.dataset.swiperConfig);
+                if (parsed.desktopSlides) parsed.desktopSlides = parseFloat(parsed.desktopSlides);
+                if (parsed.tabletSlides) parsed.tabletSlides = parseFloat(parsed.tabletSlides);
+                if (parsed.mobileSlides) parsed.mobileSlides = parseFloat(parsed.mobileSlides);
+                return parsed;
             } catch {
                 return null;
             }
