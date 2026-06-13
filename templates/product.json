@@ -33,16 +33,6 @@
             "margin_bottom": 10
           }
         },
-        "title": {
-          "type": "title",
-          "disabled": true,
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "disabled": true,
-          "settings": {}
-        },
         "pills_xFGRwJ": {
           "type": "pills",
           "settings": {
@@ -56,28 +46,6 @@
             "benefit_4": "Solid wood frame with chrome feet for strength and style",
             "benefit_5": "Medium firm seat height for comfort and posture",
             "benefit_6": ""
-          }
-        },
-        "text_YJpJae": {
-          "type": "text",
-          "settings": {
-            "text": "Feel safe and comfortable all day with Nora High Waist.A soft, stretchy fit with built-in protection that absorbs flow while staying breathable and discreet.",
-            "text_style": "body"
-          }
-        },
-        "multi_icon_xn8fhg": {
-          "type": "multi-icon",
-          "settings": {
-            "icon_size_1": 46,
-            "icon_size_m_1": 30,
-            "text-1": "Absorbs equivalent of 5 tampons",
-            "icon_size_2": 46,
-            "icon_size_m_2": 30,
-            "text-2": "Absorbs equivalent of 5 tampons",
-            "icon_size_3": 46,
-            "icon_size_m_3": 30,
-            "text-3": "Absorbs equivalent of 5 tampons",
-            "text-size": 14
           }
         },
         "variant_picker": {
@@ -195,11 +163,7 @@
       "block_order": [
         "title_and_price_miVkLd",
         "product_reviews_XX9YT4",
-        "title",
-        "price",
         "pills_xFGRwJ",
-        "text_YJpJae",
-        "multi_icon_xn8fhg",
         "variant_picker",
         "buy_buttons",
         "payments_fYcAA7",
