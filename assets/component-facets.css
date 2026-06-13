@@ -1477,7 +1477,6 @@ details.js-filter > summary::before {
 
 /* ── Wrapper pill (Filter button on collection page) ── */
 .mobile-facets__wrapper {
-  background: #fff2f2;
   margin-left: 0;
   display: flex;
   padding: 10px 20px;
