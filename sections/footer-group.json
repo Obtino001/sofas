@@ -17,7 +17,7 @@
         "feature_item_7ykr9L": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon": "check_mark",
             "title": "Feature Title",
             "subtext": "<p>A short description of the feature.</p>"
           }
@@ -25,7 +25,7 @@
         "feature_item_cH8QAf": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon": "check_mark",
             "title": "Feature Title",
             "subtext": "<p>A short description of the feature.</p>"
           }
@@ -33,7 +33,7 @@
         "feature_item_WjJ7Ek": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon": "check_mark",
             "title": "Feature Title",
             "subtext": "<p>A short description of the feature.</p>"
           }
@@ -41,7 +41,7 @@
         "feature_item_fBFCBp": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon": "check_mark",
             "title": "Feature Title",
             "subtext": "<p>A short description of the feature.</p>"
           }
@@ -96,7 +96,7 @@
       "settings": {
         "brand_image_width": 100,
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "features_color_scheme": "",
+        "features_color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
