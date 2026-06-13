@@ -43,8 +43,8 @@
       "settings": {
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "media_type": "image",
-        "image": "shopify://shop_images/image_1.png",
-        "mobile_image": "shopify://shop_images/image_1_1.png",
+        "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
+        "mobile_image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
         "overlay_opacity": 30,
         "heading_size_desktop": 48,
         "subheading_size_desktop": 16,
@@ -375,6 +375,7 @@
         "category_eegFtJ": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/image_40_1.png",
             "title": "2 Seater Sofas",
             "link": ""
           }
@@ -382,6 +383,7 @@
         "category_4NYgWA": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/image_40_2.png",
             "title": "3 Seater Sofas",
             "link": ""
           }
@@ -389,6 +391,7 @@
         "category_iUnEnp": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_190.png",
             "title": "4 Seater Sofas",
             "link": ""
           }
@@ -396,6 +399,7 @@
         "category_ThtFMW": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/image_40_3.png",
             "title": "Corner Sofas",
             "link": ""
           }
@@ -403,6 +407,7 @@
         "category_kthBRn": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/image_40_5.png",
             "title": "Swivel Chairs",
             "link": ""
           }
