@@ -33,9 +33,9 @@
           "settings": {
             "column_size": "75%",
             "title": "sofas",
-            "widget": "menu",
+            "widget": "image_grid_promo",
             "menu_heading": "",
-            "menu_link_list_child": "main-menu-2",
+            "menu_link_list_child": "shop-menu",
             "banner_title": "",
             "banner_button": "",
             "banner_link": "",
