@@ -150,3 +150,86 @@ variant-selects {
   }
 }
 /* End custom styles for Swatch display type */
+
+/* ============================================
+   WOC — Variant Image Thumbnails
+   79x50px rounded rectangles matching Figma reference
+   ============================================ */
+.woc-variant-img-input {
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+.woc-variant-img-label {
+  display: inline-block;
+  width: 79px;
+  height: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(var(--color-foreground), 0.12);
+  margin: 0.7rem 0.8rem 0.2rem 0;
+  padding: 0;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.woc-variant-img-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.woc-variant-img-label:hover {
+  border-color: rgba(var(--color-foreground), 0.5);
+  transform: scale(1.03);
+}
+
+.woc-variant-img-input:checked + .woc-variant-img-label {
+  border-color: rgb(var(--color-foreground));
+  border-width: 2px;
+}
+
+.woc-variant-img-input:focus-visible + .woc-variant-img-label {
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
+              0 0 0 0.5rem rgba(var(--color-foreground), 0.55);
+}
+
+.woc-variant-img-input:disabled + .woc-variant-img-label {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.woc-variant-img-input:disabled + .woc-variant-img-label::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 1px),
+    rgba(var(--color-foreground), 0.3) calc(50% - 1px),
+    rgba(var(--color-foreground), 0.3) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+/* Ensure flex wrap for image variant containers */
+.product-form__input--swatch:has(.woc-variant-img-label),
+.product-form__input--pill:has(.woc-variant-img-label) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+@media screen and (forced-colors: active) {
+  .woc-variant-img-input:checked + .woc-variant-img-label {
+    outline: 2px solid;
+  }
+}
+

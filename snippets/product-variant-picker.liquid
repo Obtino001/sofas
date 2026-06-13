@@ -63,7 +63,12 @@
             class="form__label"
             style="display: flex; justify-content: space-between; align-items: center; width: 100%;"
           >
-            <span>{{ option.name }}</span>
+            <span>
+              {{ option.name }}:
+              <span data-selected-value>
+                {{- option.selected_value -}}
+              </span>
+            </span>
             {%- assign option_name_downcase = option.name | downcase | strip -%}
             {%- if block.settings.size_guide_page
               and option_name_downcase == 'size'

@@ -1,8 +1,7 @@
 {% comment %}
   Renders product variant options
   - Toggle: Respects 'block.settings.show_variant_images_in_swatches'
-  - Filter: Only applies images to 'Color' options
-  - Fix: Forces image loading by matching string values
+  - Shows variant featured images as thumbnails for all option types when enabled
 {% endcomment %}
 {%- liquid
   assign product_form_id = 'product-form-' | append: section.id
@@ -51,113 +50,113 @@
     {%- assign variant_image_url = null -%}
     
     {%- comment -%} 
-      LOGIC START: Check Customizer Setting AND Check if Option is Color 
+      Find variant featured image for this option value
     {%- endcomment -%}
     {%- if block.settings.show_variant_images_in_swatches -%}
-      {%- assign option_name_down = option.name | downcase -%}
-      {%- if option_name_down contains 'color' or option_name_down contains 'colour' -%}
-        
-        {%- assign option_index = option.position | minus: 1 -%}
-        {%- assign value_clean = value | strip | escape -%}
+      {%- assign option_index = option.position | minus: 1 -%}
+      {%- assign value_clean = value | strip | escape -%}
 
-        {%- for variant in product.variants -%}
-          {%- assign variant_val_clean = variant.options[option_index] | strip | escape -%}
-          {%- if variant_val_clean == value_clean and variant.featured_media -%}
-              {%- assign variant_image_url = variant.featured_media | image_url: width: 100 -%}
-              {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-
-      {%- endif -%}
+      {%- for variant in product.variants -%}
+        {%- assign variant_val_clean = variant.options[option_index] | strip | escape -%}
+        {%- if variant_val_clean == value_clean and variant.featured_media -%}
+            {%- assign variant_image_url = variant.featured_media | image_url: width: 200 -%}
+            {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
     {%- endif -%}
-    {%- comment -%} LOGIC END {%- endcomment -%}
-
-    {%- capture help_text -%}
-      <span class="visually-hidden">{{ value | escape }}</span>
-      {{ label_unavailable }}
-    {%- endcapture -%}
-    
-    {% render 'swatch-input',
-      id: input_id,
-      name: input_name,
-      value: value | escape,
-      swatch: value.swatch,
-      product_form_id: product_form_id,
-      checked: value.selected,
-      visually_disabled: option_disabled,
-      shape: block.settings.swatch_shape,
-      help_text: help_text,
-      additional_props: input_dataset
-    %}
 
     {%- if variant_image_url -%}
-      <style>
-        label[for="{{ input_id }}"] {
-          background-image: url("{{ variant_image_url }}") !important;
-          background-color: transparent !important;
-          background-position: center !important;
-          background-size: cover !important;
-          color: transparent !important; 
-        }
-        label[for="{{ input_id }}"] span { 
-          opacity: 0; 
-          visibility: hidden;
-        }
-      </style>
+      {%- comment -%} Render image thumbnail swatch {%- endcomment -%}
+      <input
+        type="radio"
+        id="{{ input_id }}"
+        name="{{ input_name | escape }}"
+        value="{{ value | escape }}"
+        form="{{ product_form_id }}"
+        class="woc-variant-img-input"
+        {% if value.selected %}checked{% endif %}
+        {% if option_disabled %}disabled{% endif %}
+        {{ input_dataset }}
+      >
+      <label for="{{ input_id }}" class="woc-variant-img-label" title="{{ value | escape }}">
+        <img src="{{ variant_image_url }}" alt="{{ value | escape }}" loading="lazy" width="79" height="50">
+        {{ label_unavailable }}
+      </label>
+    {%- else -%}
+      {%- comment -%} Standard swatch (color/pattern) {%- endcomment -%}
+      {%- capture help_text -%}
+        <span class="visually-hidden">{{ value | escape }}</span>
+        {{ label_unavailable }}
+      {%- endcapture -%}
+      
+      {% render 'swatch-input',
+        id: input_id,
+        name: input_name,
+        value: value | escape,
+        swatch: value.swatch,
+        product_form_id: product_form_id,
+        checked: value.selected,
+        visually_disabled: option_disabled,
+        shape: block.settings.swatch_shape,
+        help_text: help_text,
+        additional_props: input_dataset
+      %}
     {%- endif -%}
 
   {%- elsif picker_type == 'button' -%}
     
     {%- assign variant_image_url = null -%}
     
-    {%- comment -%} SAME LOGIC FOR BUTTONS {%- endcomment -%}
     {%- if block.settings.show_variant_images_in_swatches -%}
-      {%- assign option_name_down = option.name | downcase -%}
-      {%- if option_name_down contains 'color' or option_name_down contains 'colour' -%}
-        
-        {%- assign option_index = option.position | minus: 1 -%}
-        {%- assign value_clean = value | strip | escape -%}
+      {%- assign option_index = option.position | minus: 1 -%}
+      {%- assign value_clean = value | strip | escape -%}
 
-        {%- for variant in product.variants -%}
-          {%- assign variant_val_clean = variant.options[option_index] | strip | escape -%}
-          {%- if variant_val_clean == value_clean and variant.featured_media -%}
-              {%- assign variant_image_url = variant.featured_media | image_url: width: 100 -%}
-              {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-
-      {%- endif -%}
+      {%- for variant in product.variants -%}
+        {%- assign variant_val_clean = variant.options[option_index] | strip | escape -%}
+        {%- if variant_val_clean == value_clean and variant.featured_media -%}
+            {%- assign variant_image_url = variant.featured_media | image_url: width: 200 -%}
+            {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
     {%- endif -%}
 
-    <input
-      type="radio"
-      id="{{ input_id }}"
-      name="{{ input_name | escape }}"
-      value="{{ value | escape }}"
-      form="{{ product_form_id }}"
-      {% if value.selected %}
-        checked
-      {% endif %}
-      {% if option_disabled %}
-        class="disabled"
-      {% endif %}
-      {{ input_dataset }}
-    >
-    <label for="{{ input_id }}"
-       {% if variant_image_url %}
-        style="
-          background-image: url('{{ variant_image_url }}') !important;
-          background-size: cover !important;
-          background-position: center !important;
-          color: transparent !important;
-          min-width: 40px;
-          min-height: 40px;
-        "
-      {% endif %}
-    >
-      {{ value -}}
-      {{ label_unavailable }}
-    </label>
+    {%- if variant_image_url -%}
+      {%- comment -%} Render image thumbnail pill {%- endcomment -%}
+      <input
+        type="radio"
+        id="{{ input_id }}"
+        name="{{ input_name | escape }}"
+        value="{{ value | escape }}"
+        form="{{ product_form_id }}"
+        class="woc-variant-img-input"
+        {% if value.selected %}checked{% endif %}
+        {% if option_disabled %}disabled{% endif %}
+        {{ input_dataset }}
+      >
+      <label for="{{ input_id }}" class="woc-variant-img-label" title="{{ value | escape }}">
+        <img src="{{ variant_image_url }}" alt="{{ value | escape }}" loading="lazy" width="79" height="50">
+        {{ label_unavailable }}
+      </label>
+    {%- else -%}
+      <input
+        type="radio"
+        id="{{ input_id }}"
+        name="{{ input_name | escape }}"
+        value="{{ value | escape }}"
+        form="{{ product_form_id }}"
+        {% if value.selected %}
+          checked
+        {% endif %}
+        {% if option_disabled %}
+          class="disabled"
+        {% endif %}
+        {{ input_dataset }}
+      >
+      <label for="{{ input_id }}">
+        {{ value -}}
+        {{ label_unavailable }}
+      </label>
+    {%- endif -%}
 
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
