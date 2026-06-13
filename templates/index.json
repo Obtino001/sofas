@@ -48,7 +48,7 @@
         "overlay_opacity": 0,
         "heading_size_desktop": 48,
         "subheading_size_desktop": 16,
-        "content_width": 650,
+        "content_width": 950,
         "min_height_desktop": 700,
         "adapt_height_desktop": true,
         "heading_size_mobile": 28,
@@ -543,14 +543,14 @@
           "type": "category",
           "settings": {
             "title": "Sofa related questions",
-            "custom_svg": ""
+            "icon": "check_mark"
           }
         },
         "category_LmHxAQ": {
           "type": "category",
           "settings": {
             "title": "Bed related questions",
-            "custom_svg": ""
+            "icon": "check_mark"
           }
         },
         "faq_YdrqCY": {
