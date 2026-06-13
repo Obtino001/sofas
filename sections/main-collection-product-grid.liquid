@@ -100,22 +100,181 @@
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
-      {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-        <aside
-          aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
-          id="main-collection-filters"
-          data-id="{{ section.id }}"
-        >
-          {% render 'facets',
-            results: collection,
-            enable_filtering: section.settings.enable_filtering,
-            enable_sorting: section.settings.enable_sorting,
-            filter_type: section.settings.filter_type,
-            paginate: paginate
-          %}
-        </aside>
-      {%- endif -%}
+      <style>
+        .collection-toolbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid rgba(var(--color-foreground), 0.08);
+          border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+          padding: 15px 0;
+          margin-bottom: 3rem;
+          flex-wrap: wrap;
+          gap: 15px;
+        }
+        .collection-toolbar__nav {
+          flex: 1;
+          overflow-x: auto;
+        }
+        .cn-list {
+          display: flex;
+          gap: 10px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          min-width: max-content;
+        }
+        .cn-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 16px;
+          border-radius: 30px;
+          text-decoration: none;
+          color: rgb(var(--color-foreground));
+          font-weight: 500;
+          font-size: 1.4rem;
+          background: transparent;
+          transition: background-color 0.2s ease;
+        }
+        .cn-item.active {
+          background-color: #efe6d8;
+        }
+        .cn-item img {
+          height: 24px;
+          width: auto;
+          object-fit: contain;
+        }
+        .collection-toolbar__controls {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+        .grid-view-toggles {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .grid-view-toggle {
+          background: none;
+          border: none;
+          padding: 5px;
+          cursor: pointer;
+          color: rgb(var(--color-foreground));
+          opacity: 0.3;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .grid-view-toggle.active {
+          opacity: 1;
+        }
+        .grid-view-toggle svg {
+          width: 20px;
+          height: 20px;
+          fill: currentColor;
+        }
+        @media screen and (max-width: 768px) {
+           .collection-toolbar {
+             flex-direction: column;
+             align-items: flex-start;
+           }
+           .collection-toolbar__controls {
+             width: 100%;
+             justify-content: space-between;
+           }
+        }
+      </style>
+
+      <div class="collection-toolbar page-width">
+        <div class="collection-toolbar__nav">
+          <ul class="cn-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'collection_item' -%}
+                {%- liquid
+                  assign is_active = false
+                  
+                  if collection.handle != blank and block.settings.collection_ref != blank
+                    if collection.handle == block.settings.collection_ref.handle
+                      assign is_active = true
+                    endif
+                  endif
+
+                  if request.path == block.settings.custom_url
+                     assign is_active = true
+                  endif
+                  
+                  assign image = block.settings.custom_image
+                  if image == blank and block.settings.collection_ref != blank
+                     assign image = block.settings.collection_ref.featured_image
+                  endif
+                  
+                  assign link_url = block.settings.custom_url
+                  if link_url == blank and block.settings.collection_ref != blank
+                     assign link_url = block.settings.collection_ref.url
+                  endif
+                -%}
+
+                <li>
+                  <a href="{{ link_url }}" class="cn-item {% if is_active %}active{% endif %}" {{ block.shopify_attributes }}>
+                    {%- if image != blank -%}
+                      <img src="{{ image | image_url: height: 48 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+                    {%- endif -%}
+                    <span class="cn-title">
+                      {%- if block.settings.title != blank -%}
+                        {{ block.settings.title }}
+                      {%- else -%}
+                        {{ block.settings.collection_ref.title }}
+                      {%- endif -%}
+                    </span>
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="collection-toolbar__controls">
+          <div class="grid-view-toggles small-hide">
+            <button type="button" class="grid-view-toggle js-grid-toggle active" data-col="4" aria-label="4 columns">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="10" y="2" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="18" y="2" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="2" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="10" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="18" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="2" y="18" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="10" y="18" width="4" height="4" rx="1" fill="currentColor"/>
+                <rect x="18" y="18" width="4" height="4" rx="1" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" class="grid-view-toggle js-grid-toggle" data-col="2" aria-label="2 columns">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="7" height="18" rx="1" fill="currentColor"/>
+                <rect x="14" y="3" width="7" height="18" rx="1" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+
+          {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+            <aside
+              aria-labelledby="verticalTitle"
+              class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}"
+              id="main-collection-filters"
+              data-id="{{ section.id }}"
+            >
+              {% render 'facets',
+                results: collection,
+                enable_filtering: section.settings.enable_filtering,
+                enable_sorting: section.settings.enable_sorting,
+                filter_type: section.settings.filter_type,
+                paginate: paginate
+              %}
+            </aside>
+          {%- endif -%}
+        </div>
+      </div>
 
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -370,6 +529,35 @@
 
 {% endif %}
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const gridToggles = document.querySelectorAll('.js-grid-toggle');
+    const productGrid = document.getElementById('product-grid');
+
+    if (gridToggles.length && productGrid) {
+      gridToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const columns = this.getAttribute('data-col');
+          
+          // Update active state
+          gridToggles.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Remove existing desktop column classes
+          productGrid.classList.forEach(className => {
+            if (className.startsWith('grid--') && className.endsWith('-col-desktop')) {
+              productGrid.classList.remove(className);
+            }
+          });
+          
+          // Add new desktop column class
+          productGrid.classList.add(`grid--${columns}-col-desktop`);
+        });
+      });
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
@@ -616,6 +804,41 @@
     }
   ],
   "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Configuration"
+        },
+        {
+          "type": "collection",
+          "id": "collection_ref",
+          "label": "Select Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "droplet_image",
+          "label": "Droplet Icon"
+        },
+        {
+          "type": "url",
+          "id": "custom_url",
+          "label": "Custom Link (Optional)"
+        }
+      ]
+    },
     {
   "type": "block",
   "name": "Tab",
