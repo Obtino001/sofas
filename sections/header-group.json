@@ -27,27 +27,6 @@
     },
     "header": {
       "type": "header",
-      "blocks": {
-        "megamenu_hHENWU": {
-          "type": "megamenu",
-          "settings": {
-            "column_size": "75%",
-            "title": "sofas",
-            "widget": "menu",
-            "menu_heading": "",
-            "menu_link_list_child": "main-menu",
-            "image": "shopify://shop_images/b4c4eeac9aecb49cd53bb774e8933ff0d9eda51f.png",
-            "banner_title": "10% off on corner  sofas",
-            "banner_button": "Explore corner sofas",
-            "banner_link": "",
-            "timer_label": "Sale ends in:",
-            "timer_date": ""
-          }
-        }
-      },
-      "block_order": [
-        "megamenu_hHENWU"
-      ],
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
