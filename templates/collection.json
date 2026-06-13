@@ -20,6 +20,21 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
+        "feature_promo_WtKGn9": {
+          "type": "feature_promo",
+          "settings": {
+            "insert_after": 8,
+            "color_scheme": "scheme-1",
+            "heading": "14 Days no question returns",
+            "text": "Enjoy complete peace of mind with our 14-day no-questions-asked return policy.",
+            "feature_1": "",
+            "feature_2": "",
+            "feature_3": "",
+            "button_label": "Learn more",
+            "button_link": "",
+            "image": "shopify://shop_images/5ed1c4ca042e10f53e3d3c15da82071e64c17895.png"
+          }
+        },
         "collection_item_WhT8CN": {
           "type": "collection_item",
           "settings": {
@@ -30,6 +45,7 @@
         }
       },
       "block_order": [
+        "feature_promo_WtKGn9",
         "collection_item_WhT8CN"
       ],
       "settings": {

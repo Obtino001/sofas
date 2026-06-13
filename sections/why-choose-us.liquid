@@ -25,10 +25,10 @@
     font-weight: 400;
   }
 
-  /* Elegant serif styling for italicized words */
+  /* Applies the elegant serif styling to italicized words like "choose" */
   .why-choose-heading em, 
   .why-choose-heading i {
-    font-family: "Georgia", "Times New Roman", serif; 
+    font-family: "Georgia", "Times New Roman", serif; /* Elegant serif fallback */
     font-style: italic;
     font-weight: 500;
   }
@@ -41,7 +41,7 @@
     object-fit: contain;
   }
 
-  /* Grid & Slider Base */
+  /* Grid & Slider Layout */
   .why-choose-grid {
     display: flex;
     padding: 0;
@@ -91,38 +91,58 @@
     color: rgb(var(--color-foreground));
   }
 
-  /* Mobile: 100% Pure CSS Scroll Snap Slider */
+  /* Mobile Pagination */
+  .why-choose-pagination {
+    display: none;
+  }
+
+  /* Mobile: Native CSS Scroll Snap */
   @media screen and (max-width: 749px) {
     .why-choose-grid {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 20px; /* Space for the scrollbar */
-      gap: 15px;
+      scrollbar-width: none; /* Firefox */
+      gap: 0; 
     }
     
-    /* Sleek Custom Scrollbar for Mobile Guidance */
     .why-choose-grid::-webkit-scrollbar {
-      height: 3px;
-    }
-    .why-choose-grid::-webkit-scrollbar-track {
-      background: rgba(var(--color-foreground), 0.1);
-      border-radius: 4px;
-    }
-    .why-choose-grid::-webkit-scrollbar-thumb {
-      background: rgba(var(--color-foreground), 0.4);
-      border-radius: 4px;
+      display: none; /* Chrome/Safari */
     }
 
     .why-choose-item {
-      /* 85% width creates a "peek" effect showing the next slide */
-      flex: 0 0 85%; 
+      flex: 0 0 100%;
       scroll-snap-align: center;
+      padding: 0 15px;
+    }
+
+    .why-choose-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+    }
+
+    .why-choose-dot {
+      width: 35px;
+      height: 3px;
+      background-color: rgb(var(--color-foreground));
+      opacity: 0.15;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .why-choose-dot.is-active {
+      opacity: 0.85;
     }
   }
 
-  /* Desktop: Standard 4-Column Grid */
+  /* Desktop: Standard Grid */
   @media screen and (min-width: 750px) {
     .why-choose-grid {
       grid-template-columns: repeat(4, 1fr);
@@ -146,9 +166,9 @@
     {%- endif -%}
 
     <div class="why-choose-slider-container">
-      <ul class="why-choose-grid">
+      <ul class="why-choose-grid" id="Slider-{{ section.id }}">
         {%- for block in section.blocks -%}
-          <li class="why-choose-item" {{ block.shopify_attributes }}>
+          <li class="why-choose-item" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             
             <div class="why-choose-icon">
               {%- if block.settings.image != blank -%}
@@ -169,10 +189,58 @@
           </li>
         {%- endfor -%}
       </ul>
+      
+      {%- if section.blocks.size > 1 -%}
+        <div class="why-choose-pagination" id="Slider-Pagination-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            <button class="why-choose-dot {% if forloop.first %}is-active{% endif %}" aria-label="Go to slide {{ forloop.index }}" data-index="{{ forloop.index0 }}"></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
     </div>
 
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionId = '{{ section.id }}';
+    const slider = document.querySelector(`#Slider-${sectionId}`);
+    const dots = document.querySelectorAll(`#Slider-Pagination-${sectionId} .why-choose-dot`);
+    const slides = slider.querySelectorAll('.why-choose-item');
+    
+    if (!slider || dots.length === 0) return;
+
+    // Smoothly update pagination dots on swipe/scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = entry.target.dataset.index;
+          dots.forEach(dot => dot.classList.remove('is-active'));
+          if(dots[index]) dots[index].classList.add('is-active');
+        }
+      });
+    }, {
+      root: slider,
+      threshold: 0.6 // Slide is considered active when 60% visible
+    });
+
+    slides.forEach(slide => observer.observe(slide));
+
+    // Allow clicking the dots to smoothly scroll to the slide
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const slide = slides[index];
+        if (slide) {
+          slider.scrollTo({
+            left: slide.offsetLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
 
 {% schema %}
 {
