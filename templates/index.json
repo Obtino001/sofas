@@ -197,180 +197,6 @@
         "padding_bottom": 36
       }
     },
-    "collections_tabs_G8NWUM": {
-      "type": "collections-tabs",
-      "blocks": {
-        "collection_PbKmJb": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_72.svg",
-            "collection": "2-seater"
-          }
-        },
-        "collection_bhLdJj": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_3.svg",
-            "collection": "3-seater"
-          }
-        },
-        "collection_qXgdmN": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_1.png",
-            "collection": "4-seater"
-          }
-        },
-        "collection_dHjjce": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_4.svg",
-            "collection": "corner-sofa"
-          }
-        },
-        "collection_kTMWd4": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_6.svg",
-            "collection": "arm-chairs"
-          }
-        }
-      },
-      "block_order": [
-        "collection_PbKmJb",
-        "collection_bhLdJj",
-        "collection_qXgdmN",
-        "collection_dHjjce",
-        "collection_kTMWd4"
-      ],
-      "name": "Collection Tabs",
-      "settings": {
-        "title": "The perfect sofa for your space",
-        "heading_size": "h1",
-        "heading_alignment": "left",
-        "description": "",
-        "description_style": "body",
-        "tab_icon_size": 32,
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "spacing": 10,
-        "overflow": true,
-        "full_width": false,
-        "enable_slider_desktop": true,
-        "enable_slider_mobile": true,
-        "controls_position": "dots",
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "enable_loop": false,
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "badge_position": "top-left",
-        "show_rating": false,
-        "card_radius": 12,
-        "show_delivery": true,
-        "delivery_text": "Order now & get it by 28-29 March",
-        "show_swatches": true,
-        "swatch_option_name": "Color",
-        "show_view_all": true,
-        "view_all_text": "View All",
-        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "collections_tabs_M9VpAE": {
-      "type": "collections-tabs",
-      "blocks": {
-        "collection_ahHdKr": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_72.svg",
-            "collection": "2-seater"
-          }
-        },
-        "collection_WHE4kN": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_3.svg",
-            "collection": "3-seater"
-          }
-        },
-        "collection_UX9je6": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_1.png",
-            "collection": "4-seater"
-          }
-        },
-        "collection_jrWiGX": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_4.svg",
-            "collection": "corner-sofa"
-          }
-        },
-        "collection_yR7TKk": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_6.svg",
-            "collection": "arm-chairs"
-          }
-        }
-      },
-      "block_order": [
-        "collection_ahHdKr",
-        "collection_WHE4kN",
-        "collection_UX9je6",
-        "collection_jrWiGX",
-        "collection_yR7TKk"
-      ],
-      "name": "Collection Tabs",
-      "settings": {
-        "title": "The perfect sofa for your space",
-        "heading_size": "h1",
-        "heading_alignment": "left",
-        "description": "",
-        "description_style": "body",
-        "tab_icon_size": 32,
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "spacing": 10,
-        "overflow": true,
-        "full_width": false,
-        "enable_slider_desktop": true,
-        "enable_slider_mobile": true,
-        "controls_position": "dots",
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "enable_loop": false,
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "badge_position": "top-left",
-        "show_rating": false,
-        "card_radius": 12,
-        "show_delivery": true,
-        "delivery_text": "Order now & get it by 28-29 March",
-        "show_swatches": true,
-        "swatch_option_name": "Color",
-        "show_view_all": true,
-        "view_all_text": "View All",
-        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "testimonials_FqAwzT": {
       "type": "testimonials",
       "blocks": {
@@ -465,6 +291,93 @@
         "mobile_spacing": 16
       }
     },
+    "collections_tabs_G8NWUM": {
+      "type": "collections-tabs",
+      "blocks": {
+        "collection_PbKmJb": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_72.svg",
+            "collection": "2-seater"
+          }
+        },
+        "collection_bhLdJj": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_3.svg",
+            "collection": "3-seater"
+          }
+        },
+        "collection_qXgdmN": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_1.png",
+            "collection": "4-seater"
+          }
+        },
+        "collection_dHjjce": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_4.svg",
+            "collection": "corner-sofa"
+          }
+        },
+        "collection_kTMWd4": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_6.svg",
+            "collection": "arm-chairs"
+          }
+        }
+      },
+      "block_order": [
+        "collection_PbKmJb",
+        "collection_bhLdJj",
+        "collection_qXgdmN",
+        "collection_dHjjce",
+        "collection_kTMWd4"
+      ],
+      "name": "Collection Tabs",
+      "settings": {
+        "title": "The perfect sofa for your space",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "description": "",
+        "description_style": "body",
+        "tab_icon_size": 32,
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "spacing": 10,
+        "overflow": true,
+        "full_width": false,
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "dots",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "badge_position": "top-left",
+        "show_rating": false,
+        "card_radius": 12,
+        "show_delivery": true,
+        "delivery_text": "Order now & get it by 28-29 March",
+        "show_swatches": true,
+        "swatch_option_name": "Color",
+        "show_view_all": true,
+        "view_all_text": "View All",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "bento_categories_aFbwVW": {
       "type": "bento-categories",
       "blocks": {
@@ -541,6 +454,93 @@
         "gap_mobile": 12,
         "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "collections_tabs_M9VpAE": {
+      "type": "collections-tabs",
+      "blocks": {
+        "collection_ahHdKr": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_72.svg",
+            "collection": "2-seater"
+          }
+        },
+        "collection_WHE4kN": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_3.svg",
+            "collection": "3-seater"
+          }
+        },
+        "collection_UX9je6": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_1.png",
+            "collection": "4-seater"
+          }
+        },
+        "collection_jrWiGX": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_4.svg",
+            "collection": "corner-sofa"
+          }
+        },
+        "collection_yR7TKk": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_6.svg",
+            "collection": "arm-chairs"
+          }
+        }
+      },
+      "block_order": [
+        "collection_ahHdKr",
+        "collection_WHE4kN",
+        "collection_UX9je6",
+        "collection_jrWiGX",
+        "collection_yR7TKk"
+      ],
+      "name": "Collection Tabs",
+      "settings": {
+        "title": "The perfect sofa for your space",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "description": "",
+        "description_style": "body",
+        "tab_icon_size": 32,
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "spacing": 10,
+        "overflow": true,
+        "full_width": false,
+        "enable_slider_desktop": true,
+        "enable_slider_mobile": true,
+        "controls_position": "dots",
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "enable_loop": false,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "badge_position": "top-left",
+        "show_rating": false,
+        "card_radius": 12,
+        "show_delivery": true,
+        "delivery_text": "Order now & get it by 28-29 March",
+        "show_swatches": true,
+        "swatch_option_name": "Color",
+        "show_view_all": true,
+        "view_all_text": "View All",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "icon_category_list_nG3Ni8": {
@@ -918,6 +918,21 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "newsletter_pPWpWW": {
+      "type": "newsletter",
+      "name": "Custom Newsletter Banner",
+      "settings": {
+        "bg_color": "#EFEBE5",
+        "heading": "Sign up & get an <em>additional</em> 10% off now!",
+        "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
+        "input_placeholder": "Email Address",
+        "button_text": "Get 10% off",
+        "button_color": "#c3a67d",
+        "privacy_text": "By subscribing you agree to our <a href='/policies/privacy-policy'>Privacy Policy</a>.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -934,6 +949,7 @@
     "faq_tabs_rxczBA",
     "instagram_gallery_biMKMB",
     "instagram_gallery_itHmBn",
-    "why_choose_us_kQm6Yp"
+    "why_choose_us_kQm6Yp",
+    "newsletter_pPWpWW"
   ]
 }
