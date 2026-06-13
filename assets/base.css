@@ -1013,10 +1013,12 @@ summary::-webkit-details-marker {
     width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
     max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
   }
+
   .footer .grid--5-col-desktop .grid__item {
     width: calc(100% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
     max-width: calc(100% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
   }
+
   .grid--4-col-desktop .grid__item {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
@@ -1074,7 +1076,7 @@ summary::-webkit-details-marker {
     margin-left: 1.5rem;
   }
 
-  quick-add-modal .grid--peek.slider .grid__item:first-of-type{
+  quick-add-modal .grid--peek.slider .grid__item:first-of-type {
     margin: 0px;
   }
 
@@ -1277,8 +1279,6 @@ button.shopify-payment-button__button--unbranded {
   left: var(--buttons-border-width);
   z-index: 1;
   border-radius: var(--buttons-radius);
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)),
-    0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
   transition: box-shadow var(--duration-short) ease;
 }
 
