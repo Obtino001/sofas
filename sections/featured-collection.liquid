@@ -3,7 +3,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<slider-component class="template-slider-section" data-block-id="{{ section.id }}">
+<slider-container class="template-slider-section" data-block-id="{{ section.id }}">
   <div class="slider-wrapper relative-container container-x">
       <div class="l-cat-header">
       <div class="l-cat-title-group">
@@ -71,7 +71,7 @@
         {% unless section.settings.desktop_scrollbar %}hide-on-desktop{% endunless %}">
     </div>
   </div>
-</slider-component>
+</slider-container>
 
 <style>
 /* Added padding for page-width */

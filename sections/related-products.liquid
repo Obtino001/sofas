@@ -151,7 +151,7 @@
           data-collection-url="{{ collection.url }}"
           {% unless forloop.first %}hidden{% endunless %}
         >
-          <slider-component class="collection-tabs__slider slider-template-section block" data-block-id="{{ section.id }}-{{ block.id }}">
+          <slider-container class="collection-tabs__slider slider-template-section block" data-block-id="{{ section.id }}-{{ block.id }}">
             <div class="slider-template-section__container">
               <div
                 class="swiper js-slider-template-swiper slider-template-section__swiper"
@@ -253,7 +253,7 @@
                 </div>
               </div>
             </div>
-          </slider-component>
+          </slider-container>
         </div>
 
       {%- else -%}

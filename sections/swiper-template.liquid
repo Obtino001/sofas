@@ -1,4 +1,4 @@
-<slider-component class="template-slider-section" data-block-id="{{ section.id }}">
+<slider-container class="template-slider-section" data-block-id="{{ section.id }}">
   <div class="slider-wrapper relative-container">
     <div class="swiper-custom-header">
       <div class="swiper-custom-heading">
@@ -54,7 +54,7 @@
         {% unless section.settings.desktop_scrollbar %}hide-on-desktop{% endunless %}">
     </div>
   </div>
-</slider-component>
+</slider-container>
 
 <style>
 .template-slider-section .swiper-custom-arrow {

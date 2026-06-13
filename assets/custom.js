@@ -49,10 +49,10 @@ customElements.define("faq-item", FAQItem);
 
 
 /* --------------------------------------------------------------------------
-   Slider Component
+   Slider Container
    -------------------------------------------------------------------------- */
-if (!customElements.get('slider-component')) {
-    class SliderComponent extends HTMLElement {
+if (!customElements.get('slider-container')) {
+    class SliderContainer extends HTMLElement {
         constructor() {
             super();
             this.swiperInstance = null;
@@ -243,15 +243,16 @@ if (!customElements.get('slider-component')) {
         }
 
         _parseConfig(el) {
+            if (!el || !el.hasAttribute('data-swiper-config')) return null;
             try {
-                return JSON.parse(el.dataset.swiperConfig || '{}');
+                return JSON.parse(el.dataset.swiperConfig);
             } catch {
                 return null;
             }
         }
     }
 
-    customElements.define('slider-component', SliderComponent);
+    customElements.define('slider-container', SliderContainer);
 }
 
 
