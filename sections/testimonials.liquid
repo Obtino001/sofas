@@ -161,24 +161,44 @@
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="page-width">
     
-    <div class="ts-header-flex">
-      <!-- Use replace to inject the <em> tag around 'customers' -->
-      <h2 class="ts-main-heading h1">
-        {{ section.settings.heading | replace: 'customers', '<em>customers</em>' }}
-      </h2>
-      
-      <div class="ts-nav-wrapper">
-        {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
-          <a href="{{ section.settings.btn_link }}" class="button button--secondary">
-            {{ section.settings.btn_text }}
-          </a>
-        {% endif %}
-        <div class="swiper-button-prev ts-swiper-btn"></div>
-        <div class="swiper-button-next ts-swiper-btn"></div>
+    <slider-container class="template-slider-section" data-block-id="{{ section.id }}">
+      <div class="ts-header-flex">
+        <!-- Use replace to inject the <em> tag around 'customers' -->
+        <h2 class="ts-main-heading h1">
+          {{ section.settings.heading | replace: 'customers', '<em>customers</em>' }}
+        </h2>
+        
+        <div class="ts-nav-wrapper">
+          {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
+            <a href="{{ section.settings.btn_link }}" class="button button--secondary">
+              {{ section.settings.btn_text }}
+            </a>
+          {% endif %}
+          <div class="swiper-button-prev ts-swiper-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="swiper-button-next ts-swiper-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="swiper ts-swiper-{{ section.id }}">
+      <div 
+        class="swiper ts-swiper-{{ section.id }}"
+        data-swiper-config='{
+          "autoplay": {{ section.settings.enable_autoplay | default: false }},
+          "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 }},
+          "mobileSlides": {{ section.settings.mobile_slides | default: 1.1 }},
+          "mobileSpacing": {{ section.settings.mobile_spacing | default: 16 }},
+          "desktopSlides": {{ section.settings.desktop_slides | default: 4 }},
+          "tabletSlides": {{ section.settings.tablet_slides | default: 3.2 }},
+          "desktopSpacing": {{ section.settings.desktop_spacing | default: 24 }}
+        }'
+      >
       <div class="swiper-wrapper">
         {%- for block in section.blocks -%}
           <div class="swiper-slide" {{ block.shopify_attributes }}>
@@ -209,36 +229,8 @@
           </div>
         {%- endfor -%}
       </div>
-    </div>
-
-  </div>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.ts-swiper-{{ section.id }}', {
-      slidesPerView: 1.1,
-      spaceBetween: 16,
-      navigation: {
-        nextEl: '.ts-swiper-{{ section.id }} .swiper-button-next',
-        prevEl: '.ts-swiper-{{ section.id }} .swiper-button-prev',
-      },
-      breakpoints: {
-        750: {
-          slidesPerView: 2.2,
-          spaceBetween: 20
-        },
-        990: {
-          slidesPerView: 3.2,
-          spaceBetween: 24
-        },
-        1200: {
-          slidesPerView: 4,
-          spaceBetween: 24
-        }
-      }
-    });
-  });
-</script>
+      </div>
+    </slider-container>
 
 {% schema %}
 {
@@ -301,7 +293,18 @@
       "unit": "px",
       "label": "Padding Bottom",
       "default": 60
-    }
+    },
+    { "type": "header", "content": "⚙️ Slider Configuration" },
+    { "type": "checkbox", "id": "enable_autoplay", "label": "Enable Autoplay", "default": false },
+    { "type": "range", "id": "autoplay_interval", "min": 2, "max": 10, "step": 1, "unit": "s", "label": "Autoplay Interval", "default": 3 },
+    { "type": "header", "content": "💻 Desktop Settings" },
+    { "type": "range", "id": "desktop_slides", "min": 1, "max": 6, "step": 0.1, "label": "Slides per view", "default": 4 },
+    { "type": "range", "id": "desktop_spacing", "min": 0, "max": 100, "label": "Spacing (px)", "default": 24 },
+    { "type": "header", "content": "📱 Tablet Settings" },
+    { "type": "range", "id": "tablet_slides", "min": 1, "max": 6, "step": 0.1, "label": "Slides per view", "default": 3.2 },
+    { "type": "header", "content": "📱 Mobile Settings" },
+    { "type": "range", "id": "mobile_slides", "min": 1, "max": 6, "step": 0.1, "label": "Slides per view", "default": 1.1 },
+    { "type": "range", "id": "mobile_spacing", "min": 0, "max": 50, "label": "Spacing (px)", "default": 16 }
   ],
   "blocks": [
     {
