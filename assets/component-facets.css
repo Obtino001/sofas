@@ -41,8 +41,6 @@
   grid-row: 1;
 }
 
-@media screen and (min-width: 990px) {}
-
 .facet-filters__label {
   display: block;
   color: rgba(var(--color-foreground), 0.85);
@@ -302,14 +300,11 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   text-align: center;
   padding: 2rem 2.4rem;
+  gap: 1rem;
 }
 
 .facets-layout-list--swatch {
   --swatch-input--size: 2.4rem;
-}
-
-.facets-layout-grid.facets-layout-grid {
-  gap: 1rem;
 }
 
 .facets-layout-grid.facets__list--vertical {
@@ -321,7 +316,6 @@
   align-items: center;
 }
 
-/* Hover/focus state */
 .facets-layout-list .facets__label:hover .facet-checkbox__text-label,
 .facets-layout-list input:focus~.facet-checkbox__text-label {
   text-decoration: underline;
@@ -339,7 +333,6 @@
   font-size: 1.3rem;
 }
 
-/* Image filter specific styles */
 .facets-layout-grid .facets__image-wrapper {
   display: block;
   position: relative;
@@ -354,7 +347,6 @@
   object-fit: contain;
 }
 
-/* Default state */
 .facets-layout-grid--image .facets__label {
   outline-style: solid;
   outline-color: transparent;
@@ -367,36 +359,29 @@
   padding: 0.4rem;
 }
 
-/* Active state */
 .facets-layout-grid--image .facets__label.active {
   outline-color: rgb(var(--color-foreground));
   outline-width: 0.1rem;
 }
 
-/* Hover state */
 .facets-layout-grid--image .facets__label:hover {
   outline-color: rgba(var(--color-foreground), 0.4);
   outline-width: 0.2rem;
 }
 
-/* Focus visible */
 .facets-layout-grid--image .facets__label:has(:focus-visible) {
   outline-color: rgba(var(--color-foreground), 0.5);
   outline-width: 0.2rem;
   box-shadow: 0px 0px 3px 1px rgba(var(--color-foreground), 0.25);
 }
 
-/* Focused state */
 .facets-layout-grid--image .facets__label.active:has(:focus-visible) {
   outline-color: rgb(var(--color-foreground));
   outline-width: 0.1rem;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.5rem rgba(var(--color-foreground), 0.5),
-    0 0 0.7rem 0.1rem rgba(var(--color-foreground), 0.25);
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.5rem rgba(var(--color-foreground), 0.5), 0 0 0.7rem 0.1rem rgba(var(--color-foreground), 0.25);
 }
 
-/* Disabled state */
 .facets-layout-grid--image .facets__label.disabled {
-  /* Note: disabled gets its transparency set by a parent, so no need to set an alpha here. Also, we move the outline to the child when disabled */
   outline: none;
 }
 
@@ -409,7 +394,6 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  /* 100% * square root of 2, this is not a magic number, it is math! */
   width: 141.4%;
   height: 0.1rem;
   background-color: rgb(var(--color-foreground));
@@ -431,8 +415,6 @@
   stroke-width: 1;
 }
 
-/* End of image filter specific styles */
-
 .list-menu__item label,
 .list-menu__item input[type='checkbox'] {
   cursor: pointer;
@@ -447,14 +429,12 @@
   word-break: break-word;
 }
 
-/* Hover, active, and focus states */
 .facets__label:hover,
 .facets__label.active,
 .facets__label:has(:focus-visible) {
   color: rgba(var(--color-foreground), 1);
 }
 
-/* Disabled state */
 .facets-layout .facets__label.disabled {
   pointer-events: none;
 }
@@ -470,8 +450,6 @@
 :is(.facets-layout-list--swatch, .facets-layout-grid--image) .facets__label.disabled .facet-checkbox__text {
   opacity: 0.4;
 }
-
-/* End disabled state */
 
 .facets-layout-list--text input[type='checkbox'] {
   position: absolute;
@@ -630,10 +608,11 @@ span.active-facets__button-inner:after {
     margin: 10px 0;
   }
 
-.active-facets__button, .active-facets__button-remove {
+  .active-facets__button,
+  .active-facets__button-remove {
     margin: 0;
     padding: 6px;
-}
+  }
 
   span.active-facets__button-inner {
     padding-bottom: 0.1rem;
@@ -663,7 +642,6 @@ a.active-facets__button:focus-visible {
   box-shadow: none;
 }
 
-/* outline styling for Windows High Contrast Mode */
 @media (forced-colors: active) {
   a.active-facets__button:focus-visible {
     outline: transparent solid 1px;
@@ -676,14 +654,12 @@ a.active-facets__button.focused {
 }
 
 a.active-facets__button:focus-visible .active-facets__button-inner {
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2), 0 0 0 0.2rem rgb(var(--color-background)),
-    0 0 0 0.4rem rgb(var(--color-foreground));
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2), 0 0 0 0.2rem rgb(var(--color-background)), 0 0 0 0.4rem rgb(var(--color-foreground));
   outline: none;
 }
 
 a.active-facets__button.focused .active-facets__button-inner {
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2), 0 0 0 0.2rem rgb(var(--color-background)),
-    0 0 0 0.4rem rgb(var(--color-foreground));
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2), 0 0 0 0.2rem rgb(var(--color-background)), 0 0 0 0.4rem rgb(var(--color-foreground));
   outline: none;
 }
 
@@ -781,14 +757,18 @@ a.active-facets__button.focused .active-facets__button-inner {
   border-style: solid;
   border-width: 0 0 0 var(--drawer-border-width);
   filter: drop-shadow(var(--drawer-shadow-horizontal-offset) var(--drawer-shadow-vertical-offset) var(--drawer-shadow-blur-radius) rgba(var(--color-shadow), var(--drawer-shadow-opacity)));
+  border-left: none;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
 }
 
 .menu-opening .mobile-facets__inner {
   transform: translateX(0);
+  transform: none;
 }
 
 .js .disclosure-has-popup:not(.menu-opening) .mobile-facets__inner {
   transform: translateX(105vw);
+  transform: none;
 }
 
 .mobile-facets__header {
@@ -799,6 +779,11 @@ a.active-facets__button.focused .active-facets__button-inner {
   position: sticky;
   top: 0;
   z-index: 2;
+  padding: 1.8rem 2rem;
+  border-bottom: 1px solid #ebebeb;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
 }
 
 .mobile-facets__header-inner {
@@ -813,6 +798,8 @@ a.active-facets__button.focused .active-facets__button-inner {
 .mobile-facets__heading {
   font-size: calc(var(--font-heading-scale) * 1.4rem);
   margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 .mobile-facets__count {
@@ -820,6 +807,7 @@ a.active-facets__button.focused .active-facets__button-inner {
   font-size: 1.3rem;
   margin: 0;
   flex-grow: 1;
+  display: none;
 }
 
 .mobile-facets__open-wrapper {
@@ -908,10 +896,10 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
   margin-top: 1.5rem;
   padding: 1.2rem 2.6rem;
   text-decoration: none;
-
   display: grid;
   grid-template-columns: min-content 1fr;
   text-align: start;
+  display: none !important;
 }
 
 .mobile-facets__close-button>.facets__and-helptext {
@@ -956,6 +944,13 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
 
 .mobile-facets__summary {
   padding: 1.3rem 2.5rem;
+  padding: 1.6rem 2rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
 }
 
 .mobile-facets__summary .svg-wrapper {
@@ -965,6 +960,8 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
 .mobile-facets__summary>div {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .js .mobile-facets__submenu {
@@ -978,10 +975,24 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
   visibility: hidden;
   display: flex;
   flex-direction: column;
+  position: static;
+  transform: none;
+  visibility: visible;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.25s ease;
+  padding: 0 2rem;
+  display: block;
+  top: auto;
+  left: auto;
+  bottom: auto;
 }
 
 .js details[open]>.mobile-facets__submenu {
   transition: transform 0.4s cubic-bezier(0.29, 0.63, 0.44, 1), visibility 0.4s cubic-bezier(0.29, 0.63, 0.44, 1);
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
 }
 
 .js details[open].menu-opening>.mobile-facets__submenu {
@@ -995,11 +1006,13 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
 
 .js .mobile-facets .submenu-open {
   visibility: hidden;
-  /* hide menus from screen readers when hidden by submenu */
+  visibility: visible;
 }
 
 .mobile-facets__item {
   position: relative;
+  border: none;
+  padding: 0;
 }
 
 input.mobile-facets__checkbox {
@@ -1021,6 +1034,11 @@ input.mobile-facets__checkbox {
   transition: background-color 0.2s ease;
   word-break: break-word;
   display: flex;
+  padding: 0.9rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
 }
 
 .mobile-facets__label>svg {
@@ -1032,12 +1050,12 @@ input.mobile-facets__checkbox {
 }
 
 .mobile-facets__label .icon-checkmark {
-    position: absolute;
-    top: 14px;
-    left: 3px;
-    visibility: hidden;
-    width: 11px;
-    height: 9px;
+  position: absolute;
+  top: 14px;
+  left: 3px;
+  visibility: hidden;
+  width: 11px;
+  height: 9px;
 }
 
 .mobile-facets__label>input[type='checkbox']:checked~.icon-checkmark {
@@ -1068,6 +1086,7 @@ input.mobile-facets__checkbox {
 
 .mobile-facets__footer>* {
   width: 50%;
+  flex: 1;
 }
 
 .mobile-facets__sort {
@@ -1260,80 +1279,23 @@ input.mobile-facets__checkbox {
   }
 }
 
-/* Disable Dawn's full-page click-to-close overlay on js-filter dropdowns.
-   Our document click handler already closes open dropdowns when clicking outside.
-   Without this, the overlay intercepts clicks on sibling filter summaries,
-   requiring a double-click to switch between open filters. */
-details.js-filter > summary::before {
+details.js-filter>summary::before {
   display: none !important;
 }
 
-
-/* =====================================================
-   CUSTOM FILTER DRAWER — Accordion Style
-   ===================================================== */
-
-/* ── Drawer inner panel ────────────────────────────── */
-.mobile-facets__inner {
-  background-color: #fff;
-  border-left: none;
-  filter: none;
-  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
-}
-
-/* ── Header: "Filter" title + X ────────────────────── */
-.mobile-facets__header {
-  padding: 1.8rem 2rem;
-  border-bottom: 1px solid #ebebeb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-}
-
-.mobile-facets__heading {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.mobile-facets__count {
-  display: none; /* hide product count from header */
-}
-
-/* ── Filter group rows (accordion items) ───────────── */
 .mobile-facets__details {
   border-bottom: 1px solid #ebebeb;
-}
-
-/* Summary row — clickable label with +/− */
-.mobile-facets__summary {
-  padding: 1.6rem 2rem;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  user-select: none;
 }
 
 .mobile-facets__summary::-webkit-details-marker {
   display: none;
 }
 
-.mobile-facets__summary > div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.mobile-facets__summary > div > span:first-child {
+.mobile-facets__summary>div>span:first-child {
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-/* Replace arrow icon with a +/− icon via CSS */
 .mobile-facets__arrow {
   display: flex;
   align-items: center;
@@ -1344,69 +1306,43 @@ details.js-filter > summary::before {
   flex-shrink: 0;
 }
 
-/* Hide the original SVG arrow */
 .mobile-facets__arrow .icon-arrow,
 .mobile-facets__arrow svg {
   display: none;
 }
 
-/* Draw + icon with pseudo elements */
 .mobile-facets__arrow::before,
 .mobile-facets__arrow::after {
   content: '';
   position: absolute;
-  background-color: #2B2B2B;
+  background-color: rgb(var(--color-foreground));
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .mobile-facets__arrow::before {
   width: 1.4rem;
-  height: 0.15rem; /* horizontal bar */
+  height: 0.15rem;
 }
 
 .mobile-facets__arrow::after {
   width: 0.15rem;
-  height: 1.4rem; /* vertical bar — disappears when open → becomes − */
+  height: 1.4rem;
 }
 
-/* When open: hide vertical bar to show − */
-.mobile-facets__details[open] > .mobile-facets__summary .mobile-facets__arrow::after {
+.mobile-facets__details[open]>.mobile-facets__summary .mobile-facets__arrow::after {
   transform: scaleY(0);
   opacity: 0;
 }
 
-/* ── Submenu / collapsible content ─────────────────── */
-.js .mobile-facets__submenu {
-  position: static;
-  transform: none;
-  visibility: visible;
-  width: 100%;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.25s ease;
-  padding: 0 2rem;
-  display: block;
-  /* reset Dawn's absolute positioning */
-  top: auto;
-  left: auto;
-  bottom: auto;
-}
-
-.js details[open] > .mobile-facets__submenu {
-  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
-}
-
-.js details[open].mobile-facets__details > .mobile-facets__submenu {
+.js details[open].mobile-facets__details>.mobile-facets__submenu {
   max-height: 800px;
   opacity: 1;
   padding: 0 2rem 1.6rem;
   visibility: visible;
 }
 
-/* Closing state — animate back to collapsed */
-.js details[open].is-closing.mobile-facets__details > .mobile-facets__submenu {
+.js details[open].is-closing.mobile-facets__details>.mobile-facets__submenu {
   max-height: 0 !important;
   opacity: 0 !important;
   padding-top: 0 !important;
@@ -1414,86 +1350,14 @@ details.js-filter > summary::before {
   transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
 }
 
-/* Override Dawn's menu-opening transforms — not needed in accordion mode */
-.js .disclosure-has-popup:not(.menu-opening) .mobile-facets__inner {
-  transform: none;
-}
-
-.menu-opening .mobile-facets__inner {
-  transform: none;
-}
-
-/* ── Checkbox list ──────────────────────────────────── */
-.mobile-facets__list {
-  padding: 0.4rem 0 0;
-}
-
-.mobile-facets__item {
-  border: none;
-  padding: 0;
-}
-
-.mobile-facets__label {
-  padding: 0.9rem 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.4rem;
-}
-
-/* Count on the right */
 .mobile-facets__label .facet-checkbox__text {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-/* ── Per-filter footer (Clear + Apply inside submenu) ─ */
-.mobile-facets__submenu > .mobile-facets__footer {
-  display: none; /* Hide the per-filter footer; use the global one only */
+.mobile-facets__submenu>.mobile-facets__footer {
+  display: none;
 }
 
-/* ── Close button (X) ──────────────────────────────── */
-.mobile-facets__close-button {
-  display: none !important;
-}
-
-/* ── Global footer: Clear All + Apply ──────────────── */
-.mobile-facets__main > .mobile-facets__footer {
-  border-top: 1px solid #ebebeb;
-  padding: 2rem;
-  display: flex;
-  gap: 1rem;
-  position: sticky;
-  bottom: 0;
-  background: #fff;
-  margin-top: auto;
-}
-
-.mobile-facets__footer > * {
-  flex: 1;
-}
-
-/* ── Wrapper pill (Filter button on collection page) ── */
-.mobile-facets__wrapper {
-  margin-left: 0;
-  display: flex;
-  padding: 10px 20px;
-  border-radius: 15px;
-}
-
-/* Overlay behind the drawer */
-.mobile-facets__wrapper .disclosure-has-popup[open] > summary::before {
-  height: 100vh;
-  z-index: 3;
-}
-
-/* ── Submenu-open visibility fix ───────────────────── */
-.js .mobile-facets .submenu-open {
-  visibility: visible;
-}
-
-form#FacetSortDrawerForm {
-    display: flex;
-    white-space: nowrap;
-}
+.mobile-facets

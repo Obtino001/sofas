@@ -433,3 +433,24 @@ body {
 .button:not([disabled]):active {
   transform: translateY(0) scale(1) !important;
 }
+
+/* Fallback Grid when Slider is Disabled (e.g. enable_slider_desktop = false) */
+slider-container.slider-disabled .swiper-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(var(--columns-mobile, 2), 1fr) !important;
+  gap: var(--gap-mobile, 16px) !important;
+}
+
+@media screen and (min-width: 750px) {
+  slider-container.slider-disabled .swiper-wrapper {
+    grid-template-columns: repeat(var(--columns-desktop, 4), 1fr) !important;
+    gap: var(--gap-desktop, 24px) !important;
+  }
+}
+
+slider-container.slider-disabled .swiper-slide {
+  width: 100% !important;
+  height: auto !important;
+  margin-right: 0 !important;
+  flex: unset !important;
+}

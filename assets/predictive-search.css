@@ -43,17 +43,19 @@ body.open-cc .click-capture {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 92; /* Unified z-index */
+  z-index: 92;
+  /* Unified z-index */
   width: calc(100vw - 30px);
   max-width: 54rem;
   background: var(--bg-body, #fff);
   overflow-x: hidden;
-  overflow-y: visible; /* Kept from your code */
-  
+  overflow-y: visible;
+  /* Kept from your code */
+
   /* ANIMATION FIX: Hidden by default so it doesn't flash on reload */
-  visibility: hidden; 
+  visibility: hidden;
   transform: translateX(100%);
-  
+
   transition: transform 0.25s cubic-bezier(0.104, 0.204, 0.492, 1), visibility 0.25s;
   will-change: transform;
 }
@@ -121,17 +123,18 @@ body.open-cc .click-capture .side-panel.active {
 }
 
 .side-panel.search-drawer .searchform input {
-    border: 0;
-    padding: 0;
-    font-size: 16px;
-    outline: 0;
-    width: 100%;
-    height: 30px;
-    background: none;
-    outline: none;
-    box-shadow: none;
-    font-family: var(--font-heading-family);
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  outline: 0;
+  width: 100%;
+  height: 30px;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  font-family: var(--font-heading-family);
 }
+
 .side-panel.search-drawer .searchform input::-webkit-search-decoration,
 .side-panel.search-drawer .searchform input::-webkit-search-cancel-button,
 .side-panel.search-drawer .searchform input::-webkit-search-results-button,
@@ -164,7 +167,7 @@ body.open-cc .click-capture .side-panel.active {
   flex-direction: column;
 }
 
-.side-panel.search-drawer .side-panel-content--has-tabs.active + .side-panel-content--initial {
+.side-panel.search-drawer .side-panel-content--has-tabs.active+.side-panel-content--initial {
   display: none;
 }
 
@@ -173,7 +176,7 @@ body.open-cc .click-capture .side-panel.active {
   margin-bottom: 0;
 }
 
-.side-panel.search-drawer .side-panel-content--has-tabs .thb-predictive-search--popular + .side-panel-content--tabs {
+.side-panel.search-drawer .side-panel-content--has-tabs .thb-predictive-search--popular+.side-panel-content--tabs {
   border-top: 1px solid #D4D4D4;
 }
 
@@ -203,7 +206,7 @@ body.open-cc .click-capture .side-panel.active {
   text-transform: uppercase;
 }
 
-.side-panel-header h4 > span {
+.side-panel-header h4>span {
   display: block;
 }
 
@@ -296,11 +299,12 @@ body.open-cc .click-capture .side-panel.active {
 .search-drawer .loading .loading-overlay {
   display: block;
 }
+
 .thb-predictive-search--label {
-    display: block;
-    letter-spacing: 1.7px;
-    margin-block: 0 20px;
-    font-size: 20px;
+  display: block;
+  letter-spacing: 1.7px;
+  margin-block: 0 20px;
+  font-size: 20px;
 }
 
 .thb-predictive-search--popular {
@@ -320,10 +324,11 @@ body.open-cc .click-capture .side-panel.active {
 }
 
 .thb-predictive-search--popular div {
-    display: flex;
-    padding: 0 30px;
-    scrollbar-width: none;
-    gap: 10px;
+  display: flex;
+  padding: 0 30px;
+  scrollbar-width: none;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .thb-predictive-search--popular div::-webkit-scrollbar {
@@ -331,15 +336,16 @@ body.open-cc .click-capture .side-panel.active {
 }
 
 .thb-predictive-search--popular div a {
-    display: inline-flex;
-    flex-wrap: wrap;
-    font-size: 14px;
-    height: 31px;
-    align-items: center;
-    font-weight: 500;
-    color: #2B2B2B;
-    text-decoration: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  height: 31px;
+  align-items: center;
+  font-weight: 500;
+  color: #2B2B2B;
+  text-decoration: none;
 }
+
 .thb-predictive-search--popular div a:first-child {
   margin-left: 0;
 }
@@ -358,10 +364,10 @@ body.open-cc .click-capture .side-panel.active {
 }
 
 .thb-predictive-search--promotion .products.row .columns {
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    list-style: none;
-    margin-bottom: 10px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  list-style: none;
+  margin-bottom: 10px;
 }
 
 .thb-predictive-search--promotion-products {
