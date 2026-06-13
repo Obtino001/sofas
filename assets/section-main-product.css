@@ -67,9 +67,9 @@ product-info {
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
-    padding: 0 0 0 2rem;
-    max-width: 35%;
-    width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
+    padding: 0 0 0 8rem;
+    max-width: 45%;
+    width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media).product--right .product__info-wrapper {
