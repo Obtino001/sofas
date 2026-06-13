@@ -40,22 +40,27 @@
             "heading": "INFORMATION",
             "menu": "footer"
           }
+        },
+        "newsletter_Ueb4ww": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "GET ADDITIONAL 10% OFF",
+            "description": "<p>Be the first to hear about new arrivals, exclusive offers, and home inspiration.</p>",
+            "button_text": "Get 10% off"
+          }
         }
       },
       "block_order": [
         "brand_information_FR88yf",
         "link_list_1",
         "link_list_2",
-        "link_list_3"
+        "link_list_3",
+        "newsletter_Ueb4ww"
       ],
       "settings": {
         "brand_image_width": 100,
         "color_scheme": "",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "newsletter_description": "<p>Lorem ipsum dolor sit amet consectetur. Lorem nisl fermentum nunc felis venenatis nulla lacus justo</p>",
-        "newsletter_subtext": "<p>Lorem ipsum dolor sit amet consectetur. Lorem nisl fermentum nunc felis venenatis nulla lacus justo</p>",
-        "enable_follow_on_shop": true,
+        "features_color_scheme": "",
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
