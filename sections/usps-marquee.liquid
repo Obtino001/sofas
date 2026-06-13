@@ -1,15 +1,13 @@
 {%- style -%}
   .marquee-wrapper-{{ section.id }} {
-    background-color: {{ section.settings.bg_color }};
-    color: {{ section.settings.text_color }};
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     overflow: hidden;
     position: relative;
     display: flex;
     white-space: nowrap;
-    border-top: 1px solid {{ section.settings.border_color }};
-    border-bottom: 1px solid {{ section.settings.border_color }};
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
   }
 
   .marquee-track-{{ section.id }} {
@@ -69,7 +67,7 @@
   }
 {%- endstyle -%}
 
-<div class="marquee-wrapper-{{ section.id }}">
+<div class="marquee-wrapper-{{ section.id }} color-{{ section.settings.color_scheme }} gradient isolate">
   <div class="marquee-track-{{ section.id }}">
     
     {%- capture marquee_items -%}
@@ -102,22 +100,10 @@
   "name": "Marquee (Scrolling Text)",
   "settings": [
     {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#f5f4ef"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#1a1a1a"
-    },
-    {
-      "type": "color",
-      "id": "border_color",
-      "label": "Border Color",
-      "default": "transparent"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "range",

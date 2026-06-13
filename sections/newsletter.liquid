@@ -2,7 +2,6 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    background-color: {{ section.settings.bg_color }};
   }
 
   @media screen and (min-width: 750px) {
@@ -31,7 +30,6 @@
 
   .cn-heading {
     font-size: clamp(28px, 4vw, 36px);
-    color: #333333;
     margin: 0 0 15px 0;
     line-height: 1.2;
     font-weight: 400;
@@ -45,7 +43,6 @@
 
   .cn-subtext {
     font-size: 14px;
-    color: #4a4a4a;
     line-height: 1.5;
     margin: 0;
   }
@@ -85,21 +82,7 @@
   }
 
   .cn-button {
-    height: 50px;
-    background-color: {{ section.settings.button_color }};
-    color: #ffffff;
-    border: none;
-    border-radius: 25px;
-    padding: 0 30px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-    white-space: nowrap;
-  }
-
-  .cn-button:hover {
-    opacity: 0.9;
+    width: auto;
   }
 
   .cn-privacy-text {
@@ -148,7 +131,7 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient isolate">
   <div class="cn-wrapper">
     
     <div class="cn-text-column">
@@ -178,7 +161,7 @@
             placeholder="{{ section.settings.input_placeholder }}"
             required
           >
-          <button type="submit" class="cn-button" name="commit" id="Subscribe-{{ section.id }}">
+          <button type="submit" class="button button--primary" name="commit" id="Subscribe-{{ section.id }}">
             {{ section.settings.button_text }}
           </button>
         </div>
@@ -213,10 +196,10 @@
   "tag": "section",
   "settings": [
     {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#EFEBE5"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "inline_richtext",
@@ -243,12 +226,7 @@
       "label": "Button Text",
       "default": "Get 10% off"
     },
-    {
-      "type": "color",
-      "id": "button_color",
-      "label": "Button Background Color",
-      "default": "#c3a67d"
-    },
+
     {
       "type": "inline_richtext",
       "id": "privacy_text",

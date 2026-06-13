@@ -411,3 +411,18 @@ body {
     align-items: center;
     gap: 5px;
 }
+
+/* Global Button Hover Animation */
+.button {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease !important;
+}
+
+.button:not([disabled]):hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+.button:not([disabled]):active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) !important;
+}

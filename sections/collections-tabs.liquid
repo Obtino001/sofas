@@ -27,16 +27,16 @@
     --columns-mobile: {{ section.settings.columns_mobile }};
     --gap-desktop: {{ section.settings.spacing }}px;
     --gap-mobile: {{ section.settings.spacing | divided_by: 1.5 }}px;
-    --ct-tab-bg: {{ section.settings.tab_bg_color | default: '#ffffff' }};
-    --ct-tab-color: {{ section.settings.tab_text_color | default: '#1f1f1f' }};
-    --ct-tab-active-bg: {{ section.settings.tab_active_bg_color | default: '#efe6d8' }};
-    --ct-tab-active-color: {{ section.settings.tab_active_text_color | default: '#1f1f1f' }};
-    --ct-image-bg: {{ section.settings.card_image_bg | default: '#f5f1eb' }};
+    --ct-tab-bg: transparent;
+    --ct-tab-color: rgb(var(--color-foreground));
+    --ct-tab-active-bg: rgba(var(--color-foreground), 0.08);
+    --ct-tab-active-color: rgb(var(--color-foreground));
+    --ct-image-bg: rgba(var(--color-foreground), 0.04);
     --ct-card-radius: {{ section.settings.card_radius | default: 12 }}px;
-    --ct-cart-bg: {{ section.settings.cart_btn_bg | default: '#a37b4c' }};
-    --ct-cart-color: {{ section.settings.cart_btn_color | default: '#ffffff' }};
+    --ct-cart-bg: rgb(var(--color-button));
+    --ct-cart-color: rgb(var(--color-button-text));
     --ct-icon-size: {{ section.settings.tab_icon_size | default: 32 }}px;
-    --ct-accent: {{ section.settings.accent_color | default: '#1f1f1f' }};
+    --ct-accent: rgb(var(--color-foreground));
   }
 
   .section-{{ section.id }} .slider-template-section__swiper {
@@ -375,36 +375,7 @@
       "label": "Tab icon size",
       "default": 32
     },
-    {
-      "type": "color",
-      "id": "tab_bg_color",
-      "label": "Tab background",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "tab_text_color",
-      "label": "Tab text color",
-      "default": "#1f1f1f"
-    },
-    {
-      "type": "color",
-      "id": "tab_active_bg_color",
-      "label": "Active tab background",
-      "default": "#efe6d8"
-    },
-    {
-      "type": "color",
-      "id": "tab_active_text_color",
-      "label": "Active tab text color",
-      "default": "#1f1f1f"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Accent color (borders, arrows)",
-      "default": "#1f1f1f"
-    },
+
     {
       "type": "header",
       "content": "Collection Layout"
@@ -546,12 +517,6 @@
       "label": "Show product rating"
     },
     {
-      "type": "color",
-      "id": "card_image_bg",
-      "label": "Card image background",
-      "default": "#f5f1eb"
-    },
-    {
       "type": "range",
       "id": "card_radius",
       "min": 0,
@@ -560,18 +525,6 @@
       "unit": "px",
       "label": "Card corner radius",
       "default": 12
-    },
-    {
-      "type": "color",
-      "id": "cart_btn_bg",
-      "label": "Quick add button background",
-      "default": "#a37b4c"
-    },
-    {
-      "type": "color",
-      "id": "cart_btn_color",
-      "label": "Quick add button icon color",
-      "default": "#ffffff"
     },
     {
       "type": "header",
