@@ -1,14 +1,19 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
 <style>
   swiper-gallery { 
     display: block; 
     width: 100%; 
     opacity: 0; 
-    transition: opacity 0.2s ease-in; 
+    transition: opacity 0.3s ease-in; 
     --border-radius: {{ section.settings.border_radius | default: 12 }}px;
     --thumb-gap: {{ section.settings.thumb_gap | default: 10 }}px;
     --desktop-cols: {{ section.settings.desktop_columns | default: 2 }};
     --mobile-cols: {{ section.settings.mobile_columns | default: 4 }};
   }
+  
+  /* Makes it visible once JS completes successfully */
   swiper-gallery.loaded { opacity: 1; }
   
   .swiper-gallery-main { 
@@ -22,11 +27,8 @@
   
   .swiper-gallery-thumbs { 
     margin-top: var(--thumb-gap); 
-    opacity: 0; 
-    transition: opacity 0.3s; 
     box-sizing: border-box; 
   }
-  swiper-gallery.loaded .swiper-gallery-thumbs { opacity: 1; }
   
   .swiper-gallery-thumbs .swiper-slide { 
     cursor: pointer; 
@@ -215,6 +217,7 @@
         this.mainSwiper = null;
         this.thumbsSwiper = null;
       }
+      
       connectedCallback() {
         this.sectionId = this.dataset.sectionId;
         this.groupEnabled = this.dataset.groupEnabled === 'true';
@@ -228,9 +231,22 @@
         this.onVariantChange = this.onVariantChange.bind(this);
         document.addEventListener('change', this.onVariantChange);
         
-        this.render(this.initialColor);
-        this.classList.add('loaded');
+        // Fix: Wait for Swiper to be fully loaded before building the gallery
+        const checkSwiper = setInterval(() => {
+          if (typeof Swiper !== 'undefined') {
+            clearInterval(checkSwiper);
+            try {
+              this.render(this.initialColor);
+            } catch(e) {
+              console.error("Gallery JS Error: ", e);
+            } finally {
+              // Ensure gallery becomes visible even if rendering throws a minor error
+              this.classList.add('loaded');
+            }
+          }
+        }, 50);
       }
+      
       disconnectedCallback() {
         if (this.mainSwiper) this.mainSwiper.destroy(true, true);
         if (this.thumbsSwiper) this.thumbsSwiper.destroy(true, true);
@@ -288,7 +304,6 @@
         if (this.mainSwiper) this.mainSwiper.destroy(true, true);
         if (this.thumbsSwiper) this.thumbsSwiper.destroy(true, true);
 
-        // Fetch dynamic columns and gaps from CSS variables set via Schema
         const desktopCols = parseInt(getComputedStyle(this).getPropertyValue('--desktop-cols').trim()) || 2;
         const mobileCols = parseInt(getComputedStyle(this).getPropertyValue('--mobile-cols').trim()) || 4;
         const thumbGap = parseInt(getComputedStyle(this).getPropertyValue('--thumb-gap').trim()) || 10;
