@@ -85,3 +85,14 @@
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
+
+/* ============================================
+   Desktop Mega Menu — Smooth hover transitions
+   ============================================ */
+details-menu {
+  transition: visibility 0.3s ease, opacity 0.3s ease;
+}
+
+nav-container:hover details-menu {
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}

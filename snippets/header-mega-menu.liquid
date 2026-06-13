@@ -35,13 +35,11 @@
     text-decoration: none;
     gap: 10px;
     font-weight: 500;
-    font-style: Medium;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0%;
     vertical-align: middle;
-    color: #F5F2ED;
+    color: rgb(var(--color-foreground));
   }
   .desktopMenu-Item svg{
     width: 14px;
@@ -391,3 +389,69 @@
     </div>
   {%- endif -%}
 </nav>
+
+<script>
+  /* ============================================
+     Mega Menu / Drawer — Countdown Timer
+     Targets all elements with [data-end-time]
+     ============================================ */
+  (function () {
+    'use strict';
+
+    function initMegaMenuTimers() {
+      var timers = document.querySelectorAll('[data-end-time]');
+      if (!timers.length) return;
+
+      function pad(n) {
+        return n < 10 ? '0' + n : n;
+      }
+
+      function updateTimers() {
+        var now = new Date().getTime();
+
+        timers.forEach(function (el) {
+          var endStr = el.getAttribute('data-end-time');
+          if (!endStr) return;
+
+          var end = new Date(endStr).getTime();
+          var diff = end - now;
+
+          if (diff <= 0) {
+            var hh = el.querySelector('.cx-time-hh');
+            var mm = el.querySelector('.cx-time-mm');
+            var ss = el.querySelector('.cx-time-ss');
+            if (hh) hh.textContent = '00';
+            if (mm) mm.textContent = '00';
+            if (ss) ss.textContent = '00';
+            return;
+          }
+
+          var hours = Math.floor(diff / (1000 * 60 * 60));
+          var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          var hh = el.querySelector('.cx-time-hh');
+          var mm = el.querySelector('.cx-time-mm');
+          var ss = el.querySelector('.cx-time-ss');
+          if (hh) hh.textContent = pad(hours);
+          if (mm) mm.textContent = pad(minutes);
+          if (ss) ss.textContent = pad(seconds);
+        });
+      }
+
+      updateTimers();
+      setInterval(updateTimers, 1000);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMegaMenuTimers);
+    } else {
+      initMegaMenuTimers();
+    }
+
+    /* Re-init on Shopify theme editor events */
+    if (typeof Shopify !== 'undefined' && Shopify.designMode) {
+      document.addEventListener('shopify:section:load', initMegaMenuTimers);
+    }
+  })();
+</script>
