@@ -40,7 +40,7 @@
   }
 
   .section-{{ section.id }} .slider-template-section__swiper {
-    overflow: {% if section.settings.overflow %}visible{% else %}hidden{% endif %};
+    overflow: hidden !important; /* Force hidden to prevent Swiper 11 infinite math explosion bug */
   }
 
   .section-{{ section.id }}-padding {
