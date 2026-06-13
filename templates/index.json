@@ -281,7 +281,14 @@
         "btn_text": "View All",
         "btn_link": "",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "desktop_slides": 4,
+        "desktop_spacing": 24,
+        "tablet_slides": 3.2,
+        "mobile_slides": 1.1,
+        "mobile_spacing": 16
       }
     },
     "bento_categories_aFbwVW": {
@@ -585,7 +592,7 @@
         "description": "Browse questions by categories",
         "answers_label": "answers",
         "color_scheme": "",
-        "accordion_color_scheme": "",
+        "accordion_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "padding_top": 40,
         "padding_bottom": 52
       }
