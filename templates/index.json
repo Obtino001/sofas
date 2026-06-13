@@ -466,7 +466,7 @@
       "settings": {
         "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe.png",
         "overlay_opacity": 30,
-        "color_scheme": "",
+        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "desktop_height": 70,
         "desktop_content_position": "flex-start",
         "desktop_text_alignment": "left",
