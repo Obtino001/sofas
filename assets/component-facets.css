@@ -824,10 +824,6 @@ a.active-facets__button.focused .active-facets__button-inner {
   color: rgba(var(--color-link), var(--alpha-link));
 }
 
-.mobile-facets__open:hover {
-  color: rgb(var(--color-link));
-}
-
 .mobile-facets__open:hover line,
 .mobile-facets__open:hover circle {
   stroke: rgb(var(--color-link));

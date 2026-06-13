@@ -96,11 +96,13 @@
     margin-block: 0px;
   }
   .promo-card-{{ block.id }} { 
-    flex-direction: row; 
-    align-items: center; 
-    padding: 3rem; 
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem;
     min-height: auto;
     text-align: left;
+    justify-content: center;
+    text-align: center;
     
     /* Apply Desktop Image */
     {% if block.settings.image != blank %}
@@ -151,7 +153,7 @@
       </ul>
 
       {%- if block.settings.button_label != blank -%}
-        <a href="{{ block.settings.button_link | default: '#' }}" class="promo-btn-{{ block.id }}">
+        <a href="{{ block.settings.button_link | default: '#' }}" class="button button-secondary">
           {{ block.settings.button_label }}
         </a>
       {%- endif -%}
