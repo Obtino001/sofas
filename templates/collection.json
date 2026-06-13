@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -11,30 +20,6 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
-        "collection_item_L8HCaH": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "all",
-            "title": "Moderate Flow",
-            "custom_url": ""
-          }
-        },
-        "collection_item_egzmhA": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "all",
-            "title": "Heavy Flow",
-            "custom_url": ""
-          }
-        },
-        "collection_item_twnPMc": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "all",
-            "title": "Teenage",
-            "custom_url": ""
-          }
-        },
         "feature_promo_yEHT8t": {
           "type": "feature_promo",
           "disabled": true,
@@ -89,9 +74,6 @@
         }
       },
       "block_order": [
-        "collection_item_L8HCaH",
-        "collection_item_egzmhA",
-        "collection_item_twnPMc",
         "feature_promo_yEHT8t",
         "bmsm_promo_Mqkjaf"
       ],
