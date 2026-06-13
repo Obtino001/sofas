@@ -1,6 +1,4 @@
-.footer { border-top: 0.1rem solid rgba(var(--color-foreground), 0.08); padding: 0px 5rem 0px 5rem; background-color: #080808; color: #ffffff; }
-.footer:not(.color-scheme-1) { border-top: none; }
-.footer-block__brand-info { display: none; }
+
 .footer__content-top { display: flex !important; flex-direction: column; gap: 3rem; position: relative; }
 .footer__content-bottom:only-child { border-top: 0; }
 .footer__content-bottom-wrapper { display: flex; width: 100%; }
