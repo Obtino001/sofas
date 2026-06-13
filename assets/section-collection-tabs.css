@@ -83,6 +83,7 @@
   transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
   scroll-snap-align: start;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .collection-tabs__tab:hover {
