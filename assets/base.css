@@ -1013,7 +1013,10 @@ summary::-webkit-details-marker {
     width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
     max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
   }
-
+  .footer .grid--5-col-desktop .grid__item {
+    width: calc(100% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
+    max-width: calc(100% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
+  }
   .grid--4-col-desktop .grid__item {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
