@@ -439,11 +439,14 @@
           color: rgb(var(--color-foreground));
           font-weight: 500;
           font-size: 1.4rem;
+          text-decoration: none !important;
           cursor: pointer;
-          transition: all 0.2s ease;
+          transition: background-color 0.3s ease, opacity 0.3s ease;
         }
         .filter-sort-pill-btn:hover {
           background-color: rgba(var(--color-foreground), 0.05);
+          opacity: 0.7;
+          text-decoration: none !important;
         }
         .filter-sort-pill-btn svg {
           width: 16px;
@@ -452,6 +455,9 @@
         }
         .mobile-facets__open-wrapper {
           display: flex;
+        }
+        .mobile-facets__open-label.button-label {
+          text-decoration: none !important;
         }
       </style>
       <summary class="mobile-facets__open-wrapper focus-offset">

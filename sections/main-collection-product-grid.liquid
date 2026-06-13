@@ -130,15 +130,20 @@
           gap: 10px;
           padding: 8px 16px;
           border-radius: 30px;
-          text-decoration: none;
+          text-decoration: none !important;
           color: rgb(var(--color-foreground));
           font-weight: 500;
           font-size: 1.4rem;
           background: transparent;
-          transition: background-color 0.2s ease;
+          transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+        .cn-item:hover {
+          opacity: 0.7;
+          text-decoration: none !important;
         }
         .cn-item.active {
           background-color: #efe6d8;
+          opacity: 1;
         }
         .cn-item img {
           height: 24px;
@@ -165,6 +170,10 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: opacity 0.3s ease;
+        }
+        .grid-view-toggle:hover {
+          opacity: 0.7;
         }
         .grid-view-toggle.active {
           opacity: 1;
@@ -236,6 +245,13 @@
 
         <div class="collection-toolbar__controls">
           <div class="grid-view-toggles small-hide">
+            <button type="button" class="grid-view-toggle js-grid-toggle" data-col="3" aria-label="3 columns">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="3" width="5" height="18" rx="1" fill="currentColor"/>
+                <rect x="9.5" y="3" width="5" height="18" rx="1" fill="currentColor"/>
+                <rect x="17" y="3" width="5" height="18" rx="1" fill="currentColor"/>
+              </svg>
+            </button>
             <button type="button" class="grid-view-toggle js-grid-toggle active" data-col="4" aria-label="4 columns">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="4" height="4" rx="1" fill="currentColor"/>
@@ -247,12 +263,6 @@
                 <rect x="2" y="18" width="4" height="4" rx="1" fill="currentColor"/>
                 <rect x="10" y="18" width="4" height="4" rx="1" fill="currentColor"/>
                 <rect x="18" y="18" width="4" height="4" rx="1" fill="currentColor"/>
-              </svg>
-            </button>
-            <button type="button" class="grid-view-toggle js-grid-toggle" data-col="2" aria-label="2 columns">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="3" width="7" height="18" rx="1" fill="currentColor"/>
-                <rect x="14" y="3" width="7" height="18" rx="1" fill="currentColor"/>
               </svg>
             </button>
           </div>
