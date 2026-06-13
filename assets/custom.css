@@ -357,7 +357,7 @@ body {
 }
 
 .cx-promo-heading {
-  font-family: serif;
+  font-family: var(--font-heading-family);
   font-size: 3.2rem;
   line-height: 1.2;
   margin: 0 0 15px 0;
