@@ -14,6 +14,38 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "feature_item_7ykr9L": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "title": "Feature Title",
+            "subtext": "<p>A short description of the feature.</p>"
+          }
+        },
+        "feature_item_cH8QAf": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "title": "Feature Title",
+            "subtext": "<p>A short description of the feature.</p>"
+          }
+        },
+        "feature_item_WjJ7Ek": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "title": "Feature Title",
+            "subtext": "<p>A short description of the feature.</p>"
+          }
+        },
+        "feature_item_fBFCBp": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "title": "Feature Title",
+            "subtext": "<p>A short description of the feature.</p>"
+          }
+        },
         "brand_information_FR88yf": {
           "type": "brand_information",
           "settings": {
@@ -51,6 +83,10 @@
         }
       },
       "block_order": [
+        "feature_item_7ykr9L",
+        "feature_item_cH8QAf",
+        "feature_item_WjJ7Ek",
+        "feature_item_fBFCBp",
         "brand_information_FR88yf",
         "link_list_1",
         "link_list_2",
