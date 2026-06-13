@@ -390,7 +390,7 @@
             <nav class="menu-drawer__navigation">
               {%- comment -%} Search Link {%- endcomment -%}
               {%- if section.settings.drawer_show_search -%}
-                <a href="{{ routes.search_url }}" class="woc-drawer-search">
+                <a href="#" class="woc-drawer-search thb-quick-search">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -422,7 +422,7 @@
                   <li>
                     {% if hasBlock == true or link.links != blank %}
                       {%- comment -%} Parent item with children — opens sub-panel {%- endcomment -%}
-                      <button
+                      <a href="#"
                         class="woc-drawer-menu-item"
                         data-target="woc-sub-panel-{{ forloop.index }}"
                         aria-expanded="false"
@@ -431,7 +431,7 @@
                         <svg class="woc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
-                      </button>
+                      </a>
                     {% else %}
                       {%- comment -%} Simple link {%- endcomment -%}
                       <a
@@ -485,12 +485,12 @@
             {% if hasBlock == true or link.links != blank %}
               <div class="woc-drawer-panel woc-drawer-panel--sub" id="woc-sub-panel-{{ forloop.index }}" aria-hidden="true">
                 {%- comment -%} Back Button {%- endcomment -%}
-                <button class="woc-drawer-back" data-back>
+                <a href="#" class="woc-drawer-back" data-back>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
                   MAIN MENU
-                </button>
+                </a>
 
                 {% if hasBlock %}
                   {%- comment -%} Block-based content (megamenu, collections, etc.) {%- endcomment -%}
