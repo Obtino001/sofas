@@ -11,31 +11,33 @@
 
 /* Fallback for Customizer / Broken JS */
 .swiper:not(.swiper-initialized) .swiper-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .swiper:not(.swiper-initialized) .swiper-slide {
-  width: 100%; /* Mobile fallback */
-  flex: 0 0 auto;
+    width: 100%;
+    /* Mobile fallback */
+    flex: 0 0 auto;
 }
 
 @media screen and (min-width: 750px) {
-  .swiper:not(.swiper-initialized) .swiper-slide {
-    width: calc(33.33% - 16px); /* Desktop 3-column fallback */
-  }
+    .swiper:not(.swiper-initialized) .swiper-slide {
+        width: calc(33.33% - 16px);
+        /* Desktop 3-column fallback */
+    }
 }
 
 /* Ensure the wrapper doesn't hide content if JS fails to calculate height */
 .swiper:not(.swiper-initialized) {
-  overflow: visible;
+    overflow: visible;
 }
 
 :root {
     --sl-brand-primary: #F5F2ED;
     --sl-brand-primary-light: #FFF2F2;
-    --sl-brand-accent:#2B2B2B;
+    --sl-brand-accent: #2B2B2B;
     --sl-brand-blush: #faeeef;
     --sl-brand-lavender: #d8bfd8;
     --sl-brand-deep-purple: #C8A97E;
@@ -47,12 +49,15 @@
     --sl-transition-base: 0.3s ease;
     --sl-transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .desktopMenu-Nav.page-width {
-max-width: 1200px;
+    max-width: 1200px;
 }
+
 .kaching-bundles .kaching-bundles__bar-radio {
     display: none !important;
 }
+
 /* --------------------------------------------------------------------------
    2. LOADER / SPINNER
    -------------------------------------------------------------------------- */
@@ -554,8 +559,10 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 
 .quick-add-modal--drawer .quick-add-modal__content-info {
     padding-top: 2rem;
-    display: block !important; /* Break flex context from quick-add.css */
-    height: auto !important; /* override base height:100% from quick-add.css */
+    display: block !important;
+    /* Break flex context from quick-add.css */
+    height: auto !important;
+    /* override base height:100% from quick-add.css */
     flex: 1 1 0% !important;
     min-height: 0 !important;
     overflow-y: auto !important;
@@ -570,100 +577,6 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
     z-index: 3;
 }
 
-/* --------------------------------------------------------------------------
-   7. BUTTON TRANSITIONS & HOVER
-   -------------------------------------------------------------------------- */
-.button--primary,
-.button--secondary {
-    transition: background-color var(--sl-transition-base), color var(--sl-transition-base), border-color var(--sl-transition-base);
-}
-
-.button--primary:hover {
-    background: var(--sl-brand-primary-light);
-    color: var(--sl-brand-primary);
-    border-color: var(--sl-brand-primary-light);
-}
-
-.button--secondary:hover {
-    background: var(--sl-brand-primary);
-    color: var(--sl-brand-primary-light);
-}
-
-nav-container:hover .header__menu-item .icon-caret {
-    transform: rotate(180deg);
-}
-
-/* --------------------------------------------------------------------------
-   8. CARD OVERLAYS (Product Card — Droplet, Badge, Review)
-   -------------------------------------------------------------------------- */
-.card-overlay-badges{
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.card-overlay-droplet {
-    pointer-events: none;
-    background-color: #fff2f2;
-    border-radius: 50px;
-    padding: 5px 10px;
-    line-height: 0;
-    max-width: fit-content;
-}
-.card-overlay-droplet img {
-    width: 67px;
-    height: auto;
-    display: block;
-}
-
-.card-overlay-badge {
-    background: var(--sl-brand-primary-light);
-    color: var(--sl-brand-primary);
-    padding: 8px 12px;
-    border-radius: 30px;
-    font-family: var(--font-body-family);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 120%;
-    
-}
-
-.card-overlay-review {
-    position: absolute;
-    bottom: 2rem;
-    left: 1.2rem;
-    z-index: 2;
-    background: white;
-    color: var(--sl-brand-primary);
-    padding: 4px 10px;
-    border-radius: var(--sl-radius-pill);
-    font-weight: 600;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    pointer-events: none;
-}
-
-.card-overlay-review .star {
-    color: var(--sl-brand-primary);
-}
-
-@media screen and (max-width: 768px){
-    .card-overlay-review{
-        bottom: 5rem;
-    left: 0.9rem;
-    font-size: 10px;
-    padding-block: 2px;
-    }
-    .card-overlay-review svg{
-        width: 10px;
-        height: 10px;
-    }
-}
 
 /* --------------------------------------------------------------------------
    9. ACCORDION (PDP)
@@ -699,18 +612,21 @@ nav-container:hover .header__menu-item .icon-caret {
 }
 
 @media screen and (max-width: 749px) {
-.card-overlay-droplet {
-    display: flex;
-    gap: 2px;
-    padding: 2px 4px;
-}
-.card-overlay-droplet svg {
-    width: 6px;
-}
-.card-overlay-badge {
-    padding: 5px 8px;
-    font-size: 10px;
-}
+    .card-overlay-droplet {
+        display: flex;
+        gap: 2px;
+        padding: 2px 4px;
+    }
+
+    .card-overlay-droplet svg {
+        width: 6px;
+    }
+
+    .card-overlay-badge {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
     .footer-block {
         border-bottom: 1px solid #ebd0df;
         margin: 0;
@@ -750,12 +666,14 @@ nav-container:hover .header__menu-item .icon-caret {
         text-align: center;
         flex-direction: column;
     }
+
     .footer-block__details-content.is-open {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .footer-block:last-child{
+
+    .footer-block:last-child {
         border: none;
     }
 }
@@ -785,11 +703,11 @@ nav-container:hover .header__menu-item .icon-caret {
 
 .custom-price-current {
     color: var(---sl-brand-primary);
-font-weight: 500;
-font-style: Medium;
-font-size: 18px;
-line-height: 100%;
-letter-spacing: 0%;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
 }
 
 .custom-price-compare {
@@ -1343,4 +1261,3 @@ li.footer-payment-payments_QCqHQe {
 .product__media-item:has(.image-magnify-full_popup) {
     cursor: pointer;
 }
-
