@@ -36,11 +36,11 @@
             "widget": "image_grid_promo",
             "menu_heading": "",
             "menu_link_list_child": "shop-menu",
-            "banner_title": "",
-            "banner_button": "",
+            "banner_title": "10% off on corner  sofas",
+            "banner_button": "Explore corner sofas",
             "banner_link": "",
             "timer_label": "Sale ends in:",
-            "timer_date": ""
+            "timer_date": "2026-12-31T23:59:59"
           }
         }
       },
