@@ -65,10 +65,9 @@
     background-color: rgba(var(--color-foreground), 0.15);
   }
 
-  .ts-swiper-btn::after {
-    font-size: 14px !important;
-    font-weight: bold;
-    color: rgb(var(--color-foreground));
+  .ts-swiper-btn.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .ts-card {
@@ -156,6 +155,11 @@
   .swiper-slide {
     height: auto; /* Ensures equal height cards */
   }
+
+  .ts-swiper-{{ section.id }} {
+    overflow: visible !important;
+    clip-path: inset(-100vw -100vw -100vw -100vw); /* Ensure shadows are not clipped if overflow visible is restricted */
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -174,12 +178,12 @@
               {{ section.settings.btn_text }}
             </a>
           {% endif %}
-          <div class="swiper-button-prev ts-swiper-btn">
+          <div class="ts-swiper-btn js-slider-template-prev">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="swiper-button-next ts-swiper-btn">
+          <div class="ts-swiper-btn js-slider-template-next">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
