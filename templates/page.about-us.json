@@ -32,8 +32,9 @@
       ],
       "name": "Image Custom Banner",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "media_type": "image",
+        "image": "shopify://shop_images/c08769fe15daf24adfd69e2f176c3f8242d50be9.png",
         "overlay_opacity": 20,
         "heading_size_desktop": 48,
         "subheading_size_desktop": 16,
@@ -46,7 +47,7 @@
         "show_mobile_content_below": true,
         "text_position_top": 50,
         "text_position_left": 50,
-        "text_alignment": "left"
+        "text_alignment": "center"
       }
     },
     "trust_badges_4dfJAk": {
