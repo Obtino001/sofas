@@ -31,6 +31,7 @@
   .cn-heading {
     color: rgb(var(--color-foreground));
     margin-top: 0;
+    line-height: 1.2;
   }
 
   /* Elegant serif styling for italicized words */
@@ -130,22 +131,40 @@
   .cn-message--error { color: #D8000C; }
   .cn-message svg { width: 14px; height: 14px; }
 
-  /* Mobile Adjustments */
+  /* -------------------------------------- */
+  /* MOBILE LAYOUT ADJUSTMENTS (Matches Screenshot) */
+  /* -------------------------------------- */
   @media screen and (max-width: 749px) {
     .cn-wrapper {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 25px;
+    }
+    .cn-text-column,
+    .cn-form-column {
+      width: 100%;
+      max-width: 100%;
+    }
+    .cn-heading {
+      margin-bottom: 1.5rem;
     }
     .cn-form-group {
       flex-direction: column;
       align-items: stretch;
+      gap: 15px; /* Space between input and button */
+    }
+    .cn-input {
+      width: 100%;
     }
     .cn-button {
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .cn-privacy-text {
-      margin-left: 0;
+      margin: 20px 0 0 0;
       text-align: center;
     }
   }
