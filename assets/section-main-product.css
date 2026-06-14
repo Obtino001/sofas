@@ -2022,8 +2022,7 @@ a.product__text {
   }
 
   .product__price-column {
-    align-items: flex-start;
-    text-align: left;
+  width: 100%;
   }
 
   .product__price-column .price {
