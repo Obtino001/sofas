@@ -559,7 +559,7 @@
                             {% if block.settings.image != blank %}
                               <div class="woc-drawer-promo">
                                 <img src="{{ block.settings.image | image_url: width: 800 }}" class="woc-drawer-promo__bg" alt="{{ block.settings.banner_title }}" loading="lazy">
-                                <div class="woc-drawer-promo__overlay"></div>
+                                <div class="woc-drawer-promo__overlay"> </div>
                                 <div class="woc-drawer-promo__content">
                                   {% if block.settings.banner_title != blank %}
                                     <h3 class="woc-drawer-promo__heading">{{ block.settings.banner_title }}</h3>
