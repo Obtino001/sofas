@@ -12,8 +12,9 @@ body {
   font-size: 14px;
   line-height: 120%;
 }
-element.style {
 
+.product__info-wrapper.grid__item{
+    padding-block: 20px;
 }
 .drawer__upsell-wrapper-mobile .card-overlay-droplet {
   display: none;
