@@ -442,10 +442,10 @@
         "enable_autoplay": false,
         "autoplay_interval": 3,
         "desktop_slides": 4,
-        "desktop_spacing": 24,
+        "desktop_spacing": 12,
         "tablet_slides": 3.2,
         "mobile_slides": 1.1,
-        "mobile_spacing": 16
+        "mobile_spacing": 10
       }
     },
     "related-products": {
