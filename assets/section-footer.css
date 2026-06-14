@@ -14,7 +14,6 @@
    TOP ROW: Features Grid
 ----------------------------------------------------------------------------- */
 .footer__features-wrapper {
-  margin-bottom: 3rem;
   padding-block: 3rem;
   border-radius: 8px;
   background-color: transparent; /* Rely on section color scheme */
@@ -268,7 +267,7 @@
     scroll-snap-align: center;
 }
   .footer__features-wrapper {
-    padding-block: 4rem;
+    padding-block: 2rem;
   }
 .footer__features-grid {
     overflow-x: auto;
