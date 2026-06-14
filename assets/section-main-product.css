@@ -1871,7 +1871,7 @@ a.product__text {
     margin-bottom: 12px;
     white-space: nowrap;
     justify-content: center;
-    max-width: 200px;
+    max-width: 180px;
 }
 /* Title styling */
 .product__info-wrapper .product__title {
