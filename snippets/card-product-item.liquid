@@ -150,6 +150,8 @@
                   assign variant_for_value = card_product.variants | where: 'option3', value | first
                 endif
 
+                assign variant_image = variant_for_value.featured_media | default: card_product.featured_media
+
                 assign sw_bg = ''
                 if value.swatch.image
                   assign sw_img_url = value.swatch.image | image_url: width: 50
@@ -164,7 +166,7 @@
                     style="background: {{ sw_bg }}; background-size: cover; background-position: center;" 
                     title="{{ value }}"
                     data-variant-id="{{ variant_for_value.id }}"
-                    data-image-url="{{ variant_for_value.featured_media | image_url: width: 160 }}"
+                    data-image-url="{{ variant_image | image_url: width: 160 }}"
                     data-price="{{ variant_for_value.price | money }}"
                     data-available="{{ variant_for_value.available }}"
                     onclick="updateUpsellVariant(this)"></span>
