@@ -12,9 +12,6 @@
   }
 
   .cn-wrapper {
-    max-width: var(--page-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -170,7 +167,7 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="cn-wrapper">
+  <div class="cn-wrapper page-width">
     
     <div class="cn-text-column">
       {%- if section.settings.heading != blank -%}
