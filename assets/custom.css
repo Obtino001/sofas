@@ -434,18 +434,15 @@ slider-container.slider-disabled .swiper-slide {
 
 /* Force Slide Widths via CSS to bypass Swiper 11 Float Explosion Bug */
 .collection-tabs__slider .swiper-slide--multi {
-  width: calc((100% - (var(--gap-mobile, 16px) * (var(--columns-mobile, 2) - 1))) / var(--columns-mobile, 2)) !important;
   flex-shrink: 0 !important;
 }
 .collection-tabs__slider .swiper-slide--single {
-  width: 100% !important;
   flex-shrink: 0 !important;
 }
 
 @media screen and (min-width: 750px) {
   .collection-tabs__slider .swiper-slide--multi,
   .collection-tabs__slider .swiper-slide--single {
-    width: calc((100% - (var(--gap-desktop, 24px) * (var(--columns-desktop, 4) - 1))) / var(--columns-desktop, 4)) !important;
   }
 }
 

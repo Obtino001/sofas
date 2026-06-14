@@ -323,3 +323,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const accordionToggles = document.querySelectorAll(".mobile-accordion-toggle");
+
+  accordionToggles.forEach(function(toggle) {
+    toggle.addEventListener("click", function() {
+      if (window.innerWidth >= 750) return;
+      
+      this.classList.toggle("is-active");
+      const content = this.nextElementSibling;
+      if (content && content.classList.contains("footer-block__details-content")) {
+        content.classList.toggle("is-open");
+      }
+    });
+  });
+});
