@@ -114,7 +114,7 @@
       "type": "newsletter",
       "name": "Custom Newsletter Banner",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "heading": "Sign up & get an <em>additional</em> 10% off now!",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
