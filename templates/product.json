@@ -327,6 +327,100 @@
         "padding_bottom": 60
       }
     },
+    "testimonials_FqAwzT": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_767mcf": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "best-capsule-2000-box-top-mattress"
+          }
+        },
+        "testimonial_KtBW7D": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "cabin-bed-mattress"
+          }
+        },
+        "testimonial_jhwEbi": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "best-capsule-essentials-mattress"
+          }
+        },
+        "testimonial_9yqi4A": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "chicago-crushed-velvet-corner-sofa"
+          }
+        },
+        "testimonial_CFLGaC": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "chicago-crushed-velvet-corner-sofa"
+          }
+        },
+        "testimonial_cnj6A4": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "chicago-crushed-velvet-corner-sofa"
+          }
+        },
+        "testimonial_NaxwHn": {
+          "type": "testimonial",
+          "settings": {
+            "stars": 5,
+            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
+            "author": "Anna H.",
+            "product": "chicago-crushed-velvet-corner-sofa"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_767mcf",
+        "testimonial_KtBW7D",
+        "testimonial_jhwEbi",
+        "testimonial_9yqi4A",
+        "testimonial_CFLGaC",
+        "testimonial_cnj6A4",
+        "testimonial_NaxwHn"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "color_scheme": "",
+        "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "heading": "What our customers say",
+        "btn_text": "View All",
+        "btn_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "desktop_slides": 4,
+        "desktop_spacing": 24,
+        "tablet_slides": 3.2,
+        "mobile_slides": 1.1,
+        "mobile_spacing": 16
+      }
+    },
     "related-products": {
       "type": "related-products",
       "blocks": {
@@ -540,100 +634,6 @@
         "color_scheme": "scheme-1",
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "testimonials_FqAwzT": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_767mcf": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "best-capsule-2000-box-top-mattress"
-          }
-        },
-        "testimonial_KtBW7D": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "cabin-bed-mattress"
-          }
-        },
-        "testimonial_jhwEbi": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "best-capsule-essentials-mattress"
-          }
-        },
-        "testimonial_9yqi4A": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "chicago-crushed-velvet-corner-sofa"
-          }
-        },
-        "testimonial_CFLGaC": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "chicago-crushed-velvet-corner-sofa"
-          }
-        },
-        "testimonial_cnj6A4": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "chicago-crushed-velvet-corner-sofa"
-          }
-        },
-        "testimonial_NaxwHn": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "content": "I was worried about leaks, but these really work. They look and feel like normal underwear, which makes such a difference.",
-            "author": "Anna H.",
-            "product": "chicago-crushed-velvet-corner-sofa"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_767mcf",
-        "testimonial_KtBW7D",
-        "testimonial_jhwEbi",
-        "testimonial_9yqi4A",
-        "testimonial_CFLGaC",
-        "testimonial_cnj6A4",
-        "testimonial_NaxwHn"
-      ],
-      "name": "Testimonial Slider",
-      "settings": {
-        "color_scheme": "",
-        "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "What our customers say",
-        "btn_text": "View All",
-        "btn_link": "",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "enable_autoplay": false,
-        "autoplay_interval": 3,
-        "desktop_slides": 4,
-        "desktop_spacing": 24,
-        "tablet_slides": 3.2,
-        "mobile_slides": 1.1,
-        "mobile_spacing": 16
       }
     },
     "collections_tabs_G8NWUM": {
@@ -1317,16 +1317,16 @@
     "main",
     "usps_marquee_nNja7V",
     "why_choose_us_kQm6Yp",
+    "testimonials_FqAwzT",
     "related-products",
+    "custom_hero_banner_EpqzyB",
     "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
-    "testimonials_FqAwzT",
     "collections_tabs_G8NWUM",
     "bento_categories_aFbwVW",
     "instagram_gallery_kKrKtz",
     "collections_tabs_M9VpAE",
     "icon_category_list_nG3Ni8",
-    "custom_hero_banner_EpqzyB",
     "engineered_sleep_9WxnH9",
     "newsletter_pPWpWW",
     "faq_tabs_rxczBA",
