@@ -229,9 +229,20 @@
       },
       "scheme-b2c950b1-7571-4512-9f29-8a1955f48404": {
         "settings": {
-          "background": "#C8A97E",
+          "background": "#c8a97e",
           "background_gradient": "",
           "text": "#ffffff",
+          "button": "#c8a97e",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#ffffff"
+        }
+      },
+      "scheme-9eccaaea-91d8-4fb0-98a6-fe95d8e5c0d6": {
+        "settings": {
+          "background": "#F5F0EA",
+          "background_gradient": "",
+          "text": "#121212",
           "button": "#c8a97e",
           "button_label": "#ffffff",
           "secondary_button_label": "#ffffff",
