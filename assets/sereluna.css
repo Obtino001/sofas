@@ -554,7 +554,7 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 }
 
 .quick-add-modal--drawer .quick-add-modal__content-info {
-    padding-top: 2rem;
+    padding: 2rem;
     display: block;
     /* Break flex context from quick-add.css */
     height: auto;
