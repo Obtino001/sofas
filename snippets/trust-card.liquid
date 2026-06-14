@@ -27,11 +27,12 @@
                 <div class="pdp-review-header">
                   <div class="pdp-review-stars">
                     {%- assign current_rating = block.settings[rating_key] -%}
-                    {% for star in (1..5) %}
-                      <svg class="pdp-star {% if star <= current_rating %}is-filled{% endif %}" viewBox="0 0 24 24">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                      </svg>
-                    {% endfor %}
+                    <div class="product__review-icons" style="display: flex; align-items: center; gap: 0px;"><img src="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18 18w" width="18" height="18" loading="lazy" class="product__review-icon">
+<img src="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18 18w" width="18" height="18" loading="lazy" class="product__review-icon">
+<img src="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18 18w" width="18" height="18" loading="lazy" class="product__review-icon">
+<img src="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18 18w" width="18" height="18" loading="lazy" class="product__review-icon">
+<img src="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/material-symbols_star-rounded_1.svg?v=1779345252&amp;width=18 18w" width="18" height="18" loading="lazy" class="product__review-icon">
+</div>
                   </div>
                   {% if block.settings[verified_key] %}
                     <div class="pdp-review-verified">
