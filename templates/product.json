@@ -678,42 +678,42 @@
         "image_6q4Ycy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03_36a27a6b-483b-4c4b-a6f3-d61f024a4e21.png",
             "row": "1"
           }
         },
         "image_P7ETTk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/a6860ee8686f583956e0a7324778a697ab3ef745_552ba2fb-f2dc-45ef-a793-af9782c3ea6d.png",
             "row": "1"
           }
         },
         "image_E8VMDh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c_281442a0-ab5e-49ad-abc6-9b6e89c1b986.png",
             "row": "1"
           }
         },
         "image_jrPKmX": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c_281442a0-ab5e-49ad-abc6-9b6e89c1b986.png",
             "row": "1"
           }
         },
         "image_iWmE8f": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
             "row": "2"
           }
         },
         "image_EQwkf6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/Rectangle_237.png",
             "row": "2"
           }
         },
@@ -759,42 +759,35 @@
         "image_gFNyx6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c_281442a0-ab5e-49ad-abc6-9b6e89c1b986.png",
             "row": "1"
           }
         },
         "image_aPGpHw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/38c1e78f04e8ffc91ad26863b8220c8fc4f8ac46_dac90609-0655-4613-a8d4-08d47a37f4b3.png",
             "row": "1"
           }
         },
         "image_WQPner": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03_36a27a6b-483b-4c4b-a6f3-d61f024a4e21.png",
             "row": "1"
           }
         },
         "image_dMyKqr": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/a66a7173795ddde4ad124fafb691c4f4e8242117_9bddda39-5c7a-4a37-8806-f1478fb139ae.png",
             "row": "1"
           }
         },
         "image_NNUBMb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
-            "row": "2"
-          }
-        },
-        "image_AxgbFg": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/a66a7173795ddde4ad124fafb691c4f4e8242117_9bddda39-5c7a-4a37-8806-f1478fb139ae.png",
             "row": "2"
           }
         },
@@ -812,7 +805,6 @@
         "image_WQPner",
         "image_dMyKqr",
         "image_NNUBMb",
-        "image_AxgbFg",
         "image_DDMyrH"
       ],
       "name": "Marquee Gallery",
