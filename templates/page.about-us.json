@@ -56,18 +56,21 @@
         "feature_RRQGP7": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Group_1413372224.svg",
             "title": "Made for everyday comfort"
           }
         },
         "feature_97Cdwh": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Vector_33.svg",
             "title": "Proudly made in UK"
           }
         },
         "feature_FRf7ib": {
           "type": "feature",
           "settings": {
+            "icon_image": "shopify://shop_images/Vector_34.svg",
             "title": "Built to last long"
           }
         }
@@ -81,7 +84,7 @@
       "settings": {
         "color_scheme": "",
         "image": "shopify://shop_images/5bcf1c51e53123bad39629400d17b714277b6098.png",
-        "decorator_color": "#E7E1D8",
+        "decorator_color": "#e7e1d8",
         "heading": "What we offer",
         "heading_size": "h1",
         "text": "<p>We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function.</p>",
