@@ -53,15 +53,17 @@
     z-index: 1;
   }
 
-  /* Optional subtle concentric background circles */
-  .engineered-main-image-wrapper.show-circles::before {
-    content: '';
+  /* NEW: Uploaded Background SVG/Image Styling */
+  .engineered-background-image {
     position: absolute;
-    width: 110%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle, transparent 30%, rgba(var(--color-foreground), 0.03) 31%, transparent 32%, transparent 45%, rgba(var(--color-foreground), 0.03) 46%, transparent 47%, transparent 60%, rgba(var(--color-foreground), 0.03) 61%, transparent 62%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%; /* Slightly larger than the main image wrapper to mimic the old circles */
+    height: auto;
+    object-fit: contain;
     z-index: -1;
+    pointer-events: none; /* Prevents it from interfering with right-clicks or dragging */
   }
 
   .engineered-main-image {
@@ -214,7 +216,11 @@
 
     <div class="engineered-layout">
       
-      <div class="engineered-main-image-wrapper {% if section.settings.show_circles %}show-circles{% endif %}">
+      <div class="engineered-main-image-wrapper">
+        {%- if section.settings.background_image != blank -%}
+          {{ section.settings.background_image | image_url: width: 1000 | image_tag: class: 'engineered-background-image', loading: 'lazy' }}
+        {%- endif -%}
+
         {%- if section.settings.main_image != blank -%}
           {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'engineered-main-image', loading: 'lazy' }}
         {%- else -%}
@@ -319,10 +325,10 @@
       "label": "Main Center Image (e.g., Mattress)"
     },
     {
-      "type": "checkbox",
-      "id": "show_circles",
-      "label": "Show subtle background circles behind image",
-      "default": true
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image/SVG",
+      "info": "This image will sit perfectly centered behind the main image."
     },
     {
       "type": "color_scheme",
