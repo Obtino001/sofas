@@ -544,25 +544,149 @@
         "padding_bottom": 36
       }
     },
-    "instagram_gallery_kKrKtz": {
-      "type": "instagram-gallery",
-      "name": "Instagram Gallery",
+    "why_choose_us_kQm6Yp": {
+      "type": "why-choose-us",
+      "blocks": {
+        "feature_pPYeUC": {
+          "type": "feature",
+          "settings": {
+            "title": "UK Manufactured",
+            "text": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
+          }
+        },
+        "feature_dq4reR": {
+          "type": "feature",
+          "settings": {
+            "title": "Flexible Financing",
+            "text": "Spread the cost with interest-free payment options, making it easier to bring home the sofa you love."
+          }
+        },
+        "feature_3xFXLn": {
+          "type": "feature",
+          "settings": {
+            "title": "Handcrafted Quality",
+            "text": "Carefully made by skilled artisans using durable materials designed for everyday comfort and long-term use."
+          }
+        },
+        "feature_fJMD3h": {
+          "type": "feature",
+          "settings": {
+            "title": "Risk-Free Guarantee",
+            "text": "14-day returns with no hassle, so you can shop knowing you're fully covered."
+          }
+        }
+      },
+      "block_order": [
+        "feature_pPYeUC",
+        "feature_dq4reR",
+        "feature_3xFXLn",
+        "feature_fJMD3h"
+      ],
+      "name": "Why Choose Us",
       "settings": {
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "enable_edge_fade": true,
-        "pause_on_hover": true,
-        "border_radius": 16,
-        "speed_row_1": 40,
-        "direction_row_1": "left",
-        "speed_row_2": 50,
-        "direction_row_2": "right",
-        "image_height_desktop": 280,
-        "gap_desktop": 24,
-        "image_height_mobile": 180,
-        "gap_mobile": 12,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "heading": "Why <em>choose</em> Sofas'n'Beds",
+        "main_image": "shopify://shop_images/ad487d42e8cd67ba6fb4b4fe1213f247a54ee448_1.png",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_hero_banner_Hiz97b": {
+      "type": "custom-hero-banner",
+      "blocks": {
+        "heading_VhkQGh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort now, Pay later.",
+            "heading_size": "h1"
+          }
+        },
+        "text_LRycy7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
+          }
+        },
+        "buttons_4MrHEP": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore our products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_1": "primary",
+            "button_label_2": "Learn more",
+            "button_link_2": "shopify://collections/all",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VhkQGh",
+        "text_LRycy7",
+        "buttons_4MrHEP"
+      ],
+      "name": "Custom Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
+        "overlay_opacity": 30,
+        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "desktop_height": 70,
+        "desktop_content_position": "flex-start",
+        "desktop_text_alignment": "left",
+        "mobile_height": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "engineered_sleep_9WxnH9": {
+      "type": "engineered-sleep",
+      "blocks": {
+        "feature_BxfU8t": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/78c24dd202d3cdc65c2327a253d20931731db55c_1.png",
+            "title": "Comfort Layer",
+            "text": "Soft cushioning that adapts to your body and relieves pressure points."
+          }
+        },
+        "feature_FXTUU9": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/548faf1e0f49d44614bdd4f928518f0103e59ae9.png",
+            "title": "Breathable Design",
+            "text": "Engineered to allow airflow for a more comfortable sleep experience."
+          }
+        },
+        "feature_tyyeX7": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/bcc86c16ddeedc4214367a41b512e97cc8ce7e52.png",
+            "title": "Support Core",
+            "text": "Strong base structure that helps maintain proper alignment and durability."
+          }
+        },
+        "feature_i8K3BP": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/c8a80369eeb194bc1e743ec6c0e09200043cea32.png",
+            "title": "Premium Cover",
+            "text": "Smooth, durable fabric that feels great and lasts long."
+          }
+        }
+      },
+      "block_order": [
+        "feature_BxfU8t",
+        "feature_FXTUU9",
+        "feature_tyyeX7",
+        "feature_i8K3BP"
+      ],
+      "name": "Engineered Sleep Design",
+      "settings": {
+        "heading": "Engineered for <em>deeper</em>, better <em>sleep</em>",
+        "main_image": "shopify://shop_images/c87f67ed7d454f2d3ec3c3ec5f6fc1730b7d0743.png",
+        "background_image": "shopify://shop_images/Group_1413372214.svg",
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "collections_tabs_M9VpAE": {
@@ -653,63 +777,11 @@
         "padding_bottom": 36
       }
     },
-    "engineered_sleep_9WxnH9": {
-      "type": "engineered-sleep",
-      "blocks": {
-        "feature_BxfU8t": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/78c24dd202d3cdc65c2327a253d20931731db55c_1.png",
-            "title": "Comfort Layer",
-            "text": "Soft cushioning that adapts to your body and relieves pressure points."
-          }
-        },
-        "feature_FXTUU9": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/548faf1e0f49d44614bdd4f928518f0103e59ae9.png",
-            "title": "Breathable Design",
-            "text": "Engineered to allow airflow for a more comfortable sleep experience."
-          }
-        },
-        "feature_tyyeX7": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/bcc86c16ddeedc4214367a41b512e97cc8ce7e52.png",
-            "title": "Support Core",
-            "text": "Strong base structure that helps maintain proper alignment and durability."
-          }
-        },
-        "feature_i8K3BP": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/c8a80369eeb194bc1e743ec6c0e09200043cea32.png",
-            "title": "Premium Cover",
-            "text": "Smooth, durable fabric that feels great and lasts long."
-          }
-        }
-      },
-      "block_order": [
-        "feature_BxfU8t",
-        "feature_FXTUU9",
-        "feature_tyyeX7",
-        "feature_i8K3BP"
-      ],
-      "name": "Engineered Sleep Design",
-      "settings": {
-        "heading": "Engineered for <em>deeper</em>, better <em>sleep</em>",
-        "main_image": "shopify://shop_images/c87f67ed7d454f2d3ec3c3ec5f6fc1730b7d0743.png",
-        "background_image": "shopify://shop_images/Group_1413372214.svg",
-        "color_scheme": "",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "newsletter_pPWpWW": {
       "type": "newsletter",
       "name": "Custom Newsletter Banner",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "heading": "Sign up & get an <em>additional</em> 10% off now!",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
@@ -967,53 +1039,6 @@
         "padding_top": 16,
         "padding_bottom": 36
       }
-    },
-    "why_choose_us_kQm6Yp": {
-      "type": "why-choose-us",
-      "blocks": {
-        "feature_pPYeUC": {
-          "type": "feature",
-          "settings": {
-            "title": "UK Manufactured",
-            "text": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
-          }
-        },
-        "feature_dq4reR": {
-          "type": "feature",
-          "settings": {
-            "title": "Flexible Financing",
-            "text": "Spread the cost with interest-free payment options, making it easier to bring home the sofa you love."
-          }
-        },
-        "feature_3xFXLn": {
-          "type": "feature",
-          "settings": {
-            "title": "Handcrafted Quality",
-            "text": "Carefully made by skilled artisans using durable materials designed for everyday comfort and long-term use."
-          }
-        },
-        "feature_fJMD3h": {
-          "type": "feature",
-          "settings": {
-            "title": "Risk-Free Guarantee",
-            "text": "14-day returns with no hassle, so you can shop knowing you're fully covered."
-          }
-        }
-      },
-      "block_order": [
-        "feature_pPYeUC",
-        "feature_dq4reR",
-        "feature_3xFXLn",
-        "feature_fJMD3h"
-      ],
-      "name": "Why Choose Us",
-      "settings": {
-        "heading": "Why <em>choose</em> Sofas'n'Beds",
-        "main_image": "shopify://shop_images/ad487d42e8cd67ba6fb4b4fe1213f247a54ee448_1.png",
-        "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
@@ -1025,13 +1050,13 @@
     "icon_category_list_nG3Ni8",
     "custom_hero_banner_EpqzyB",
     "collections_tabs_G8NWUM",
-    "instagram_gallery_kKrKtz",
-    "collections_tabs_M9VpAE",
+    "why_choose_us_kQm6Yp",
+    "custom_hero_banner_Hiz97b",
     "engineered_sleep_9WxnH9",
+    "collections_tabs_M9VpAE",
     "newsletter_pPWpWW",
     "faq_tabs_rxczBA",
     "instagram_gallery_biMKMB",
-    "instagram_gallery_itHmBn",
-    "why_choose_us_kQm6Yp"
+    "instagram_gallery_itHmBn"
   ]
 }
