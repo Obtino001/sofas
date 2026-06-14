@@ -44,7 +44,7 @@
         "heading_size_mobile": 36,
         "min_height_mobile": 400,
         "adapt_height_mobile": false,
-        "show_mobile_content_below": true,
+        "show_mobile_content_below": false,
         "text_position_top": 50,
         "text_position_left": 50,
         "text_alignment": "center"
@@ -206,12 +206,11 @@
       "type": "newsletter",
       "name": "Custom Newsletter Banner",
       "settings": {
-        "bg_color": "#efebe5",
+        "color_scheme": "scheme-2b94d528-39a1-47d5-b412-16caf9d9759b",
         "heading": "Sign up & get an <em>additional</em> 10% off now!",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
         "button_text": "Get 10% off",
-        "button_color": "#c3a67d",
         "privacy_text": "By subscribing you agree to our <a href=\"/policies/privacy-policy\">Privacy Policy</a>.",
         "padding_top": 60,
         "padding_bottom": 60
