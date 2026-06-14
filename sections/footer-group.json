@@ -23,28 +23,31 @@
             "subtext": "<p>Quality craftsmanship you can trust</p>"
           }
         },
-        "feature_item_cH8QAf": {
+        "feature_item_JVME8Y": {
           "type": "feature_item",
           "settings": {
+            "image": "shopify://shop_images/Vector_33.svg",
             "icon": "check_mark",
-            "title": "Feature Title",
-            "subtext": "<p>A short description of the feature.</p>"
+            "title": "Made in the UK",
+            "subtext": "<p>Quality craftsmanship you can trust</p>"
           }
         },
-        "feature_item_WjJ7Ek": {
+        "feature_item_RcJNYp": {
           "type": "feature_item",
           "settings": {
+            "image": "shopify://shop_images/Vector_33.svg",
             "icon": "check_mark",
-            "title": "Feature Title",
-            "subtext": "<p>A short description of the feature.</p>"
+            "title": "Made in the UK",
+            "subtext": "<p>Quality craftsmanship you can trust</p>"
           }
         },
-        "feature_item_fBFCBp": {
+        "feature_item_hE3pnF": {
           "type": "feature_item",
           "settings": {
+            "image": "shopify://shop_images/Vector_33.svg",
             "icon": "check_mark",
-            "title": "Feature Title",
-            "subtext": "<p>A short description of the feature.</p>"
+            "title": "Made in the UK",
+            "subtext": "<p>Quality craftsmanship you can trust</p>"
           }
         },
         "brand_information_FR88yf": {
@@ -85,9 +88,9 @@
       },
       "block_order": [
         "feature_item_7ykr9L",
-        "feature_item_cH8QAf",
-        "feature_item_WjJ7Ek",
-        "feature_item_fBFCBp",
+        "feature_item_JVME8Y",
+        "feature_item_RcJNYp",
+        "feature_item_hE3pnF",
         "brand_information_FR88yf",
         "link_list_1",
         "link_list_2",
