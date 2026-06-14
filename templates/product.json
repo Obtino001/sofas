@@ -497,7 +497,7 @@
         "description": "",
         "description_style": "body",
         "tab_icon_size": 32,
-        "products_to_show": 4,
+        "products_to_show": 25,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "spacing": 20,
