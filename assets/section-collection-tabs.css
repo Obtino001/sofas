@@ -401,7 +401,7 @@
 .card-product-tabs__content {
   display: flex;
   flex-direction: column;
-  gap: 6.4px;
+  gap: 3.4px;
   padding: 12px 2px 0;
 }
 
@@ -486,7 +486,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border: none;
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 0 0 2px #ffffff;
@@ -505,9 +505,9 @@
 }
 
 .card-product-tabs__swatch.is-active {
-  border-color: #1f1f1f;
-  box-shadow: inset 0 0 0 2px #ffffff, 0 0 0 1.5px #1f1f1f;
-  transform: scale(1.1);
+border: 0.75px solid #000000;
+  transform: scale(1.15);
+
 }
 
 .card-product-tabs__swatch:focus-visible {
@@ -807,6 +807,10 @@
     font-size: 14px;
     padding: 8px 14px;
   }
+
+.collection-tabs__arrows {
+  display: none;
+}
 
   .collection-tabs__tab-icon {
     width: calc(var(--ct-icon-size, 32px) * 0.8);
