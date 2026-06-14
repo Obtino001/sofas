@@ -220,7 +220,10 @@
   align-items: center;
   width: 100%; 
 }
-.footer__copyright { text-align: left; }
+.footer__copyright {
+    text-align: center;
+    line-height: 100%;
+}
 .copyright__content { 
   font-size: 1.2rem; 
   color: rgba(var(--color-foreground), 0.7);
