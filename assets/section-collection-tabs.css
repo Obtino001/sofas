@@ -794,8 +794,7 @@ border: 0.75px solid #000000;
   }
 
   .collection-tabs__actions--bottom {
-    margin-left: 0;
-    width: 100%;
+     display: none;
   }
 
   .collection-tabs__nav {
