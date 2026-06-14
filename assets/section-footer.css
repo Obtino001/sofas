@@ -8,7 +8,9 @@
   color: rgb(var(--color-foreground)); 
 }
 .footer:not(.color-scheme-1) { border-top: none; }
-
+.footer-block__image-wrapper  img{
+    max-width: 150px;
+}
 /* ----------------------------------------------------------------------------
    TOP ROW: Features Grid
 ----------------------------------------------------------------------------- */
