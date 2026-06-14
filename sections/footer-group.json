@@ -17,9 +17,10 @@
         "feature_item_7ykr9L": {
           "type": "feature_item",
           "settings": {
+            "image": "shopify://shop_images/Vector_33.svg",
             "icon": "check_mark",
-            "title": "Feature Title",
-            "subtext": "<p>A short description of the feature.</p>"
+            "title": "Made in the UK",
+            "subtext": "<p>Quality craftsmanship you can trust</p>"
           }
         },
         "feature_item_cH8QAf": {
@@ -96,7 +97,7 @@
       "settings": {
         "brand_image_width": 100,
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "features_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "features_color_scheme": "scheme-9eccaaea-91d8-4fb0-98a6-fe95d8e5c0d6",
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
