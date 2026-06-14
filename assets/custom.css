@@ -485,3 +485,7 @@ slider-container.slider-disabled .swiper-slide {
 .swiper-pagination-bullet-active {
   opacity: 0.85 !important;
 }
+
+h3.woc-drawer-promo__heading.h1 {
+    color: white;
+}
