@@ -144,18 +144,18 @@
             "answer": ""
           }
         },
-        "upsell_product_jgWVE7": {
+        "upsell_product_TcVLHt": {
           "type": "upsell_product",
           "settings": {
-            "upsell__heading": "Complete your look",
-            "drawer_mobile_arrows": false,
+            "upsell__heading": "You might also like",
+            "drawer_mobile_arrows": true,
             "drawer_enable_autoplay": false,
             "drawer_autoplay_interval": 3,
-            "drawer_mobile_slides": 1.5,
-            "drawer_tablet_slides": 2,
-            "drawer_desktop_slides": 2,
-            "drawer_mobile_spacing": 10,
-            "drawer_desktop_spacing": 10
+            "drawer_mobile_slides": 2.2,
+            "drawer_tablet_slides": 3,
+            "drawer_desktop_slides": 4,
+            "drawer_mobile_spacing": 16,
+            "drawer_desktop_spacing": 24
           }
         },
         "trust_card_D4xBC6": {
@@ -202,7 +202,7 @@
         "faq_blocks_CkKVjD",
         "faq_blocks_FN9CnF",
         "faq_blocks_k8EnCc",
-        "upsell_product_jgWVE7",
+        "upsell_product_TcVLHt",
         "trust_card_D4xBC6"
       ],
       "settings": {
