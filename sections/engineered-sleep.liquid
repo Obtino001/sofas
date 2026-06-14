@@ -1,0 +1,420 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .engineered-wrapper {
+    max-width: var(--page-width, 1400px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .engineered-heading {
+    text-align: center;
+    font-size: clamp(32px, 4.5vw, 44px);
+    margin: 0 0 50px 0;
+    color: rgb(var(--color-foreground));
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
+
+  /* Elegant serif styling for italicized words */
+  .engineered-heading em, 
+  .engineered-heading i {
+    font-family: "Georgia", "Times New Roman", serif; 
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  /* Grid Layout Container */
+  .engineered-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Main Image Styling */
+  .engineered-main-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  /* Optional subtle concentric background circles */
+  .engineered-main-image-wrapper.show-circles::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 30%, rgba(var(--color-foreground), 0.03) 31%, transparent 32%, transparent 45%, rgba(var(--color-foreground), 0.03) 46%, transparent 47%, transparent 60%, rgba(var(--color-foreground), 0.03) 61%, transparent 62%);
+    z-index: -1;
+  }
+
+  .engineered-main-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Features List (Slider on Mobile, Grid on Desktop) */
+  .engineered-features {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  .engineered-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .engineered-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    color: rgb(var(--color-foreground));
+  }
+
+  .engineered-icon svg,
+  .engineered-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .engineered-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .engineered-text {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.75;
+    color: rgb(var(--color-foreground));
+    max-width: 280px;
+  }
+
+  /* -------------------------------------- */
+  /* MOBILE: Native CSS Scroll Snap Slider  */
+  /* -------------------------------------- */
+  .engineered-pagination {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .engineered-features {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      gap: 0; 
+    }
+    
+    .engineered-features::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .engineered-item {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      padding: 0 15px;
+    }
+
+    /* Custom Mobile Line Pagination */
+    .engineered-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+    }
+
+    .engineered-dot {
+      width: 35px;
+      height: 3px;
+      background-color: rgb(var(--color-foreground));
+      opacity: 0.15;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .engineered-dot.is-active {
+      opacity: 0.85;
+    }
+  }
+
+  /* -------------------------------------- */
+  /* DESKTOP: Advanced 3-Column Grid        */
+  /* -------------------------------------- */
+  @media screen and (min-width: 750px) {
+    .engineered-layout {
+      display: grid;
+      /* Left Column | Middle Image | Right Column */
+      grid-template-columns: 1fr minmax(400px, 55%) 1fr;
+      grid-template-areas:
+        "item1 img item3"
+        "item2 img item4";
+      column-gap: 30px;
+      row-gap: 60px;
+      align-items: center;
+    }
+
+    .engineered-features {
+      display: contents; /* Allows list items to act as direct grid children */
+    }
+
+    .engineered-main-image-wrapper {
+      grid-area: img;
+      margin-bottom: 0;
+    }
+
+    /* Assigning specific areas to blocks based on the 1-to-1 design */
+    .engineered-item:nth-child(1) { grid-area: item1; }
+    .engineered-item:nth-child(2) { grid-area: item2; }
+    .engineered-item:nth-child(3) { grid-area: item3; }
+    .engineered-item:nth-child(4) { grid-area: item4; }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="engineered-wrapper">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="engineered-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="engineered-layout">
+      
+      <div class="engineered-main-image-wrapper {% if section.settings.show_circles %}show-circles{% endif %}">
+        {%- if section.settings.main_image != blank -%}
+          {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'engineered-main-image', loading: 'lazy' }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'engineered-main-image placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      <ul class="engineered-features" id="Slider-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <li class="engineered-item" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            
+            <div class="engineered-icon">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              {%- endif -%}
+            </div>
+            
+            {%- if block.settings.title != blank -%}
+              <h3 class="engineered-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            
+            {%- if block.settings.text != blank -%}
+              <p class="engineered-text">{{ block.settings.text }}</p>
+            {%- endif -%}
+
+          </li>
+        {%- endfor -%}
+      </ul>
+
+    </div>
+
+    {%- if section.blocks.size > 1 -%}
+      <div class="engineered-pagination" id="Slider-Pagination-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <button class="engineered-dot {% if forloop.first %}is-active{% endif %}" aria-label="Go to slide {{ forloop.index }}" data-index="{{ forloop.index0 }}"></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionId = '{{ section.id }}';
+    const slider = document.querySelector(`#Slider-${sectionId}`);
+    const dots = document.querySelectorAll(`#Slider-Pagination-${sectionId} .engineered-dot`);
+    const slides = slider.querySelectorAll('.engineered-item');
+    
+    // Only run script if dots are visible (Mobile view)
+    if (!slider || dots.length === 0 || window.innerWidth >= 750) return;
+
+    // Smoothly update pagination dots on swipe/scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = entry.target.dataset.index;
+          dots.forEach(dot => dot.classList.remove('is-active'));
+          if(dots[index]) dots[index].classList.add('is-active');
+        }
+      });
+    }, {
+      root: slider,
+      threshold: 0.6 // Slide is considered active when 60% visible
+    });
+
+    slides.forEach(slide => observer.observe(slide));
+
+    // Allow clicking the dots to smoothly scroll to the slide
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const slide = slides[index];
+        if (slide) {
+          slider.scrollTo({
+            left: slide.offsetLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Engineered Sleep",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Engineered for <em>deeper</em>, better <em>sleep</em>",
+      "info": "Use italic text (Ctrl+I) to apply the elegant serif font style."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Center Image (e.g., Mattress)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_circles",
+      "label": "Show subtle background circles behind image",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image (Upload SVG or PNG)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Comfort Layer"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Subtext",
+          "default": "Soft cushioning that adapts to your body and relieves pressure points."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Engineered Sleep Design",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Comfort Layer",
+            "text": "Soft cushioning that adapts to your body and relieves pressure points."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Breathable Design",
+            "text": "Engineered to allow airflow for a more comfortable sleep experience."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Support Core",
+            "text": "Strong base structure that helps maintain proper alignment and durability."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Premium Cover",
+            "text": "Smooth, durable fabric that feels great and lasts long."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
