@@ -481,8 +481,8 @@ slider-container.slider-disabled .swiper-slide {
     pointer-events: none;
 }
 
-.product__installments div{
+.product__installments div {
     line-height: 1.3;
     text-align: right;
-    
+    max-width: 200px;
 }
