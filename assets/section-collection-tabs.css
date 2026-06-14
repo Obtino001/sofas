@@ -778,12 +778,7 @@
 }
 
 @media screen and (max-width: 749px) {
-  .collection-tabs__heading-row {
-    padding: 0 16px;
-  }
-
   .collection-tabs__controls-row {
-    padding: 0 16px;
     gap: 12px;
     flex-wrap: wrap;
   }
