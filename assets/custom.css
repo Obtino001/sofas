@@ -486,3 +486,8 @@ slider-container.slider-disabled .swiper-slide {
   opacity: 0.85 !important;
 }
 
+.product__price-column {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
