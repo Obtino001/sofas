@@ -99,7 +99,7 @@ custom-slider .slider { position: relative; display: flex; flex-wrap: inherit; o
 .upsell_col .product-form__submit { font-size: 12px; }
 .cart-drawer__footer * {}
 .cart__checkout-button:after { content: unset; }
-.cart__checkout-button { border-radius: 50px; text-transform: uppercase; letter-spacing: 0; font-weight: 500; transition: .8s cubic-bezier(.5,0,0,1); border: 1px solid; }
+.cart__checkout-button { border-radius: 50px; font-weight: 500; transition: .8s cubic-bezier(.5,0,0,1); border: 1px solid; }
 button#CartDrawer-Checkout:hover { color: rgba(var(--color-button),var(--alpha-button-background)); background: transparent; }
 .lx_cartDrawer_upsell h5 { font-size: 20px; margin: 0; letter-spacing: 0; margin-bottom: 10px; }
 .cart__drawer__re_info_left h3 { margin: 0; font-size: 16px; letter-spacing: 0; text-decoration: none; }
