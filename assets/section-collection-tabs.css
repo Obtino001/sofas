@@ -828,9 +828,4 @@ border: 0.75px solid #000000;
   .card-product-tabs__title {
     font-size: 14px;
   }
-
-  .card-product-tabs__delivery {
-    font-size: 11px;
-    padding: 6.4px 10px;
-  }
 }
