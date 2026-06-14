@@ -202,87 +202,6 @@
         "padding_bottom": 36
       }
     },
-    "instagram_gallery_kKrKtz": {
-      "type": "instagram-gallery",
-      "name": "Instagram Gallery",
-      "settings": {
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "enable_edge_fade": true,
-        "pause_on_hover": true,
-        "border_radius": 16,
-        "speed_row_1": 40,
-        "direction_row_1": "left",
-        "speed_row_2": 50,
-        "direction_row_2": "right",
-        "image_height_desktop": 280,
-        "gap_desktop": 24,
-        "image_height_mobile": 180,
-        "gap_mobile": 12,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "icon_category_list_nG3Ni8": {
-      "type": "icon-category-list",
-      "blocks": {
-        "category_eegFtJ": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_1.png",
-            "title": "2 Seater Sofas",
-            "link": ""
-          }
-        },
-        "category_4NYgWA": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_2.png",
-            "title": "3 Seater Sofas",
-            "link": ""
-          }
-        },
-        "category_iUnEnp": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_190.png",
-            "title": "4 Seater Sofas",
-            "link": ""
-          }
-        },
-        "category_ThtFMW": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_3.png",
-            "title": "Corner Sofas",
-            "link": ""
-          }
-        },
-        "category_kthBRn": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_5.png",
-            "title": "Swivel Chairs",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_eegFtJ",
-        "category_4NYgWA",
-        "category_iUnEnp",
-        "category_ThtFMW",
-        "category_kthBRn"
-      ],
-      "name": "Icon Category Grid",
-      "settings": {
-        "title": "Sofas for every <em>space</em>",
-        "heading_size": "h1",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "newsletter_pPWpWW": {
       "type": "newsletter",
       "name": "Custom Newsletter Banner",
@@ -553,8 +472,6 @@
     "custom_banner_A6F9q9",
     "testimonials_FqAwzT",
     "bento_categories_aFbwVW",
-    "instagram_gallery_kKrKtz",
-    "icon_category_list_nG3Ni8",
     "newsletter_pPWpWW",
     "faq_tabs_rxczBA",
     "instagram_gallery_biMKMB",
