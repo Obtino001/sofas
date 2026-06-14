@@ -736,7 +736,7 @@
 }
 
 .quickATC:hover {
-  background-color: #333;
+  background-color: #2B2B2B;
 }
 
 .quickATC:disabled {
@@ -791,8 +791,6 @@
   .collection-tabs__nav-wrapper {
     order: 2;
     flex: 1 1 100%;
-    margin: 0 -16px;
-    padding: 0 16px;
   }
 
   .collection-tabs__actions {
