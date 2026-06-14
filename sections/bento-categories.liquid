@@ -1,5 +1,5 @@
 {%- style -%}
-  .custom-bento-{{ section.id }} {
+  .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     box-sizing: border-box;
@@ -12,7 +12,7 @@
   .custom-bento__title {
     font-size: 2.6rem;
     margin: 0;
-    color: #121212;
+    color: rgb(var(--color-foreground));
     font-weight: 400;
     font-family: inherit;
     line-height: 1.2;
@@ -81,7 +81,8 @@
     bottom: 1.2rem;
     right: 1.2rem;
     z-index: 3;
-    color: #ffffff;
+    /* White text on mobile ensures readability over the dark image overlay */
+    color: #ffffff; 
     font-size: 1.3rem;
     font-weight: 500;
     display: flex;
@@ -101,7 +102,7 @@
   /* DESKTOP LAYOUT OVERRIDES */
   /* -------------------------------------- */
   @media screen and (min-width: 750px) {
-    .custom-bento-{{ section.id }} {
+    .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -138,8 +139,8 @@
     }
 
     .custom-bento__label {
-      background-color: #ffffff;
-      color: #121212;
+      background-color: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
       padding: 1.2rem 2rem;
       border-radius: 4rem;
       bottom: 2rem;
@@ -155,48 +156,50 @@
   }
 {%- endstyle -%}
 
-<div class="custom-bento-{{ section.id }} page-width">
-  
-  {%- if section.settings.title != blank -%}
-    <div class="custom-bento__header">
-      <h2 class="custom-bento__title">
-        {{ section.settings.title }}
-      </h2>
-    </div>
-  {%- endif -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding page-width">
+    
+    {%- if section.settings.title != blank -%}
+      <div class="custom-bento__header">
+        <h2 class="custom-bento__title">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endif -%}
 
-  <ul class="custom-bento__grid">
-    {%- for block in section.blocks -%}
-      <li class="custom-bento__list-item" style="--desktop-col-span: {{ block.settings.col_span }}; --desktop-row-span: {{ block.settings.row_span }};" {{ block.shopify_attributes }}>
-        <a href="{{ block.settings.link | default: '#' }}" class="custom-bento__item" aria-label="{{ block.settings.button_label | escape }}">
-          
-          {%- if block.settings.image != blank -%}
-            {{ block.settings.image | image_url: width: 1500 | image_tag: 
-              loading: 'lazy', 
-              class: 'custom-bento__image', 
-              sizes: '(min-width: 750px) 50vw, 100vw', 
-              widths: '375, 550, 750, 1100, 1500, 1780' 
-            }}
-          {%- else -%}
-            {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'custom-bento__image placeholder-svg' }}
-          {%- endif -%}
-          
-          <div class="custom-bento__overlay"></div>
+    <ul class="custom-bento__grid">
+      {%- for block in section.blocks -%}
+        <li class="custom-bento__list-item" style="--desktop-col-span: {{ block.settings.col_span }}; --desktop-row-span: {{ block.settings.row_span }};" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link | default: '#' }}" class="custom-bento__item" aria-label="{{ block.settings.button_label | escape }}">
+            
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1500 | image_tag: 
+                loading: 'lazy', 
+                class: 'custom-bento__image', 
+                sizes: '(min-width: 750px) 50vw, 100vw', 
+                widths: '375, 550, 750, 1100, 1500, 1780' 
+              }}
+            {%- else -%}
+              {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'custom-bento__image placeholder-svg' }}
+            {%- endif -%}
+            
+            <div class="custom-bento__overlay"></div>
 
-          {%- if block.settings.button_label != blank -%}
-            <div class="custom-bento__label">
-              <span>{{ block.settings.button_label | escape }}</span>
-              <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
-              </svg>
-            </div>
-          {%- endif -%}
-          
-        </a>
-      </li>
-    {%- endfor -%}
-  </ul>
-  
+            {%- if block.settings.button_label != blank -%}
+              <div class="custom-bento__label">
+                <span>{{ block.settings.button_label | escape }}</span>
+                <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
+                </svg>
+              </div>
+            {%- endif -%}
+            
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    
+  </div>
 </div>
 
 {% schema %}
@@ -204,6 +207,12 @@
   "name": "Custom Bento Grid",
   "tag": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
     {
       "type": "inline_richtext",
       "id": "title",
