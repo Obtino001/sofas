@@ -17,7 +17,13 @@
           "settings": {
             "show_discount_badge": true,
             "review_icon": "shopify://shop_images/material-symbols_star-rounded_1.svg",
-            "review_text": "4.9 (22 Reviews)"
+            "review_text": "4.9 (22 Reviews)",
+            "show_installments": true,
+            "installment_count": 3,
+            "installment_provider": "Klarna",
+            "show_stock_indicator": true,
+            "stock_label": "In Stock",
+            "stock_color": "#33A813"
           }
         },
         "product_reviews_XX9YT4": {
