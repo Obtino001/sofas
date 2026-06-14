@@ -1968,7 +1968,7 @@ a.product__text {
 .product__stock-indicator {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   margin-top: 8px;
 }
 
