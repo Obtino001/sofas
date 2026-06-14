@@ -498,6 +498,52 @@
         "padding_bottom": 28
       }
     },
+    "custom_hero_banner_EpqzyB": {
+      "type": "custom-hero-banner",
+      "blocks": {
+        "heading_By7mTe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort now, Pay later.",
+            "heading_size": "h1"
+          }
+        },
+        "text_YDc4BF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
+          }
+        },
+        "buttons_nyNjni": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore our products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_1": "primary",
+            "button_label_2": "Learn more",
+            "button_link_2": "shopify://collections/all",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_By7mTe",
+        "text_YDc4BF",
+        "buttons_nyNjni"
+      ],
+      "name": "Custom Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
+        "overlay_opacity": 30,
+        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "desktop_height": 70,
+        "desktop_content_position": "flex-start",
+        "desktop_text_alignment": "left",
+        "mobile_height": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "trust_badges_4dfJAk": {
       "type": "trust-badges",
       "blocks": {
@@ -949,52 +995,6 @@
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "custom_hero_banner_EpqzyB": {
-      "type": "custom-hero-banner",
-      "blocks": {
-        "heading_By7mTe": {
-          "type": "heading",
-          "settings": {
-            "heading": "Comfort now, Pay later.",
-            "heading_size": "h1"
-          }
-        },
-        "text_YDc4BF": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
-          }
-        },
-        "buttons_nyNjni": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Explore our products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_1": "primary",
-            "button_label_2": "Learn more",
-            "button_link_2": "shopify://collections/all",
-            "button_style_2": "secondary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_By7mTe",
-        "text_YDc4BF",
-        "buttons_nyNjni"
-      ],
-      "name": "Custom Hero Banner",
-      "settings": {
-        "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe.png",
-        "overlay_opacity": 30,
-        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "desktop_height": 70,
-        "desktop_content_position": "flex-start",
-        "desktop_text_alignment": "left",
-        "mobile_height": 60,
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "engineered_sleep_9WxnH9": {
