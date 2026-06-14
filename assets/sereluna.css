@@ -707,73 +707,102 @@ color: #9F9F9F;
    -------------------------------------------------------------------------- */
 .multi-icon-row {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: flex-start;
-    border-bottom: 1px solid #2B2B2B33;
-    padding-bottom: 14px;
+    gap: 0;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
 }
 
 .multi-icon-item {
-    width: calc(100% / 3);
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    font-size: var(--text-size);
-    color: rgba(var(--color-foreground));
-    letter-spacing: 0;
     align-items: center;
-    padding: 10px 0;
-    gap: 12px;
-    text-align: center;
-    margin: 0;
+    gap: 16px;
+    text-align: left;
+    position: relative;
+    padding: 0 16px;
+}
+
+/* Vertical dividers */
+.multi-icon-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 1px;
+    background-color: #d8d8d8;
 }
 
 .multi-icon-item-img {
-    background-color: var(--sl-brand-blush);
-    border-radius: var(--sl-radius-round);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 55px;
-    height: 55px;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
 }
 
-.multi-icon-item-text {
+.multi-icon-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.multi-icon-item-title {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.2;
+    color: #121212;
+}
+
+.multi-icon-item-desc {
     font-family: inherit;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.3;
-    color: var(--sl-brand-accent);
-    text-align: center;
-    padding: 0 5px;
+    color: #444;
 }
 
 .multi-icon-item img,
 .multi-icon-item svg {
-    width: var(--icon-size, 45px);
-    height: var(--icon-size, 45px);
-    max-width: 30px;
-    max-height: 40px;
+    width: var(--icon-size, 40px);
+    height: var(--icon-size, 40px);
     object-fit: contain;
     mix-blend-mode: multiply;
 }
 
 @media screen and (max-width: 990px) {
     .multi-icon-row {
-        gap: 5px;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
     }
 
-    .multi-icon-item-text {
-        font-size: 12px;
-        line-height: 1.3;
-        padding: 0px;
+    .multi-icon-item {
+        padding: 0;
+        width: 100%;
+    }
+
+    .multi-icon-item:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Optional: horizontal divider on mobile instead of vertical */
+    .multi-icon-item:not(:last-child) {
+        border-bottom: 1px solid #d8d8d8;
+        padding-bottom: 16px;
     }
 
     .multi-icon-item img,
     .multi-icon-item svg {
-        width: var(--icon-size-m);
-        height: var(--icon-size-m);
+        width: var(--icon-size-m, 32px);
+        height: var(--icon-size-m, 32px);
     }
 }
 

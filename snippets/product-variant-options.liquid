@@ -58,8 +58,12 @@
 
       {%- for variant in product.variants -%}
         {%- assign variant_val_clean = variant.options[option_index] | strip | escape -%}
-        {%- if variant_val_clean == value_clean and variant.featured_media -%}
-            {%- assign variant_image_url = variant.featured_media | image_url: width: 200 -%}
+        {%- if variant_val_clean == value_clean -%}
+            {%- if variant.featured_media -%}
+              {%- assign variant_image_url = variant.featured_media | image_url: width: 200 -%}
+            {%- else -%}
+              {%- assign variant_image_url = product.featured_media | image_url: width: 200 -%}
+            {%- endif -%}
             {%- break -%}
         {%- endif -%}
       {%- endfor -%}
@@ -113,8 +117,12 @@
 
       {%- for variant in product.variants -%}
         {%- assign variant_val_clean = variant.options[option_index] | strip | escape -%}
-        {%- if variant_val_clean == value_clean and variant.featured_media -%}
-            {%- assign variant_image_url = variant.featured_media | image_url: width: 200 -%}
+        {%- if variant_val_clean == value_clean -%}
+            {%- if variant.featured_media -%}
+              {%- assign variant_image_url = variant.featured_media | image_url: width: 200 -%}
+            {%- else -%}
+              {%- assign variant_image_url = product.featured_media | image_url: width: 200 -%}
+            {%- endif -%}
             {%- break -%}
         {%- endif -%}
       {%- endfor -%}
