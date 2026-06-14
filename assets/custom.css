@@ -477,10 +477,6 @@ slider-container.slider-disabled .swiper-slide {
 }
 
 ::slotted(svg), svg {
-    height: 100%;
-    object-fit: contain;
-    transform-origin: center;
-    width: 100%;
     fill: transparent !important;
     pointer-events: none;
 }
