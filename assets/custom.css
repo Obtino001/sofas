@@ -480,3 +480,9 @@ slider-container.slider-disabled .swiper-slide {
     fill: transparent !important;
     pointer-events: none;
 }
+
+.product__installments div{
+    line-height: 1.3;
+    text-align: right;
+    
+}
