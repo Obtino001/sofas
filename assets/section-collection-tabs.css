@@ -87,12 +87,12 @@
 }
 
 .collection-tabs__tab:hover {
-  background: var(--ct-tab-active-bg, #efe6d8);
+  background:#F5F2ED;
   color: var(--ct-tab-active-color, #1f1f1f);
 }
 
 .collection-tabs__tab.is-active {
-  background: var(--ct-tab-active-bg, #efe6d8);
+  background:#F5F2ED;
   color: var(--ct-tab-active-color, #1f1f1f);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 }
