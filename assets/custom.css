@@ -497,6 +497,6 @@ slider-container.slider-disabled .swiper-slide {
     object-fit: contain;
     transform-origin: center;
     width: 100%;
-    /* fill: currentColor; */
+    fill: transparent !important;
     pointer-events: none;
 }
