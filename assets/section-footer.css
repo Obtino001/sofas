@@ -229,7 +229,6 @@
 }
 .footer__payment .list-payment {
   display: flex;
-  gap: 0.8rem;
   padding: 0;
   margin: 0;
   list-style: none;
