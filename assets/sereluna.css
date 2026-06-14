@@ -656,11 +656,13 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
         transform: rotate(180deg);
     }
 
-    .footer-block__details-content {
-        text-align: center;
-        flex-direction: column;
-    }
-
+ .footer-block__details-content {
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
     .footer-block__details-content.is-open {
         display: flex;
         flex-direction: column;
