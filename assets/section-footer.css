@@ -13,8 +13,8 @@
    TOP ROW: Features Grid
 ----------------------------------------------------------------------------- */
 .footer__features-wrapper {
-  margin-bottom: 6rem;
-  padding: 3rem;
+  margin-bottom: 3rem;
+  padding-block: 3rem;
   border-radius: 8px;
   background-color: transparent; /* Rely on section color scheme */
 }
