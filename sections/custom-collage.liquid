@@ -1,0 +1,349 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-collage-wrapper {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .custom-collage__grid {
+    display: grid;
+    /* Mobile defaults: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: {{ section.settings.mobile_row_height }}px;
+    gap: 1rem;
+    grid-auto-flow: dense; /* Fills in empty gaps automatically */
+  }
+
+  .custom-collage__text-block {
+    grid-column: span 2; /* Full width on mobile */
+    align-self: center;
+    color: rgb(var(--color-foreground));
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .custom-collage__text-block p {
+    margin: 0;
+  }
+
+  .custom-collage__item {
+    border-radius: 0.8rem;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    /* Pull mobile span variables from Liquid */
+    grid-column: span var(--m-col);
+    grid-row: span var(--m-row);
+  }
+
+  .custom-collage__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .custom-collage__item:hover .custom-collage__image {
+    transform: scale(1.03);
+  }
+
+  .custom-collage__placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-foreground), 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-collage__placeholder svg {
+    width: 40px;
+    height: 40px;
+    fill: rgba(var(--color-foreground), 0.2);
+  }
+
+  /* Desktop Settings */
+  @media screen and (min-width: 750px) {
+    .custom-collage__grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+      grid-auto-rows: {{ section.settings.desktop_row_height }}px;
+      gap: 1.5rem;
+    }
+
+    .custom-collage__text-block {
+      grid-column: span var(--d-col);
+      grid-row: span var(--d-row);
+      margin-bottom: 0;
+      padding-right: 2rem;
+    }
+
+    .custom-collage__item {
+      border-radius: 1.2rem;
+      /* Pull desktop span variables from Liquid */
+      grid-column: span var(--d-col);
+      grid-row: span var(--d-row);
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding custom-collage-wrapper">
+    
+    <div class="custom-collage__grid">
+      
+      {%- if section.settings.text != blank -%}
+        <div class="custom-collage__text-block" style="--d-col: {{ section.settings.text_desktop_col_span }}; --d-row: {{ section.settings.text_desktop_row_span }};">
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        <div class="custom-collage__item" 
+             style="--d-col: {{ block.settings.desktop_col_span }}; --d-row: {{ block.settings.desktop_row_span }}; --m-col: {{ block.settings.mobile_col_span }}; --m-row: {{ block.settings.mobile_row_span }};" 
+             {{ block.shopify_attributes }}>
+          
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1200 | image_tag: 
+              loading: 'lazy', 
+              class: 'custom-collage__image', 
+              sizes: '(min-width: 750px) 50vw, 100vw' 
+            }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+
+        </div>
+      {%- endfor -%}
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Text Block Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description Text",
+      "default": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
+    },
+    {
+      "type": "range",
+      "id": "text_desktop_col_span",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Text Desktop Column Span",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "text_desktop_row_span",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Text Desktop Row Span",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Grid Sizing Constraints",
+      "info": "Adjusting the base row height determines how tall a 'Span 1' row is. Increase this if images look too squished."
+    },
+    {
+      "type": "range",
+      "id": "desktop_row_height",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Base Row Height",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "mobile_row_height",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Base Row Height",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Sizing"
+        },
+        {
+          "type": "range",
+          "id": "desktop_col_span",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "label": "Column Span (Width)",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "desktop_row_span",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "label": "Row Span (Height)",
+          "default": 1
+        },
+        {
+          "type": "header",
+          "content": "Mobile Sizing"
+        },
+        {
+          "type": "select",
+          "id": "mobile_col_span",
+          "label": "Column Span (Width)",
+          "options": [
+            { "value": "1", "label": "1 Column (Half Width)" },
+            { "value": "2", "label": "2 Columns (Full Width)" }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "range",
+          "id": "mobile_row_span",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "label": "Row Span (Height)",
+          "default": 1
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Grid",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 2,
+            "desktop_row_span": 2,
+            "mobile_col_span": "2",
+            "mobile_row_span": 2
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 2,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 2,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 2,
+            "desktop_row_span": 1,
+            "mobile_col_span": "2",
+            "mobile_row_span": 1
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 1,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 1,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
