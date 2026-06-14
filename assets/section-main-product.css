@@ -1953,7 +1953,7 @@ a.product__text {
 
 /* Klarna-style installment pricing */
 .product__installments {
-  color: #666;
+  color: #2B2B2B;
   font-size: 13px;
   line-height: 1.4;
   margin-top: 6px;
