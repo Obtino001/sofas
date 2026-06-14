@@ -713,7 +713,7 @@ color: #9F9F9F;
     background-color: #f1f1f1;
     border-radius: 8px;
     padding: 16px 20px;
-    margin-bottom: 24px;
+    margin: 0px !important;
 }
 
 .multi-icon-item {
