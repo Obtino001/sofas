@@ -666,14 +666,14 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
    -------------------------------------------------------------------------- */
 .custom-price-wrapper {
     display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
+    align-items: end;
+    /* flex-wrap: nowrap; */
     gap: 12px;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
+    flex-direction: column;
 }
-
 .custom-price-current {
 font-family: DM Sans;
 font-weight: 600;
