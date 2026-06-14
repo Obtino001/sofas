@@ -655,6 +655,7 @@
         "feature_BxfU8t": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/78c24dd202d3cdc65c2327a253d20931731db55c_1.png",
             "title": "Comfort Layer",
             "text": "Soft cushioning that adapts to your body and relieves pressure points."
           }
@@ -662,6 +663,7 @@
         "feature_FXTUU9": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/548faf1e0f49d44614bdd4f928518f0103e59ae9.png",
             "title": "Breathable Design",
             "text": "Engineered to allow airflow for a more comfortable sleep experience."
           }
@@ -669,6 +671,7 @@
         "feature_tyyeX7": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/bcc86c16ddeedc4214367a41b512e97cc8ce7e52.png",
             "title": "Support Core",
             "text": "Strong base structure that helps maintain proper alignment and durability."
           }
@@ -676,6 +679,7 @@
         "feature_i8K3BP": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/c8a80369eeb194bc1e743ec6c0e09200043cea32.png",
             "title": "Premium Cover",
             "text": "Smooth, durable fabric that feels great and lasts long."
           }
