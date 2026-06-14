@@ -141,6 +141,24 @@
           price_class: 'price--large'
         -%}
       </div>
+
+      {%- if block.settings.show_installments -%}
+        {%- assign installment_count = block.settings.installment_count | default: 3 -%}
+        {%- assign installment_price = product.selected_or_first_available_variant.price | divided_by: installment_count -%}
+        {%- assign provider_name = block.settings.installment_provider | default: 'Klarna' -%}
+        <div class="product__installments" id="Installments-{{ section.id }}">
+          <span>or {{ installment_count }} interest-free payments of {{ installment_price | money }} with <strong>{{ provider_name }}</strong>.</span>
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.show_stock_indicator -%}
+        {%- assign stock_label = block.settings.stock_label | default: 'In Stock' -%}
+        {%- assign stock_color = block.settings.stock_color | default: '#22c55e' -%}
+        <div class="product__stock-indicator">
+          <span class="product__stock-dot" style="--stock-color: {{ stock_color }};"></span>
+          <span class="product__stock-label" style="color: {{ stock_color }};">{{ stock_label }}</span>
+        </div>
+      {%- endif -%}
     </div>
     
   </div>
@@ -915,6 +933,53 @@
       "id": "review_text",
       "label": "Review Text",
       "default": "4.9 (22 Reviews)"
+    },
+    {
+      "type": "header",
+      "content": "Installment Pricing (Klarna)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_installments",
+      "default": true,
+      "label": "Show installment pricing"
+    },
+    {
+      "type": "range",
+      "id": "installment_count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 3,
+      "label": "Number of installments"
+    },
+    {
+      "type": "text",
+      "id": "installment_provider",
+      "label": "Payment provider name",
+      "default": "Klarna"
+    },
+    {
+      "type": "header",
+      "content": "Stock Indicator"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stock_indicator",
+      "default": true,
+      "label": "Show stock indicator"
+    },
+    {
+      "type": "text",
+      "id": "stock_label",
+      "label": "Stock label text",
+      "default": "In Stock"
+    },
+    {
+      "type": "color",
+      "id": "stock_color",
+      "label": "Stock indicator color",
+      "default": "#22c55e"
     }
   ]
 },
