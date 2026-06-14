@@ -302,20 +302,20 @@
 }
 
 .card-product-tabs__badge {
-  position: absolute;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  padding: 6.4px 12px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  pointer-events: none;
-  background: #1f1f1f;
-  color: #ffffff;
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    padding: 10.4px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    /* font-weight: 600; */
+    line-height: 1;
+    /* letter-spacing: .02em; */
+    white-space: nowrap;
+    pointer-events: none;
+    background: #1f1f1f;
+    color: #fff;
 }
 
 .card-product-tabs__badge--top-right {
@@ -336,8 +336,8 @@
 }
 
 .card-product-tabs__badge--sale {
-  background: #1f1f1f;
-  color: #ffffff;
+    background: #2B2B2B;
+    color: #fff;
 }
 
 .card-product-tabs__badge--soldout {
