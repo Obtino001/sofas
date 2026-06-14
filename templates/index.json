@@ -696,6 +696,21 @@
         "padding_bottom": 80
       }
     },
+    "newsletter_pPWpWW": {
+      "type": "newsletter",
+      "name": "Custom Newsletter Banner",
+      "settings": {
+        "bg_color": "#efebe5",
+        "heading": "Sign up & get an <em>additional</em> 10% off now!",
+        "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
+        "input_placeholder": "Email Address",
+        "button_text": "Get 10% off",
+        "button_color": "#c3a67d",
+        "privacy_text": "By subscribing you agree to our <a href=\"/policies/privacy-policy\">Privacy Policy</a>.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "faq_tabs_rxczBA": {
       "type": "faq-tabs",
       "blocks": {
@@ -985,21 +1000,6 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
-    },
-    "newsletter_pPWpWW": {
-      "type": "newsletter",
-      "name": "Custom Newsletter Banner",
-      "settings": {
-        "bg_color": "#efebe5",
-        "heading": "Sign up & get an <em>additional</em> 10% off now!",
-        "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
-        "input_placeholder": "Email Address",
-        "button_text": "Get 10% off",
-        "button_color": "#c3a67d",
-        "privacy_text": "By subscribing you agree to our <a href='/policies/privacy-policy'>Privacy Policy</a>.",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
@@ -1014,10 +1014,10 @@
     "icon_category_list_nG3Ni8",
     "custom_hero_banner_EpqzyB",
     "engineered_sleep_9WxnH9",
+    "newsletter_pPWpWW",
     "faq_tabs_rxczBA",
     "instagram_gallery_biMKMB",
     "instagram_gallery_itHmBn",
-    "why_choose_us_kQm6Yp",
-    "newsletter_pPWpWW"
+    "why_choose_us_kQm6Yp"
   ]
 }
