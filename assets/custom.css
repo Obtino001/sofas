@@ -471,20 +471,6 @@ slider-container.slider-disabled .swiper-slide {
   }
 }
 
-/* Global Swiper Pagination Override (Dash Style) */
-.swiper-pagination-bullet {
-  width: 50px !important;
-  height: 3px !important;
-  background-color: rgb(var(--color-foreground)) !important;
-  opacity: 0.15 !important;
-  border-radius: 0 !important;
-  transition: opacity 0.4s ease !important;
-  margin: 0 4px !important;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 0.85 !important;
-}
 
 .product__price-column {
     display: flex;
