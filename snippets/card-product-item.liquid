@@ -111,8 +111,6 @@
 
     <div class="custom-upsell-details">
       <a href="{{ card_product.url }}" class="custom-upsell-title">{{ card_product.title }}</a>
-
-      {%- comment -%} Color Swatches (Looks for options named Color/Colour) {%- endcomment -%}
       {%- for option in card_product.options_with_values -%}
         {%- assign option_name_lower = option.name | downcase -%}
         {%- if option_name_lower == 'color' or option_name_lower == 'colour' -%}
