@@ -38,15 +38,56 @@
         "collection_item_WhT8CN": {
           "type": "collection_item",
           "settings": {
-            "collection_ref": "",
+            "collection_ref": "2-seater",
             "title": "Corner Sofas",
+            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_url": ""
+          }
+        },
+        "collection_item_GdiWPp": {
+          "type": "collection_item",
+          "settings": {
+            "collection_ref": "2-seater",
+            "title": "Corner Sofas",
+            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_url": ""
+          }
+        },
+        "collection_item_63TNdQ": {
+          "type": "collection_item",
+          "settings": {
+            "collection_ref": "2-seater",
+            "title": "Corner Sofas",
+            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_url": ""
+          }
+        },
+        "collection_item_9H4DD4": {
+          "type": "collection_item",
+          "settings": {
+            "collection_ref": "2-seater",
+            "title": "Corner Sofas",
+            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_url": ""
+          }
+        },
+        "collection_item_dCWwrQ": {
+          "type": "collection_item",
+          "settings": {
+            "collection_ref": "2-seater",
+            "title": "Corner Sofas",
+            "custom_image": "shopify://shop_images/Vector_72.svg",
             "custom_url": ""
           }
         }
       },
       "block_order": [
         "feature_promo_WtKGn9",
-        "collection_item_WhT8CN"
+        "collection_item_WhT8CN",
+        "collection_item_GdiWPp",
+        "collection_item_63TNdQ",
+        "collection_item_9H4DD4",
+        "collection_item_dCWwrQ"
       ],
       "settings": {
         "products_per_page": 36,
