@@ -147,7 +147,7 @@
         "upsell_product_TcVLHt": {
           "type": "upsell_product",
           "settings": {
-            "upsell__heading": "You might also like",
+            "upsell__heading": "Complete your sofa set",
             "drawer_mobile_arrows": true,
             "drawer_enable_autoplay": false,
             "drawer_autoplay_interval": 3,
