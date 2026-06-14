@@ -41,15 +41,15 @@
 }
 
 .collection-tabs__nav-wrapper {
-  flex: 1 1 auto;
-  min-width: 0;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: 40px;
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: baseline;
+    gap: 40px;
+    justify-content: space-between;
 }
-
 .collection-tabs__nav {
   display: flex;
   align-items: center;
@@ -736,7 +736,7 @@
 }
 
 .quickATC:hover {
-  background-color: #333;
+  background-color: #2B2B2B;
 }
 
 .quickATC:disabled {
@@ -778,12 +778,7 @@
 }
 
 @media screen and (max-width: 749px) {
-  .collection-tabs__heading-row {
-    padding: 0 16px;
-  }
-
   .collection-tabs__controls-row {
-    padding: 0 16px;
     gap: 12px;
     flex-wrap: wrap;
   }
@@ -791,8 +786,6 @@
   .collection-tabs__nav-wrapper {
     order: 2;
     flex: 1 1 100%;
-    margin: 0 -16px;
-    padding: 0 16px;
   }
 
   .collection-tabs__actions {

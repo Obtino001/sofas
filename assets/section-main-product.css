@@ -179,7 +179,7 @@ product-info {
 .product-form__input .form__label {
   padding-left: 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .product-form__input .select {
@@ -1953,7 +1953,7 @@ a.product__text {
 
 /* Klarna-style installment pricing */
 .product__installments {
-  color: #666;
+  color: #2B2B2B;
   font-size: 13px;
   line-height: 1.4;
   margin-top: 6px;
@@ -1968,7 +1968,7 @@ a.product__text {
 .product__stock-indicator {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   margin-top: 8px;
 }
 

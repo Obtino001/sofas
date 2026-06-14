@@ -23,7 +23,7 @@
             "installment_provider": "Klarna",
             "show_stock_indicator": true,
             "stock_label": "In Stock",
-            "stock_color": "#33A813"
+            "stock_color": "#33a813"
           }
         },
         "product_reviews_XX9YT4": {
@@ -62,11 +62,38 @@
             "show_variant_images_in_swatches": true
           }
         },
+        "multi_icon_3wWFJf": {
+          "type": "multi-icon",
+          "settings": {
+            "icon-1": "shopify://shop_images/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png",
+            "icon_size_1": 77,
+            "icon_size_m_1": 30,
+            "text-1": "One Year Warranty",
+            "desc-1": "Built to last with quality you can trust on",
+            "icon-2": "shopify://shop_images/Group_1413372280.svg",
+            "icon_size_2": 46,
+            "icon_size_m_2": 30,
+            "text-2": "One Year Warranty",
+            "desc-2": "Built to last with quality you can trust on",
+            "icon_size_3": 46,
+            "icon_size_m_3": 30,
+            "text-3": "",
+            "desc-3": "",
+            "text-size": 14
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
+          }
+        },
+        "delivery_payment_mB6BTN": {
+          "type": "delivery_payment",
+          "settings": {
+            "text": "Buy now & get it delivered in 2-3 days",
+            "margin_bottom": 16
           }
         },
         "payments_fYcAA7": {
@@ -75,13 +102,6 @@
             "pay_with_text": "Pay with",
             "installments_text": "In installments with",
             "margin_bottom": 20
-          }
-        },
-        "delivery_payment_mB6BTN": {
-          "type": "delivery_payment",
-          "settings": {
-            "text": "Buy now & get it delivered in 2-3 days",
-            "margin_bottom": 16
           }
         },
         "faq_blocks_NkWNgc": {
@@ -174,9 +194,10 @@
         "product_reviews_XX9YT4",
         "pills_xFGRwJ",
         "variant_picker",
+        "multi_icon_3wWFJf",
         "buy_buttons",
-        "payments_fYcAA7",
         "delivery_payment_mB6BTN",
+        "payments_fYcAA7",
         "faq_blocks_NkWNgc",
         "faq_blocks_CkKVjD",
         "faq_blocks_FN9CnF",
@@ -421,10 +442,10 @@
         "enable_autoplay": false,
         "autoplay_interval": 3,
         "desktop_slides": 4,
-        "desktop_spacing": 24,
+        "desktop_spacing": 12,
         "tablet_slides": 3.2,
         "mobile_slides": 1.1,
-        "mobile_spacing": 16
+        "mobile_spacing": 10
       }
     },
     "related-products": {
@@ -471,12 +492,12 @@
       ],
       "settings": {
         "title": "You may also <em>like</em>",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
         "description_style": "body",
         "tab_icon_size": 32,
-        "products_to_show": 4,
+        "products_to_show": 25,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "spacing": 20,
@@ -657,42 +678,42 @@
         "image_6q4Ycy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03_36a27a6b-483b-4c4b-a6f3-d61f024a4e21.png",
             "row": "1"
           }
         },
         "image_P7ETTk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/a6860ee8686f583956e0a7324778a697ab3ef745_552ba2fb-f2dc-45ef-a793-af9782c3ea6d.png",
             "row": "1"
           }
         },
         "image_E8VMDh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c_281442a0-ab5e-49ad-abc6-9b6e89c1b986.png",
             "row": "1"
           }
         },
         "image_jrPKmX": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c_281442a0-ab5e-49ad-abc6-9b6e89c1b986.png",
             "row": "1"
           }
         },
         "image_iWmE8f": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
             "row": "2"
           }
         },
         "image_EQwkf6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/Rectangle_237.png",
             "row": "2"
           }
         },
@@ -720,16 +741,16 @@
         "enable_edge_fade": true,
         "pause_on_hover": true,
         "border_radius": 16,
-        "speed_row_1": 40,
+        "speed_row_1": 100,
         "direction_row_1": "left",
-        "speed_row_2": 50,
+        "speed_row_2": 100,
         "direction_row_2": "right",
         "image_height_desktop": 280,
-        "gap_desktop": 24,
+        "gap_desktop": 16,
         "image_height_mobile": 180,
         "gap_mobile": 12,
         "padding_top": 36,
-        "padding_bottom": 16
+        "padding_bottom": 8
       }
     },
     "instagram_gallery_itHmBn": {
@@ -738,42 +759,35 @@
         "image_gFNyx6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/be604023eb5b37bac2789e3def43bb881e2a633c_281442a0-ab5e-49ad-abc6-9b6e89c1b986.png",
             "row": "1"
           }
         },
         "image_aPGpHw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/38c1e78f04e8ffc91ad26863b8220c8fc4f8ac46_dac90609-0655-4613-a8d4-08d47a37f4b3.png",
             "row": "1"
           }
         },
         "image_WQPner": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03_36a27a6b-483b-4c4b-a6f3-d61f024a4e21.png",
             "row": "1"
           }
         },
         "image_dMyKqr": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/a66a7173795ddde4ad124fafb691c4f4e8242117_9bddda39-5c7a-4a37-8806-f1478fb139ae.png",
             "row": "1"
           }
         },
         "image_NNUBMb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.png",
-            "row": "2"
-          }
-        },
-        "image_AxgbFg": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_1.png",
+            "image": "shopify://shop_images/a66a7173795ddde4ad124fafb691c4f4e8242117_9bddda39-5c7a-4a37-8806-f1478fb139ae.png",
             "row": "2"
           }
         },
@@ -791,7 +805,6 @@
         "image_WQPner",
         "image_dMyKqr",
         "image_NNUBMb",
-        "image_AxgbFg",
         "image_DDMyrH"
       ],
       "name": "Marquee Gallery",
@@ -806,10 +819,10 @@
         "speed_row_2": 50,
         "direction_row_2": "right",
         "image_height_desktop": 280,
-        "gap_desktop": 24,
+        "gap_desktop": 12,
         "image_height_mobile": 180,
         "gap_mobile": 12,
-        "padding_top": 16,
+        "padding_top": 8,
         "padding_bottom": 36
       }
     }
