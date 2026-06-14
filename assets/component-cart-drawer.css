@@ -157,9 +157,6 @@ cart-drawer .quantity { min-height: 36px; border-radius: 6px; width: calc(10rem 
 .ma_quickAdd_atc circle { stroke: var(--cd-btn-color); }
 .drawer-product-card ma-quickadd { width: 100%; display: flex; align-items: center; justify-content: center; position: absolute; bottom: 10px; transform: translate(-50%, 100%); left: 50%; visibility: hidden; transition: transform 0.2s ease; }
 .drawer-product-card:hover ma-quickadd { transform: translate(-50%, 0%); visibility: visible; transition: transform 0.2s ease; }
-@media screen and (min-width: 767px) {
-  .drawer__upsell-container-mobile { display: none !important; }
-}
 .drawer__upsell-footer-inner h5 { font-size: 13px; font-weight: 600; margin: 0 0 4px; color: #1a1a1a; letter-spacing: .5px; }
 .drawer__upsell-container-mobile { margin-top: auto; box-sizing: border-box; display: none; }
 .drawer__upsell-container-mobile .drawer__upsell-header h4 { font-size: 16px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a; letter-spacing: 0.5px; }
