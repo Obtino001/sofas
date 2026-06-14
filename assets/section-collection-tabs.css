@@ -41,15 +41,15 @@
 }
 
 .collection-tabs__nav-wrapper {
-  flex: 1 1 auto;
-  min-width: 0;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: 40px;
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: baseline;
+    gap: 40px;
+    justify-content: space-between;
 }
-
 .collection-tabs__nav {
   display: flex;
   align-items: center;
