@@ -101,14 +101,15 @@
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       <style>
-        .collection-toolbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-top: 1px solid rgba(var(--color-foreground), 0.08);
-          flex-wrap: wrap;
-          gap: 15px;
-        }
+      .collection-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    gap: 15px;
+}
         .collection-toolbar__nav {
           flex: 1;
           overflow-x: auto;
