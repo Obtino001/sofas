@@ -173,7 +173,7 @@
           <a href="{{ block.settings.link | default: '#' }}" class="custom-bento__item" aria-label="{{ block.settings.button_label | escape }}">
             
             {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 1500 | image_tag: 
+              {{ block.settings.image | image_url: width: 2500 | image_tag: 
                 loading: 'lazy', 
                 class: 'custom-bento__image', 
                 sizes: '(min-width: 750px) 50vw, 100vw', 
