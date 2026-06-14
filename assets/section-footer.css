@@ -266,7 +266,6 @@
   .footer-feature-item {
     flex: 0 0 100%;
     scroll-snap-align: center;
-    padding: 0 15px;
 }
   .footer__features-wrapper {
     padding-block: 4rem;
