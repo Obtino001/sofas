@@ -155,7 +155,7 @@
         {%- assign stock_label = block.settings.stock_label | default: 'In Stock' -%}
         {%- assign stock_color = block.settings.stock_color | default: '#22c55e' -%}
         <div class="product__stock-indicator">
-          <span class="product__stock-dot" style="--stock-color: {{ stock_color }};"></span>
+          <span class="product__stock-dot" style="--stock-color: {{ stock_color }};"> </span>
           <span class="product__stock-label" style="color: {{ stock_color }};">{{ stock_label }}</span>
         </div>
       {%- endif -%}
