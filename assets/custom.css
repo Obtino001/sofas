@@ -491,3 +491,12 @@ slider-container.slider-disabled .swiper-slide {
     flex-direction: column;
     align-items: end;
 }
+
+::slotted(svg), svg {
+    height: 100%;
+    object-fit: contain;
+    transform-origin: center;
+    width: 100%;
+    /* fill: currentColor; */
+    pointer-events: none;
+}
