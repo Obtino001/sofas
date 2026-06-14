@@ -1,7 +1,12 @@
 body {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
 }
-
+.product__title-price-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 30px;
+}
 .product__text {
   font-weight: 400;
   font-style: Regular;
