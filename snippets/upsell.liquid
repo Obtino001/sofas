@@ -1,4 +1,4 @@
-{%- comment -%} Check if the metafield has values {%- endcomment -%}
+
 {% if product.metafields.custom.product_upsell != blank %}
   <div class="drawer__upsell-container-mobile upsell-pdp">
     <div class="drawer__upsell-wrapper-mobile">
@@ -10,8 +10,7 @@
           </p>
         {%- endif -%}
 
-        <div class="upsell-vertical-list" style="display: flex; flex-direction: column; gap: 16px;">
-          {%- comment -%} Loop through Metafield List {%- endcomment -%}
+        <div class="upsell-vertical-list" style="display: flex; flex-direction: column;">
           {% for item in product.metafields.custom.product_upsell.value %}
             <div class="upsell-list-item">
               {% render 'card-product-item',
