@@ -113,6 +113,12 @@
         .collection-toolbar__nav {
           flex: 1;
           overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none; /* Hide scrollbar in Firefox */
+          width: 100%;
+        }
+        .collection-toolbar__nav::-webkit-scrollbar {
+          display: none; /* Hide scrollbar in Webkit */
         }
         .cn-list {
           display: flex;
@@ -183,7 +189,11 @@
            }
            .collection-toolbar__controls {
              width: 100%;
-             justify-content: end;
+             justify-content: space-between;
+           }
+           .collection-toolbar__nav {
+             padding-bottom: 10px;
+             padding-top: 10px;
            }
         }
       </style>

@@ -763,12 +763,10 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .menu-opening .mobile-facets__inner {
   transform: translateX(0);
-  transform: none;
 }
 
 .js .disclosure-has-popup:not(.menu-opening) .mobile-facets__inner {
   transform: translateX(105vw);
-  transform: none;
 }
 
 .mobile-facets__header {
@@ -895,7 +893,6 @@ details.menu-opening .mobile-facets__close .svg-wrapper {
   display: grid;
   grid-template-columns: min-content 1fr;
   text-align: start;
-  display: none !important;
 }
 
 .mobile-facets__close-button>.facets__and-helptext {
