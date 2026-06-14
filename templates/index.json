@@ -198,6 +198,64 @@
         "padding_bottom": 36
       }
     },
+    "bento_categories_aFbwVW": {
+      "type": "bento-categories",
+      "blocks": {
+        "category_z3qTNx": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png",
+            "button_label": "Sofas",
+            "link": "",
+            "col_span": 2,
+            "row_span": 2
+          }
+        },
+        "category_4jQ8NV": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda.png",
+            "button_label": "Beds",
+            "link": "",
+            "col_span": 2,
+            "row_span": 1
+          }
+        },
+        "category_8bF6k6": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/9b16c36e20747dacbfe855023c102e44da0233e4.png",
+            "button_label": "Mattresses",
+            "link": "",
+            "col_span": 1,
+            "row_span": 1
+          }
+        },
+        "category_gELeBc": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png",
+            "button_label": "Storage Boxes",
+            "link": "",
+            "col_span": 1,
+            "row_span": 1
+          }
+        }
+      },
+      "block_order": [
+        "category_z3qTNx",
+        "category_4jQ8NV",
+        "category_8bF6k6",
+        "category_gELeBc"
+      ],
+      "name": "Bento Categories",
+      "settings": {
+        "color_scheme": "",
+        "title": "Shop by <em>category</em>",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "testimonials_FqAwzT": {
       "type": "testimonials",
       "blocks": {
@@ -292,6 +350,112 @@
         "mobile_spacing": 16
       }
     },
+    "icon_category_list_nG3Ni8": {
+      "type": "icon-category-list",
+      "blocks": {
+        "category_eegFtJ": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image_40_1.png",
+            "title": "2 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_4NYgWA": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image_40_2.png",
+            "title": "3 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_iUnEnp": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_190.png",
+            "title": "4 Seater Sofas",
+            "link": ""
+          }
+        },
+        "category_ThtFMW": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image_40_3.png",
+            "title": "Corner Sofas",
+            "link": ""
+          }
+        },
+        "category_kthBRn": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image_40_5.png",
+            "title": "Swivel Chairs",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_eegFtJ",
+        "category_4NYgWA",
+        "category_iUnEnp",
+        "category_ThtFMW",
+        "category_kthBRn"
+      ],
+      "name": "Icon Category Grid",
+      "settings": {
+        "title": "Sofas for every <em>space</em>",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_hero_banner_EpqzyB": {
+      "type": "custom-hero-banner",
+      "blocks": {
+        "heading_By7mTe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort now, Pay later.",
+            "heading_size": "h1"
+          }
+        },
+        "text_YDc4BF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
+          }
+        },
+        "buttons_nyNjni": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore our products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_1": "primary",
+            "button_label_2": "Learn more",
+            "button_link_2": "shopify://collections/all",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_By7mTe",
+        "text_YDc4BF",
+        "buttons_nyNjni"
+      ],
+      "name": "Custom Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
+        "overlay_opacity": 30,
+        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "desktop_height": 70,
+        "desktop_content_position": "flex-start",
+        "desktop_text_alignment": "left",
+        "mobile_height": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "collections_tabs_G8NWUM": {
       "type": "collections-tabs",
       "blocks": {
@@ -376,63 +540,6 @@
         "show_view_all": true,
         "view_all_text": "View All",
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "bento_categories_aFbwVW": {
-      "type": "bento-categories",
-      "blocks": {
-        "category_z3qTNx": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png",
-            "button_label": "Sofas",
-            "link": "",
-            "col_span": 2,
-            "row_span": 2
-          }
-        },
-        "category_4jQ8NV": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda.png",
-            "button_label": "Beds",
-            "link": "",
-            "col_span": 2,
-            "row_span": 1
-          }
-        },
-        "category_8bF6k6": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/9b16c36e20747dacbfe855023c102e44da0233e4.png",
-            "button_label": "Mattresses",
-            "link": "",
-            "col_span": 1,
-            "row_span": 1
-          }
-        },
-        "category_gELeBc": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png",
-            "button_label": "Storage Boxes",
-            "link": "",
-            "col_span": 1,
-            "row_span": 1
-          }
-        }
-      },
-      "block_order": [
-        "category_z3qTNx",
-        "category_4jQ8NV",
-        "category_8bF6k6",
-        "category_gELeBc"
-      ],
-      "name": "Bento Categories",
-      "settings": {
-        "title": "Shop by <em>category</em>",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -546,112 +653,6 @@
         "padding_bottom": 36
       }
     },
-    "icon_category_list_nG3Ni8": {
-      "type": "icon-category-list",
-      "blocks": {
-        "category_eegFtJ": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_1.png",
-            "title": "2 Seater Sofas",
-            "link": ""
-          }
-        },
-        "category_4NYgWA": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_2.png",
-            "title": "3 Seater Sofas",
-            "link": ""
-          }
-        },
-        "category_iUnEnp": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_190.png",
-            "title": "4 Seater Sofas",
-            "link": ""
-          }
-        },
-        "category_ThtFMW": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_3.png",
-            "title": "Corner Sofas",
-            "link": ""
-          }
-        },
-        "category_kthBRn": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/image_40_5.png",
-            "title": "Swivel Chairs",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_eegFtJ",
-        "category_4NYgWA",
-        "category_iUnEnp",
-        "category_ThtFMW",
-        "category_kthBRn"
-      ],
-      "name": "Icon Category Grid",
-      "settings": {
-        "title": "Sofas for every <em>space</em>",
-        "heading_size": "h1",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "custom_hero_banner_EpqzyB": {
-      "type": "custom-hero-banner",
-      "blocks": {
-        "heading_By7mTe": {
-          "type": "heading",
-          "settings": {
-            "heading": "Comfort now, Pay later.",
-            "heading_size": "h1"
-          }
-        },
-        "text_YDc4BF": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
-          }
-        },
-        "buttons_nyNjni": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Explore our products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_1": "primary",
-            "button_label_2": "Learn more",
-            "button_link_2": "shopify://collections/all",
-            "button_style_2": "secondary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_By7mTe",
-        "text_YDc4BF",
-        "buttons_nyNjni"
-      ],
-      "name": "Custom Hero Banner",
-      "settings": {
-        "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe.png",
-        "overlay_opacity": 30,
-        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "desktop_height": 70,
-        "desktop_content_position": "flex-start",
-        "desktop_text_alignment": "left",
-        "mobile_height": 60,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "engineered_sleep_9WxnH9": {
       "type": "engineered-sleep",
       "blocks": {
@@ -708,12 +709,11 @@
       "type": "newsletter",
       "name": "Custom Newsletter Banner",
       "settings": {
-        "bg_color": "#efebe5",
+        "color_scheme": "",
         "heading": "Sign up & get an <em>additional</em> 10% off now!",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
         "button_text": "Get 10% off",
-        "button_color": "#c3a67d",
         "privacy_text": "By subscribing you agree to our <a href=\"/policies/privacy-policy\">Privacy Policy</a>.",
         "padding_top": 60,
         "padding_bottom": 60
@@ -1020,13 +1020,13 @@
     "custom_banner_XE8idV",
     "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
-    "testimonials_FqAwzT",
-    "collections_tabs_G8NWUM",
     "bento_categories_aFbwVW",
-    "instagram_gallery_kKrKtz",
-    "collections_tabs_M9VpAE",
+    "testimonials_FqAwzT",
     "icon_category_list_nG3Ni8",
     "custom_hero_banner_EpqzyB",
+    "collections_tabs_G8NWUM",
+    "instagram_gallery_kKrKtz",
+    "collections_tabs_M9VpAE",
     "engineered_sleep_9WxnH9",
     "newsletter_pPWpWW",
     "faq_tabs_rxczBA",
