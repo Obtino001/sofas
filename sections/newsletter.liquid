@@ -2,7 +2,6 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    background-color: {{ section.settings.bg_color }};
   }
 
   @media screen and (min-width: 750px) {
@@ -13,7 +12,9 @@
   }
 
   .cn-wrapper {
-
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -27,16 +28,22 @@
     max-width: 550px;
   }
 
+  .cn-heading {
+    color: rgb(var(--color-foreground));
+    margin-top: 0;
+  }
 
+  /* Elegant serif styling for italicized words */
   .cn-heading em, 
   .cn-heading i {
+    font-family: "Georgia", "Times New Roman", serif;
     font-style: italic;
     font-weight: 500;
   }
 
   .cn-subtext {
     font-size: 14px;
-    color: #4a4a4a;
+    color: rgba(var(--color-foreground), 0.75);
     line-height: 1.5;
     margin: 0;
   }
@@ -54,42 +61,59 @@
     width: 100%;
   }
 
+  .cn-input {
+    flex: 1;
+    height: 50px;
+    background: transparent;
+    border: 1px solid rgba(var(--color-foreground), 0.15);
+    border-radius: 25px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: rgb(var(--color-foreground));
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
 
   .cn-input::placeholder {
-    color: #888;
+    color: rgba(var(--color-foreground), 0.6);
   }
 
   .cn-input:focus {
-    border-color: #c3a67d;
+    border-color: rgb(var(--color-foreground));
+    box-shadow: 0 0 0 1px rgb(var(--color-foreground));
   }
 
   .cn-button {
     height: 50px;
-    background-color: {{ section.settings.button_color }};
-    color: #ffffff;
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
     border: none;
     border-radius: 25px;
     padding: 0 30px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.1s ease;
     white-space: nowrap;
   }
 
   .cn-button:hover {
-    opacity: 0.9;
+    opacity: 0.85;
+  }
+
+  .cn-button:active {
+    transform: scale(0.98);
   }
 
   .cn-privacy-text {
     font-size: 11px;
-    color: #666666;
+    color: rgba(var(--color-foreground), 0.65);
     margin: 12px 0 0 20px;
     display: block;
   }
 
   .cn-privacy-text a {
-    color: #666666;
+    color: rgb(var(--color-foreground));
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -127,8 +151,8 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
-  <div class="cn-wrapper page-width">
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="cn-wrapper">
     
     <div class="cn-text-column">
       {%- if section.settings.heading != blank -%}
@@ -192,10 +216,10 @@
   "tag": "section",
   "settings": [
     {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#EFEBE5"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
     },
     {
       "type": "inline_richtext",
@@ -221,12 +245,6 @@
       "id": "button_text",
       "label": "Button Text",
       "default": "Get 10% off"
-    },
-    {
-      "type": "color",
-      "id": "button_color",
-      "label": "Button Background Color",
-      "default": "#c3a67d"
     },
     {
       "type": "inline_richtext",
