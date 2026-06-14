@@ -401,7 +401,7 @@
 .card-product-tabs__content {
   display: flex;
   flex-direction: column;
-  gap: 6.4px;
+  gap: 3.4px;
   padding: 12px 2px 0;
 }
 
