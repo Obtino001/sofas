@@ -129,9 +129,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.4rem 2rem;
+    padding: 1.2rem 2rem;
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: rgb(var(--color-foreground));
     border: none;
@@ -141,6 +141,7 @@
     text-align: left;
     font-family: var(--font-body-family);
     transition: background-color 0.15s ease;
+    text-transform: uppercase;
   }
 
   .woc-drawer-menu-item:hover {
@@ -320,6 +321,15 @@
     background-color: #b8916a;
   }
 
+  .woc-drawer-promo__btn--outline {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+
+  .woc-drawer-promo__btn--outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
   /* ============================================
      SUB PANEL — Standard menu links
      ============================================ */
@@ -449,6 +459,29 @@
                   </li>
                 {%- endfor -%}
               </ul>
+
+              {%- comment -%} Promo Banner for Main Drawer {%- endcomment -%}
+              {% if section.settings.drawer_promo_image != blank %}
+                <div class="woc-drawer-promo" style="margin-top: 2rem;">
+                  <img src="{{ section.settings.drawer_promo_image | image_url: width: 800 }}" class="woc-drawer-promo__bg" alt="{{ section.settings.drawer_promo_title }}" loading="lazy">
+                  <div class="woc-drawer-promo__overlay"> </div>
+                  <div class="woc-drawer-promo__content" style="gap: 1.5rem;">
+                    {% if section.settings.drawer_promo_title != blank %}
+                      <h3 class="woc-drawer-promo__heading h1" style="font-size: 2.8rem;">{{ section.settings.drawer_promo_title }}</h3>
+                    {% endif %}
+
+                    {% if section.settings.drawer_promo_text != blank %}
+                      <p style="margin: 0; font-size: 1.3rem; opacity: 0.9; line-height: 1.4;">{{ section.settings.drawer_promo_text }}</p>
+                    {% endif %}
+
+                    {% if section.settings.drawer_promo_btn_text != blank %}
+                      <a href="{{ section.settings.drawer_promo_btn_link }}" class="woc-drawer-promo__btn woc-drawer-promo__btn--outline" style="margin-top: auto; align-self: center;">
+                        {{ section.settings.drawer_promo_btn_text }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
             </nav>
 
             {%- comment -%} Account Link at Bottom of Main Panel {%- endcomment -%}
