@@ -53,7 +53,7 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle",
-            "show_variant_images_in_swatches": true
+            "show_variant_images_in_swatches": false
           }
         },
         "buy_buttons": {
@@ -457,14 +457,16 @@
           "type": "category",
           "settings": {
             "title": "Sofa related questions",
-            "icon": "check_mark"
+            "icon": "check_mark",
+            "color_scheme": ""
           }
         },
         "category_R8YEXp": {
           "type": "category",
           "settings": {
             "title": "Bed related questions",
-            "icon": "check_mark"
+            "icon": "check_mark",
+            "color_scheme": ""
           }
         },
         "faq_MQmrUc": {
@@ -472,7 +474,8 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "How long does delivery take?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+            "color_scheme": ""
           }
         },
         "faq_yDi3DW": {
@@ -480,7 +483,8 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "Are your sofas made in the UK?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+            "color_scheme": ""
           }
         },
         "faq_UG6t8Q": {
@@ -488,7 +492,8 @@
           "settings": {
             "category_match": "Bed related questions",
             "question": "What sizes are available?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+            "color_scheme": ""
           }
         }
       },
@@ -506,7 +511,6 @@
         "description": "Browse questions by categories",
         "answers_label": "answers",
         "color_scheme": "",
-        "accordion_color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
       }
