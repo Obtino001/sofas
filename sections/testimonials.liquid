@@ -166,7 +166,7 @@
       display: none;
     }
     /* Fallback native scrolling in case Swiper JS doesn't fire */
-    .ts-swiper-{{ section.id }} .swiper-wrapper {
+    slider-container:not(.is-initialized) .ts-swiper-{{ section.id }} .swiper-wrapper {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
@@ -175,10 +175,10 @@
       -webkit-overflow-scrolling: touch;
       gap: 16px;
     }
-    .ts-swiper-{{ section.id }} .swiper-wrapper::-webkit-scrollbar {
+    slider-container:not(.is-initialized) .ts-swiper-{{ section.id }} .swiper-wrapper::-webkit-scrollbar {
       display: none;
     }
-    .ts-swiper-{{ section.id }} .swiper-slide {
+    slider-container:not(.is-initialized) .ts-swiper-{{ section.id }} .swiper-slide {
       flex: 0 0 85vw; /* Show 1.1 cards */
       scroll-snap-align: center;
     }

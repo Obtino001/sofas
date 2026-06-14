@@ -195,7 +195,7 @@
                   "loop": {{ section.settings.enable_loop | default: false | json }},
                   "autoplay": {{ section.settings.enable_autoplay | default: false | json }},
                   "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 | json }},
-                  "mobileSlides": {{ mobile_swiper_slides | default: 1.4 | json }},
+                  "mobileSlides": {% if section.settings.columns_mobile == '1' %}1.4{% else %}2{% endif %},
                   "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 | default: 16 | json }},
                   "desktopSlides": {{ section.settings.columns_desktop | default: 4 | json }},
                   "desktopSpacing": {{ section.settings.spacing | default: 24 | json }}
@@ -435,16 +435,15 @@
     {
       "type": "range",
       "id": "columns_desktop",
-      "min": 1,
+      "min": 2,
       "max": 6,
       "step": 1,
-      "default": 4,
-      "label": "Number of columns on desktop"
+      "label": "Cards per row (Desktop)",
+      "default": 4
     },
     {
       "type": "select",
       "id": "columns_mobile",
-      "default": "2",
       "label": "Number of columns on mobile",
       "options": [
         { "value": "1", "label": "1 column" },

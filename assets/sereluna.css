@@ -636,7 +636,7 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
  .footer-block__details-content {
     text-align: center;
     flex-direction: column;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }

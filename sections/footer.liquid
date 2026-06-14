@@ -65,8 +65,15 @@
             <div class="footer-block grid__item footer-block--{{ block.type }}" {{ block.shopify_attributes }}>
               
               {%- if block.settings.heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">
+                <h2 class="footer-block__heading inline-richtext {% if block.type != 'newsletter' %}mobile-accordion-toggle{% endif %}">
                   {{- block.settings.heading -}}
+                  {%- if block.type != 'newsletter' -%}
+                    <span class="accordion-icon">
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  {%- endif -%}
                 </h2>
               {%- endif -%}
 
