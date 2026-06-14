@@ -263,15 +263,24 @@
 
 @media screen and (max-width: 749px) {
   .footer { padding: 3rem 2rem 0px 2rem; }
-  
+  .footer-feature-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    padding: 0 15px;
+}
   .footer__features-wrapper {
     padding: 0;
     margin-bottom: 4rem;
   }
-  .footer__features-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.footer__features-grid {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+    display: flex;
+}
   
   .footer__content-top {
     flex-direction: column;
