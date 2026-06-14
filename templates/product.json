@@ -561,6 +561,7 @@
       "name": "Custom Hero Banner",
       "settings": {
         "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
+        "mobile_image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe_2.png",
         "overlay_opacity": 30,
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "desktop_height": 70,
