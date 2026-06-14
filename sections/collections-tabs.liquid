@@ -339,8 +339,12 @@
   </div>
 </div>
 
+{%- comment -%} Quick Add Drawer (bottom-sheet for variant selection) {%- endcomment -%}
+{% render 'WI_mobileQuickAddDrawer' %}
+
 <script src="{{ 'slider-template.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'collection-tabs.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'WI_quickAdd.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
