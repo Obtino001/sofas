@@ -1,5 +1,5 @@
-body {
-  overflow-x: clip !important;
+html, body {
+  overflow-x: hidden !important;
 }
 .product__title-price-container {
     display: flex;
