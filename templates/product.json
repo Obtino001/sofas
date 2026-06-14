@@ -89,19 +89,19 @@
             "show_gift_card_recipient": false
           }
         },
+        "delivery_payment_mB6BTN": {
+          "type": "delivery_payment",
+          "settings": {
+            "text": "Buy now & get it delivered in 2-3 days",
+            "margin_bottom": 16
+          }
+        },
         "payments_fYcAA7": {
           "type": "Payments",
           "settings": {
             "pay_with_text": "Pay with",
             "installments_text": "In installments with",
             "margin_bottom": 20
-          }
-        },
-        "delivery_payment_mB6BTN": {
-          "type": "delivery_payment",
-          "settings": {
-            "text": "Buy now & get it delivered in 2-3 days",
-            "margin_bottom": 16
           }
         },
         "faq_blocks_NkWNgc": {
@@ -196,8 +196,8 @@
         "variant_picker",
         "multi_icon_3wWFJf",
         "buy_buttons",
-        "payments_fYcAA7",
         "delivery_payment_mB6BTN",
+        "payments_fYcAA7",
         "faq_blocks_NkWNgc",
         "faq_blocks_CkKVjD",
         "faq_blocks_FN9CnF",
