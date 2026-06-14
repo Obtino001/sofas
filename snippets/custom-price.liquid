@@ -64,17 +64,8 @@
           {{ compare_at_price | money }}
         {% endif %}
       </div>
-      {%- if discount_percentage > 0 -%}
-        <div class="custom-oval-badge">{{ discount_percentage }}% Off</div>
-      {%- endif -%}
     {%- endif -%}
 
-    <!-- "Per PC" Badge from Metafield -->
-    {%- if product.metafields.custom_pricing.per_piece_label.value != blank -%}
-      <div class="custom-oval-badge custom-badge-container">
-        {{ product.metafields.custom_pricing.per_piece_label.value }}
-      </div>
-    {%- endif -%}
 
     {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
       {% render 'unit-price',
