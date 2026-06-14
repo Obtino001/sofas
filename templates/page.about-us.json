@@ -50,6 +50,122 @@
         "text_alignment": "center"
       }
     },
+    "what_we_offer_ArBpTY": {
+      "type": "what-we-offer",
+      "blocks": {
+        "feature_RRQGP7": {
+          "type": "feature",
+          "settings": {
+            "title": "Made for everyday comfort"
+          }
+        },
+        "feature_97Cdwh": {
+          "type": "feature",
+          "settings": {
+            "title": "Proudly made in UK"
+          }
+        },
+        "feature_FRf7ib": {
+          "type": "feature",
+          "settings": {
+            "title": "Built to last long"
+          }
+        }
+      },
+      "block_order": [
+        "feature_RRQGP7",
+        "feature_97Cdwh",
+        "feature_FRf7ib"
+      ],
+      "name": "What We Offer",
+      "settings": {
+        "color_scheme": "",
+        "decorator_color": "#EFEBE5",
+        "heading": "What we offer",
+        "heading_size": "h1",
+        "text": "<p>We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function.</p>",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_collage_BkYQPp": {
+      "type": "custom-collage",
+      "blocks": {
+        "image_i7eCFh": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 2,
+            "desktop_row_span": 2,
+            "mobile_col_span": "2",
+            "mobile_row_span": 2
+          }
+        },
+        "image_UjzRKz": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 2,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        "image_HG36QB": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 2,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        "image_wzfjki": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 2,
+            "desktop_row_span": 1,
+            "mobile_col_span": "2",
+            "mobile_row_span": 1
+          }
+        },
+        "image_QL3gdx": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 1,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        "image_e4Wcji": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 1,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        }
+      },
+      "block_order": [
+        "image_i7eCFh",
+        "image_UjzRKz",
+        "image_HG36QB",
+        "image_wzfjki",
+        "image_QL3gdx",
+        "image_e4Wcji"
+      ],
+      "name": "Custom Image Grid",
+      "settings": {
+        "color_scheme": "",
+        "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>",
+        "text_desktop_col_span": 2,
+        "text_desktop_row_span": 1,
+        "desktop_row_height": 180,
+        "mobile_row_height": 120,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "testimonials_FqAwzT": {
       "type": "testimonials",
       "blocks": {
@@ -469,6 +585,8 @@
   "order": [
     "main",
     "custom_banner_A6F9q9",
+    "what_we_offer_ArBpTY",
+    "custom_collage_BkYQPp",
     "testimonials_FqAwzT",
     "bento_categories_aFbwVW",
     "newsletter_pPWpWW",
