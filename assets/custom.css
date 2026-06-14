@@ -12,8 +12,9 @@ body {
   font-size: 14px;
   line-height: 120%;
 }
+element.style {
 
-
+}
 .drawer__upsell-wrapper-mobile .card-overlay-droplet {
   display: none;
 }
