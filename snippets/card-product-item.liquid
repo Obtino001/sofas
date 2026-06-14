@@ -55,8 +55,10 @@
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      border: 1px solid #4A4A4A;
+      border: 1px solid rgba(0,0,0,0.12);
+      box-shadow: inset 0 0 0 2px #fff;
       display: inline-block;
+      cursor: pointer;
     }
     
     .custom-upsell-action {
@@ -83,6 +85,11 @@
       font-weight: 500;
       cursor: pointer;
       transition: opacity 0.2s ease;
+      position: relative;
+      min-width: 70px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .custom-upsell-btn:hover {
@@ -97,6 +104,24 @@
     
     .custom-upsell-form {
       margin: 0;
+    }
+
+    .custom-upsell-btn > .loading__spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .custom-upsell-btn .path {
+      stroke: #FFFFFF;
+    }
+    
+    .custom-upsell-btn.loading > span {
+      color: transparent;
     }
   </style>
 
@@ -116,8 +141,33 @@
         {%- if option_name_lower == 'color' or option_name_lower == 'colour' -%}
           <div class="custom-upsell-swatches">
             {%- for value in option.values -%}
-              {%- assign bg_color = value | downcase | remove: ' ' -%}
-              <span class="custom-upsell-swatch" style="background-color: {{ bg_color }};" title="{{ value }}"></span>
+              {%- liquid
+                assign variant_for_value = card_product.variants | where: 'option1', value | first
+                if variant_for_value == blank
+                  assign variant_for_value = card_product.variants | where: 'option2', value | first
+                endif
+                if variant_for_value == blank
+                  assign variant_for_value = card_product.variants | where: 'option3', value | first
+                endif
+
+                assign sw_bg = ''
+                if value.swatch.image
+                  assign sw_img_url = value.swatch.image | image_url: width: 50
+                  assign sw_bg = 'url(' | append: sw_img_url | append: ')'
+                elsif value.swatch.color
+                  assign sw_bg = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+                else
+                  assign sw_bg = value | downcase | remove: ' '
+                endif
+              -%}
+              <span class="custom-upsell-swatch" 
+                    style="background: {{ sw_bg }}; background-size: cover; background-position: center;" 
+                    title="{{ value }}"
+                    data-variant-id="{{ variant_for_value.id }}"
+                    data-image-url="{{ variant_for_value.featured_media | image_url: width: 160 }}"
+                    data-price="{{ variant_for_value.price | money }}"
+                    data-available="{{ variant_for_value.available }}"
+                    onclick="updateUpsellVariant(this)"></span>
             {%- endfor -%}
           </div>
         {%- endif -%}
@@ -131,15 +181,77 @@
       
       <product-form>
         {%- form 'product', card_product, class: 'custom-upsell-form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-          <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" class="product-variant-id">
           
-          {%- if card_product.available -%}
-            <button type="submit" name="add" class="custom-upsell-btn">Add</button>
-          {%- else -%}
-            <button type="submit" class="custom-upsell-btn" disabled>Sold</button>
-          {%- endif -%}
+          <button type="submit" name="add" class="custom-upsell-btn" aria-live="polite"
+            {% if card_product.selected_or_first_available_variant.available == false %}
+              disabled
+            {% endif %}>
+            <span>
+              {%- if card_product.selected_or_first_available_variant.available -%}
+                Add
+              {%- else -%}
+                Sold
+              {%- endif -%}
+            </span>
+            <span class="sold-out-message hidden">
+              Sold
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
         {%- endform -%}
       </product-form>
     </div>
   </div>
+
+  <script>
+    if (typeof updateUpsellVariant !== 'function') {
+      function updateUpsellVariant(element) {
+        const card = element.closest('.custom-upsell-card');
+        if (!card) return;
+
+        const variantId = element.getAttribute('data-variant-id');
+        const imageUrl = element.getAttribute('data-image-url');
+        const price = element.getAttribute('data-price');
+        const available = element.getAttribute('data-available') === 'true';
+
+        // Update image
+        const imageEl = card.querySelector('.custom-upsell-image img');
+        if (imageEl && imageUrl && imageUrl !== '') {
+          imageEl.src = imageUrl;
+          imageEl.srcset = imageUrl;
+        }
+
+        // Update variant ID in form
+        const inputEl = card.querySelector('.product-variant-id');
+        if (inputEl && variantId) {
+          inputEl.value = variantId;
+        }
+
+        // Update price
+        const priceEl = card.querySelector('.custom-upsell-price');
+        if (priceEl && price) {
+          priceEl.innerHTML = price;
+        }
+
+        // Update button state
+        const btnEl = card.querySelector('.custom-upsell-btn');
+        if (btnEl) {
+          const spanEl = btnEl.querySelector('span:not(.sold-out-message)');
+          if (available) {
+            btnEl.removeAttribute('disabled');
+            if(spanEl) spanEl.textContent = 'Add';
+          } else {
+            btnEl.setAttribute('disabled', 'disabled');
+            if(spanEl) spanEl.textContent = 'Sold';
+          }
+        }
+
+        // Update active state visual
+        const swatches = card.querySelectorAll('.custom-upsell-swatch');
+        swatches.forEach(s => s.style.boxShadow = 'inset 0 0 0 2px #fff');
+        element.style.boxShadow = 'inset 0 0 0 2px #fff, 0 0 0 1px #000';
+      }
+    }
+  </script>
 {%- endif -%}
