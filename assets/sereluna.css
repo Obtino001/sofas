@@ -675,12 +675,14 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 }
 
 .custom-price-current {
-    color: var(---sl-brand-primary);
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
+font-family: DM Sans;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 22px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+color: #A40D0D;
 }
 
 .custom-price-compare {
