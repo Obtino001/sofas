@@ -1917,7 +1917,7 @@ a.product__text {
   margin-top: 4px;
 }
 
-/* Installment text styling */
+/* Installment text styling (legacy Shopify payment_terms) */
 .product__info-wrapper .installment {
   color: #888888;
   font-size: 13px;
@@ -1925,4 +1925,116 @@ a.product__text {
 .product__info-wrapper .installment strong {
   color: #121212;
   font-weight: 700;
+}
+
+/* ============================================
+   Title + Price Row (custom block)
+   ============================================ */
+.product__title-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 4px;
+}
+
+.product__title-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.product__price-column {
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Klarna-style installment pricing */
+.product__installments {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+.product__installments strong {
+  color: #121212;
+  font-weight: 700;
+}
+
+/* In Stock indicator with pulsing dot */
+.product__stock-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.product__stock-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--stock-color, #22c55e);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.product__stock-dot::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-color: var(--stock-color, #22c55e);
+  opacity: 0.3;
+  animation: stock-pulse 2s ease-in-out infinite;
+}
+
+@keyframes stock-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+.product__stock-label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Review row beneath title */
+.product__review-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.product__review-text {
+  font-size: 14px;
+  color: #555;
+}
+
+@media screen and (max-width: 749px) {
+  .product__title-price-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .product__price-column {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .product__price-column .price {
+    align-items: flex-start;
+  }
+
+  .product__price-column .price__container {
+    align-items: flex-start;
+  }
+
+  .product__installments {
+    text-align: left;
+  }
 }
