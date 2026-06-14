@@ -17,7 +17,39 @@
         "padding_bottom": 28
       }
     },
-        "trust_badges_4dfJAk": {
+    "custom_banner_A6F9q9": {
+      "type": "custom-banner",
+      "blocks": {
+        "heading_mNzMzM": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Us"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mNzMzM"
+      ],
+      "name": "Image Custom Banner",
+      "settings": {
+        "color_scheme": "",
+        "media_type": "image",
+        "overlay_opacity": 20,
+        "heading_size_desktop": 48,
+        "subheading_size_desktop": 16,
+        "content_width": 650,
+        "min_height_desktop": 600,
+        "adapt_height_desktop": false,
+        "heading_size_mobile": 36,
+        "min_height_mobile": 400,
+        "adapt_height_mobile": false,
+        "show_mobile_content_below": true,
+        "text_position_top": 50,
+        "text_position_left": 50,
+        "text_alignment": "left"
+      }
+    },
+    "trust_badges_4dfJAk": {
       "type": "trust-badges",
       "blocks": {
         "badge_NyeRjB": {
@@ -389,6 +421,7 @@
       ],
       "name": "Bento Categories",
       "settings": {
+        "color_scheme": "",
         "title": "Shop by <em>category</em>",
         "padding_top": 36,
         "padding_bottom": 36
@@ -975,7 +1008,8 @@
   },
   "order": [
     "main",
-        "trust_badges_4dfJAk",
+    "custom_banner_A6F9q9",
+    "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
     "testimonials_FqAwzT",
     "collections_tabs_G8NWUM",
