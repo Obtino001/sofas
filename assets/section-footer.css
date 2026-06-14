@@ -276,7 +276,9 @@
     gap: 4rem;
     padding-bottom: 3rem;
   }
-  
+  .footer-block__image-wrapper  img{
+    max-width: 190px;
+}
   .footer__blocks-wrapper {
     grid-template-columns: 1fr;
     gap: 4rem;
