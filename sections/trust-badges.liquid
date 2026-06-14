@@ -58,7 +58,11 @@
     color: rgb(var(--color-foreground));
     letter-spacing: 0.04rem;
   }
-
+  @media screen and (max-width: 750px) {
+    .trust-badge-item {
+    padding-inline: 15px;
+}
+  }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
