@@ -196,7 +196,6 @@ variant-selects {
 .woc-variant-img-input:checked + .woc-variant-img-label {
   border-color: rgb(var(--color-foreground));
   border-width: 2px;
-  padding: 3.5px;
 }
 
 .woc-variant-img-input:focus-visible + .woc-variant-img-label {
