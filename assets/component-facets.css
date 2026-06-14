@@ -1245,11 +1245,6 @@ input.mobile-facets__checkbox {
     width: 100%;
     justify-content: space-between;
   }
-
-  .facets-container-drawer .mobile-facets__wrapper {
-    margin-right: 2rem;
-  }
-
   .facets-container-drawer .product-count {
     margin: 0 0 0.5rem 3.5rem;
   }
