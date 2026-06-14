@@ -147,7 +147,7 @@
         {%- assign installment_price = product.selected_or_first_available_variant.price | divided_by: installment_count -%}
         {%- assign provider_name = block.settings.installment_provider | default: 'Klarna' -%}
         <div class="product__installments" id="Installments-{{ section.id }}">
-          <span>or {{ installment_count }} interest-free payments of {{ installment_price | money }} with <strong>{{ provider_name }}</strong>.</span>
+          <div>or {{ installment_count }} interest-free payments of {{ installment_price | money }} with <strong>{{ provider_name }}</strong>.</div>
         </div>
       {%- endif -%}
 
