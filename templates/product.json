@@ -236,14 +236,14 @@
       "name": "Scrolling Marquee",
       "settings": {
         "color_scheme": "scheme-9eccaaea-91d8-4fb0-98a6-fe95d8e5c0d6",
-        "speed": 20,
-        "pause_on_hover": false,
+        "speed": 60,
+        "pause_on_hover": true,
         "font_size": 14,
         "font_size_mobile": 12,
         "icon_size": 24,
         "item_spacing": 40,
-        "padding_top": 12,
-        "padding_bottom": 12
+        "padding_top": 18,
+        "padding_bottom": 18
       }
     },
     "related-products": {
