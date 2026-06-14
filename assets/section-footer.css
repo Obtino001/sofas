@@ -269,8 +269,7 @@
     padding: 0 15px;
 }
   .footer__features-wrapper {
-    padding: 0;
-    margin-bottom: 4rem;
+    padding-block: 4rem;
   }
 .footer__features-grid {
     overflow-x: auto;
