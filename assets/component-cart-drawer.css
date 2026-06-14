@@ -255,7 +255,6 @@ cart-drawer-items { padding: 0 24px; scrollbar-width: thin; }
 .trust-badge__title { font-size: 13px; font-weight: 700; color: #121212; }
 .trust-badge__desc { font-size: 10px; color: #2B2B2B666; line-height: 1.3; }
 .trust-badge__divider { width: 1px; height: 44px; background: #D5D5D5; flex-shrink: 0; }
-.drawer__footer { background-color: #E7DFC6; border-top: none; padding: 24px; box-shadow: 0 -4px 20px rgba(0,0,0,0.03); }
 .cart-drawer__footer-shipping { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
 .shipping-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .shipping-text { font-size: 13px; color: #121212; line-height: 1.4; }
