@@ -51,7 +51,7 @@
 }
 
 .kaching-bundles .kaching-bundles__bar-radio {
-    display: none !important;
+    display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -102,8 +102,8 @@
 }
 
 .cart-item .loading__spinner:not(.hidden)~* {
-    display: block !important;
-    visibility: visible !important;
+    display: block;
+    visibility: visible;
 }
 
 /* --------------------------------------------------------------------------
@@ -483,13 +483,13 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 
 @media screen and (max-width: 749px) {
     .template-slider-section .hide-on-mobile {
-        display: none !important;
+        display: none;
     }
 }
 
 @media screen and (min-width: 750px) {
     .template-slider-section .hide-on-desktop {
-        display: none !important;
+        display: none;
     }
 }
 
@@ -497,8 +497,8 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
    6. QUICK ADD MODAL — DRAWER STYLE
    -------------------------------------------------------------------------- */
 .quick-add-modal.quick-add-modal--drawer {
-    background: transparent !important;
-    display: flex !important;
+    background: transparent;
+    display: flex;
     visibility: hidden;
 }
 
@@ -525,43 +525,43 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 }
 
 .quick-add-modal--drawer .quick-add-modal__content {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    left: auto !important;
-    bottom: 0 !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    width: 100% !important;
-    max-width: 39rem !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    background-color: rgb(var(--color-background)) !important;
-    transform: translateX(100%) !important;
-    transition: transform var(--sl-transition-smooth) !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0;
+    border-radius: 0;
+    background-color: rgb(var(--color-background));
+    transform: translateX(100%);
+    transition: transform var(--sl-transition-smooth);
     display: flex;
     flex-direction: column;
     z-index: 2;
-    opacity: 1 !important;
+    opacity: 1;
 }
 
 .quick-add-modal--drawer[open]:not(.is-closing) .quick-add-modal__content {
-    transform: translateX(0) !important;
+    transform: translateX(0);
 }
 
 .quick-add-modal--drawer.is-closing .quick-add-modal__content {
-    transform: translateX(100%) !important;
+    transform: translateX(100%);
 }
 
 .quick-add-modal--drawer .quick-add-modal__content-info {
     padding-top: 2rem;
-    display: block !important;
+    display: block;
     /* Break flex context from quick-add.css */
-    height: auto !important;
+    height: auto;
     /* override base height:100% from quick-add.css */
-    flex: 1 1 0% !important;
-    min-height: 0 !important;
-    overflow-y: auto !important;
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
@@ -680,7 +680,7 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
     }
 
     .footer-block__details-content {
-        display: block !important;
+        display: block;
     }
 }
 
@@ -801,8 +801,8 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 
     .multi-icon-item img,
     .multi-icon-item svg {
-        width: var(--icon-size-m) !important;
-        height: var(--icon-size-m) !important;
+        width: var(--icon-size-m);
+        height: var(--icon-size-m);
     }
 }
 
@@ -837,9 +837,9 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 }
 
 .dp-payment-icon {
-    width: 24px !important;
-    max-width: none !important;
-    max-height: none !important;
+    width: 24px;
+    max-width: none;
+    max-height: none;
     object-fit: contain;
     background-color: #FFFFFF;
     border-radius: 4px;
@@ -1001,7 +1001,7 @@ li.footer-payment-payments_QCqHQe {
 .payment-icons {
     display: flex;
     gap: 5px;
-    margin: 0 !important;
+    margin: 0;
     justify-content: center;
     padding: 0;
 }
@@ -1094,7 +1094,7 @@ li.footer-payment-payments_QCqHQe {
 }
 
 .fs-hidden {
-    display: none !important;
+    display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1156,7 +1156,7 @@ li.footer-payment-payments_QCqHQe {
 }
 
 .drawer__upsell-container-mobile.upsell-pdp {
-    display: block !important;
+    display: block;
 }
 
 /* --------------------------------------------------------------------------
@@ -1184,13 +1184,13 @@ li.footer-payment-payments_QCqHQe {
 
 @media screen and (max-width: 749px) {
     .complementary-slider-section .hide-on-mobile {
-        display: none !important;
+        display: none;
     }
 }
 
 @media screen and (min-width: 750px) {
     .complementary-slider-section .hide-on-desktop {
-        display: none !important;
+        display: none;
     }
 }
 
@@ -1232,7 +1232,7 @@ li.footer-payment-payments_QCqHQe {
 }
 
 .complementary-slider-section .swiper-custom-pagination {
-    width: auto !important;
+    width: auto;
 }
 
 .complementary-slider-section .swiper-pagination-bullet {
