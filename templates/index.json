@@ -703,6 +703,7 @@
           "type": "category",
           "settings": {
             "title": "Sofa related questions",
+            "image": "shopify://shop_images/b4c43a950f02e72767019441a3ec6201811735a5.png",
             "icon": "check_mark"
           }
         },
@@ -710,6 +711,23 @@
           "type": "category",
           "settings": {
             "title": "Bed related questions",
+            "image": "shopify://shop_images/764b64359deacc6099f5642086815856812c64a3.png",
+            "icon": "check_mark"
+          }
+        },
+        "category_W9kenj": {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions",
+            "image": "shopify://shop_images/5a51bef4b1218d66927e9c1ff62880d06b4828d9.png",
+            "icon": "check_mark"
+          }
+        },
+        "category_XHbG8A": {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions",
+            "image": "shopify://shop_images/a4a1779b03ec0c98fd0fa5b6b8c6d4fba24e7183.png",
             "icon": "check_mark"
           }
         },
@@ -741,6 +759,8 @@
       "block_order": [
         "category_qpEmBY",
         "category_LmHxAQ",
+        "category_W9kenj",
+        "category_XHbG8A",
         "faq_YdrqCY",
         "faq_ac4RCN",
         "faq_NVJcEw"
