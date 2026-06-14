@@ -6,12 +6,20 @@
 
   .trust-badges-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem 1.5rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1.5rem;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0 1.5rem 1.5rem;
+    margin: 0 -1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .trust-badges-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .trust-badge-item {
@@ -19,7 +27,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: calc(50% - 0.75rem); /* 2 items per row on mobile */
+    width: 55%;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .trust-badge-icon {
@@ -56,15 +66,20 @@
     }
 
     .trust-badges-wrapper {
-      justify-content: space-between;
-      flex-wrap: nowrap;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 2rem;
+      overflow-x: visible;
+      padding: 0;
+      margin: 0;
     }
 
     .trust-badge-item {
       width: auto;
       flex: 1 1 0; /* Distributes space evenly on desktop */
       max-width: 25rem;
+      flex-shrink: 1;
+      scroll-snap-align: none;
     }
   }
 {%- endstyle -%}
