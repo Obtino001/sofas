@@ -23,7 +23,7 @@
             "installment_provider": "Klarna",
             "show_stock_indicator": true,
             "stock_label": "In Stock",
-            "stock_color": "#33A813"
+            "stock_color": "#33a813"
           }
         },
         "product_reviews_XX9YT4": {
@@ -66,16 +66,19 @@
           "type": "multi-icon",
           "settings": {
             "icon-1": "shopify://shop_images/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png",
-            "icon_size_1": 46,
+            "icon_size_1": 77,
             "icon_size_m_1": 30,
             "text-1": "One Year Warranty",
+            "desc-1": "Built to last with quality you can trust on",
             "icon-2": "shopify://shop_images/Group_1413372280.svg",
             "icon_size_2": 46,
             "icon_size_m_2": 30,
-            "text-2": "",
+            "text-2": "One Year Warranty",
+            "desc-2": "Built to last with quality you can trust on",
             "icon_size_3": 46,
             "icon_size_m_3": 30,
             "text-3": "",
+            "desc-3": "",
             "text-size": 14
           }
         },
