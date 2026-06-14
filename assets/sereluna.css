@@ -598,30 +598,7 @@ slider-container:hover .slider-template-controls--middle .slider-template-arrow.
 /* --------------------------------------------------------------------------
    10. FOOTER
    -------------------------------------------------------------------------- */
-.footer-block__heading {
-    font-family: var(--font-body-family);
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 125%;
-    letter-spacing: 1%;
-    text-align: start;
-}
-
 @media screen and (max-width: 749px) {
-    .card-overlay-droplet {
-        display: flex;
-        gap: 2px;
-        padding: 2px 4px;
-    }
-
-    .card-overlay-droplet svg {
-        width: 6px;
-    }
-
-    .card-overlay-badge {
-        padding: 5px 8px;
-        font-size: 10px;
-    }
 
     .footer-block {
         margin: 0;
