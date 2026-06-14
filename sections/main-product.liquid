@@ -189,8 +189,6 @@
                 {% render 'pills', block: block %}
               {% when 'faq-blocks' %}
                 {% render 'Faq-blocks', block: block %}
-              {% when 'size-chart' %}
-                {% render 'size-chart', block: block %}
               {%- when 'trust-card' -%}
                 {% render 'trust-card', block: block %}
               {%- when 'upsell_product' -%}
@@ -1112,7 +1110,6 @@
           "type": "color",
           "id": "text_color",
           "label": "Text Color",
-          "default": "#333333"
         },
         {
           "type": "range",
@@ -1363,83 +1360,6 @@
           "label": "Heading",
           "default": "You might also like"
         },
-        {
-          "type": "header",
-          "content": "Slider Configuration"
-        },
-        {
-          "type": "checkbox",
-          "id": "drawer_mobile_arrows",
-          "label": "Show Arrows",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "drawer_enable_autoplay",
-          "label": "Enable Autoplay",
-          "default": false
-        },
-        {
-          "type": "range",
-          "id": "drawer_autoplay_interval",
-          "min": 1,
-          "max": 10,
-          "step": 1,
-          "unit": "s",
-          "label": "Autoplay Interval",
-          "default": 3
-        },
-        {
-          "type": "header",
-          "content": "Layout"
-        },
-        {
-          "type": "range",
-          "id": "drawer_mobile_slides",
-          "min": 1,
-          "max": 4,
-          "step": 0.1,
-          "label": "Slides per view (Mobile)",
-          "default": 2.2
-        },
-        {
-          "type": "range",
-          "id": "drawer_tablet_slides",
-          "min": 1,
-          "max": 5,
-          "step": 0.1,
-          "label": "Slides per view (Tablet)",
-          "default": 3
-        },
-        {
-          "type": "range",
-          "id": "drawer_desktop_slides",
-          "min": 1,
-          "max": 6,
-          "step": 0.1,
-          "label": "Slides per view (Desktop)",
-          "default": 4
-        },
-        {
-          "type": "range",
-          "id": "drawer_mobile_spacing",
-          "min": 0,
-          "max": 50,
-          "step": 1,
-          "unit": "px",
-          "label": "Spacing (Mobile)",
-          "default": 16
-        },
-        {
-          "type": "range",
-          "id": "drawer_desktop_spacing",
-          "min": 0,
-          "max": 100,
-          "step": 2,
-          "unit": "px",
-          "label": "Spacing (Desktop)",
-          "default": 24
-        }
       ]
     },
     {
@@ -1457,7 +1377,6 @@
       "type": "color",
       "id": "text_color",
       "label": "Text Color",
-      "default": "#333333"
     },
     {
       "type": "color",

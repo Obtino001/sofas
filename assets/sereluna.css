@@ -1258,16 +1258,3 @@ li.footer-payment-payments_QCqHQe {
     cursor: pointer;
 }
 
-
-  .cn-input {
-    flex: 1;
-    height: 50px;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 25px;
-    padding: 0 20px;
-    font-size: 14px;
-    color: #333;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }

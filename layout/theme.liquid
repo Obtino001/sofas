@@ -74,7 +74,9 @@
         font-style: normal;
         font-display: swap;
       }
-
+      span{
+            font-family: 'DM Sans Custom';
+      }
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}

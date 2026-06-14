@@ -131,6 +131,7 @@
   line-height: 1.6;
   color: rgba(var(--color-foreground), 0.7);
   margin-bottom: 2.5rem;
+  max-width: 400px;
 }
 
 /* Social Icons */
@@ -229,7 +230,6 @@
 }
 .footer__payment .list-payment {
   display: flex;
-  gap: 0.8rem;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -263,15 +263,22 @@
 
 @media screen and (max-width: 749px) {
   .footer { padding: 3rem 2rem 0px 2rem; }
-  
+  .footer-feature-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
   .footer__features-wrapper {
-    padding: 0;
-    margin-bottom: 4rem;
+    padding-block: 4rem;
   }
-  .footer__features-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.footer__features-grid {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px;
+    display: flex;
+}
   
   .footer__content-top {
     flex-direction: column;
