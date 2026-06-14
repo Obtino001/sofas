@@ -95,9 +95,9 @@
         "image_i7eCFh": {
           "type": "image",
           "settings": {
-            "desktop_col_span": 2,
+            "desktop_col_span": 1,
             "desktop_row_span": 2,
-            "mobile_col_span": "2",
+            "mobile_col_span": "1",
             "mobile_row_span": 2
           }
         },
@@ -114,15 +114,15 @@
           "type": "image",
           "settings": {
             "desktop_col_span": 1,
-            "desktop_row_span": 2,
+            "desktop_row_span": 1,
             "mobile_col_span": "1",
-            "mobile_row_span": 1
+            "mobile_row_span": 2
           }
         },
         "image_wzfjki": {
           "type": "image",
           "settings": {
-            "desktop_col_span": 2,
+            "desktop_col_span": 1,
             "desktop_row_span": 1,
             "mobile_col_span": "2",
             "mobile_row_span": 1
