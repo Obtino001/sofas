@@ -276,6 +276,9 @@
     gap: 4rem;
     padding-bottom: 3rem;
   }
+  .footer-block__heading{
+    text-align: center;
+  }
   .footer-block__image-wrapper  img{
     max-width: 190px;
 }
