@@ -153,7 +153,7 @@ variant-selects {
 
 /* ============================================
    WOC — Variant Image Thumbnails
-   79x50px rounded rectangles matching Figma reference
+   79x50px rounded rectangles with consistent padding
    ============================================ */
 .woc-variant-img-input {
   clip: rect(0, 0, 0, 0);
@@ -164,18 +164,21 @@ variant-selects {
 }
 
 .woc-variant-img-label {
-  display: inline-block;
-  width: 79px;
-  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 56px;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid rgba(var(--color-foreground), 0.12);
+  border: 1.5px solid rgba(var(--color-foreground), 0.15);
   margin: 0.7rem 0.8rem 0.2rem 0;
-  padding: 0;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  padding: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   flex-shrink: 0;
+  background: #fff;
 }
 
 .woc-variant-img-label img {
@@ -184,16 +187,17 @@ variant-selects {
   object-fit: cover;
   display: block;
   pointer-events: none;
+  border-radius: 8px;
 }
 
 .woc-variant-img-label:hover {
-  border-color: rgba(var(--color-foreground), 0.5);
-  transform: scale(1.03);
+  border-color: rgba(var(--color-foreground), 0.4);
 }
 
 .woc-variant-img-input:checked + .woc-variant-img-label {
   border-color: rgb(var(--color-foreground));
   border-width: 2px;
+  padding: 3.5px;
 }
 
 .woc-variant-img-input:focus-visible + .woc-variant-img-label {
