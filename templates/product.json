@@ -282,6 +282,7 @@
         "feature_pPYeUC": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/Vector_33.svg",
             "title": "UK Manufactured",
             "text": "Every sofa is crafted right here in the UK, ensuring consistent quality and supporting local craftsmanship."
           }
@@ -289,6 +290,7 @@
         "feature_dq4reR": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/Group_16_2.svg",
             "title": "Flexible Financing",
             "text": "Spread the cost with interest-free payment options, making it easier to bring home the sofa you love."
           }
@@ -296,6 +298,7 @@
         "feature_3xFXLn": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/Vector_34.svg",
             "title": "Handcrafted Quality",
             "text": "Carefully made by skilled artisans using durable materials designed for everyday comfort and long-term use."
           }
@@ -303,6 +306,7 @@
         "feature_fJMD3h": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/Group_35.svg",
             "title": "Risk-Free Guarantee",
             "text": "14-day returns with no hassle, so you can shop knowing you're fully covered."
           }
