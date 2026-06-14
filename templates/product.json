@@ -492,7 +492,7 @@
       ],
       "settings": {
         "title": "You may also <em>like</em>",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
         "description_style": "body",
