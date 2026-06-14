@@ -51,7 +51,7 @@
         "content_width": 950,
         "min_height_desktop": 700,
         "adapt_height_desktop": true,
-        "heading_size_mobile": 28,
+        "heading_size_mobile": 36,
         "min_height_mobile": 600,
         "adapt_height_mobile": false,
         "show_mobile_content_below": false,
