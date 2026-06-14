@@ -612,9 +612,9 @@
                                 <a href="{{ col.url }}" class="woc-drawer-grid-item">
                                   <div class="woc-drawer-grid-item__img">
                                     {% if img != blank %}
-                                      <img src="{{ img | image_url: width: 400 }}" alt="{{ custom_title | default: col.title }}" loading="lazy">
+                                      <img src="{{ img | image_url: width: 1400 }}" alt="{{ custom_title | default: col.title }}" loading="lazy">
                                     {% elsif col.image != blank %}
-                                      <img src="{{ col.image | image_url: width: 400 }}" alt="{{ custom_title | default: col.title }}" loading="lazy">
+                                      <img src="{{ col.image | image_url: width: 1400 }}" alt="{{ custom_title | default: col.title }}" loading="lazy">
                                     {% endif %}
                                   </div>
                                   <span class="woc-drawer-grid-item__title">
