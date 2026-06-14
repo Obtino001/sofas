@@ -6,11 +6,20 @@
 
   .faq-tabs__header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   .faq-tabs__title {
     margin: 0 0 1rem 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  /* Elegant serif styling for italicized words */
+  .faq-tabs__title em, 
+  .faq-tabs__title i {
+    font-family: "Georgia", "Times New Roman", serif; 
+    font-style: italic;
+    font-weight: 600;
   }
 
   .faq-tabs__description {
@@ -25,7 +34,7 @@
     gap: 1.5rem;
     overflow-x: auto;
     padding-bottom: 1.5rem; /* Space for scrollbar on mobile */
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Hide standard scrollbar */
   }
@@ -39,21 +48,18 @@
     scroll-snap-align: start;
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-    padding: 1rem 2rem 1rem 1rem;
-    background: transparent;
+    gap: 1.5rem;
+    padding: 1.2rem 2.5rem 1.2rem 1.2rem;
     border: 1px solid rgba(var(--color-foreground), 0.15);
     border-radius: 0.8rem;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: left;
-    color: rgb(var(--color-foreground));
     min-width: 24rem;
   }
 
   .faq-tabs__tab[aria-selected="true"] {
-    background: transparent;
-    border-color: rgba(var(--color-foreground), 0.3);
+    border-color: rgba(var(--color-foreground), 0.4);
   }
   
   .faq-tabs__tab[aria-selected="true"] .faq-tabs__tab-icon {
@@ -64,24 +70,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4.8rem;
-    height: 4.8rem;
+    width: 5rem;
+    height: 5rem;
     background: rgba(var(--color-foreground), 0.06);
     border-radius: 0.6rem;
+    transition: background 0.2s ease;
   }
 
   .faq-tabs__tab-icon img,
   .faq-tabs__tab-icon svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.8rem;
+    height: 2.8rem;
     object-fit: contain;
     fill: currentColor;
+    color: rgb(var(--color-foreground));
   }
 
   .faq-tabs__tab-text-wrap {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.3rem;
   }
 
   .faq-tabs__tab-title {
@@ -89,6 +97,7 @@
     font-weight: 600;
     margin: 0;
     line-height: 1.2;
+    color: rgb(var(--color-foreground));
   }
 
   .faq-tabs__tab-count {
@@ -103,11 +112,10 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
   .faq-accordion {
-    background: rgb(var(--color-background));
     border: 1px solid rgba(var(--color-foreground), 0.15);
     border-radius: 0.8rem;
     overflow: hidden;
@@ -139,16 +147,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.8rem;
+    height: 2.8rem;
     background: rgba(var(--color-foreground), 0.08);
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
 
   .faq-accordion__icon svg {
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    color: rgb(var(--color-foreground));
   }
 
   details[open] .faq-accordion__icon {
@@ -219,7 +228,7 @@
             {%- endif -%}
           {%- endfor -%}
 
-          <button class="faq-tabs__tab" 
+          <button class="faq-tabs__tab color-{{ block.settings.color_scheme }} gradient" 
                   role="tab" 
                   aria-selected="{% if first_tab %}true{% else %}false{% endif %}" 
                   aria-controls="panel-{{ category_handle }}" 
@@ -246,12 +255,12 @@
       {%- endfor -%}
     </div>
 
-    <div class="faq-tabs__content color-{{ section.settings.accordion_color_scheme }}">
+    <div class="faq-tabs__content">
       {%- for block in section.blocks -%}
         {%- if block.type == 'faq' -%}
           {%- assign target_handle = block.settings.category_match | handleize -%}
           
-          <details class="faq-accordion" data-category="{{ target_handle }}" {{ block.shopify_attributes }}>
+          <details class="faq-accordion color-{{ block.settings.color_scheme }} gradient" data-category="{{ target_handle }}" {{ block.shopify_attributes }}>
             <summary class="faq-accordion__summary">
               {{ block.settings.question | escape }}
               <span class="faq-accordion__icon">
@@ -303,7 +312,6 @@
             accordion.classList.add('is-active');
           } else {
             accordion.classList.remove('is-active');
-            // Optional: close accordion when hidden
             accordion.removeAttribute('open'); 
           }
         });
@@ -352,15 +360,8 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Section Color Scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "color_scheme",
-      "id": "accordion_color_scheme",
-      "label": "Accordion Color Scheme",
-      "default": "scheme-2",
-      "info": "Useful if you want the accordions to have a slightly off-white/beige background against a white section."
+      "label": "Overall Section Color Scheme",
+      "default": "background-1"
     },
     {
       "type": "header",
@@ -374,7 +375,7 @@
       "step": 4,
       "unit": "px",
       "label": "Top padding",
-      "default": 40
+      "default": 60
     },
     {
       "type": "range",
@@ -384,7 +385,7 @@
       "step": 4,
       "unit": "px",
       "label": "Bottom padding",
-      "default": 52
+      "default": 60
     }
   ],
   "blocks": [
@@ -402,191 +403,25 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image (Overrides Icon)"
+          "label": "Image (Upload SVG/PNG)"
         },
         {
           "type": "select",
           "id": "icon",
           "options": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "apple",
-              "label": "Apple"
-            },
-            {
-              "value": "banana",
-              "label": "Banana"
-            },
-            {
-              "value": "bottle",
-              "label": "Bottle"
-            },
-            {
-              "value": "box",
-              "label": "Box"
-            },
-            {
-              "value": "carrot",
-              "label": "Carrot"
-            },
-            {
-              "value": "chat_bubble",
-              "label": "Chat bubble"
-            },
-            {
-              "value": "check_mark",
-              "label": "Check mark"
-            },
-            {
-              "value": "clipboard",
-              "label": "Clipboard"
-            },
-            {
-              "value": "dairy",
-              "label": "Dairy"
-            },
-            {
-              "value": "dairy_free",
-              "label": "Dairy free"
-            },
-            {
-              "value": "dryer",
-              "label": "Dryer"
-            },
-            {
-              "value": "eye",
-              "label": "Eye"
-            },
-            {
-              "value": "fire",
-              "label": "Fire"
-            },
-            {
-              "value": "gluten_free",
-              "label": "Gluten free"
-            },
-            {
-              "value": "heart",
-              "label": "Heart"
-            },
-            {
-              "value": "iron",
-              "label": "Iron"
-            },
-            {
-              "value": "leaf",
-              "label": "Leaf"
-            },
-            {
-              "value": "leather",
-              "label": "Leather"
-            },
-            {
-              "value": "lightning_bolt",
-              "label": "Lightning bolt"
-            },
-            {
-              "value": "lipstick",
-              "label": "Lipstick"
-            },
-            {
-              "value": "lock",
-              "label": "Lock"
-            },
-            {
-              "value": "map_pin",
-              "label": "Map pin"
-            },
-            {
-              "value": "nut_free",
-              "label": "Nut free"
-            },
-            {
-              "value": "pants",
-              "label": "Pants"
-            },
-            {
-              "value": "paw_print",
-              "label": "Paw print"
-            },
-            {
-              "value": "pepper",
-              "label": "Pepper"
-            },
-            {
-              "value": "perfume",
-              "label": "Perfume"
-            },
-            {
-              "value": "plane",
-              "label": "Plane"
-            },
-            {
-              "value": "plant",
-              "label": "Plant"
-            },
-            {
-              "value": "price_tag",
-              "label": "Price tag"
-            },
-            {
-              "value": "question_mark",
-              "label": "Question mark"
-            },
-            {
-              "value": "recycle",
-              "label": "Recycle"
-            },
-            {
-              "value": "return",
-              "label": "Return"
-            },
-            {
-              "value": "ruler",
-              "label": "Ruler"
-            },
-            {
-              "value": "serving_dish",
-              "label": "Serving dish"
-            },
-            {
-              "value": "shirt",
-              "label": "Shirt"
-            },
-            {
-              "value": "shoe",
-              "label": "Shoe"
-            },
-            {
-              "value": "silhouette",
-              "label": "Silhouette"
-            },
-            {
-              "value": "snowflake",
-              "label": "Snowflake"
-            },
-            {
-              "value": "star",
-              "label": "Star"
-            },
-            {
-              "value": "stopwatch",
-              "label": "Stopwatch"
-            },
-            {
-              "value": "truck",
-              "label": "Truck"
-            },
-            {
-              "value": "washing",
-              "label": "Washing"
-            }
+            { "value": "none", "label": "None" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "question_mark", "label": "Question mark" }
           ],
           "default": "check_mark",
-          "label": "Icon"
+          "label": "Fallback Icon"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Tab Color Scheme",
+          "default": "background-2"
         }
       ]
     },
@@ -612,6 +447,12 @@
           "id": "answer",
           "default": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
           "label": "Answer"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Accordion Color Scheme",
+          "default": "background-2"
         }
       ]
     }
