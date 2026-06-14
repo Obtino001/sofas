@@ -62,6 +62,23 @@
             "show_variant_images_in_swatches": true
           }
         },
+        "multi_icon_3wWFJf": {
+          "type": "multi-icon",
+          "settings": {
+            "icon-1": "shopify://shop_images/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png",
+            "icon_size_1": 46,
+            "icon_size_m_1": 30,
+            "text-1": "One Year Warranty",
+            "icon-2": "shopify://shop_images/Group_1413372280.svg",
+            "icon_size_2": 46,
+            "icon_size_m_2": 30,
+            "text-2": "",
+            "icon_size_3": 46,
+            "icon_size_m_3": 30,
+            "text-3": "",
+            "text-size": 14
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -174,6 +191,7 @@
         "product_reviews_XX9YT4",
         "pills_xFGRwJ",
         "variant_picker",
+        "multi_icon_3wWFJf",
         "buy_buttons",
         "payments_fYcAA7",
         "delivery_payment_mB6BTN",
