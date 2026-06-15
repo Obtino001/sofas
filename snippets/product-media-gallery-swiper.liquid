@@ -2,7 +2,6 @@
   swiper-gallery { 
     display: block; 
     width: 100%; 
-    opacity: 0; 
     transition: opacity 0.2s ease-in; 
     --border-radius: {{ section.settings.border_radius | default: 12 }}px;
     --thumb-gap: {{ section.settings.thumb_gap | default: 10 }}px;
@@ -31,7 +30,6 @@
   
   .swiper-gallery-thumbs { 
     margin-top: var(--thumb-gap); 
-    opacity: 0; 
     transition: opacity 0.3s; 
     box-sizing: border-box; 
   }
