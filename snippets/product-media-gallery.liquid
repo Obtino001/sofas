@@ -16,9 +16,16 @@
     position: relative; 
     overflow: hidden; 
     border-radius: var(--border-radius);
+    aspect-ratio: 1 / 1;
   }
-  .swiper-gallery-main .swiper-slide { display: flex; align-items: center; justify-content: center; height: 100%; }
-  .swiper-gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .swiper-gallery-main .swiper-slide { display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; }
+  .swiper-gallery-main .product-media-container,
+  .swiper-gallery-main .product__modal-opener,
+  .swiper-gallery-main .product__media {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-gallery-main img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
   
   .swiper-gallery-thumbs { 
     margin-top: var(--thumb-gap); 
@@ -37,6 +44,7 @@
     justify-content: center;      
     border-radius: var(--border-radius);
     box-sizing: border-box;
+    aspect-ratio: 1 / 1;
   }
   .swiper-gallery-thumbs .swiper-slide img { 
     width: 100%; 
