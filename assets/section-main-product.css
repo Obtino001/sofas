@@ -2017,7 +2017,6 @@ a.product__text {
 
 @media screen and (max-width: 749px) {
   .product__title-price-container {
-    flex-direction: column;
     gap: 12px;
   }
 
