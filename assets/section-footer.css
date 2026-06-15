@@ -313,6 +313,7 @@
   }
   .footer-block__heading{
     text-align: center;
+    margin-top: 3rem;
   }
   .footer-block__image-wrapper  img{
     max-width: 190px;
