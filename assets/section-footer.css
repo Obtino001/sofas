@@ -19,6 +19,10 @@
   background-color: transparent; /* Rely on section color scheme */
 }
 
+.footer-pagination {
+  display: none;
+}
+
 .footer__features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -278,6 +282,30 @@
     gap: 10px;
     display: flex;
 }
+  
+  .footer-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  .footer-dot {
+    width: 35px;
+    height: 3px;
+    background-color: rgb(var(--color-foreground));
+    opacity: 0.15;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .footer-dot.is-active {
+    opacity: 0.85;
+  }
   
   .footer__content-top {
     flex-direction: column;
