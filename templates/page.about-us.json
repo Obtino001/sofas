@@ -92,10 +92,10 @@
         "padding_bottom": 60
       }
     },
-    "custom_collage_BkYQPp": {
+"custom_collage_BkYQPp": {
       "type": "custom-collage",
       "blocks": {
-        "image_i7eCFh": {
+        "image_1_dark_grey_sofa": {
           "type": "image",
           "settings": {
             "desktop_col_span": 1,
@@ -104,59 +104,59 @@
             "mobile_row_span": 2
           }
         },
-        "image_UjzRKz": {
-          "type": "image",
-          "settings": {
-            "desktop_col_span": 1,
-            "desktop_row_span": 2,
-            "mobile_col_span": "1",
-            "mobile_row_span": 1
-          }
-        },
-        "image_HG36QB": {
+        "image_2_grey_bed": {
           "type": "image",
           "settings": {
             "desktop_col_span": 1,
             "desktop_row_span": 1,
             "mobile_col_span": "1",
-            "mobile_row_span": 2
+            "mobile_row_span": 1
           }
         },
-        "image_wzfjki": {
+        "image_3_white_corner_sofa": {
           "type": "image",
           "settings": {
             "desktop_col_span": 1,
+            "desktop_row_span": 2,
+            "mobile_col_span": "2",
+            "mobile_row_span": 2
+          }
+        },
+        "image_4_white_bed": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 1,
+            "mobile_col_span": "1",
+            "mobile_row_span": 1
+          }
+        },
+        "image_5_black_leather_sofa": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 2,
+            "mobile_col_span": "1",
+            "mobile_row_span": 2
+          }
+        },
+        "image_6_brown_l_sofa": {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 2,
             "desktop_row_span": 1,
             "mobile_col_span": "2",
-            "mobile_row_span": 1
-          }
-        },
-        "image_QL3gdx": {
-          "type": "image",
-          "settings": {
-            "desktop_col_span": 1,
-            "desktop_row_span": 1,
-            "mobile_col_span": "1",
-            "mobile_row_span": 1
-          }
-        },
-        "image_e4Wcji": {
-          "type": "image",
-          "settings": {
-            "desktop_col_span": 1,
-            "desktop_row_span": 1,
-            "mobile_col_span": "1",
             "mobile_row_span": 1
           }
         }
       },
       "block_order": [
-        "image_i7eCFh",
-        "image_UjzRKz",
-        "image_HG36QB",
-        "image_wzfjki",
-        "image_QL3gdx",
-        "image_e4Wcji"
+        "image_1_dark_grey_sofa",
+        "image_2_grey_bed",
+        "image_3_white_corner_sofa",
+        "image_4_white_bed",
+        "image_5_black_leather_sofa",
+        "image_6_brown_l_sofa"
       ],
       "name": "Custom Image Grid",
       "settings": {
