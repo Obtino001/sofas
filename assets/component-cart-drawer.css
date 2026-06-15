@@ -45,7 +45,7 @@ cart-drawer-items { overflow: auto; flex: 1; }
 .cart-drawer .cart-items th { border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08); }
 .cart-drawer .cart-item:last-child { margin-bottom: 1.5rem; }
 .cart-drawer .cart-item .loading__spinner { right: 5px; padding-top: 2.5rem; inset: 0; position: relative; padding: 0px; }
-.cart-drawer .cart-items td { padding-top: 1.7rem; }
+.cart-drawer .cart-items td { padding-top: 0.7rem; }
 .cart-drawer .cart-items .cart-item__nested-line td:not(.cart-item__quantity) { padding-top: 1rem; }
 .cart-drawer .cart-item > td + td { padding-left: 1rem; }
 .cart-drawer .cart-item__details { width: auto; grid-column: 2 / 5; }
