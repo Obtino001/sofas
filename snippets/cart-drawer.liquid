@@ -325,7 +325,7 @@
 
           {%- if cart != empty -%}
             {% comment %} Inline complete your set upsells {% endcomment %}
-            {%- assign upsell_products = cart.items.first.product.metafields.intent.complementary_products.value -%}
+            {%- assign upsell_products = cart.items.first.product.metafields.complementary_products.value -%}
             {%- if upsell_products == blank -%}
               {%- assign upsell_products = settings.upsell__products -%}
             {%- endif -%}
