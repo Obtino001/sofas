@@ -5,7 +5,7 @@
 
 :root {
   --exr-drawer-width: 520px;
-  --exr-bg: rgb(var(--color-background));
+  --exr-bg: #E7E1D8;
   --exr-text: rgb(var(--color-foreground));
   --exr-text-light: rgba(var(--color-foreground), 0.6);
   --exr-border: rgba(var(--color-foreground), 0.1);
