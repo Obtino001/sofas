@@ -22,10 +22,12 @@
   .swiper-gallery-main .product-media-container,
   .swiper-gallery-main .product__modal-opener,
   .swiper-gallery-main .product__media {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    aspect-ratio: 1 / 1 !important;
   }
-  .swiper-gallery-main img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+  .swiper-gallery-main img { width: 100% !important; height: 100% !important; object-fit: cover !important; position: absolute !important; top: 0 !important; left: 0 !important; }
   
   .swiper-gallery-thumbs { 
     margin-top: var(--thumb-gap); 
@@ -305,7 +307,12 @@
         this.mainSwiper = new Swiper(this.querySelector('.swiper-gallery-main'), {
           spaceBetween: 10,
           navigation: { nextEl: this.querySelector('.main-next'), prevEl: this.querySelector('.main-prev') },
-          pagination: { el: this.querySelector('.swiper-pagination'), clickable: true },
+          pagination: { 
+            el: this.querySelector('.swiper-pagination'), 
+            clickable: true, 
+            dynamicBullets: true, 
+            dynamicMainBullets: 5 
+          },
           thumbs: { swiper: this.thumbsSwiper }
         });
       }
