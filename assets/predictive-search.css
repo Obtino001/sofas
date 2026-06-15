@@ -339,14 +339,16 @@ body.open-cc .click-capture .side-panel.active {
 }
 
 .thb-predictive-search--popular div a {
-  display: inline-flex;
-  flex-wrap: wrap;
-  font-size: 14px;
-  height: 31px;
-  align-items: center;
-  font-weight: 500;
-  color: #2B2B2B;
-  text-decoration: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    height: 31px;
+    align-items: center;
+    font-weight: 500;
+    color: #2b2b2b;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .thb-predictive-search--popular div a:first-child {
