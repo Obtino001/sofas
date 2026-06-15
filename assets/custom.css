@@ -1,6 +1,10 @@
 html, body {
   overflow-x: hidden !important;
 }
+
+p {
+    margin: 0;
+}
 .product__title-price-container {
     display: flex;
     gap: 30px;
