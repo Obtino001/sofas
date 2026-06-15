@@ -93,7 +93,13 @@ quantity-input.cart-quantity { border-radius: 15px; }
 quantity-input.cart-quantity button.quantity__button span { width: 13px; height: 13px; }
 .upsell_col { width: 80%; display: flex; }
 product-card.lx_productCard_main { width: 100%; display: flex; }
-.recommendation-item_image img { height: 100%; border-radius: 15px; max-width: 80px; }
+.recommendation-item_image img {
+    height: 100%;
+    border-radius: 10px;
+    max-width: 95px;
+    height: 90px;
+    object-fit: cover;
+}
 custom-slider .slider { position: relative; display: flex; flex-wrap: inherit; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; margin-bottom: 1rem; scroll-padding-left: 0; cursor: grab; scrollbar-width: none; }
 .recommendation-item { position: relative; display: flex; align-items: center; width: 100%; gap: 14px; margin-bottom: 15px; }
 .upsell_col .product-form__submit { font-size: 12px; }
