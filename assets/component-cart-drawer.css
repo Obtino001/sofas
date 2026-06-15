@@ -255,7 +255,16 @@ cart-drawer-items { padding: 0 24px; scrollbar-width: thin; }
 .complete-set__item-price { font-size: 13px; font-weight: 700; color: #121212; }
 .ma_Add_atc { background-color: #BA9B6E; color: #FFFFFF; border: none; border-radius: 20px; padding: 6px 18px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: background-color 0.15s ease; display: inline-flex; align-items: center; justify-content: center; min-width: 64px; height: 28px; }
 .ma_Add_atc:hover { background-color: #A2845B; }
-.cart-drawer__trust-badges { display: flex; align-items: center; background: #F4F4F4; border-radius: 16px; padding: 16px 20px; margin: 24px 0; gap: 15px; }
+.cart-drawer__trust-badges {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 20px;
+    gap: 15px;
+    /* width: 100%; */
+}
 .trust-badge__item { flex: 1; display: flex; align-items: flex-start; gap: 12px; }
 .trust-badge__icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #121212; }
 .trust-badge__content { display: flex; flex-direction: column; gap: 2px; }
