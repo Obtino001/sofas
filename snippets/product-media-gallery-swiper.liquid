@@ -318,7 +318,12 @@
         this.mainSwiper = new Swiper(this.querySelector('.swiper-gallery-main'), {
           spaceBetween: 10,
           navigation: { nextEl: this.querySelector('.main-next'), prevEl: this.querySelector('.main-prev') },
-          pagination: { el: this.querySelector('.swiper-pagination'), clickable: true },
+          pagination: { 
+            el: this.querySelector('.swiper-pagination'), 
+            clickable: true, 
+            dynamicBullets: true, 
+            dynamicMainBullets: 5 
+          },
           thumbs: { swiper: this.thumbsSwiper }
         });
       }
