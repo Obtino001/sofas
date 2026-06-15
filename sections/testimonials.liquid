@@ -27,13 +27,6 @@
     font-family: var(--font-heading-family);
   }
 
-  /* Target the em tag to match the specific italicized/serif 'customers' text */
-  .ts-main-heading em {
-    font-style: italic;
-    font-family: var(--font-heading-family); 
-    font-weight: 500;
-  }
-
   .ts-nav-wrapper {
     display: flex;
     align-items: center;
@@ -189,10 +182,7 @@
     
     <slider-container class="template-slider-section" data-block-id="{{ section.id }}">
       <div class="ts-header-flex">
-        <!-- Use replace to inject the <em> tag around 'customers' -->
-        <h2 class="ts-main-heading h1">
-          {{ section.settings.heading | replace: 'customers', '<em>customers</em>' }}
-        </h2>
+        <h2 class="ts-main-heading h1"> {{ section.settings.heading  }} </h2>
         
         <div class="ts-nav-wrapper">
           {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
@@ -284,10 +274,10 @@
       "content": "Header Area"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "heading",
       "label": "Main Heading",
-      "default": "What our customers say",
+      "default": "<p>What our customers say</p>",
       "info": "The word 'customers' will automatically be italicized based on the code."
     },
     {
