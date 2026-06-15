@@ -255,7 +255,7 @@
                               {{- item.product.title | escape -}}
                             </a>
 
-                            {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+        
             {%- liquid
               assign rating_value = card_product.metafields.reviews.rating.value.rating | default: card_product.metafields.reviews.rating.value
               assign rating_max = card_product.metafields.reviews.rating.value.scale_max | default: 5
@@ -267,7 +267,7 @@
                 <span class="card-product-tabs__rating-count">({{ rating_count }})</span>
               {%- endif -%}
             </div>
-          {%- endif -%}
+    
 
                             <div class="cart-item__price-row">
                               {%- if item.variant.compare_at_price > item.variant.price -%}
