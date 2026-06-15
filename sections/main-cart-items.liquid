@@ -110,26 +110,22 @@
 
                       <a href="{{ item.url }}" class="cart-item__name  break">{{ item.product.title | escape }}</a>
 
-                      {%- if item.original_price != item.final_price -%}
-                        <div class="cart-item__discounted-prices">
-                          <span class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                          </span>
-                          <s class="cart-item__old-price product-option">
-                            {{- item.original_price | money -}}
-                          </s>
-                          <span class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                          </span>
-                          <strong class="cart-item__final-price product-option">
-                            {{ item.final_price | money }}
-                          </strong>
-                        </div>
-                      {%- else -%}
-                        <div class="product-option">
-                          {{ item.original_price | money }}
-                        </div>
-                      {%- endif -%}
+                      <div class="cart-item__rating-stars" style="margin-bottom: 8px;">
+                        <span class="star-rating" style="color: #FFB800;">★★★★★</span>
+                        <span class="star-count" style="color: #888888; font-size: 13px;">(18)</span>
+                      </div>
+
+                      <div class="cart-item__price-row" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        {%- if item.variant.compare_at_price > item.variant.price -%}
+                          {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
+                          <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
+                          <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
+                          {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
+                          <span class="price-discount-badge" style="background: #FFEBEB; color: #D80000; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600;">{{ savings }}% OFF</span>
+                        {%- else -%}
+                          <span class="price price--normal" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
+                        {%- endif -%}
+                      </div>
 
                       {%- if item.product.has_only_default_variant == false
                         or item.properties.size != 0
@@ -179,28 +175,15 @@
 
                     <td class="cart-item__totals right medium-hide large-up-hide">
                       {%- render 'loading-spinner' -%}
-                      <div class="cart-item__price-wrapper">
-                        {%- if item.original_line_price != item.final_line_price -%}
-                          <dl class="cart-item__discounted-prices">
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.regular_price' | t }}
-                            </dt>
-                            <dd>
-                              <s class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
-                              </s>
-                            </dd>
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.sale_price' | t }}
-                            </dt>
-                            <dd class="price price--end">
-                              {{ item.final_line_price | money }}
-                            </dd>
-                          </dl>
+                      <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
+                        {%- if item.variant.compare_at_price > item.variant.price -%}
+                          {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
+                          <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
+                          <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
+                          {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
+                          <span class="price-discount-badge" style="background: #FFEBEB; color: #D80000; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600;">{{ savings }}% OFF</span>
                         {%- else -%}
-                          <span class="price price--end">
-                            {{ item.original_line_price | money }}
-                          </span>
+                          <span class="price price--end" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
                         {%- endif -%}
 
                         {%- if item.variant.available and item.unit_price_measurement -%}
@@ -406,28 +389,15 @@
 
                     <td class="cart-item__totals right small-hide">
                       {%- render 'loading-spinner' -%}
-                      <div class="cart-item__price-wrapper">
-                        {%- if item.original_line_price != item.final_line_price -%}
-                          <dl class="cart-item__discounted-prices">
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.regular_price' | t }}
-                            </dt>
-                            <dd>
-                              <s class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
-                              </s>
-                            </dd>
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.sale_price' | t }}
-                            </dt>
-                            <dd class="price price--end">
-                              {{ item.final_line_price | money }}
-                            </dd>
-                          </dl>
+                      <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
+                        {%- if item.variant.compare_at_price > item.variant.price -%}
+                          {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
+                          <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
+                          <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
+                          {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
+                          <span class="price-discount-badge" style="background: #FFEBEB; color: #D80000; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600;">{{ savings }}% OFF</span>
                         {%- else -%}
-                          <span class="price price--end">
-                            {{ item.original_line_price | money }}
-                          </span>
+                          <span class="price price--end" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
                         {%- endif -%}
 
                         {%- if item.variant.available and item.unit_price_measurement -%}
@@ -442,6 +412,23 @@
           {%- endif -%}
         </div>
       </div>
+
+      {%- if cart != empty -%}
+        {%- assign upsell_products = cart.items.first.product.metafields.intent.complementary_products.value -%}
+        {%- if upsell_products != blank -%}
+          <div class="cart-page__complete-set" style="margin-top: 40px; padding: 20px 0; border-top: 1px solid #e0e0e0;">
+            <h4 style="margin: 0 0 20px; font-size: 18px; font-weight: 600; color: #333; display: flex; align-items: center; white-space: nowrap;">
+              Complete Your Set
+              <span style="flex-grow: 1; height: 1px; background-color: #e0e0e0; margin-left: 15px;"></span>
+            </h4>
+            <div class="complete-set__list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+              {%- for product in upsell_products limit: 4 -%}
+                {% render 'card-product-item', card_product: product %}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
 
       <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
       <p
