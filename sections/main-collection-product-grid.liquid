@@ -239,13 +239,11 @@
               id="main-collection-filters"
               data-id="{{ section.id }}"
             >
-              {% render 'facets',
-                results: collection,
-                enable_filtering: section.settings.enable_filtering,
-                enable_sorting: section.settings.enable_sorting,
-                filter_type: section.settings.filter_type,
-                paginate: paginate
-              %}
+           {% render 'facet-exercer',
+            enable_filtering: section.settings.enable_filtering,
+            enable_sorting: section.settings.enable_sorting,
+            filter_type: section.settings.filter_type
+          %}
             </aside>
           {%- endif -%}
         </div>
