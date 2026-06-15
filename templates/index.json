@@ -544,7 +544,7 @@
         "padding_bottom": 36
       }
     },
-     "why_choose_us_kQm6Yp": {
+    "why_choose_us_kQm6Yp": {
       "type": "why-choose-us",
       "blocks": {
         "feature_pPYeUC": {
@@ -746,7 +746,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "title": "The perfect sofa for your space",
+        "title": "",
         "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
