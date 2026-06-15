@@ -284,6 +284,6 @@ cart-drawer-items { padding: 0 24px; scrollbar-width: thin; }
 .cart__checkout-button { width: 100%; background-color: #C8A97E; color: #FFFFFF; border: none; height: 60px; border-radius: 25px; font-size: 14px; font-weight: 700; cursor: pointer; transition: background-color 0.15s ease; display: flex; align-items: center; justify-content: center; }
 .cart__checkout-button:hover { background-color: #A2845B; }
 .cart-drawer__payment-badges { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
-.payment-badge-card { background: #ffffff; border-radius: 4px; padding: 3px 5px; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.04); height: 22px; width: 32px; box-sizing: border-box; }
+.payment-badge-card { box-sizing: border-box; }
 .payment-badge-card img { max-height: 100%; max-width: 100%; object-fit: contain; }
 .drawer__upsell-footer-mobile { display: none; }
