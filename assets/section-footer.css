@@ -107,7 +107,6 @@
 
 /* Link Lists */
 .footer-block--link_list .list-unstyled {
-  display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
