@@ -115,7 +115,6 @@ custom-slider .slider.active { position: relative; }
 }
 @media (max-width:600px) {
   custom-slider .slider.recommended_products__wrapper { gap: 9px; }
-  .drawer__inner { padding: 0 12px; }
   .cart-item__price-wrapper .price { font-size: 12px; }
 }
 cart-drawer-items.is-empty { display: none; }
