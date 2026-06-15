@@ -267,7 +267,7 @@
 @media screen and (max-width: 749px) {
   .footer { padding: 3rem 2rem 0px 2rem; }
   .footer-feature-item {
-    flex: 0 0 100%;
+    flex: 0 0 80%;
     scroll-snap-align: center;
 }
   .footer__features-wrapper {
