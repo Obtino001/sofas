@@ -66,17 +66,11 @@
           "type": "multi-icon",
           "settings": {
             "icon-1": "shopify://shop_images/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png",
-            "icon_size_1": 77,
-            "icon_size_m_1": 30,
             "text-1": "One Year Warranty",
             "desc-1": "Built to last with quality you can trust on",
             "icon-2": "shopify://shop_images/Group_1413372280.svg",
-            "icon_size_2": 46,
-            "icon_size_m_2": 30,
             "text-2": "One Year Warranty",
             "desc-2": "Built to last with quality you can trust on",
-            "icon_size_3": 46,
-            "icon_size_m_3": 30,
             "text-3": "",
             "desc-3": "",
             "text-size": 14
@@ -147,15 +141,7 @@
         "upsell_product_TcVLHt": {
           "type": "upsell_product",
           "settings": {
-            "upsell__heading": "Complete your sofa set",
-            "drawer_mobile_arrows": true,
-            "drawer_enable_autoplay": false,
-            "drawer_autoplay_interval": 3,
-            "drawer_mobile_slides": 2.2,
-            "drawer_tablet_slides": 3,
-            "drawer_desktop_slides": 4,
-            "drawer_mobile_spacing": 16,
-            "drawer_desktop_spacing": 24
+            "upsell__heading": "Complete your sofa set"
           }
         },
         "trust_card_D4xBC6": {
@@ -347,7 +333,6 @@
       ],
       "name": "Why Choose Us",
       "settings": {
-        "heading": "Why <em>choose</em> Sofas'n'Beds",
         "main_image": "shopify://shop_images/ad487d42e8cd67ba6fb4b4fe1213f247a54ee448_1.png",
         "color_scheme": "",
         "padding_top": 60,
@@ -434,7 +419,6 @@
       "settings": {
         "color_scheme": "",
         "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "What our customers say",
         "btn_text": "View All",
         "btn_link": "",
         "padding_top": 60,
@@ -531,7 +515,6 @@
         "heading_By7mTe": {
           "type": "heading",
           "settings": {
-            "heading": "Comfort now, Pay later.",
             "heading_size": "h1"
           }
         },
