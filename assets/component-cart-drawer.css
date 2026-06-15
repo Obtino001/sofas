@@ -104,7 +104,7 @@ button#CartDrawer-Checkout:hover { color: rgba(var(--color-button),var(--alpha-b
 .lx_cartDrawer_upsell h5 { font-size: 20px; margin: 0; letter-spacing: 0; margin-bottom: 10px; }
 .cart__drawer__re_info_left h3 { margin: 0; font-size: 16px; letter-spacing: 0; text-decoration: none; }
 .recommendation-item span.badge.price__badge-sale { display: none; }
-.recommendation-item_image { width: 80px; min-width: 80px; height: 100%; object-fit: cover; }
+.recommendation-item_image {  height: 100%; object-fit: cover; }
 .cart__drawer__re_info { display: flex; flex-direction: column; gap: 14px; width: auto; justify-content: space-between; align-items: flex-start; }
 .recom___price * {
     font-size: 18px;
