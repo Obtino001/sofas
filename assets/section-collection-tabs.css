@@ -443,7 +443,7 @@
   display: inline-block;
   width: calc(var(--rating-max, 5) * 1em);
   height: 1em;
-  background: linear-gradient(90deg, #2aa39a calc(var(--rating, 0) / var(--rating-max, 5) * 100%), rgba(0, 0, 0, 0.15) calc(var(--rating, 0) / var(--rating-max, 5) * 100%));
+  background: linear-gradient(90deg, #108474 calc(var(--rating, 0) / var(--rating-max, 5) * 100%), rgba(0, 0, 0, 0.15) calc(var(--rating, 0) / var(--rating-max, 5) * 100%));
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><polygon points='12,2 15,9 22,9.3 17,14 18.5,21 12,17.3 5.5,21 7,14 2,9.3 9,9'/></svg>") repeat-x;
   mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><polygon points='12,2 15,9 22,9.3 17,14 18.5,21 12,17.3 5.5,21 7,14 2,9.3 9,9'/></svg>") repeat-x;
   -webkit-mask-size: 1em 1em;
