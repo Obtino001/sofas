@@ -699,50 +699,37 @@
         "collection_ahHdKr": {
           "type": "collection",
           "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_72.svg",
-            "collection": "2-seater"
+            "tab_title": "Memory Foam",
+            "collection": "all-sofas"
           }
         },
-        "collection_WHE4kN": {
+        "collection_qgr6JD": {
           "type": "collection",
           "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_3.svg",
-            "collection": "3-seater"
+            "tab_title": "Orthopedic",
+            "collection": "all-sofas"
           }
         },
-        "collection_UX9je6": {
+        "collection_a3ADBc": {
           "type": "collection",
           "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_1.png",
-            "collection": "4-seater"
+            "tab_title": "Hybrid",
+            "collection": ""
           }
         },
-        "collection_jrWiGX": {
+        "collection_AYhVft": {
           "type": "collection",
           "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_4.svg",
-            "collection": "corner-sofa"
-          }
-        },
-        "collection_yR7TKk": {
-          "type": "collection",
-          "settings": {
-            "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_6.svg",
-            "collection": "arm-chairs"
+            "tab_title": "Latex",
+            "collection": "all-sofas"
           }
         }
       },
       "block_order": [
         "collection_ahHdKr",
-        "collection_WHE4kN",
-        "collection_UX9je6",
-        "collection_jrWiGX",
-        "collection_yR7TKk"
+        "collection_qgr6JD",
+        "collection_a3ADBc",
+        "collection_AYhVft"
       ],
       "name": "Collection Tabs",
       "settings": {
