@@ -214,7 +214,7 @@ h3.drawer-line-card__title { margin-block: 8px; }
 .drawer__close { color: #121212; }
 .drawer__close svg { width: 20px; height: 20px; }
 cart-drawer-items { padding: 0 24px; scrollbar-width: thin; }
-.cart-drawer .cart-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.06); position: relative; }
+.cart-drawer .cart-item { display: flex; align-items: flex-start; gap: 0px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.06); position: relative; }
 .cart-item__media {  padding: 8px; display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; flex-shrink: 0; overflow: hidden; border: none; }
 .cart-item__image { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 .cart-item__details { flex: 1; padding: 0; display: flex; flex-direction: column; gap: 4px; }
