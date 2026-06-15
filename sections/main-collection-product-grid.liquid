@@ -763,6 +763,63 @@
         }
       ]
     },
+        {
+      "type": "header",
+      "content": "Product Card"
+    },
+    {
+      "type": "select",
+      "id": "badge_position",
+      "label": "Badge position",
+      "options": [
+        { "value": "top-left", "label": "Top left" },
+        { "value": "top-right", "label": "Top right" }
+      ],
+      "default": "top-left"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Delivery Info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_delivery",
+      "default": true,
+      "label": "Show delivery info"
+    },
+    {
+      "type": "text",
+      "id": "delivery_text",
+      "label": "Delivery text",
+      "default": "Order now & get it by 28-29 March"
+    },
+    {
+      "type": "header",
+      "content": "Color Swatches"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_swatches",
+      "default": true,
+      "label": "Show color swatches"
+    },
+    {
+      "type": "text",
+      "id": "swatch_option_name",
+      "label": "Swatch option name",
+      "default": "Color",
+      "info": "Must match the product option name exactly (e.g. 'Color', 'Colour')."
+    },
     {
       "type": "header",
       "content": "t:sections.main-collection-product-grid.settings.header__1.content"
