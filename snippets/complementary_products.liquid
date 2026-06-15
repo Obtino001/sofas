@@ -1,17 +1,29 @@
+<<<<<<< Updated upstream
 
+=======
+{%- comment -%} Check if the metafield has values {%- endcomment -%}
+{%- assign upsell_products = product.metafields.intent.complementary_products.value -%}
+{% if upsell_products == blank and settings.upsell__products != blank %}
+  {%- assign upsell_products = settings.upsell__products -%}
+{% endif %}
+
+{% if upsell_products != blank %}
+>>>>>>> Stashed changes
   <div class="drawer__upsell-container-mobile upsell-pdp">
     <div class="drawer__upsell-wrapper-mobile">
       <div class="drawer__upsell-inner">
         
-        {%- if block.settings.upsell__heading != blank -%}
-          <p class="swiper-custom-heading-upsell-pdp" style="margin-bottom: 16px; font-weight: 600;">
+        <p class="swiper-custom-heading-upsell-pdp" style="margin-bottom: 16px; font-weight: 600;">
+          {%- if block.settings.upsell__heading != blank -%}
             {{ block.settings.upsell__heading }}
-          </p>
-        {%- endif -%}
+          {%- else -%}
+            Complete Your Set
+          {%- endif -%}
+        </p>
 
         <div class="upsell-vertical-list" style="display: flex; flex-direction: column; gap: 16px;">
           {%- comment -%} Loop through Metafield List {%- endcomment -%}
-          {% for item in product.metafields.custom.product_upsell.value %}
+          {% for item in upsell_products limit: 2 %}
             <div class="upsell-list-item">
               {% render 'card-product-item',
                 card_product: item,

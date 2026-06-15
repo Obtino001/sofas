@@ -341,55 +341,7 @@
                 <div class="complete-set__items">
                   <script src="{{ 'ma-quickAdd.js' | asset_url }}" defer></script>
                   {%- for product in upsell_products limit: 2 -%}
-                    <div class="complete-set__item">
-                      <div class="complete-set__item-image">
-                        {%- if product.featured_media -%}
-                          <img src="{{ product.featured_media | image_url: width: 150 }}" alt="{{ product.title | escape }}" loading="lazy" width="70" height="70">
-                        {%- endif -%}
-                      </div>
-
-                      <div class="complete-set__item-info">
-                        <h4 class="complete-set__item-title">
-                          <a href="{{ product.url }}" class="full-unstyled-link">{{ product.title }}</a>
-                        </h4>
-
-                        <div class="complete-set__item-swatches">
-                          {%- assign has_color = false -%}
-                          {%- for option in product.options_with_values -%}
-                            {%- if option.name == 'Color' or option.name == 'Colour' -%}
-                              {%- assign has_color = true -%}
-                              {%- for value in option.values limit: 2 -%}
-                                {%- assign color_handle = value | handle -%}
-                                <span class="swatch swatch-{{ color_handle }}" style="background-color: {{ color_handle }};" title="{{ value }}"></span>
-                              {%- endfor -%}
-                            {%- endif -%}
-                          {%- endfor -%}
-                        </div>
-                      </div>
-
-                      <div class="complete-set__item-action">
-                        <span class="complete-set__item-price">{{ product.price | money }}</span>
-                        <ma-quickadd>
-                          <div class="ma_quickAdd_in">
-                            <div class="ma_quickAdd_variant_in">
-                              <button
-                                type="button"
-                                class="ma_Add_atc ma_quickAdd_atc"
-                                data-variantid="{{ product.variants[0].id }}"
-                                {% unless product.variants[0].available %}disabled{% endunless %}
-                              >
-                                <span class="ma-span">Add</span>
-                                <div class="loading-overlay__spinner hidden">
-                                  <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                                    <circle fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                                  </svg>
-                                </div>
-                              </button>
-                            </div>
-                          </div>
-                        </ma-quickadd>
-                      </div>
-                    </div>
+                    {% render 'card-product-item', card_product: product %}
                   {%- endfor -%}
                 </div>
               </div>
