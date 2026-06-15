@@ -358,13 +358,21 @@
   if request.page_type == 'index' and section.settings.enable_transparent_header
     assign is_transparent_header = true
   endif
+
+  assign active_logo_position = section.settings.logo_position
+  assign active_color_scheme = section.settings.color_scheme
+
+  if request.page_type != 'index'
+    assign active_logo_position = section.settings.logo_position_internal
+    assign active_color_scheme = section.settings.color_scheme_internal
+  endif
 %}
 
 <{{ header_tag }}
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}{% if is_transparent_header %} header-transparent{% endif %}{% if section.settings.enable_full_width %} header-full-width{% endif %}"
+  class="header-wrapper color-{{ active_color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}{% if is_transparent_header %} header-transparent{% endif %}{% if section.settings.enable_full_width %} header-full-width{% endif %}"
   {% if is_transparent_header %}
     data-transparent-header="true"
   {% endif %}
@@ -381,18 +389,18 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }}{% unless section.settings.enable_full_width %} page-width{% endunless %}{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}{% if is_transparent_header %} header-transparent-active{% endif %}{% if section.settings.enable_center_menu %} header--menu-center{% endif %}">
+  <header class="header header--{{ active_logo_position }} header--mobile-{{ section.settings.mobile_logo_position }}{% unless section.settings.enable_full_width %} page-width{% endunless %}{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}{% if is_transparent_header %} header-transparent-active{% endif %}{% if section.settings.enable_center_menu %} header--menu-center{% endif %}">
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
       endif
 
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
+      if active_logo_position == 'top-center' or section.settings.menu == blank
         render 'header-search', input_id: 'Search-In-Modal-1'
       endif
     -%}
 
-    {%- if section.settings.logo_position != 'middle-center' -%}
+    {%- if active_logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
@@ -471,7 +479,7 @@
       endif
     %}
 
-    {%- if section.settings.logo_position == 'middle-center' -%}
+    {%- if active_logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
@@ -624,7 +632,7 @@
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
-    color_scheme: section.settings.color_scheme,
+    color_scheme: active_color_scheme,
     desktop_menu_type: section.settings.menu_type_desktop
   -%}
 {%- endif -%}
@@ -1003,6 +1011,41 @@
     },
     {
       "type": "header",
+      "content": "Internal Page Settings"
+    },
+    {
+      "type": "select",
+      "id": "logo_position_internal",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top center"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle center"
+        }
+      ],
+      "default": "middle-left",
+      "label": "Internal Pages Logo Position",
+      "info": "Position of the logo on all pages other than the homepage."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_internal",
+      "label": "Internal Pages Color Scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
       "content": "t:sections.header.settings.header__utilities.content"
     },
     {
@@ -1094,104 +1137,104 @@
     {
       "type": "@app"
     },
- {
-  "type": "megamenu",
-  "name": "Megamenu",
-  "settings": [
     {
-      "type": "select",
-      "id": "column_size",
-      "label": "Column size",
-      "options": [
+      "type": "megamenu",
+      "name": "Megamenu",
+      "settings": [
         {
-          "value": "25%",
-          "label": "25%"
+          "type": "select",
+          "id": "column_size",
+          "label": "Column size",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            }
+          ],
+          "default": "25%"
         },
         {
-          "value": "50%",
-          "label": "50%"
+          "type": "text",
+          "id": "title",
+          "label": "Menu Trigger Name",
+          "info": "Must match the main menu link title exactly."
         },
         {
-          "value": "75%",
-          "label": "75%"
+          "type": "radio",
+          "id": "widget",
+          "label": "Widget Type",
+          "options": [
+            { "value": "menu", "label": "Menu List" },
+            { "value": "image", "label": "Image Banner" },
+            { "value": "image_grid_promo", "label": "Image Grid with Promo Banner" }
+          ],
+          "default": "menu"
+        },
+        {
+          "type": "header",
+          "content": "Menu Settings"
+        },
+        {
+          "type": "text",
+          "id": "menu_heading",
+          "label": "Heading (For Menu Type)"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_link_list_child",
+          "label": "Select Menu",
+          "info": "This menu drives the links for both the 'Menu List' and the 'Image Grid' left-side items."
+        },
+        {
+          "type": "header",
+          "content": "Banner Settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Banner image"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Banner Title"
+        },
+        {
+          "type": "text",
+          "id": "banner_button",
+          "label": "Banner Button Label"
+        },
+        {
+          "type": "url",
+          "id": "banner_link",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Timer Settings (For Image Grid Promo)"
+        },
+        {
+          "type": "text",
+          "id": "timer_label",
+          "label": "Timer Subheading",
+          "default": "Sale ends in:"
+        },
+        {
+          "type": "text",
+          "id": "timer_date",
+          "label": "Timer End Date",
+          "info": "Format: YYYY-MM-DDTHH:MM:SS (e.g. 2026-12-31T23:59:59)"
         }
-      ],
-      "default": "25%"
+      ]
     },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Menu Trigger Name",
-      "info": "Must match the main menu link title exactly."
-    },
-    {
-      "type": "radio",
-      "id": "widget",
-      "label": "Widget Type",
-      "options": [
-        { "value": "menu", "label": "Menu List" },
-        { "value": "image", "label": "Image Banner" },
-        { "value": "image_grid_promo", "label": "Image Grid with Promo Banner" }
-      ],
-      "default": "menu"
-    },
-    {
-      "type": "header",
-      "content": "Menu Settings"
-    },
-    {
-      "type": "text",
-      "id": "menu_heading",
-      "label": "Heading (For Menu Type)"
-    },
-    {
-      "type": "link_list",
-      "id": "menu_link_list_child",
-      "label": "Select Menu",
-      "info": "This menu drives the links for both the 'Menu List' and the 'Image Grid' left-side items."
-    },
-    {
-      "type": "header",
-      "content": "Banner Settings"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Banner image"
-    },
-    {
-      "type": "text",
-      "id": "banner_title",
-      "label": "Banner Title"
-    },
-    {
-      "type": "text",
-      "id": "banner_button",
-      "label": "Banner Button Label"
-    },
-    {
-      "type": "url",
-      "id": "banner_link",
-      "label": "Banner URL"
-    },
-    {
-      "type": "header",
-      "content": "Timer Settings (For Image Grid Promo)"
-    },
-    {
-      "type": "text",
-      "id": "timer_label",
-      "label": "Timer Subheading",
-      "default": "Sale ends in:"
-    },
-    {
-      "type": "text",
-      "id": "timer_date",
-      "label": "Timer End Date",
-      "info": "Format: YYYY-MM-DDTHH:MM:SS (e.g. 2026-12-31T23:59:59)"
-    }
-  ]
-},
     {
       "type": "collections",
       "name": "Featured collections",
