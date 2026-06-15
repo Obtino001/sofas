@@ -92,12 +92,13 @@
         "padding_bottom": 60
       }
     },
-"custom_collage_BkYQPp": {
+    "custom_collage_BkYQPp": {
       "type": "custom-collage",
       "blocks": {
         "image_1_dark_grey_sofa": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/bdacbd67e1f86deb51755842cf0a81fe3dd6144f_ac8f93e7-2b8d-4f0e-b8c0-ee7d6060bfa8.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
             "mobile_col_span": "1",
@@ -107,6 +108,7 @@
         "image_2_grey_bed": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_237.png",
             "desktop_col_span": 1,
             "desktop_row_span": 1,
             "mobile_col_span": "1",
@@ -116,6 +118,7 @@
         "image_3_white_corner_sofa": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/38c1e78f04e8ffc91ad26863b8220c8fc4f8ac46_dac90609-0655-4613-a8d4-08d47a37f4b3.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
             "mobile_col_span": "2",
@@ -125,6 +128,7 @@
         "image_4_white_bed": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03_36a27a6b-483b-4c4b-a6f3-d61f024a4e21.png",
             "desktop_col_span": 1,
             "desktop_row_span": 1,
             "mobile_col_span": "1",
@@ -134,6 +138,7 @@
         "image_5_black_leather_sofa": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/a6860ee8686f583956e0a7324778a697ab3ef745_552ba2fb-f2dc-45ef-a793-af9782c3ea6d.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
             "mobile_col_span": "1",
@@ -143,6 +148,7 @@
         "image_6_brown_l_sofa": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/a6860ee8686f583956e0a7324778a697ab3ef745_552ba2fb-f2dc-45ef-a793-af9782c3ea6d.png",
             "desktop_col_span": 2,
             "desktop_row_span": 1,
             "mobile_col_span": "2",
