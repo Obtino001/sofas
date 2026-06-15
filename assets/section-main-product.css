@@ -2017,18 +2017,17 @@ a.product__text {
 
 @media screen and (max-width: 749px) {
   .product__title-price-container {
-    flex-direction: column;
     gap: 12px;
-  }
-
-  .product__price-column {
-  width: 100%;
   }
 
   .product__price-column .price {
     align-items: flex-start;
   }
-
+.product__installments div {
+    line-height: 160%;
+    text-align: right;
+    max-width: 135px;
+}
   .product__price-column .price__container {
     align-items: flex-start;
   }
