@@ -709,8 +709,8 @@ color: #9F9F9F;
 
 .multi-icon-item img,
 .multi-icon-item svg {
-    width: var(--icon-size, 40px);
-    height: var(--icon-size, 40px);
+    width: 56px;
+    height: 56px;
     object-fit: contain;
     mix-blend-mode: multiply;
 }
