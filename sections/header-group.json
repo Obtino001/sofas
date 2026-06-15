@@ -54,13 +54,15 @@
         "menu": "shop-menu",
         "menu_type_desktop": "mega",
         "enable_center_menu": true,
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "always",
         "show_line_separator": true,
         "enable_transparent_header": true,
         "transparent_logo": "shopify://shop_images/Group_8.svg",
         "enable_full_width": true,
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "menu_color_scheme": "scheme-1",
+        "logo_position_internal": "middle-left",
+        "color_scheme_internal": "",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "enable_customer_avatar": true,
@@ -69,12 +71,7 @@
         "padding_bottom": 0,
         "drawer_show_search": true,
         "drawer_show_account": true,
-        "drawer_show_footer": true,
-        "drawer_promo_image": "shopify://shop_images/Rectangle_237.png",
-        "drawer_promo_title": "14 Days no question returns",
-        "drawer_promo_text": "Enjoy complete peace of mind with our 14-day no questions-asked return policy.",
-        "drawer_promo_btn_text": "Learn more",
-        "drawer_promo_btn_link": ""
+        "drawer_show_footer": true
       }
     }
   },
