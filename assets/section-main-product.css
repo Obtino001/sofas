@@ -2020,10 +2020,6 @@ a.product__text {
     gap: 12px;
   }
 
-  .product__price-column {
-  width: 100%;
-  }
-
   .product__price-column .price {
     align-items: flex-start;
   }
