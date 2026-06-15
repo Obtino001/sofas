@@ -46,7 +46,7 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 40px;
     justify-content: space-between;
 }
