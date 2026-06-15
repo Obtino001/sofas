@@ -355,7 +355,7 @@
   endif
 
   assign is_transparent_header = false
-  if section.settings.enable_transparent_header
+  if request.page_type == 'index' and section.settings.enable_transparent_header
     assign is_transparent_header = true
   endif
 %}
@@ -395,8 +395,6 @@
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
-      {%- else -%}
-        <div class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if settings.logo != blank -%}
@@ -460,8 +458,6 @@
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
-      {%- else -%}
-        </div>
       {%- endif -%}
     {%- endif -%}
 
@@ -478,8 +474,6 @@
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
-      {%- else -%}
-        <div class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if settings.logo != blank -%}
@@ -543,8 +537,6 @@
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
-      {%- else -%}
-        </div>
       {%- endif -%}
     {%- endif -%}
 
@@ -1096,38 +1088,6 @@
       "default": true,
       "label": "Show drawer footer",
       "info": "Displays a footer section with account and social links."
-    },
-    {
-      "type": "header",
-      "content": "Main Drawer Promo Banner"
-    },
-    {
-      "type": "image_picker",
-      "id": "drawer_promo_image",
-      "label": "Promo Image"
-    },
-    {
-      "type": "text",
-      "id": "drawer_promo_title",
-      "label": "Promo Title",
-      "default": "14 Days no question returns"
-    },
-    {
-      "type": "textarea",
-      "id": "drawer_promo_text",
-      "label": "Promo Text",
-      "default": "Enjoy complete peace of mind with our 14-day no questions-asked return policy."
-    },
-    {
-      "type": "text",
-      "id": "drawer_promo_btn_text",
-      "label": "Button Text",
-      "default": "Learn more"
-    },
-    {
-      "type": "url",
-      "id": "drawer_promo_btn_link",
-      "label": "Button Link"
     }
   ],
   "blocks": [
