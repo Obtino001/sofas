@@ -345,19 +345,21 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                 {% render 'card-product-tabs',
-                    show_swatches: true,
-                    swatch_limit: 3,
-                    card_product: product,
-                    media_aspect_ratio: section.settings.image_ratio,
-                    image_shape: section.settings.image_shape,
-                    lazy_load: false,
-                    show_secondary_image: section.settings.show_secondary_image,
-                    show_vendor: section.settings.show_vendor,
-                    show_rating: section.settings.show_rating,
-                    section_id: section.id,
-                    quick_add: section.settings.quick_add
-                  %}
+                     {% render 'card-product-tabs',
+                            card_product: product,
+                            section_id: section.id,
+                            media_aspect_ratio: section.settings.image_ratio,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            show_rating: section.settings.show_rating,
+                            show_swatches: section.settings.show_swatches,
+                            swatch_option: section.settings.swatch_option_name,
+                            swatch_limit: 6,
+                            show_delivery: section.settings.show_delivery,
+                            delivery_text: section.settings.delivery_text,
+                            lazy_load: lazy_load,
+                            badge_position: section.settings.badge_position,
+                            quick_add: section.settings.quick_add
+                          %}
                 </li>
                 {% assign index = forloop.index %}
                 {%- assign skip_card_product_styles = true -%}
