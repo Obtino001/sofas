@@ -1,5 +1,6 @@
 {%- comment -%} Check if the metafield has values {%- endcomment -%}
 {%- assign upsell_products = product.metafields.intent.complementary_products.value -%}
+
 {% if upsell_products == blank and settings.upsell__products != blank %}
   {%- assign upsell_products = settings.upsell__products -%}
 {% endif %}
@@ -36,3 +37,4 @@
       </div>
     </div>
   </div>
+{% endif %}
