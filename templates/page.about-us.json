@@ -92,63 +92,57 @@
         "padding_bottom": 60
       }
     },
-    "custom_collage_BkYQPp": {
+"custom_collage_FigmaLayout": {
       "type": "custom-collage",
       "blocks": {
-        "image_1_dark_grey_sofa": {
+        "image_1_tall_room": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/bdacbd67e1f86deb51755842cf0a81fe3dd6144f_ac8f93e7-2b8d-4f0e-b8c0-ee7d6060bfa8.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
             "mobile_col_span": "1",
             "mobile_row_span": 2
           }
         },
-        "image_2_grey_bed": {
+        "image_2_small_black": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_237.png",
             "desktop_col_span": 1,
             "desktop_row_span": 1,
             "mobile_col_span": "1",
             "mobile_row_span": 1
           }
         },
-        "image_3_white_corner_sofa": {
+        "image_3_tall_arm": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/38c1e78f04e8ffc91ad26863b8220c8fc4f8ac46_dac90609-0655-4613-a8d4-08d47a37f4b3.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
-            "mobile_col_span": "2",
+            "mobile_col_span": "1",
             "mobile_row_span": 2
           }
         },
-        "image_4_white_bed": {
+        "image_4_white_sofa": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/e90c85bc665b14548f25e4f0876e6dc4be5eae03_36a27a6b-483b-4c4b-a6f3-d61f024a4e21.png",
             "desktop_col_span": 1,
             "desktop_row_span": 1,
             "mobile_col_span": "1",
             "mobile_row_span": 1
           }
         },
-        "image_5_black_leather_sofa": {
+        "image_5_tall_corner": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/a6860ee8686f583956e0a7324778a697ab3ef745_552ba2fb-f2dc-45ef-a793-af9782c3ea6d.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
             "mobile_col_span": "1",
             "mobile_row_span": 2
           }
         },
-        "image_6_brown_l_sofa": {
+        "image_6_wide_closeup": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/a6860ee8686f583956e0a7324778a697ab3ef745_552ba2fb-f2dc-45ef-a793-af9782c3ea6d.png",
             "desktop_col_span": 2,
             "desktop_row_span": 1,
             "mobile_col_span": "2",
@@ -157,20 +151,20 @@
         }
       },
       "block_order": [
-        "image_1_dark_grey_sofa",
-        "image_2_grey_bed",
-        "image_3_white_corner_sofa",
-        "image_4_white_bed",
-        "image_5_black_leather_sofa",
-        "image_6_brown_l_sofa"
+        "image_1_tall_room",
+        "image_2_small_black",
+        "image_3_tall_arm",
+        "image_4_white_sofa",
+        "image_5_tall_corner",
+        "image_6_wide_closeup"
       ],
-      "name": "Custom Image Grid",
+      "name": "Custom Image Grid (Figma)",
       "settings": {
         "color_scheme": "",
         "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>",
         "text_desktop_col_span": 2,
         "text_desktop_row_span": 1,
-        "desktop_row_height": 180,
+        "desktop_row_height": 200,
         "mobile_row_height": 120,
         "padding_top": 40,
         "padding_bottom": 40
@@ -596,7 +590,7 @@
     "main",
     "custom_banner_A6F9q9",
     "what_we_offer_ArBpTY",
-    "custom_collage_BkYQPp",
+   "custom_collage_FigmaLayout",
     "testimonials_FqAwzT",
     "bento_categories_aFbwVW",
     "newsletter_pPWpWW",
