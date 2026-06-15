@@ -106,7 +106,12 @@ button#CartDrawer-Checkout:hover { color: rgba(var(--color-button),var(--alpha-b
 .recommendation-item span.badge.price__badge-sale { display: none; }
 .recommendation-item_image { width: 80px; min-width: 80px; height: 100%; object-fit: cover; }
 .cart__drawer__re_info { display: flex; flex-direction: column; gap: 14px; width: auto; justify-content: space-between; align-items: flex-start; }
-.recom___price * { font-size: 12px; letter-spacing: 0; font-weight: 500; }
+.recom___price * {
+    font-size: 18px;
+    letter-spacing: 0;
+    font-weight: 500;
+    color: #A40D0D;
+}
 .cart__drawer__re_info_left { display: flex; flex-direction: column; gap: 5px; text-decoration: none; }
 .cart__drawer__re_info_right .product-form__buttons button { padding: 9px 0 !important; min-height: unset !important; margin-bottom: 0 !important; border-radius: 50px; font-size: 12px; }
 custom-slider .slider.active { position: relative; }
