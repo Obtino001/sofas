@@ -334,7 +334,7 @@
       ],
       "name": "Testimonial Slider",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "heading": "<p>What our <em>customers</em> say</p>",
         "btn_text": "View All",
