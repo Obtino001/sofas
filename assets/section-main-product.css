@@ -1077,7 +1077,7 @@ a.product__text {
 }
 
 @media screen and (max-width: 749px) {
-
+.product__info-wrapper .product__hero-badge { font-size: 11px;}
   .product__media-zoom-hover,
   .product__media-icon--hover {
     display: flex;
@@ -1864,9 +1864,9 @@ a.product__text {
     align-items: center;
     background-color: #2b2b2b;
     color: #fff;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    padding: 10px 14px;
+    padding: 10px 19px;
     border-radius: 20px;
     margin-bottom: 12px;
     white-space: nowrap;
