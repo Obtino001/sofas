@@ -828,4 +828,7 @@ border: 0.75px solid #000000;
   .card-product-tabs__title {
     font-size: 14px;
   }
+  ul#product-grid {
+    row-gap: 20px;
+}
 }
