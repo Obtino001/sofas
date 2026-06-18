@@ -637,7 +637,7 @@
         "full_width": false,
         "color_scheme": "",
         "color_scheme_mobile": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "overlay_background": "linear-gradient(270deg, rgba(255, 255, 255, 1) 24.03%, rgba(0, 0, 0, 0.35) 80.49%)",
+        "overlay_background": "linear-gradient(270deg, rgba(0, 0, 0, 0.35) 80.49%, rgba(255, 255, 255, 1) 100%)",
         "enable_blur": true,
         "image": "shopify://shop_images/7066bbe281217b279f15e84d97da38fa04794cb6.png",
         "mobile_image": "shopify://shop_images/5a06ead1bc5faa12efbfb4eabaa34220c8ae3659.png",
