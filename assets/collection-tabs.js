@@ -14,7 +14,7 @@
 (function () {
   'use strict';
 
-  const SECTION_SELECTOR = '.collection-tabs';
+  const SECTION_SELECTOR = '.collection-tabs, .product-grid-container, .collection';
 
   function $(selector, root) {
     return (root || document).querySelector(selector);
