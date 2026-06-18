@@ -416,14 +416,14 @@
         "heading_RjgrTP": {
           "type": "heading",
           "settings": {
-            "heading": "Sleep <em>bigger</em>. Sleep <em>better</em>.",
+            "heading": "Comfort now, Pay later.",
             "heading_size": "h0"
           }
         },
         "text_YwCUcN": {
           "type": "text",
           "settings": {
-            "text": "<p>Upgrade your bedroom with spacious king size beds designed for ultimate comfort and everyday luxury.</p>",
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>",
             "text_size": "text-body"
           }
         },
@@ -442,66 +442,23 @@
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
+        "full_width": true,
         "color_scheme": "",
+        "color_scheme_mobile": "",
+        "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe_2.png",
+        "mobile_image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_1.png",
         "desktop_height": 480,
         "desktop_align_y": "center",
         "desktop_align_x": "flex-start",
         "desktop_text_align": "left",
         "desktop_flex_align": "flex-start",
-        "mobile_height": 400,
-        "mobile_align_y": "center",
+        "mobile_height": 540,
+        "mobile_align_y": "flex-end",
         "mobile_align_x": "center",
         "mobile_text_align": "center",
         "mobile_flex_align": "center",
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "custom_hero_banner_EpqzyB": {
-      "type": "custom-hero-banner",
-      "blocks": {
-        "heading_By7mTe": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Comfort now, Pay later.</p>",
-            "heading_size": "h0"
-          }
-        },
-        "text_YDc4BF": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
-          }
-        },
-        "buttons_nyNjni": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Explore our products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_1": "primary",
-            "button_label_2": "Learn more",
-            "button_link_2": "shopify://collections/all",
-            "button_style_2": "secondary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_By7mTe",
-        "text_YDc4BF",
-        "buttons_nyNjni"
-      ],
-      "name": "Custom Hero Banner",
-      "settings": {
-        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
-        "mobile_image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_1.png",
-        "overlay_opacity": 30,
-        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "desktop_height": 70,
-        "desktop_content_position": "flex-start",
-        "desktop_text_alignment": "left",
-        "mobile_height": 100,
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "collections_tabs_G8NWUM": {
@@ -1085,7 +1042,6 @@
     "testimonials_FqAwzT",
     "icon_category_list_nG3Ni8",
     "call_to_action_banner_TdeHWD",
-    "custom_hero_banner_EpqzyB",
     "collections_tabs_G8NWUM",
     "why_choose_us_kQm6Yp",
     "call_to_action_banner_Uf4t4i",
