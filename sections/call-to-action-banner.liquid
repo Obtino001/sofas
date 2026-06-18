@@ -17,7 +17,8 @@
     min-height: {{ section.settings.mobile_height }}px;
     align-items: {{ section.settings.mobile_align_y }};
     justify-content: {{ section.settings.mobile_align_x }};
-    border-radius: 15px; /* Added rounded corners */
+    /* Removes border-radius if full width is enabled */
+    border-radius: {% if section.settings.full_width %}0{% else %}15px{% endif %}; 
     overflow: hidden;    /* Keeps image inside rounded corners */
   }
 
@@ -147,11 +148,27 @@
   .hero-block-button-pill:hover {
     background-color: #a8855a !important;
   }
+
+  /* Mobile Color Scheme Override */
+  @media screen and (max-width: 749px) {
+    .custom-hero-{{ section.id }}.color-mobile-{{ section.settings.color_scheme_mobile }} {
+      /* Re-map Dawn color variables from the mobile scheme */
+      --color-background: var(--color-{{ section.settings.color_scheme_mobile }}-background);
+      --color-foreground: var(--color-{{ section.settings.color_scheme_mobile }}-text);
+      --color-button: var(--color-{{ section.settings.color_scheme_mobile }}-button);
+      --color-button-text: var(--color-{{ section.settings.color_scheme_mobile }}-button-text);
+      --color-secondary-button-text: var(--color-{{ section.settings.color_scheme_mobile }}-secondary-button-text);
+      
+      /* Apply the primary background/foreground fallback tokens */
+      background: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+    }
+  }
 {%- endstyle -%}
 
-<!-- We put page-width ON THE OUTSIDE so the banner has edges -->
-<div class="section-{{ section.id }}-padding page-width">
-  <div class="custom-hero-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+<!-- Conditionally remove 'page-width' class if full_width is checked -->
+<div class="section-{{ section.id }}-padding{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div class="custom-hero-{{ section.id }} color-{{ section.settings.color_scheme }} color-mobile-{{ section.settings.color_scheme_mobile }} gradient">
     
     {%- if section.settings.image != blank -%}
       {%- liquid
@@ -242,10 +259,23 @@
   "class": "section",
   "settings": [
     {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color Scheme",
+      "label": "Color Scheme (Desktop)",
       "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_mobile",
+      "label": "Color Scheme (Mobile)",
+      "default": "scheme-1",
+      "info": "Overrides the desktop color scheme on mobile screens."
     },
     {
       "type": "image_picker",
