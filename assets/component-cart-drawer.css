@@ -1280,9 +1280,15 @@ cart-drawer-items {
 }
 
 .price--compare {
-  color: #888888;
-  font-size: 12px;
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
   text-decoration: line-through;
+  color: #9F9F9F;
 }
 
 .price-discount-badge {

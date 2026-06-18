@@ -376,7 +376,8 @@
 
 .card-product-tabs__cart-btn.is-loading {
   opacity: 0.7;
-  cursor: progress;
+  cursor: not-allowed;
+  color: #ffffff;
 }
 
 .card-product-tabs__delivery {
@@ -562,17 +563,10 @@ border: 0.75px solid #000000;
 .card-product-tabs__cart-spinner .spinner {
   width: 18px;
   height: 18px;
-  animation: ct-spin 0.6s linear infinite;
 }
 
-.card-product-tabs__cart-spinner .spinner circle {
-  stroke: currentColor;
-  stroke-dasharray: 80;
-  stroke-dashoffset: 60;
-}
-
-@keyframes ct-spin {
-  to { transform: rotate(360deg); }
+.card-product-tabs__cart-spinner .spinner .path {
+  stroke: #ffffff;
 }
 
 /* ============================================
