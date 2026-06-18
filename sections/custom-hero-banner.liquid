@@ -8,8 +8,19 @@
     position: relative;
     display: flex;
     align-items: center;
-    min-height: {{ section.settings.mobile_height }}vh;
     overflow: hidden;
+  }
+
+  .custom-hero::before {
+    content: '';
+    width: 0;
+    {%- if section.settings.mobile_image != blank -%}
+      padding-bottom: {{ 100.0 | divided_by: section.settings.mobile_image.aspect_ratio }}%;
+    {%- elsif section.settings.image != blank -%}
+      padding-bottom: {{ 100.0 | divided_by: section.settings.image.aspect_ratio }}%;
+    {%- else -%}
+      padding-bottom: {{ section.settings.mobile_height }}vh;
+    {%- endif -%}
   }
 
   .custom-hero__media {
@@ -89,8 +100,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
 
-    .custom-hero {
-      min-height: {{ section.settings.desktop_height }}vh;
+    .custom-hero::before {
+      {%- if section.settings.image != blank -%}
+        padding-bottom: {{ 100.0 | divided_by: section.settings.image.aspect_ratio }}%;
+      {%- else -%}
+        padding-bottom: {{ section.settings.desktop_height }}vh;
+      {%- endif -%}
     }
 
     .custom-hero__content-wrapper {

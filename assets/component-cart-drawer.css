@@ -508,18 +508,8 @@ custom-slider .slider {
   font-size: 12px;
 }
 
-.cart-drawer__footer * {}
 
-.cart__checkout-button:after {
-  content: unset;
-}
 
-.cart__checkout-button {
-  border-radius: 50px;
-  font-weight: 500;
-  transition: .8s cubic-bezier(.5, 0, 0, 1);
-  border: 1px solid;
-}
 
 button#CartDrawer-Checkout:hover {
   color: rgba(var(--color-button), var(--alpha-button-background));
@@ -1575,25 +1565,6 @@ cart-drawer-items {
   font-weight: 500;
 }
 
-.cart__checkout-button {
-  width: 100%;
-  background-color: #C8A97E;
-  color: #FFFFFF;
-  border: none;
-  height: 60px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart__checkout-button:hover {
-  background-color: #A2845B;
-}
 
 .cart-drawer__payment-badges {
   display: flex;
