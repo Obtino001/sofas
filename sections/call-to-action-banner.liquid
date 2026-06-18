@@ -1,0 +1,434 @@
+{%- style -%}
+.section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
+@media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+.custom-hero-{{ section.id }} { position: relative; display: flex; min-height: {{ section.settings.mobile_height }}px; align-items: {{ section.settings.mobile_align_y }}; justify-content: {{ section.settings.mobile_align_x }}; }
+@media screen and (min-width: 750px) { .custom-hero-{{ section.id }} { min-height: {{ section.settings.desktop_height }}px; align-items: {{ section.settings.desktop_align_y }}; justify-content: {{ section.settings.desktop_align_x }}; } }
+.custom-hero-{{ section.id }} .hero-background-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.custom-hero-{{ section.id }} .hero-overlay { position: absolute; inset: 0; background-color: rgb(var(--color-background)); opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; z-index: 2; }
+.custom-hero-{{ section.id }} .hero-content-wrapper { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1.5rem; width: 100%; color: rgb(var(--color-foreground)); text-align: {{ section.settings.mobile_text_align }}; align-items: {{ section.settings.mobile_flex_align }}; }
+@media screen and (min-width: 750px) { .custom-hero-{{ section.id }} .hero-content-wrapper { text-align: {{ section.settings.desktop_text_align }}; align-items: {{ section.settings.desktop_flex_align }}; } }
+
+@media screen and (max-width: 750px) {
+  .custom-hero-{{ section.id }} .hero-background-image { object-position: 70% 100%; }
+}
+{%- endstyle -%}
+<div class="custom-hero-{{ section.id }} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  {%- if section.settings.image != blank -%}
+    {{
+      section.settings.image
+      | image_url: width: 3840
+      | image_tag:
+        loading: 'lazy',
+        class: 'hero-background-image',
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+    }}
+  {%- endif -%}
+
+  <div class="hero-overlay"> </div>
+
+  <div class="hero-content-wrapper page-width">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        
+        {%- when 'icon' -%}
+          <div class="hero-block-icon" {{ block.shopify_attributes }} style="--icon-width: {{ block.settings.icon_width }}px; margin-bottom: {{ block.settings.margin_bottom }}px;">
+            {%- if block.settings.custom_svg != blank -%}
+              <div class="icon-svg-wrapper">
+                {{ block.settings.custom_svg }}
+              </div>
+            {%- elsif block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: block.settings.icon_width }}" alt="Icon" loading="lazy">
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-wrapper">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            {%- endif -%}
+          </div>
+
+        {%- when 'heading' -%}
+          <h2 class="hero-block-heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+            {{ block.settings.heading | escape }}
+          </h2>
+
+        {%- when 'text' -%}
+          <div class="hero-block-text {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+            {{ block.settings.text }}
+          </div>
+
+        {%- when 'button' -%}
+          {%- if block.settings.button_label != blank -%}
+            <a href="{{ block.settings.button_link }}" class="button button--primary hero-block-button" {{ block.shopify_attributes }}>
+              {{ block.settings.button_label | escape }}
+            </a>
+          {%- endif -%}
+
+        {%- when 'button_pill' -%}
+          {%- if block.settings.button_label != blank -%}
+            <a href="{{ block.settings.button_link }}" class="button button-primary" {{ block.shopify_attributes }}>
+              {{ block.settings.button_label | escape }}
+            </a>
+          {%- endif -%}
+
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  /* Base Scoped Styles */
+  .hero-block-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-content-wrapper * {
+    margin: 0
+  }
+  .hero-block-icon .icon-svg-wrapper,
+  .hero-block-icon img {
+    width: var(--icon-width);
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .hero-block-icon .icon-svg-wrapper svg {
+    width: 100%;
+    height: auto;
+    /* Inherits text color of the scheme */
+    fill: currentColor;
+    stroke: currentColor;
+  }
+  .hero-block-text {
+    line-height: 1.6;
+    max-width: 650px;
+    font-weight: 400;
+    color: inherit;
+  }
+  .hero-block-text p {
+    margin: 0;
+  }
+  .hero-block-button {
+    margin-top: 1rem;
+    min-width: 200px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Overlay Banner (Blocks)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "info": "Uses the background color from your chosen Color Scheme.",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Desktop Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Desktop Height",
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "desktop_align_y",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_align_x",
+      "label": "Horizontal Position",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_flex_align",
+      "label": "Content Box Alignment",
+      "info": "Aligns the blocks within the content wrapper.",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "label": "Mobile Height",
+      "default": 500
+    },
+    {
+      "type": "select",
+      "id": "mobile_align_y",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_align_x",
+      "label": "Horizontal Position",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_flex_align",
+      "label": "Content Box Alignment",
+      "info": "Aligns the blocks within the content wrapper.",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Code",
+          "info": "Paste your raw SVG code here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Or Image fallback"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 20,
+          "max": 200,
+          "step": 2,
+          "unit": "px",
+          "label": "Icon Width",
+          "default": 64
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Bottom Margin",
+          "default": 10
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "LESS MAINTENANCE. MORE RIDING.",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra large" }
+          ],
+          "default": "h1",
+          "label": "Heading Size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            { "value": "text-body", "label": "Small" },
+            { "value": "h3", "label": "Medium" },
+            { "value": "h2", "label": "Large" }
+          ],
+          "default": "h3",
+          "label": "Text Size"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Primary Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Learn More",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    },
+    {
+      "type": "button_pill",
+      "name": "Pill Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "EXPLORE ACCESSORIES",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Overlay Banner (Blocks)",
+      "blocks": [
+        {
+          "type": "icon"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button_pill"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
