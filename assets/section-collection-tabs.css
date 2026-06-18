@@ -137,7 +137,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border: 1px solid var(--ct-accent, #1f1f1f);
   border-radius: 50px;
   background: transparent;
@@ -768,11 +768,6 @@ border: 0.75px solid #000000;
 }
   .collection-tabs__controls-row {
     gap: 16px;
-  }
-
-  .collection-tabs__view-all-btn {
-    padding: 8px 16px;
-    font-size: 14px;
   }
 
   .collection-tabs__arrow {
