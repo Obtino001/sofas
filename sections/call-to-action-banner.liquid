@@ -56,35 +56,18 @@
     }
   }
 
-  /* Progressive Blur & Gradient Overlay */
+  /* Custom Color/Gradient Overlay */
   .custom-hero-{{ section.id }} .hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 2;
-    /* Fades from solid background color to transparent */
-    background: linear-gradient(to right, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0.8) 45%, rgba(var(--color-background), 0) 75%);
-    /* Applies the frosted glass blur */
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    /* Masks the blur so it smoothly fades out with the gradient */
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 45%, transparent 75%);
-    mask-image: linear-gradient(to right, black 0%, black 45%, transparent 75%);
-  }
-
-  /* Adjust overlay for mobile reading */
-  @media screen and (max-width: 749px) {
-    .hero-content-wrapper * {
-    margin: 0;
-    color: white;
-}
-h2.hero-block-heading.h0 {
-    font-size: 32px;
-}
-    .custom-hero-{{ section.id }} .hero-overlay {
-      background: linear-gradient(to bottom, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0.8) 50%, rgba(var(--color-background), 0) 90%);
-      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
-      mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
-    }
+    pointer-events: none;
+    background: {{ section.settings.overlay_background }};
+    
+    {%- if section.settings.enable_blur -%}
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    {%- endif -%}
   }
 
   /* Content Wrapper */
@@ -95,7 +78,7 @@ h2.hero-block-heading.h0 {
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    max-width: 850px; /* Constrain text to the blurred area */
+    max-width: 650px;
     color: rgb(var(--color-foreground));
     text-align: {{ section.settings.mobile_text_align }};
     align-items: {{ section.settings.mobile_flex_align }};
@@ -136,8 +119,7 @@ h2.hero-block-heading.h0 {
     line-height: 1.6;
     font-weight: 400;
     color: inherit;
-    max-width: 500px;
-}
+  }
   .hero-block-text p {
     margin: 0;
   }
@@ -147,7 +129,7 @@ h2.hero-block-heading.h0 {
   }
   .hero-block-button-pill {
     border-radius: 50px !important;
-    background-color: #C19A6B !important; /* Soft Tan/Gold */
+    background-color: #C19A6B !important;
     color: #FFFFFF !important;
     border: none !important;
     margin-top: 1rem;
@@ -160,21 +142,18 @@ h2.hero-block-heading.h0 {
   /* Mobile Color Scheme Override */
   @media screen and (max-width: 749px) {
     .custom-hero-{{ section.id }}.color-mobile-{{ section.settings.color_scheme_mobile }} {
-      /* Re-map Dawn color variables from the mobile scheme */
       --color-background: var(--color-{{ section.settings.color_scheme_mobile }}-background);
       --color-foreground: var(--color-{{ section.settings.color_scheme_mobile }}-text);
       --color-button: var(--color-{{ section.settings.color_scheme_mobile }}-button);
       --color-button-text: var(--color-{{ section.settings.color_scheme_mobile }}-button-text);
       --color-secondary-button-text: var(--color-{{ section.settings.color_scheme_mobile }}-secondary-button-text);
       
-      /* Apply the primary background/foreground fallback tokens */
       background: rgb(var(--color-background));
       color: rgb(var(--color-foreground));
     }
   }
 {%- endstyle -%}
 
-<!-- Conditionally remove 'page-width' class if full_width is checked -->
 <div class="section-{{ section.id }}-padding{% unless section.settings.full_width %} page-width{% endunless %}">
   <div class="custom-hero-{{ section.id }} color-{{ section.settings.color_scheme }} color-mobile-{{ section.settings.color_scheme_mobile }} gradient">
     
@@ -284,6 +263,28 @@ h2.hero-block-heading.h0 {
       "label": "Color Scheme (Mobile)",
       "default": "scheme-1",
       "info": "Overrides the desktop color scheme on mobile screens."
+    },
+    {
+      "type": "header",
+      "content": "Overlay Settings"
+    },
+    {
+      "type": "color_background",
+      "id": "overlay_background",
+      "label": "Overlay Color / Gradient",
+      "default": "linear-gradient(270deg, rgba(0, 0, 0, 0) 24.03%, rgba(0, 0, 0, 0.35) 80.49%)",
+      "info": "Choose a solid color or gradient to overlay on the image."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_blur",
+      "label": "Enable Frosted Glass Blur",
+      "default": false,
+      "info": "Applies a blur effect underneath your chosen overlay color."
+    },
+    {
+      "type": "header",
+      "content": "Background Images"
     },
     {
       "type": "image_picker",
