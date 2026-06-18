@@ -207,7 +207,7 @@
                         assign has_vol_pricing = true
                       endif
                     -%}
-                    {% comment %} <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
+                     <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
                       <quantity-popover>
                         <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                           <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
@@ -390,7 +390,7 @@
                           </span>
                         </div>
                       </quantity-popover>
-                    </td> {% endcomment %}
+                    </td> 
 
                     <td class="cart-item__totals right small-hide">
                       {%- render 'loading-spinner' -%}
