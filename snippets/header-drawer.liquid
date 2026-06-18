@@ -127,7 +127,7 @@
   .woc-drawer-menu-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 10px;
     padding: 1.2rem 2rem;
     text-decoration: none;
@@ -467,7 +467,7 @@
               {%- comment -%} Promo Banner for Main Drawer {%- endcomment -%}
               {% if section.settings.drawer_promo_image != blank %}
                 <div class="woc-drawer-promo" style="margin-top: 2rem;">
-                  <img src="{{ section.settings.drawer_promo_image | image_url: width: 800 }}" class="woc-drawer-promo__bg" alt="{{ section.settings.drawer_promo_title }}" loading="lazy">
+                  <img src="{{ section.settings.drawer_promo_image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ section.settings.drawer_promo_title }}" loading="lazy">
                   <div class="woc-drawer-promo__overlay"> </div>
                   <div class="woc-drawer-promo__content" style="gap: 1.5rem;">
                     {% if section.settings.drawer_promo_title != blank %}
@@ -600,7 +600,7 @@
                             {%- comment -%} Promo Banner {%- endcomment -%}
                             {% if block.settings.image != blank %}
                               <div class="woc-drawer-promo">
-                                <img src="{{ block.settings.image | image_url: width: 800 }}" class="woc-drawer-promo__bg" alt="{{ block.settings.banner_title }}" loading="lazy">
+                                <img src="{{ block.settings.image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ block.settings.banner_title }}" loading="lazy">
                                 <div class="woc-drawer-promo__overlay"> </div>
                                 <div class="woc-drawer-promo__content">
                                   {% if block.settings.banner_title != blank %}
