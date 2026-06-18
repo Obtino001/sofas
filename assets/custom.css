@@ -472,8 +472,5 @@ slider-container.slider-disabled .swiper-slide {
     max-width: 200px;
   }
 
-  ul#product-grid {
-    row-gap: 30px;
-  }
 
 }
