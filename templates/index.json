@@ -598,14 +598,6 @@
     "call_to_action_banner_eNWgzx": {
       "type": "call-to-action-banner",
       "blocks": {
-        "icon_xReFqw": {
-          "type": "icon",
-          "settings": {
-            "custom_svg": "",
-            "icon_width": 64,
-            "margin_bottom": 10
-          }
-        },
         "heading_pBAP7i": {
           "type": "heading",
           "settings": {
@@ -629,20 +621,20 @@
         }
       },
       "block_order": [
-        "icon_xReFqw",
         "heading_pBAP7i",
         "text_ke3JnU",
         "button_pill_ieWBAT"
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
-        "color_scheme": "",
-        "overlay_opacity": 40,
+        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "image": "shopify://shop_images/7066bbe281217b279f15e84d97da38fa04794cb6.png",
+        "overlay_opacity": 0,
         "desktop_height": 600,
         "desktop_align_y": "center",
-        "desktop_align_x": "center",
-        "desktop_text_align": "center",
-        "desktop_flex_align": "center",
+        "desktop_align_x": "flex-start",
+        "desktop_text_align": "left",
+        "desktop_flex_align": "flex-start",
         "mobile_height": 500,
         "mobile_align_y": "center",
         "mobile_align_x": "center",
