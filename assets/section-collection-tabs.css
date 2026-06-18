@@ -764,6 +764,11 @@ border: 0.75px solid #000000;
 }
 
 @media screen and (max-width: 989px) {
+
+  .card-product-tabs__header {
+    flex-direction: column;
+    gap: 0px;
+}
   .collection-tabs__controls-row {
     gap: 16px;
   }
