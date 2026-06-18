@@ -102,7 +102,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "bulk",
+        "quick_add": "standard",
         "badge_position": "top-right",
         "card_radius": 12,
         "show_delivery": true,
