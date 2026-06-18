@@ -1249,7 +1249,7 @@ button.shopify-payment-button__button--unbranded {
   -webkit-appearance: none;
   appearance: none;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
-  
+
   /* Sliding background hover effect */
   background-image: linear-gradient(to right, rgba(var(--color-button), var(--alpha-button-background)) 50%, rgb(var(--color-button-text)) 50%);
   background-size: 200% 100%;
@@ -1257,13 +1257,6 @@ button.shopify-payment-button__button--unbranded {
   transition: box-shadow var(--duration-short) ease, background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.button:not([disabled]):hover,
-.shopify-challenge__button:not([disabled]):hover,
-.customer button:not([disabled]):hover,
-.shopify-payment-button__button--unbranded:not([disabled]):hover {
-  background-position: 100% 0;
-  color: rgb(var(--color-background));
-}
 
 .button:before,
 .shopify-challenge__button:before,
