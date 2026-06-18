@@ -148,30 +148,9 @@
       });
     }
 
-    // ─── SWATCH VARIANT SWITCHING ────────────────────────────────────
-    function bindSwatches() {
-      section.addEventListener('click', function (e) {
-        const swatch = e.target.closest('.card-product-tabs__swatch:not(.card-product-tabs__swatch--more)');
-        if (!swatch) return;
-
-        e.preventDefault();
-        e.stopPropagation();
-
-        const card = swatch.closest('.card-product-tabs');
-        if (!card) return;
-
-        const swatchContainer = swatch.closest('.card-product-tabs__swatches');
-        if (!swatchContainer) return;
-
-        // Update active state
-        swatchContainer.querySelectorAll('.card-product-tabs__swatch').forEach(function (s) {
-          s.classList.remove('is-active');
-          s.setAttribute('aria-selected', 'false');
-        });
-        swatch.classList.add('is-active');
-        swatch.setAttribute('aria-selected', 'true');
-
-        // Read variant data
+    // ─── VARIANT SWITCHING (Swatches & Dropdowns) ────────────────────────────────────
+    function bindVariantSelectors() {
+      function updateCardVariant(card) {
         const jsonScript = card.querySelector('[data-card-variants-json]');
         if (!jsonScript) return;
 
@@ -182,15 +161,36 @@
           return;
         }
 
-        var swatchValue = swatch.getAttribute('data-swatch-value');
-        var optionPosition = parseInt(swatch.getAttribute('data-swatch-option-position'), 10);
-        if (!swatchValue || !optionPosition) return;
+        // Get currently selected swatch
+        const activeSwatch = card.querySelector('.card-product-tabs__swatch.is-active');
+        let swatchValue = null;
+        let swatchOptionIndex = null;
+        if (activeSwatch) {
+          swatchValue = activeSwatch.getAttribute('data-swatch-value');
+          swatchOptionIndex = parseInt(activeSwatch.getAttribute('data-swatch-option-position'), 10) - 1;
+        }
 
-        // Find the first available variant matching this swatch value
-        var optionIndex = optionPosition - 1;
+        // Get currently selected size
+        const sizeSelect = card.querySelector('.card-product-tabs__size-select');
+        let sizeValue = null;
+        let sizeOptionIndex = null;
+        if (sizeSelect) {
+          sizeValue = sizeSelect.value;
+          sizeOptionIndex = parseInt(sizeSelect.getAttribute('data-size-option-position'), 10) - 1;
+        }
+
+        // Find the first available variant matching selected options
         var matchedVariant = null;
         for (var i = 0; i < variants.length; i++) {
-          if (variants[i].options[optionIndex] === swatchValue) {
+          let isMatch = true;
+          if (swatchValue !== null && variants[i].options[swatchOptionIndex] !== swatchValue) {
+            isMatch = false;
+          }
+          if (sizeValue !== null && variants[i].options[sizeOptionIndex] !== sizeValue) {
+            isMatch = false;
+          }
+
+          if (isMatch) {
             if (variants[i].available || !matchedVariant) {
               matchedVariant = variants[i];
               if (variants[i].available) break;
@@ -269,6 +269,42 @@
         var titleLink = card.querySelector('[data-card-title-link]');
         if (mediaLink && variantUrl) mediaLink.setAttribute('href', variantUrl);
         if (titleLink && variantUrl) titleLink.setAttribute('href', variantUrl);
+      }
+
+      // Listen for Swatch clicks
+      section.addEventListener('click', function (e) {
+        const swatch = e.target.closest('.card-product-tabs__swatch:not(.card-product-tabs__swatch--more)');
+        if (!swatch) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = swatch.closest('.card-product-tabs');
+        if (!card) return;
+
+        const swatchContainer = swatch.closest('.card-product-tabs__swatches');
+        if (!swatchContainer) return;
+
+        // Update active state
+        swatchContainer.querySelectorAll('.card-product-tabs__swatch').forEach(function (s) {
+          s.classList.remove('is-active');
+          s.setAttribute('aria-selected', 'false');
+        });
+        swatch.classList.add('is-active');
+        swatch.setAttribute('aria-selected', 'true');
+
+        updateCardVariant(card);
+      });
+
+      // Listen for Dropdown changes
+      section.addEventListener('change', function (e) {
+        const select = e.target.closest('.card-product-tabs__size-select');
+        if (!select) return;
+
+        const card = select.closest('.card-product-tabs');
+        if (!card) return;
+
+        updateCardVariant(card);
       });
     }
 
@@ -433,7 +469,7 @@
     // Initial wiring.
     bindTabs();
     bindArrows();
-    bindSwatches();
+    bindVariantSelectors();
     bindCartButtons();
     updateActions();
 

@@ -292,3 +292,27 @@ if (!customElements.get('cart-note')) {
     }
   );
 }
+
+
+// Ensure cart state persists across browser back/forward navigation (BFCache)
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    const cartDrawerItems = document.querySelector('cart-drawer-items');
+    if (cartDrawerItems && typeof cartDrawerItems.onCartUpdate === 'function') {
+      cartDrawerItems.onCartUpdate();
+    }
+    
+    fetch(${routes.cart_url}?section_id=cart-icon-bubble)
+      .then((response) => response.text())
+      .then((text) => {
+        const html = new DOMParser().parseFromString(text, 'text/html');
+        const sourceBubble = html.getElementById('cart-icon-bubble');
+        const targetBubble = document.getElementById('cart-icon-bubble');
+        if (sourceBubble && targetBubble) {
+          targetBubble.innerHTML = sourceBubble.innerHTML;
+        }
+      })
+      .catch((e) => console.error(e));
+  }
+});
+

@@ -41,13 +41,18 @@
   assign swatch_key = swatch_option | default: 'Color' | downcase
   assign found_option = null
   assign found_option_position = nil
+  assign size_option = null
+  assign size_option_position = nil
   if card_product
     for option in card_product.options_with_values
       assign option_name = option.name | downcase
       if option_name == swatch_key
         assign found_option = option
         assign found_option_position = option.position
-        break
+      endif
+      if option_name == 'size'
+        assign size_option = option
+        assign size_option_position = option.position
       endif
     endfor
   endif
@@ -269,6 +274,18 @@
           {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
         </div>
 
+        {%- if size_option and size_option.values.size > 0 -%}
+          <div class="card-product-tabs__size-dropdown" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+            <select class="card-product-tabs__size-select" data-size-option-position="{{ size_option_position }}" aria-label="Size" style="appearance: none; -webkit-appearance: none; padding: 4px 28px 4px 12px; border: 1px solid #111; border-radius: 20px; font-size: 12px; font-weight: 500; color: #111; background-color: transparent; background-image: url('data:image/svg+xml;utf8,<svg width=\"10\" height=\"6\" viewBox=\"0 0 10 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 1L5 5L9 1\" stroke=\"%23111111\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>'); background-repeat: no-repeat; background-position: right 10px center; cursor: pointer; max-width: 100%; display: inline-block;">
+              {%- for value in size_option.values -%}
+                <option value="{{ value | escape }}" {% if size_option.selected_value == value %}selected{% endif %}>
+                  Size: {{ value | escape }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {%- endif -%}
+
         {%- if show_swatches and found_option and found_option.values.size > 0 -%}
           <div class="card-product-tabs__swatches" role="listbox" aria-label="Color" data-swatch-option-name="{{ found_option.name | escape }}">
             {%- assign swatch_max = swatch_limit | default: 6 -%}
@@ -308,7 +325,7 @@
       </div>
 
       {%- comment -%} Variant JSON data for JavaScript variant switching {%- endcomment -%}
-      {%- if show_swatches and found_option and found_option.values.size > 1 -%}
+      {%- if card_product.variants.size > 1 -%}
         <script type="application/json" data-card-variants-json>
           {%- assign variant_data = '' -%}
           [
