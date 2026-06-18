@@ -110,7 +110,7 @@ function initializeAutoSectionAnimations() {
     // Skip heroes that should be visible instantly
     if (index === 0 || section.hasAttribute('data-priority-hero') || section.closest('[data-priority-hero]')) return;
 
-    if (!section.classList.contains('scroll-trigger') && !section.closest('.header-wrapper')) {
+    if (!section.classList.contains('scroll-trigger') && !section.closest('.header-wrapper') && !section.classList.contains('sticky-add-to-cart')) {
       section.classList.add('scroll-trigger', 'animate--slide-in');
     }
   });
