@@ -298,7 +298,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-items td {
-    vertical-align: top;
+    vertical-align: middle;
     padding-top: 4rem;
   }
 

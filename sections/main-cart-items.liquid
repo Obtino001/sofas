@@ -128,7 +128,7 @@
                         </div>
                       {%- endif -%}
 
-                      <div class="cart-item__price-row" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                      <div class="cart-item__price-row medium-hide large-up-hide" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                         {%- if item.variant.compare_at_price > item.variant.price -%}
                           {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
                           <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
