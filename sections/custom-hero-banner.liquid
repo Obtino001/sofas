@@ -179,7 +179,7 @@
           
           {%- when 'heading' -%}
             <h2 class="custom-hero__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-              {{ block.settings.heading | replace: '<p>', '' | replace: '</p>', '' }}
+              {{ block.settings.heading  }}
             </h2>
             
           {%- when 'text' -%}
@@ -326,9 +326,9 @@
       "limit": 1,
       "settings": [
        {
-          "type": "richtext",
+          "type": "inline_richtext",
           "id": "heading",
-          "default": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
+          "default": "LESS MAINTENANCE. MORE RIDING.",
           "label": "Heading"
        },
         {
@@ -352,7 +352,7 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>",
+          "default": "Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.",
           "label": "Text"
         }
       ]
