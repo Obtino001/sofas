@@ -508,14 +508,6 @@ custom-slider .slider {
   font-size: 12px;
 }
 
-
-
-
-button#CartDrawer-Checkout:hover {
-  color: rgba(var(--color-button), var(--alpha-button-background));
-  background: transparent;
-}
-
 .lx_cartDrawer_upsell h5 {
   font-size: 20px;
   margin: 0;
