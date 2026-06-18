@@ -115,7 +115,13 @@
                         {%- assign rating_count = item.product.metafields.reviews.rating_count | default: 0 -%}
                         <div class="cart-item__rating-stars">
                           {%- assign floor_rating = rating_value | floor -%}
-            
+                          {%- for i in (1..5) -%}
+                            {%- if i <= floor_rating -%}
+                              <span>★</span>
+                            {%- else -%}
+                              <span style="opacity: 0.3;">★</span>
+                            {%- endif -%}
+                          {%- endfor -%}
                           {%- if rating_count > 0 -%}
                             <span class="star-count" style="color: #555; font-size: 13px; margin-left: 2px;">({{ rating_count }})</span>
                           {%- endif -%}
