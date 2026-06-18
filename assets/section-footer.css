@@ -93,11 +93,9 @@
 }
 
 .footer-block__heading {
-  font-family: var(--font-heading-family);
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   margin-bottom: 2.5rem;
 }
 
