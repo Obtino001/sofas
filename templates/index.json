@@ -15,7 +15,7 @@
         "heading_VWVA4z": {
           "type": "heading",
           "settings": {
-            "heading": "Premium sofas without the wait."
+            "heading": ""
           }
         },
         "subheading_DAaYnw": {
@@ -336,7 +336,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "What our <em>customers</em> say",
+        "heading": "",
         "btn_text": "View All",
         "btn_link": "",
         "padding_top": 60,
@@ -416,7 +416,7 @@
         "heading_By7mTe": {
           "type": "heading",
           "settings": {
-            "heading": "Comfort now, Pay later.",
+            "heading": "",
             "heading_size": "h0"
           }
         },
@@ -588,7 +588,7 @@
       ],
       "name": "Why Choose Us",
       "settings": {
-        "heading": "Why <em>choose</em> Sofas'n'Beds",
+        "heading": "",
         "main_image": "shopify://shop_images/ad487d42e8cd67ba6fb4b4fe1213f247a54ee448_1.png",
         "color_scheme": "",
         "padding_top": 60,
@@ -601,7 +601,7 @@
         "heading_VhkQGh": {
           "type": "heading",
           "settings": {
-            "heading": "Comfort now, Pay later.",
+            "heading": "",
             "heading_size": "h1"
           }
         },
@@ -685,7 +685,7 @@
       ],
       "name": "Engineered Sleep Design",
       "settings": {
-        "heading": "Engineered for <em>deeper</em>, better <em>sleep</em>",
+        "heading": "",
         "main_image": "shopify://shop_images/c87f67ed7d454f2d3ec3c3ec5f6fc1730b7d0743.png",
         "background_image": "shopify://shop_images/Group_1413372214.svg",
         "color_scheme": "",
@@ -773,7 +773,7 @@
       "name": "Custom Newsletter Banner",
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "Sign up & get an <em>additional</em> 10% off now!",
+        "heading": "",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
         "button_text": "Get 10% off",
@@ -1043,3 +1043,4 @@
     "instagram_gallery_itHmBn"
   ]
 }
+

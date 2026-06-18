@@ -23,7 +23,7 @@
         "heading_UiBang": {
           "type": "heading",
           "settings": {
-            "heading": "How it works",
+            "heading": "",
             "heading_size": "h1"
           }
         }
@@ -67,7 +67,7 @@
         "heading_Gmz3aA": {
           "type": "heading",
           "settings": {
-            "heading": "What are period panties?",
+            "heading": "",
             "heading_size": "h1"
           }
         },
@@ -106,7 +106,7 @@
         "heading_Qw9AHy": {
           "type": "heading",
           "settings": {
-            "heading": "How our period pants work",
+            "heading": "",
             "heading_size": "h1"
           }
         },
@@ -139,7 +139,7 @@
           "name": "Icon with text",
           "settings": {
             "color_scheme": "",
-            "heading": "1. The top layer – stays dry",
+            "heading": "",
             "heading_size": "h4",
             "text": "<p>The inner layer quickly pulls liquid away from your skin, so you feel dry and comfortable throughout the day.</p>",
             "custom_icon_image": "shopify://shop_images/Group_1413372230.svg",
@@ -155,7 +155,7 @@
           "name": "Icon with text",
           "settings": {
             "color_scheme": "",
-            "heading": "2. The absorbent core – locks in flow",
+            "heading": "",
             "heading_size": "h4",
             "text": "<p>The middle layers absorb menstrual flow and hold it safely inside, just like a pad or tampon — without bulk.</p>",
             "custom_icon_image": "shopify://shop_images/Group_1413372231.svg",
@@ -171,7 +171,7 @@
           "name": "Icon with text",
           "settings": {
             "color_scheme": "",
-            "heading": "3. The leak-proof barrier – prevents leaks",
+            "heading": "",
             "heading_size": "h4",
             "text": "<p>A thin, breathable barrier stops liquid from leaking through, protecting your clothes day and night.</p>",
             "custom_icon_image": "shopify://shop_images/Group_1413372232.svg",
@@ -187,7 +187,7 @@
           "name": "Icon with text",
           "settings": {
             "color_scheme": "",
-            "heading": "4. The outer layer – looks like normal underwear",
+            "heading": "",
             "heading_size": "h4",
             "text": "<p>From the outside, period panties look and feel just like everyday underwear — no one can tell the difference.</p>",
             "custom_icon_image": "shopify://shop_images/Group_1413372232.svg",
@@ -391,7 +391,7 @@
         "color_scheme": "",
         "card_color_scheme": "scheme-3",
         "accent_color": "#F5F2ED",
-        "heading": "How to wash our period pants",
+        "heading": "",
         "note_text": "!Note: Please do not use fabric softener, bleach or any chemical as they can clog the absorbent layers when used regularly and reduce absorbency.",
         "padding_top": 0,
         "padding_bottom": 60
@@ -423,7 +423,7 @@
         "heading_pfkgD6": {
           "type": "heading",
           "settings": {
-            "heading": "Design, production, and testing of Sereluna period panties",
+            "heading": "",
             "heading_size": "h1"
           }
         },
@@ -561,7 +561,7 @@
         "seen_in_text": "As seen in",
         "seen_in_logos": "shopify://shop_images/image_2.png",
         "seen_in_logos_2": "shopify://shop_images/vg-no-logo-vector_1.png",
-        "heading": "What our customers say",
+        "heading": "",
         "subheading": "<p>Rated 4.8 out of 5 Stars (466 Reviews) on</p>",
         "rating_logo": "shopify://shop_images/3ae3b0124412cc868b2c6cca19b191d2e858b626.png",
         "btn_text": "View All",
@@ -695,7 +695,7 @@
       "name": "FAQ with Images",
       "settings": {
         "color_scheme": "",
-        "heading": "Frequently asked questions",
+        "heading": "",
         "accordion_bg": "#2B2B2B",
         "accordion_text": "#ffffff",
         "image_l1": "shopify://shop_images/14baa852027472691b3fce8f880e4cfbb3c6c4f0.jpg",
@@ -723,3 +723,4 @@
     "faq_with_images_9bEYkm"
   ]
 }
+

@@ -25,7 +25,7 @@
           "settings": {
             "insert_after": 8,
             "color_scheme": "scheme-1",
-            "heading": "14 Days no question returns",
+            "heading": "",
             "text": "Enjoy complete peace of mind with our 14-day no-questions-asked return policy.",
             "feature_1": "",
             "feature_2": "",
@@ -121,7 +121,7 @@
       "name": "Custom Newsletter Banner",
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "Sign up & get an <em>additional</em> 10% off now!",
+        "heading": "",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
         "button_text": "Get 10% off",
@@ -440,3 +440,4 @@
     "instagram_gallery_itHmBn"
   ]
 }
+

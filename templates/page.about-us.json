@@ -23,7 +23,7 @@
         "heading_mNzMzM": {
           "type": "heading",
           "settings": {
-            "heading": "About Us"
+            "heading": ""
           }
         }
       },
@@ -85,7 +85,7 @@
         "color_scheme": "",
         "image": "shopify://shop_images/Rectangle_237.png",
         "decorator_color": "#e7e1d8",
-        "heading": "What we offer",
+        "heading": "",
         "heading_size": "h1",
         "text": "<p>We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function.</p>",
         "padding_top": 60,
@@ -250,7 +250,7 @@
       "settings": {
         "color_scheme": "",
         "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "What our customers say",
+        "heading": "",
         "btn_text": "View All",
         "btn_link": "",
         "padding_top": 60,
@@ -327,7 +327,7 @@
       "name": "Custom Newsletter Banner",
       "settings": {
         "color_scheme": "scheme-2b94d528-39a1-47d5-b412-16caf9d9759b",
-        "heading": "Sign up & get an <em>additional</em> 10% off now!",
+        "heading": "",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
         "button_text": "Get 10% off",
@@ -599,3 +599,4 @@
     "instagram_gallery_itHmBn"
   ]
 }
+
