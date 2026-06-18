@@ -595,6 +595,63 @@
         "padding_bottom": 60
       }
     },
+    "call_to_action_banner_eNWgzx": {
+      "type": "call-to-action-banner",
+      "blocks": {
+        "icon_xReFqw": {
+          "type": "icon",
+          "settings": {
+            "custom_svg": "",
+            "icon_width": 64,
+            "margin_bottom": 10
+          }
+        },
+        "heading_pBAP7i": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
+            "heading_size": "h1"
+          }
+        },
+        "text_ke3JnU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+            "text_size": "h3"
+          }
+        },
+        "button_pill_ieWBAT": {
+          "type": "button_pill",
+          "settings": {
+            "button_label": "EXPLORE ACCESSORIES",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_xReFqw",
+        "heading_pBAP7i",
+        "text_ke3JnU",
+        "button_pill_ieWBAT"
+      ],
+      "name": "Overlay Banner (Blocks)",
+      "settings": {
+        "color_scheme": "",
+        "overlay_opacity": 40,
+        "desktop_height": 600,
+        "desktop_align_y": "center",
+        "desktop_align_x": "center",
+        "desktop_text_align": "center",
+        "desktop_flex_align": "center",
+        "mobile_height": 500,
+        "mobile_align_y": "center",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "engineered_sleep_9WxnH9": {
       "type": "engineered-sleep",
       "blocks": {
@@ -988,6 +1045,7 @@
     "custom_hero_banner_EpqzyB",
     "collections_tabs_G8NWUM",
     "why_choose_us_kQm6Yp",
+    "call_to_action_banner_eNWgzx",
     "engineered_sleep_9WxnH9",
     "collections_tabs_M9VpAE",
     "newsletter_pPWpWW",
