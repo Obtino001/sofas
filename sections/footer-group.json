@@ -59,28 +59,28 @@
         "link_list_1": {
           "type": "link_list",
           "settings": {
-            "heading": "",
+            "heading": "Customer Service",
             "menu": "customer-service"
           }
         },
         "link_list_2": {
           "type": "link_list",
           "settings": {
-            "heading": "",
+            "heading": "shop",
             "menu": "shop-menu"
           }
         },
         "link_list_3": {
           "type": "link_list",
           "settings": {
-            "heading": "",
+            "heading": "information",
             "menu": "footer"
           }
         },
         "newsletter_Ueb4ww": {
           "type": "newsletter",
           "settings": {
-            "heading": "",
+            "heading": "GET ADDITIONAL 10% OFF",
             "description": "<p>Be the first to hear about new arrivals, exclusive offers, and home inspiration.</p>",
             "button_text": "Get 10% off"
           }
