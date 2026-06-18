@@ -211,7 +211,7 @@
   <div class="engineered-wrapper">
     
     {%- if section.settings.heading != blank -%}
-      <h2 class="engineered-heading">{{ section.settings.heading }}</h2>
+      <h2 class="engineered-heading">{{ section.settings.heading | replace: '<p>', '' | replace: '</p>', '' }}</h2>
     {%- endif -%}
 
     <div class="engineered-layout">
@@ -313,10 +313,10 @@
   "class": "section",
   "settings": [
     {
-      "type": "inline_richtext",
+      "type": "richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "Engineered for <em>deeper</em>, better <em>sleep</em>",
+      "default": "<p>Engineered for <em>deeper</em>, better <em>sleep</em></p>",
       "info": "Use italic text (Ctrl+I) to apply the elegant serif font style."
     },
     {
