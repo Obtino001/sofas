@@ -848,7 +848,7 @@
   });
 </script>
 
-<div id="StickyAddToCart" class="sticky-add-to-cart" style="display: none;">
+<div id="StickyAddToCart" class="sticky-add-to-cart">
   <div class="sticky-add-to-cart__inner">
     <button type="button" class="sticky-add-to-cart__button" onclick="document.querySelector('.product-form__submit').click();">
       Add To Cart — <span id="StickyPrice">{{ product.price | money }}</span>
@@ -983,14 +983,11 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
   const stickyBar = document.getElementById('StickyAddToCart');
-  const mainAddToCart = document.querySelector('.product-form__submit');
+  const mainAddToCart = document.querySelector('#ProductInfo-{{ section.id }} .product-form__submit');
   
   if (!stickyBar || !mainAddToCart) return;
-  
-  // Make sure it's block so we can animate it
-  stickyBar.style.display = 'block';
 
   // Intersection Observer for the sticky bar visibility
   const observer = new IntersectionObserver((entries) => {
@@ -1033,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(updateStickyTimer, 1000);
     updateStickyTimer();
   }
-});
+})();
 </script>
 
 {% schema %}

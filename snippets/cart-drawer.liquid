@@ -341,10 +341,7 @@
               </div>
             {%- endif -%}
 
-    
-          {%- endif -%}
-        </cart-drawer-items>
-                {% comment %} Custom trust badges box {% endcomment %}
+            {% comment %} Custom trust badges box {% endcomment %}
             <div class="cart-drawer__trust-badges">
               <div class="trust-badge__item">
                 <div class="trust-badge__icon">
@@ -376,6 +373,9 @@
                 </div>
               </div>
             </div>
+          {%- endif -%}
+        </cart-drawer-items>
+        
         <div class="drawer__footer">
           {%- if cart != empty -%}
             <div class="cart-drawer__footer-shipping">
