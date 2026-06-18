@@ -445,7 +445,9 @@
         "full_width": true,
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "color_scheme_mobile": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe_2.png",
+        "overlay_background": "linear-gradient(270deg, rgba(0, 0, 0, 0) 24.03%, rgba(0, 0, 0, 0.35) 80.49%)",
+        "enable_blur": true,
+        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
         "mobile_image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_1.png",
         "desktop_height": 480,
         "desktop_align_y": "center",
@@ -457,8 +459,8 @@
         "mobile_align_x": "center",
         "mobile_text_align": "center",
         "mobile_flex_align": "center",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "collections_tabs_G8NWUM": {
@@ -635,6 +637,8 @@
         "full_width": false,
         "color_scheme": "",
         "color_scheme_mobile": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "overlay_background": "linear-gradient(270deg, rgba(0, 0, 0, 0) 24.03%, rgba(0, 0, 0, 0.35) 80.49%)",
+        "enable_blur": false,
         "image": "shopify://shop_images/7066bbe281217b279f15e84d97da38fa04794cb6.png",
         "mobile_image": "shopify://shop_images/5a06ead1bc5faa12efbfb4eabaa34220c8ae3659.png",
         "desktop_height": 480,
