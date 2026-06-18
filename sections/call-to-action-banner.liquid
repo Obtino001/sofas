@@ -1,82 +1,96 @@
 {%- style -%}
-.section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
-@media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
-.custom-hero-{{ section.id }} { position: relative; display: flex; min-height: {{ section.settings.mobile_height }}px; align-items: {{ section.settings.mobile_align_y }}; justify-content: {{ section.settings.mobile_align_x }}; }
-@media screen and (min-width: 750px) { .custom-hero-{{ section.id }} { min-height: {{ section.settings.desktop_height }}px; align-items: {{ section.settings.desktop_align_y }}; justify-content: {{ section.settings.desktop_align_x }}; } }
-.custom-hero-{{ section.id }} .hero-background-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-.custom-hero-{{ section.id }} .hero-overlay { position: absolute; inset: 0; background-color: rgb(var(--color-background)); opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; z-index: 2; }
-.custom-hero-{{ section.id }} .hero-content-wrapper { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1.5rem; width: 100%; color: rgb(var(--color-foreground)); text-align: {{ section.settings.mobile_text_align }}; align-items: {{ section.settings.mobile_flex_align }}; }
-@media screen and (min-width: 750px) { .custom-hero-{{ section.id }} .hero-content-wrapper { text-align: {{ section.settings.desktop_text_align }}; align-items: {{ section.settings.desktop_flex_align }}; } }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
 
-@media screen and (max-width: 750px) {
-  .custom-hero-{{ section.id }} .hero-background-image { object-position: 70% 100%; }
-}
-{%- endstyle -%}
-<div class="custom-hero-{{ section.id }} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient page-width">
-  {%- if section.settings.image != blank -%}
-    {{
-      section.settings.image
-      | image_url: width: 3840
-      | image_tag:
-        loading: 'lazy',
-        class: 'hero-background-image',
-        sizes: '100vw',
-        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-    }}
-  {%- endif -%}
+  /* Main Card Container */
+  .custom-hero-{{ section.id }} {
+    position: relative;
+    display: flex;
+    min-height: {{ section.settings.mobile_height }}px;
+    align-items: {{ section.settings.mobile_align_y }};
+    justify-content: {{ section.settings.mobile_align_x }};
+    border-radius: 15px; /* Added rounded corners */
+    overflow: hidden;    /* Keeps image inside rounded corners */
+  }
 
-  <div class="hero-overlay"> </div>
+  @media screen and (min-width: 750px) {
+    .custom-hero-{{ section.id }} {
+      min-height: {{ section.settings.desktop_height }}px;
+      align-items: {{ section.settings.desktop_align_y }};
+      justify-content: {{ section.settings.desktop_align_x }};
+    }
+  }
 
-  <div class="hero-content-wrapper page-width">
-    {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        
-        {%- when 'icon' -%}
-          <div class="hero-block-icon" {{ block.shopify_attributes }} style="--icon-width: {{ block.settings.icon_width }}px; margin-bottom: {{ block.settings.margin_bottom }}px;">
-            {%- if block.settings.custom_svg != blank -%}
-              <div class="icon-svg-wrapper">
-                {{ block.settings.custom_svg }}
-              </div>
-            {%- elsif block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: block.settings.icon_width }}" alt="Icon" loading="lazy">
-            {%- else -%}
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-wrapper">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
-            {%- endif -%}
-          </div>
+  .custom-hero-{{ section.id }} .hero-background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
 
-        {%- when 'heading' -%}
-          <h2 class="hero-block-heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-            {{ block.settings.heading }}
-          </h2>
+  @media screen and (max-width: 750px) {
+    .custom-hero-{{ section.id }} .hero-background-image {
+      object-position: 70% 100%;
+    }
+  }
 
-        {%- when 'text' -%}
-          <div class="hero-block-text {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
-            {{ block.settings.text }}
-          </div>
+  /* Progressive Blur & Gradient Overlay */
+  .custom-hero-{{ section.id }} .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* Fades from solid background color to transparent */
+    background: linear-gradient(to right, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0.8) 45%, rgba(var(--color-background), 0) 75%);
+    /* Applies the frosted glass blur */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    /* Masks the blur so it smoothly fades out with the gradient */
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 45%, transparent 75%);
+    mask-image: linear-gradient(to right, black 0%, black 45%, transparent 75%);
+  }
 
-        {%- when 'button' -%}
-          {%- if block.settings.button_label != blank -%}
-            <a href="{{ block.settings.button_link }}" class="button button--primary hero-block-button" {{ block.shopify_attributes }}>
-              {{ block.settings.button_label | escape }}
-            </a>
-          {%- endif -%}
+  /* Adjust overlay for mobile reading */
+  @media screen and (max-width: 749px) {
+    .custom-hero-{{ section.id }} .hero-overlay {
+      background: linear-gradient(to bottom, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0.8) 50%, rgba(var(--color-background), 0) 90%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
+      mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
+    }
+  }
 
-        {%- when 'button_pill' -%}
-          {%- if block.settings.button_label != blank -%}
-            <a href="{{ block.settings.button_link }}" class="button button-primary" {{ block.shopify_attributes }}>
-              {{ block.settings.button_label | escape }}
-            </a>
-          {%- endif -%}
+  /* Content Wrapper */
+  .custom-hero-{{ section.id }} .hero-content-wrapper {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 650px; /* Constrain text to the blurred area */
+    color: rgb(var(--color-foreground));
+    text-align: {{ section.settings.mobile_text_align }};
+    align-items: {{ section.settings.mobile_flex_align }};
+    padding: 3rem 2rem;
+  }
 
-      {%- endcase -%}
-    {%- endfor -%}
-  </div>
-</div>
+  @media screen and (min-width: 750px) {
+    .custom-hero-{{ section.id }} .hero-content-wrapper {
+      text-align: {{ section.settings.desktop_text_align }};
+      align-items: {{ section.settings.desktop_flex_align }};
+      padding: 5rem 6rem;
+    }
+  }
 
-<style>
   /* Base Scoped Styles */
   .hero-block-icon {
     display: flex;
@@ -84,7 +98,7 @@
     align-items: center;
   }
   .hero-content-wrapper * {
-    margin: 0
+    margin: 0;
   }
   .hero-block-icon .icon-svg-wrapper,
   .hero-block-icon img {
@@ -96,13 +110,15 @@
   .hero-block-icon .icon-svg-wrapper svg {
     width: 100%;
     height: auto;
-    /* Inherits text color of the scheme */
     fill: currentColor;
     stroke: currentColor;
   }
+  .hero-block-heading em, .hero-block-heading i {
+    font-family: "Georgia", "Times New Roman", serif; 
+    font-style: italic;
+  }
   .hero-block-text {
     line-height: 1.6;
-    max-width: 650px;
     font-weight: 400;
     color: inherit;
   }
@@ -113,7 +129,86 @@
     margin-top: 1rem;
     min-width: 200px;
   }
-</style>
+  .hero-block-button-pill {
+    border-radius: 50px !important;
+    background-color: #C19A6B !important; /* Soft Tan/Gold */
+    color: #FFFFFF !important;
+    border: none !important;
+    margin-top: 1rem;
+    min-width: 200px;
+  }
+  .hero-block-button-pill:hover {
+    background-color: #a8855a !important;
+  }
+{%- endstyle -%}
+
+<!-- We put page-width ON THE OUTSIDE so the banner has edges -->
+<div class="section-{{ section.id }}-padding page-width">
+  <div class="custom-hero-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+    
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          loading: 'lazy',
+          class: 'hero-background-image',
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+      }}
+    {%- endif -%}
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content-wrapper">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          
+          {%- when 'icon' -%}
+            <div class="hero-block-icon" {{ block.shopify_attributes }} style="--icon-width: {{ block.settings.icon_width }}px; margin-bottom: {{ block.settings.margin_bottom }}px;">
+              {%- if block.settings.custom_svg != blank -%}
+                <div class="icon-svg-wrapper">
+                  {{ block.settings.custom_svg }}
+                </div>
+              {%- elsif block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: block.settings.icon_width }}" alt="Icon" loading="lazy">
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-wrapper">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              {%- endif -%}
+            </div>
+
+          {%- when 'heading' -%}
+            <h2 class="hero-block-heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+              {{ block.settings.heading }}
+            </h2>
+
+          {%- when 'text' -%}
+            <div class="hero-block-text {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+
+          {%- when 'button' -%}
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link }}" class="button button--primary hero-block-button" {{ block.shopify_attributes }}>
+                {{ block.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+
+          {%- when 'button_pill' -%}
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link }}" class="button hero-block-button-pill" {{ block.shopify_attributes }}>
+                {{ block.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
@@ -133,17 +228,6 @@
       "label": "Background Image"
     },
     {
-      "type": "range",
-      "id": "overlay_opacity",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Overlay Opacity",
-      "info": "Uses the background color from your chosen Color Scheme.",
-      "default": 40
-    },
-    {
       "type": "header",
       "content": "Desktop Layout"
     },
@@ -155,7 +239,7 @@
       "step": 20,
       "unit": "px",
       "label": "Desktop Height",
-      "default": 600
+      "default": 480
     },
     {
       "type": "select",
@@ -177,7 +261,7 @@
         { "value": "center", "label": "Center" },
         { "value": "flex-end", "label": "Right" }
       ],
-      "default": "center"
+      "default": "flex-start"
     },
     {
       "type": "select",
@@ -188,7 +272,7 @@
         { "value": "center", "label": "Center" },
         { "value": "right", "label": "Right" }
       ],
-      "default": "center"
+      "default": "left"
     },
     {
       "type": "select",
@@ -200,7 +284,7 @@
         { "value": "center", "label": "Center" },
         { "value": "flex-end", "label": "Right" }
       ],
-      "default": "center"
+      "default": "flex-start"
     },
     {
       "type": "header",
@@ -214,7 +298,7 @@
       "step": 20,
       "unit": "px",
       "label": "Mobile Height",
-      "default": 500
+      "default": 400
     },
     {
       "type": "select",
@@ -273,7 +357,7 @@
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
-      "default": 0
+      "default": 36
     },
     {
       "type": "range",
@@ -283,7 +367,7 @@
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
-      "default": 0
+      "default": 36
     }
   ],
   "blocks": [
@@ -331,9 +415,9 @@
       "limit": 1,
       "settings": [
         {
-          "type": "richtext",
+          "type": "inline_richtext",
           "id": "heading",
-          "default": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
+          "default": "Sleep <em>bigger</em>. Sleep <em>better</em>.",
           "label": "Heading"
         },
         {
@@ -345,7 +429,7 @@
             { "value": "h0", "label": "Large" },
             { "value": "hxl", "label": "Extra large" }
           ],
-          "default": "h1",
+          "default": "h0",
           "label": "Heading Size"
         }
       ]
@@ -358,7 +442,7 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+          "default": "<p>Upgrade your bedroom with spacious king size beds designed for ultimate comfort and everyday luxury.</p>",
           "label": "Description"
         },
         {
@@ -369,7 +453,7 @@
             { "value": "h3", "label": "Medium" },
             { "value": "h2", "label": "Large" }
           ],
-          "default": "h3",
+          "default": "text-body",
           "label": "Text Size"
         }
       ]
@@ -400,7 +484,7 @@
         {
           "type": "text",
           "id": "button_label",
-          "default": "EXPLORE ACCESSORIES",
+          "default": "Explore collection →",
           "label": "Button Label"
         },
         {
@@ -415,9 +499,6 @@
     {
       "name": "Overlay Banner (Blocks)",
       "blocks": [
-        {
-          "type": "icon"
-        },
         {
           "type": "heading"
         },
