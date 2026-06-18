@@ -62,7 +62,6 @@
   font-size: 1.6rem;
   font-weight: 700;
   margin: 0 0 0.8rem 0;
-  letter-spacing: 0.5px;
 }
 
 .footer-feature-subtext p {
@@ -93,7 +92,7 @@
 }
 
 .footer-block__heading {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
@@ -196,7 +195,6 @@
   font-size: 1.3rem !important;
   font-weight: 600 !important;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
   cursor: pointer;
   transition: opacity 0.2s ease;
   display: flex;
