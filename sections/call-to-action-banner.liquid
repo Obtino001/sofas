@@ -38,9 +38,20 @@
     z-index: 1;
   }
 
-  @media screen and (max-width: 750px) {
+  /* Mobile vs Desktop Image Display Logic */
+  .custom-hero-{{ section.id }} .hero-background-image--mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
     .custom-hero-{{ section.id }} .hero-background-image {
       object-position: 70% 100%;
+    }
+    .custom-hero-{{ section.id }} .hero-background-image--desktop-only {
+      display: none;
+    }
+    .custom-hero-{{ section.id }} .hero-background-image--mobile {
+      display: block;
     }
   }
 
@@ -143,14 +154,32 @@
   <div class="custom-hero-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
     
     {%- if section.settings.image != blank -%}
+      {%- liquid
+        assign desktop_image_class = 'hero-background-image'
+        if section.settings.mobile_image != blank
+          assign desktop_image_class = desktop_image_class | append: ' hero-background-image--desktop-only'
+        endif
+      -%}
       {{
         section.settings.image
         | image_url: width: 3840
         | image_tag:
           loading: 'lazy',
-          class: 'hero-background-image',
+          class: desktop_image_class,
           sizes: '100vw',
           widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+      }}
+    {%- endif -%}
+
+    {%- if section.settings.mobile_image != blank -%}
+      {{
+        section.settings.mobile_image
+        | image_url: width: 1100
+        | image_tag:
+          loading: 'lazy',
+          class: 'hero-background-image hero-background-image--mobile',
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100'
       }}
     {%- endif -%}
 
@@ -221,7 +250,13 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image"
+      "label": "Background Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Background Image (Mobile)",
+      "info": "Optional. Overrides the desktop image on smaller screens."
     },
     {
       "type": "header",
