@@ -183,7 +183,7 @@ letter-spacing: 0%;
 
           {%- when 'heading' -%}
             <h2 class="banner-heading" {{ block.shopify_attributes }}>
-              {{ block.settings.heading }}
+              {{ block.settings.heading | newline_to_br }}
             </h2>
 
           {%- when 'subheading' -%}
