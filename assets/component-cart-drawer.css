@@ -1606,3 +1606,7 @@ cart-drawer-items {
     display: none !important;
   }
 }
+
+.cart-item__rating-stars span {
+    color: #108474 ;
+}
