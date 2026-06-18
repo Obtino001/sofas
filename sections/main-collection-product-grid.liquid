@@ -345,7 +345,7 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                     {% render 'card-product',
+                  {% render 'card-product-tabs',
                             card_product: product,
                             section_id: section.id,
                             media_aspect_ratio: section.settings.image_ratio,
