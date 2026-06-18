@@ -175,7 +175,6 @@ variant-selects {
   cursor: pointer;
   border: 1.5px solid rgba(var(--color-foreground), 0.15);
   margin: 0.7rem 0.8rem 0.2rem 0;
-  padding: 4px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   flex-shrink: 0;
