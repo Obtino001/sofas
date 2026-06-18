@@ -601,21 +601,21 @@
         "heading_pBAP7i": {
           "type": "heading",
           "settings": {
-            "heading": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
+            "heading": "<p>Sleep bigger. Sleep better.</p>",
             "heading_size": "h1"
           }
         },
         "text_ke3JnU": {
           "type": "text",
           "settings": {
-            "text": "<p>Thanks to the carbon belt drive, you get a cleaner, quieter, and more durable alternative to traditional chains — with minimal upkeep required.</p>",
+            "text": "<p>Upgrade your bedroom with spacious king size beds designed for ultimate comfort and everyday luxury.</p>",
             "text_size": "h3"
           }
         },
         "button_pill_ieWBAT": {
           "type": "button_pill",
           "settings": {
-            "button_label": "EXPLORE ACCESSORIES",
+            "button_label": "Explore collection →",
             "button_link": ""
           }
         }
@@ -627,7 +627,7 @@
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
-        "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "color_scheme": "scheme-1",
         "image": "shopify://shop_images/7066bbe281217b279f15e84d97da38fa04794cb6.png",
         "overlay_opacity": 0,
         "desktop_height": 600,
