@@ -26,28 +26,28 @@
         "feature_item_JVME8Y": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/Vector_33.svg",
+            "image": "shopify://shop_images/Group_22_3.svg",
             "icon": "check_mark",
-            "title": "Made in the UK",
-            "subtext": "<p>Quality craftsmanship you can trust</p>"
+            "title": "Fast 7–10 Day Delivery",
+            "subtext": "<p>No long waits—delivered across the UK</p>"
           }
         },
         "feature_item_RcJNYp": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/Vector_33.svg",
+            "image": "shopify://shop_images/Group_3.svg",
             "icon": "check_mark",
-            "title": "Made in the UK",
-            "subtext": "<p>Quality craftsmanship you can trust</p>"
+            "title": "Interest-Free Payments",
+            "subtext": "<p>Flexible options to suit your budget</p>"
           }
         },
         "feature_item_hE3pnF": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/Vector_33.svg",
+            "image": "shopify://shop_images/Group_2.svg",
             "icon": "check_mark",
-            "title": "Made in the UK",
-            "subtext": "<p>Quality craftsmanship you can trust</p>"
+            "title": "14-Day Risk-Free Returns",
+            "subtext": "<p>Shop with confidence, no questions asked</p>"
           }
         },
         "brand_information_FR88yf": {
@@ -116,4 +116,3 @@
     "footer"
   ]
 }
-
