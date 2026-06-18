@@ -1234,7 +1234,6 @@ cart-drawer-items {
 .cart-drawer .cart-item__rating-stars {
   display: flex;
   align-items: center;
-  gap: 4px;
 }
 
 .cart-drawer .star-rating {
