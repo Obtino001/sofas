@@ -128,17 +128,7 @@
                         </div>
                       {%- endif -%}
 
-                      <div class="cart-item__price-row medium-hide large-up-hide" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                        {%- if item.variant.compare_at_price > item.variant.price -%}
-                          {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
-                          <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
-                          <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
-                          {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
-                          <span class="price-discount-badge" style="background: #2B2B2B; color: #FFFFFF; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px;">{{ savings }}% OFF</span>
-                        {%- else -%}
-                          <span class="price price--normal" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
-                        {%- endif -%}
-                      </div>
+
 
                       {%- if item.product.has_only_default_variant == false
                         or item.properties.size != 0

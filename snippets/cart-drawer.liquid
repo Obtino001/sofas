@@ -242,7 +242,23 @@
                             <a href="{{ item.url }}" class="cart-item__name full-unstyled-link">
                               {{- item.product.title | escape -}}
                             </a>
-    
+                            {%- if item.product.metafields.reviews.rating.value != blank -%}
+                              {%- assign rating_value = item.product.metafields.reviews.rating.value.rating | default: item.product.metafields.reviews.rating.value -%}
+                              {%- assign rating_count = item.product.metafields.reviews.rating_count | default: 0 -%}
+                              <div class="cart-item__rating-stars" style="margin-bottom: 8px; display: flex; align-items: center; gap: 4px; color: #008060; font-size: 14px;">
+                                {%- assign floor_rating = rating_value | floor -%}
+                                {%- for i in (1..5) -%}
+                                  {%- if i <= floor_rating -%}
+                                    <span>★</span>
+                                  {%- else -%}
+                                    <span style="opacity: 0.3;">★</span>
+                                  {%- endif -%}
+                                {%- endfor -%}
+                                {%- if rating_count > 0 -%}
+                                  <span class="star-count" style="color: #555; font-size: 13px; margin-left: 2px;">({{ rating_count }})</span>
+                                {%- endif -%}
+                              </div>
+                            {%- endif -%}
 
                             <div class="cart-item__price-row">
                               {%- if item.variant.compare_at_price > item.variant.price -%}
