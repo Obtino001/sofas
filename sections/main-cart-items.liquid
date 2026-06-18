@@ -110,28 +110,6 @@
 
                       <a href="{{ item.url }}" class="cart-item__name  break">{{ item.product.title | escape }}</a>
 
-<<<<<<< Updated upstream
-                      {%- if item.original_price != item.final_price -%}
-                        <div class="cart-item__discounted-prices">
-                          <span class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                          </span>
-                          <s class="cart-item__old-price product-option">
-                            {{- item.original_price | money -}}
-                          </s>
-                          <span class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                          </span>
-                          <strong class="cart-item__final-price product-option">
-                            {{ item.final_price | money }}
-                          </strong>
-                        </div>
-                      {%- else -%}
-                        <div class="product-option">
-                          {{ item.original_price | money }}
-                        </div>
-                      {%- endif -%}
-=======
                       {%- if item.product.metafields.reviews.rating.value != blank -%}
                         {%- assign rating_value = item.product.metafields.reviews.rating.value.rating | default: item.product.metafields.reviews.rating.value -%}
                         {%- assign rating_count = item.product.metafields.reviews.rating_count | default: 0 -%}
@@ -161,7 +139,6 @@
                           <span class="price price--normal" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
                         {%- endif -%}
                       </div>
->>>>>>> Stashed changes
 
                       {%- if item.product.has_only_default_variant == false
                         or item.properties.size != 0
@@ -211,26 +188,6 @@
 
                     <td class="cart-item__totals right medium-hide large-up-hide">
                       {%- render 'loading-spinner' -%}
-<<<<<<< Updated upstream
-                      <div class="cart-item__price-wrapper">
-                        {%- if item.original_line_price != item.final_line_price -%}
-                          <dl class="cart-item__discounted-prices">
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.regular_price' | t }}
-                            </dt>
-                            <dd>
-                              <s class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
-                              </s>
-                            </dd>
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.sale_price' | t }}
-                            </dt>
-                            <dd class="price price--end">
-                              {{ item.final_line_price | money }}
-                            </dd>
-                          </dl>
-=======
                       <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
                         {%- if item.variant.compare_at_price > item.variant.price -%}
                           {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
@@ -238,7 +195,6 @@
                           <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
                           {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
                           <span class="price-discount-badge" style="background: #2B2B2B; color: #FFFFFF; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px;">{{ savings }}% OFF</span>
->>>>>>> Stashed changes
                         {%- else -%}
                           <span class="price price--end">
                             {{ item.original_line_price | money }}
@@ -448,26 +404,6 @@
 
                     <td class="cart-item__totals right small-hide">
                       {%- render 'loading-spinner' -%}
-<<<<<<< Updated upstream
-                      <div class="cart-item__price-wrapper">
-                        {%- if item.original_line_price != item.final_line_price -%}
-                          <dl class="cart-item__discounted-prices">
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.regular_price' | t }}
-                            </dt>
-                            <dd>
-                              <s class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
-                              </s>
-                            </dd>
-                            <dt class="visually-hidden">
-                              {{ 'products.product.price.sale_price' | t }}
-                            </dt>
-                            <dd class="price price--end">
-                              {{ item.final_line_price | money }}
-                            </dd>
-                          </dl>
-=======
                       <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
                         {%- if item.variant.compare_at_price > item.variant.price -%}
                           {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
@@ -475,7 +411,6 @@
                           <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
                           {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
                           <span class="price-discount-badge" style="background: #2B2B2B; color: #FFFFFF; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px;">{{ savings }}% OFF</span>
->>>>>>> Stashed changes
                         {%- else -%}
                           <span class="price price--end">
                             {{ item.original_line_price | money }}

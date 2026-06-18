@@ -313,7 +313,13 @@
 
           {%- if cart != empty -%}
             {% comment %} Inline complete your set upsells {% endcomment %}
-            {%- assign upsell_products = cart.items.first.product.metafields.complementary_products.value -%}
+            {%- assign upsell_products = cart.items.first.product.metafields.custom.complementary_products.value -%}
+            {%- if upsell_products == blank -%}
+              {%- assign upsell_products = cart.items.first.product.metafields.complementary_products.value -%}
+            {%- endif -%}
+            {%- if upsell_products == blank -%}
+              {%- assign upsell_products = cart.items.first.product.metafields.shopify--discovery--product_recommendation.complementary_products.value -%}
+            {%- endif -%}
             {%- if upsell_products == blank -%}
               {%- assign upsell_products = settings.upsell__products -%}
             {%- endif -%}
