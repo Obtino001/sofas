@@ -451,7 +451,7 @@
         "desktop_height": 70,
         "desktop_content_position": "flex-start",
         "desktop_text_alignment": "left",
-        "mobile_height": 60,
+        "mobile_height": 100,
         "padding_top": 0,
         "padding_bottom": 0
       }
