@@ -73,6 +73,10 @@
 
   /* Adjust overlay for mobile reading */
   @media screen and (max-width: 749px) {
+    .hero-content-wrapper * {
+    margin: 0;
+    color: white;
+}
     .custom-hero-{{ section.id }} .hero-overlay {
       background: linear-gradient(to bottom, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0.8) 50%, rgba(var(--color-background), 0) 90%);
       -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
