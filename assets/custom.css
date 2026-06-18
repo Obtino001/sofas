@@ -1,15 +1,18 @@
-html, body {
+html,
+body {
   overflow-x: clip !important;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
+
 .product__title-price-container {
-    display: flex;
-    gap: 30px;
-    margin: 0 !important;
+  display: flex;
+  gap: 30px;
+  margin: 0 !important;
 }
+
 .product__text {
   font-weight: 400;
   font-style: Regular;
@@ -17,9 +20,10 @@ p {
   line-height: 120%;
 }
 
-.product__info-wrapper.grid__item{
-    padding-block: 20px;
+.product__info-wrapper.grid__item {
+  padding-block: 20px;
 }
+
 .drawer__upsell-wrapper-mobile .card-overlay-droplet {
   display: none;
 }
@@ -309,7 +313,7 @@ p {
   background-color: rgba(var(--color-foreground), 0.04);
 }
 
-.cx-promo-img-wrap img, 
+.cx-promo-img-wrap img,
 .cx-promo-img-wrap svg {
   width: 100%;
   height: 100%;
@@ -388,7 +392,8 @@ p {
   letter-spacing: 0.5px;
 }
 
-.cx-promo-timer-block, .cx-promo-timer-colon {
+.cx-promo-timer-block,
+.cx-promo-timer-colon {
   display: flex;
   align-items: baseline;
 }
@@ -409,10 +414,11 @@ p {
 .cx-promo-btn:hover {
   background-color: #b8916a;
 }
+
 .product__review-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* Fallback Grid when Slider is Disabled (e.g. enable_slider_desktop = false) */
@@ -440,30 +446,36 @@ slider-container.slider-disabled .swiper-slide {
 .collection-tabs__slider .swiper-slide--multi {
   flex-shrink: 0 !important;
 }
+
 .collection-tabs__slider .swiper-slide--single {
   flex-shrink: 0 !important;
 }
 
 @media screen and (min-width: 750px) {
+
   .collection-tabs__slider .swiper-slide--multi,
-  .collection-tabs__slider .swiper-slide--single {
-  }
+  .collection-tabs__slider .swiper-slide--single {}
 }
 
 
 .product__price-column {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
-::slotted(svg), svg {
-    fill: transparent !important;
-    pointer-events: none;
+::slotted(svg),
+svg {
+  fill: transparent !important;
+  pointer-events: none;
 }
 
 .product__installments div {
-    line-height: 1.3;
-    text-align: right;
-    max-width: 200px;
+  line-height: 1.3;
+  text-align: right;
+  max-width: 200px;
+}
+
+ul#product-grid {
+  row-gap: 30px;
 }
