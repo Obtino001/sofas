@@ -595,55 +595,6 @@
         "padding_bottom": 60
       }
     },
-    "call_to_action_banner_eNWgzx": {
-      "type": "call-to-action-banner",
-      "blocks": {
-        "heading_pBAP7i": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Sleep bigger. Sleep better.</p>",
-            "heading_size": "h1"
-          }
-        },
-        "text_ke3JnU": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Upgrade your bedroom with spacious king size beds designed for ultimate comfort and everyday luxury.</p>",
-            "text_size": "h3"
-          }
-        },
-        "button_pill_ieWBAT": {
-          "type": "button_pill",
-          "settings": {
-            "button_label": "Explore collection →",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_pBAP7i",
-        "text_ke3JnU",
-        "button_pill_ieWBAT"
-      ],
-      "name": "Overlay Banner (Blocks)",
-      "settings": {
-        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "image": "shopify://shop_images/7066bbe281217b279f15e84d97da38fa04794cb6.png",
-        "overlay_opacity": 0,
-        "desktop_height": 540,
-        "desktop_align_y": "center",
-        "desktop_align_x": "flex-start",
-        "desktop_text_align": "left",
-        "desktop_flex_align": "flex-start",
-        "mobile_height": 500,
-        "mobile_align_y": "center",
-        "mobile_align_x": "center",
-        "mobile_text_align": "center",
-        "mobile_flex_align": "center",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "engineered_sleep_9WxnH9": {
       "type": "engineered-sleep",
       "blocks": {
@@ -1037,7 +988,6 @@
     "custom_hero_banner_EpqzyB",
     "collections_tabs_G8NWUM",
     "why_choose_us_kQm6Yp",
-    "call_to_action_banner_eNWgzx",
     "engineered_sleep_9WxnH9",
     "collections_tabs_M9VpAE",
     "newsletter_pPWpWW",
