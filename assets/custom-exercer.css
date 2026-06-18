@@ -16,7 +16,7 @@
   --exr-transition: 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
   --exr-header-h: 56px;
   --exr-footer-h: auto;
-  --exr-font:  'DM Sans Custom';
+  --exr-font: 'DM Sans Custom';
   --exr-font-sm: 12px;
   --exr-font-xs: 11px;
 }
@@ -522,9 +522,11 @@
   font-family: var(--exr-font);
   font-size: var(--exr-font-sm);
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--exr-text);
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 30px;
 }
 
 .exr-trigger:hover {
