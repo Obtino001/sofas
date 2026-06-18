@@ -179,7 +179,7 @@
           
           {%- when 'heading' -%}
             <h2 class="custom-hero__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-              {{ block.settings.heading }}
+              {{ block.settings.heading | replace: '<p>', '' | replace: '</p>', '' }}
             </h2>
             
           {%- when 'text' -%}
@@ -328,7 +328,8 @@
         {
           "type": "richtext",
           "id": "heading",
-          "label": "Heading"
+          "label": "Heading",
+          "default": "<p>Comfort now, Pay later.</p>"
         },
         {
           "type": "select",
