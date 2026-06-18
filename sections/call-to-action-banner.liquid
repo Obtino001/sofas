@@ -141,6 +141,10 @@
 
   /* Mobile Color Scheme Override */
   @media screen and (max-width: 749px) {
+    .hero-content-wrapper * {
+    margin: 0;
+    color: white;
+}
     .custom-hero-{{ section.id }}.color-mobile-{{ section.settings.color_scheme_mobile }} {
       --color-background: var(--color-{{ section.settings.color_scheme_mobile }}-background);
       --color-foreground: var(--color-{{ section.settings.color_scheme_mobile }}-text);
