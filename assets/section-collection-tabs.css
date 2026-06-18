@@ -750,12 +750,16 @@ border: 0.75px solid #000000;
   display: flex;
 }
 
-.WI_quickAddProduct_form .loading-overlay__spinner svg {
+.WI_quickAddProduct_form .loading-overlay__spinner svg,
+.WI_mobileQuickViewBtn .loading-overlay__spinner svg,
+.WI_quickAdd_atc .loading-overlay__spinner svg {
   width: 18px;
   height: 18px;
 }
 
-.WI_quickAddProduct_form .loading-overlay__spinner circle {
+.WI_quickAddProduct_form .loading-overlay__spinner circle,
+.WI_mobileQuickViewBtn .loading-overlay__spinner circle,
+.WI_quickAdd_atc .loading-overlay__spinner circle {
   stroke: #fff;
 }
 
