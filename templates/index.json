@@ -595,52 +595,6 @@
         "padding_bottom": 60
       }
     },
-    "custom_hero_banner_Hiz97b": {
-      "type": "custom-hero-banner",
-      "blocks": {
-        "heading_VhkQGh": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_LRycy7": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
-          }
-        },
-        "buttons_4MrHEP": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Explore our products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_1": "primary",
-            "button_label_2": "Learn more",
-            "button_link_2": "shopify://collections/all",
-            "button_style_2": "secondary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_VhkQGh",
-        "text_LRycy7",
-        "buttons_4MrHEP"
-      ],
-      "name": "Custom Hero Banner",
-      "settings": {
-        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
-        "overlay_opacity": 30,
-        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "desktop_height": 70,
-        "desktop_content_position": "flex-start",
-        "desktop_text_alignment": "left",
-        "mobile_height": 60,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "engineered_sleep_9WxnH9": {
       "type": "engineered-sleep",
       "blocks": {
@@ -1034,7 +988,6 @@
     "custom_hero_banner_EpqzyB",
     "collections_tabs_G8NWUM",
     "why_choose_us_kQm6Yp",
-    "custom_hero_banner_Hiz97b",
     "engineered_sleep_9WxnH9",
     "collections_tabs_M9VpAE",
     "newsletter_pPWpWW",
@@ -1043,4 +996,3 @@
     "instagram_gallery_itHmBn"
   ]
 }
-
