@@ -443,8 +443,8 @@
       "name": "Overlay Banner (Blocks)",
       "settings": {
         "full_width": true,
-        "color_scheme": "",
-        "color_scheme_mobile": "",
+        "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "color_scheme_mobile": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe_2.png",
         "mobile_image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_1.png",
         "desktop_height": 480,
