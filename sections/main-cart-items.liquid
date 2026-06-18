@@ -113,7 +113,7 @@
                       {%- if item.product.metafields.reviews.rating.value != blank -%}
                         {%- assign rating_value = item.product.metafields.reviews.rating.value.rating | default: item.product.metafields.reviews.rating.value -%}
                         {%- assign rating_count = item.product.metafields.reviews.rating_count | default: 0 -%}
-                        <div class="cart-item__rating-stars" style="margin-bottom: 8px; display: flex; align-items: center; gap: 4px; color: #008060; font-size: 14px;">
+                        <div class="cart-item__rating-stars">
                           {%- assign floor_rating = rating_value | floor -%}
                           {%- for i in (1..5) -%}
                             {%- if i <= floor_rating -%}
