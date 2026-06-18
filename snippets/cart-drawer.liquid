@@ -152,8 +152,8 @@
       >
         {%- if cart == empty -%}
           <div class="drawer__inner-empty">
-            <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
-              <div class="cart-drawer__empty-content">
+            <div class="cart-drawer__warnings center">
+              <div class="cart-drawer__empty-content" style="padding-top: 4rem;">
                 <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
                 <button
                   class="drawer__close"
@@ -167,23 +167,11 @@
                     </svg>
                   </span>
                 </button>
-                <a href="{{ routes.all_products_collection_url }}" class="button">
+                <a href="{{ routes.all_products_collection_url }}" class="button" style="margin-top: 1.5rem;">
                   {{ 'general.continue_shopping' | t }}
                 </a>
-
-                {%- if shop.customer_accounts_enabled and customer == null -%}
-                  <p class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</p>
-                  <p class="cart__login-paragraph">
-                    {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-                  </p>
-                {%- endif -%}
               </div>
             </div>
-            {%- if settings.cart_drawer_collection != blank -%}
-              <div class="cart-drawer__collection">
-                {% render 'card-collection', card_collection: settings.cart_drawer_collection, columns: 1 %}
-              </div>
-            {%- endif -%}
           </div>
         {%- endif -%}
 
@@ -348,40 +336,40 @@
             {%- endif -%}
 
             {% comment %} Custom trust badges box {% endcomment %}
+            <div class="cart-drawer__trust-badges">
+              <div class="trust-badge__item">
+                <div class="trust-badge__icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="18" r="14" stroke="#121212" stroke-width="1.5" stroke-dasharray="3 2"/>
+                    <circle cx="20" cy="18" r="11" stroke="#121212" stroke-width="1.5"/>
+                    <text x="20" y="22" font-size="11" font-weight="900" fill="#121212" text-anchor="middle" font-family="var(--font-body-family)">1</text>
+                    <path d="M15 30l1.5-4.5 3 1.5-1.5 4.5-3-1.5z" fill="#121212" stroke="#121212" stroke-width="0.5"/>
+                  </svg>
+                </div>
+                <div class="trust-badge__content">
+                  <span class="trust-badge__title">One Year Warranty</span>
+                  <span class="trust-badge__desc">Built to last with quality you can trust on</span>
+                </div>
+              </div>
+              <div class="trust-badge__divider"></div>
+              <div class="trust-badge__item">
+                <div class="trust-badge__icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 20a10 10 0 1 1 2.93 7.07L10 30" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 25v5h5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 18l4-2 4 2v6l-4 2-4-2v-6z" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M16 18l4 2 4-2M20 20v6" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="trust-badge__content">
+                  <span class="trust-badge__title">14-Day Returns</span>
+                  <span class="trust-badge__desc">Not right? Send it back, hassle-free</span>
+                </div>
+              </div>
+            </div>
           {%- endif -%}
         </cart-drawer-items>
         
-        <div class="cart-drawer__trust-badges">
-          <div class="trust-badge__item">
-            <div class="trust-badge__icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="18" r="14" stroke="#121212" stroke-width="1.5" stroke-dasharray="3 2"/>
-                <circle cx="20" cy="18" r="11" stroke="#121212" stroke-width="1.5"/>
-                <text x="20" y="22" font-size="11" font-weight="900" fill="#121212" text-anchor="middle" font-family="var(--font-body-family)">1</text>
-                <path d="M15 30l1.5-4.5 3 1.5-1.5 4.5-3-1.5z" fill="#121212" stroke="#121212" stroke-width="0.5"/>
-              </svg>
-            </div>
-            <div class="trust-badge__content">
-              <span class="trust-badge__title">One Year Warranty</span>
-              <span class="trust-badge__desc">Built to last with quality you can trust on</span>
-            </div>
-          </div>
-          <div class="trust-badge__divider"></div>
-          <div class="trust-badge__item">
-            <div class="trust-badge__icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 20a10 10 0 1 1 2.93 7.07L10 30" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10 25v5h5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 18l4-2 4 2v6l-4 2-4-2v-6z" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
-                <path d="M16 18l4 2 4-2M20 20v6" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="trust-badge__content">
-              <span class="trust-badge__title">14-Day Returns</span>
-              <span class="trust-badge__desc">Not right? Send it back, hassle-free</span>
-            </div>
-          </div>
-        </div>
         <div class="drawer__footer">
           {%- if cart != empty -%}
             <div class="cart-drawer__footer-shipping">
