@@ -183,7 +183,7 @@ letter-spacing: 0%;
 
           {%- when 'heading' -%}
             <h2 class="banner-heading" {{ block.shopify_attributes }}>
-              {{ block.settings.heading | newline_to_br }}
+              {{ block.settings.heading }}
             </h2>
 
           {%- when 'subheading' -%}
@@ -328,9 +328,9 @@ letter-spacing: 0%;
       "limit": 1,
       "settings": [
     {
-          "type": "inline_richtext",
+          "type": "richtext",
           "id": "heading",
-          "default": "LESS MAINTENANCE. MORE RIDING.",
+          "default": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
           "label": "Heading"
        },
       ]
@@ -344,7 +344,7 @@ letter-spacing: 0%;
           "type": "richtext",
           "id": "subheading",
           "label": "Subheading Text",
-          "default": "Sereluna menstrual underwear replaces pads and tampons with hidden protection that's gentle on your body and the environment."
+          "default": "<p>Sereluna menstrual underwear replaces pads and tampons with hidden protection that's gentle on your body and the environment.</p>"
         }
       ]
     },
