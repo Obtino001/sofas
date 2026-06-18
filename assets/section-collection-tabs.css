@@ -790,16 +790,11 @@ border: 0.75px solid #000000;
   .collection-tabs__nav-wrapper {
     order: 2;
     flex: 1 1 100%;
-    gap: 12px;
   }
 
   .collection-tabs__actions {
     order: 1;
     margin-left: auto;
-  }
-
-  .collection-tabs__actions--bottom {
-     display: none;
   }
 
   .collection-tabs__nav {
