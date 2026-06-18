@@ -85,10 +85,14 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__name {
-  text-decoration: none;
-  display: block;
+    text-decoration: none;
+    font-size: 15px;
+    color: #121212;
+    text-decoration: none;
+    line-height: 1.3;
+    padding-right: 25px;
+    display: block;
 }
-
 .cart-item__name:hover {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
