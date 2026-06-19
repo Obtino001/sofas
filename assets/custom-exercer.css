@@ -471,6 +471,19 @@
   background: rgba(var(--color-foreground), 0.8);
 }
 
+/* Fallbacks for Dawn button classes inside the drawer */
+.exr-drawer__footer .button {
+  --color-button: var(--color-foreground);
+  --color-button-text: var(--color-background);
+}
+.exr-drawer__footer .button--secondary {
+  --color-button: var(--color-foreground);
+  color: rgb(var(--color-button));
+}
+.exr-drawer__footer .button--secondary::after {
+  box-shadow: inset 0 0 0 calc(var(--buttons-border-width, 1px) * 1) rgba(var(--color-button), 1) !important;
+}
+
 /* ---- Loading State ---- */
 .exr-loading {
   position: relative;
