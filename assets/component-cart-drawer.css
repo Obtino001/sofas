@@ -1221,7 +1221,7 @@ cart-drawer-items {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0px;
 }
 
 .cart-drawer .cart-item__name {
