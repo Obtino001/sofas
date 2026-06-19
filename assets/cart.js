@@ -255,6 +255,9 @@ class CartItems extends HTMLElement {
 
     [...cartItemElements, ...cartDrawerItemElements].forEach((overlay) => overlay.classList.remove('hidden'));
 
+    const globalOverlay = document.getElementById('CartDrawer-GlobalLoadingOverlay');
+    if (globalOverlay) globalOverlay.classList.add('is-active');
+
     document.activeElement.blur();
     this.lineItemStatusElement.setAttribute('aria-hidden', false);
   }
@@ -268,6 +271,9 @@ class CartItems extends HTMLElement {
 
     cartItemElements.forEach((overlay) => overlay.classList.add('hidden'));
     cartDrawerItemElements.forEach((overlay) => overlay.classList.add('hidden'));
+
+    const globalOverlay = document.getElementById('CartDrawer-GlobalLoadingOverlay');
+    if (globalOverlay) globalOverlay.classList.remove('is-active');
   }
 }
 

@@ -1606,3 +1606,50 @@ cart-drawer-items {
     color: #108474 ;
 }
 
+
+/* Premium Cart Drawer Global Loading Overlay */
+.cart-drawer__loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-drawer__loading-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; /* Blocks clicks to elements underneath */
+}
+
+.cart-drawer__spinner-ring {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(18, 18, 18, 0.1);
+  border-top-color: #121212; /* Theme dark color */
+  border-radius: 50%;
+  animation: cartDrawerSpinner 0.8s linear infinite;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+@keyframes cartDrawerSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide default item spinners in cart drawer to avoid visual clutter */
+.cart-drawer .cart-item .loading__spinner {
+  display: none !important;
+}

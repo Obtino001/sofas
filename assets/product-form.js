@@ -27,6 +27,12 @@ if (!customElements.get('product-form')) {
         this.submitButton.classList.add('loading');
         this.querySelector('.loading__spinner').classList.remove('hidden');
 
+        const globalOverlay = document.getElementById('CartDrawer-GlobalLoadingOverlay');
+        const cartDrawer = document.querySelector('cart-drawer');
+        if (globalOverlay && cartDrawer && cartDrawer.classList.contains('active')) {
+          globalOverlay.classList.add('is-active');
+        }
+
         const config = fetchConfig('javascript');
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
         delete config.headers['Content-Type'];
@@ -104,6 +110,11 @@ if (!customElements.get('product-form')) {
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             this.querySelector('.loading__spinner').classList.add('hidden');
+
+            const globalOverlay = document.getElementById('CartDrawer-GlobalLoadingOverlay');
+            if (globalOverlay) {
+              globalOverlay.classList.remove('is-active');
+            }
 
             CartPerformance.measureFromEvent("add:user-action", evt);
           });

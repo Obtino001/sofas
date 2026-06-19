@@ -150,6 +150,9 @@
         aria-label="{{ 'sections.cart.title' | t }}"
         tabindex="-1"
       >
+        <div id="CartDrawer-GlobalLoadingOverlay" class="cart-drawer__loading-overlay">
+          <div class="cart-drawer__spinner-ring"></div>
+        </div>
         {%- if cart == empty -%}
           <div class="drawer__inner-empty">
             <div class="cart-drawer__warnings center">
