@@ -344,7 +344,7 @@
         "padding_bottom": 60,
         "enable_autoplay": false,
         "autoplay_interval": 3,
-        "desktop_slides": 4,
+        "desktop_slides": 3.2,
         "desktop_spacing": 18,
         "tablet_slides": 2.7,
         "mobile_slides": 1.1,
