@@ -479,7 +479,7 @@
 
 .exr-drawer__footer .button--secondary {
   --color-button-text: var(--color-foreground);
-  background-color: transparent !important;
+  background: transparent !important;
   color: rgb(var(--color-foreground)) !important;
 }
 
