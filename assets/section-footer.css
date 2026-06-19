@@ -120,12 +120,12 @@
 
 /* Brand Info Block */
 .footer-brand-headline {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 .footer-brand-description {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   color: rgba(var(--color-foreground), 0.7);
   margin-bottom: 2.5rem;
@@ -156,7 +156,7 @@
   flex-direction: column;
 }
 .newsletter-description {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   margin-bottom: 2rem;
   color: rgba(var(--color-foreground), 0.8);
