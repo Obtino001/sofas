@@ -171,6 +171,7 @@
         "tab_icon_size": 32,
         "products_to_show": 8,
         "columns_desktop": 4,
+        "columns_tablet": 3,
         "columns_mobile": "1",
         "spacing": 12,
         "overflow": true,
@@ -345,7 +346,7 @@
         "autoplay_interval": 3,
         "desktop_slides": 4,
         "desktop_spacing": 18,
-        "tablet_slides": 3.2,
+        "tablet_slides": 2.7,
         "mobile_slides": 1.1,
         "mobile_spacing": 16
       }
@@ -524,6 +525,7 @@
         "tab_icon_size": 32,
         "products_to_show": 8,
         "columns_desktop": 4,
+        "columns_tablet": 3,
         "columns_mobile": "1",
         "spacing": 10,
         "overflow": true,
@@ -755,6 +757,7 @@
         "tab_icon_size": 32,
         "products_to_show": 8,
         "columns_desktop": 4,
+        "columns_tablet": 3,
         "columns_mobile": "1",
         "spacing": 10,
         "overflow": true,
