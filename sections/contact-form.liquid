@@ -17,16 +17,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
-    background: #ffffff;
+    background: rgb(var(--color-background));
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(var(--color-foreground), 0.04);
     padding: 50px;
     margin: 40px auto;
   }
 
   .contact-info {
     flex: 1 1 350px;
-    background: #FAF8F5;
+    background: rgba(var(--color-foreground), 0.04);
     padding: 40px;
     border-radius: 16px;
     display: flex;
@@ -38,14 +38,14 @@
     font-size: 42px;
     font-weight: 600;
     margin: 0 0 15px 0;
-    color: #272B28;
+    color: rgb(var(--color-foreground));
     font-family: var(--font-heading-family);
     line-height: 1.1;
   }
 
   .contact-info-desc {
     font-size: 15px;
-    color: #555;
+    color: rgba(var(--color-foreground), 0.75);
     line-height: 1.6;
     margin-bottom: 35px;
   }
@@ -60,12 +60,12 @@
   .contact-detail-icon {
     width: 44px;
     height: 44px;
-    background: #EBE1D7;
+    background: rgba(var(--color-foreground), 0.08);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #272B28;
+    color: rgb(var(--color-foreground));
     flex-shrink: 0;
   }
 
@@ -81,19 +81,19 @@
     margin: 0 0 5px 0;
     font-size: 16px;
     font-weight: 600;
-    color: #272B28;
+    color: rgb(var(--color-foreground));
   }
 
   .contact-detail-content p, .contact-detail-content a {
     margin: 0;
     font-size: 14px;
-    color: #666;
+    color: rgba(var(--color-foreground), 0.75);
     text-decoration: none;
     line-height: 1.5;
   }
 
   .contact-detail-content a:hover {
-    color: #D3A77C;
+    color: rgba(var(--color-foreground), 1);
   }
 
   .contact-form-section {
@@ -123,25 +123,30 @@
   .c-form-label {
     font-size: 14px;
     font-weight: 500;
-    color: #272B28;
+    color: rgb(var(--color-foreground));
   }
 
   .c-form-input {
     width: 100%;
     padding: 15px 20px;
-    border: 1px solid #E5E5E5;
+    border: 1px solid rgba(var(--color-foreground), 0.2);
     border-radius: 8px;
     font-size: 15px;
     font-family: inherit;
     transition: all 0.3s ease;
-    background: #FAFAFA;
+    background: transparent;
+    color: rgb(var(--color-foreground));
+  }
+
+  .c-form-input::placeholder {
+    color: rgba(var(--color-foreground), 0.5);
   }
 
   .c-form-input:focus {
     outline: none;
-    border-color: #272B28;
-    background: #fff;
-    box-shadow: 0 0 0 1px #272B28;
+    border-color: rgb(var(--color-foreground));
+    background: rgb(var(--color-background));
+    box-shadow: 0 0 0 1px rgb(var(--color-foreground));
   }
 
   textarea.c-form-input {
@@ -153,8 +158,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #D3A77C;
-    color: #fff;
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
     padding: 16px 40px;
     border: none;
     border-radius: 8px;
@@ -166,7 +171,7 @@
   }
 
   .c-form-btn:hover {
-    background: #b8916a;
+    background: rgba(var(--color-button), 0.85);
   }
 
   .c-form-btn svg {
@@ -262,13 +267,13 @@
       <div class="contact-form-section">
         {%- form 'contact', id: 'ContactForm' -%}
           {%- if form.posted_successfully? -%}
-            <div class="form-status form-status-list form__message" tabindex="-1" autofocus style="color: #2E8B57; margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; background: #e8f5e9; padding: 15px; border-radius: 8px;">
-              <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1.85-4.65l-2.5-2.5 1.4-1.4 1.1 1.1 3.4-3.4 1.4 1.4-4.8 4.8z" fill="currentColor"/></svg>
+            <div class="form-status form-status-list form__message" tabindex="-1" autofocus style="color: rgb(var(--color-foreground)); margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; background: rgba(var(--color-foreground), 0.05); padding: 15px; border-radius: 8px;">
+              <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #2E8B57;"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1.85-4.65l-2.5-2.5 1.4-1.4 1.1 1.1 3.4-3.4 1.4 1.4-4.8 4.8z" fill="currentColor"/></svg>
               {{ 'templates.contact.form.post_success' | t }}
             </div>
           {%- elsif form.errors -%}
-            <div class="form__message" style="color: #D8000C; margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; background: #ffebee; padding: 15px; border-radius: 8px;">
-              <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1-5a1 1 0 112 0 1 1 0 01-2 0zM6.5 3h1v5h-1V3z" fill="currentColor"/></svg>
+            <div class="form__message" style="color: rgb(var(--color-foreground)); margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; background: rgba(var(--color-foreground), 0.05); padding: 15px; border-radius: 8px;">
+              <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #D8000C;"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1-5a1 1 0 112 0 1 1 0 01-2 0zM6.5 3h1v5h-1V3z" fill="currentColor"/></svg>
               Please check your email and try again.
             </div>
           {%- endif -%}
