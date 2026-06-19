@@ -77,9 +77,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-    gap: 10px;
+    gap: 0px;
+    align-items: start;
+    justify-content: start;
 }
-
 .price--center {
   display: initial;
   justify-content: center;
