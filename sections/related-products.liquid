@@ -192,6 +192,7 @@
                   "autoplay": {{ section.settings.enable_autoplay | default: false | json }},
                   "autoplayInterval": {{ section.settings.autoplay_interval | times: 1000 | default: 3000 | json }},
                   "mobileSlides": {{ mobile_swiper_slides | default: 1.2 | json }},
+                  "tabletSlides": {{ section.settings.columns_tablet | default: section.settings.columns_desktop | default: 3 | json }},
                   "mobileSpacing": {{ section.settings.spacing | divided_by: 1.5 | default: 16 | json }},
                   "desktopSlides": {{ section.settings.columns_desktop | default: 4 | json }},
                   "desktopSpacing": {{ section.settings.spacing | default: 24 | json }}
@@ -411,6 +412,15 @@
       "step": 1,
       "default": 4,
       "label": "Number of columns on desktop"
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Number of columns on tablet"
     },
     {
       "type": "select",
