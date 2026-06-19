@@ -1,10 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_zPTVKA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iwLakV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact",
+            "heading_size": "h1"
+          }
+        },
+        "text_Rz9jC3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Need some help? If you have any questions about our products you can get in touch below and one of our team will be happy to answer your queries.<br/></p><p><a href=\"mailto:hello@sofasnbeds.co.uk\"><strong>hello@sofasnbeds.co.uk</strong></a></p><p>Alternatively, you can write to us at our registered office at:</p><p></p><p>Sofas n Beds, 205 Kings Road, Tyseley, Birmingham, B11 2AA.</p>"
+          }
+        },
+        "button_7FjEPQ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iwLakV",
+        "text_Rz9jC3",
+        "button_7FjEPQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "form": {
@@ -20,6 +73,7 @@
   },
   "order": [
     "main",
+    "rich_text_zPTVKA",
     "form"
   ]
 }
