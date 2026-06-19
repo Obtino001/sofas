@@ -1654,7 +1654,7 @@ details[open]>.share-button__fallback {
   color: rgba(var(--color-foreground));
 }
 
-.field:hover.field:after,
+/* .field:hover.field:after,
 .select:hover.select:after,
 .select__select:hover.select__select:after,
 .customer .field:hover.field:after,
@@ -1663,7 +1663,7 @@ details[open]>.share-button__fallback {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground), var(--inputs-border-opacity));
   outline: 0;
   border-radius: var(--inputs-radius);
-}
+} */
 
 .field__input:focus-visible,
 .select__select:focus-visible,
