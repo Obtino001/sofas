@@ -524,7 +524,7 @@
   font-weight: 400;
   letter-spacing: .06em;
   text-transform: uppercase;
-  border: 1px solid black;
+  border: 1px solid var(--exr-text);
   padding: 10px 20px;
   border-radius: 30px;
 }
