@@ -185,7 +185,7 @@
                       {{- 'icon-plus.svg' | inline_asset_content -}}
                     </span>
                   {%- endif -%}
-                  {%- render 'loading-spinner' -%}
+                  <div class="loading__spinner hidden" style="width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #ffffff; animation: premium-spin 0.8s linear infinite;"></div>
                 </button>
               {%- endform -%}
             </product-form>
@@ -240,7 +240,7 @@
                   data-product-url="{{ card_product.url }}"
                 >
                   {{ 'products.product.choose_options' | t }}
-                  {%- render 'loading-spinner' -%}
+                  <div class="loading__spinner hidden" style="width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #ffffff; animation: premium-spin 0.8s linear infinite;"></div>
                 </button>
               </modal-opener>
               <modal-dialog

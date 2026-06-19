@@ -139,10 +139,7 @@
                     <path d="M6.66669 16.667H12.5M1.66669 1.66699H2.47169C3.25919 1.66699 3.94502 2.18783 4.13585 2.92949L6.61669 12.5637C6.67824 12.8046 6.68396 13.0564 6.63341 13.2999C6.58286 13.5434 6.47739 13.7721 6.32502 13.9687L5.52585 15.0003" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
                     </g>
                     </svg>
-              <div class="card-product-tabs__cart-spinner">
-                <svg class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                </svg>
+              <div class="card-product-tabs__cart-spinner" style="width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #ffffff; animation: premium-spin 0.8s linear infinite;">
               </div>
             </button>
           {%- endif -%}
@@ -418,17 +415,7 @@
                   {{ 'products.product.sold_out' | t }}
                 {%- endif -%}
               </div>
-              <div class="loading-overlay__spinner hidden">
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  role="presentation"
-                  class="spinner"
-                  viewBox="0 0 66 66"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                </svg>
+              <div class="loading-overlay__spinner hidden" style="width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #ffffff; animation: premium-spin 0.8s linear infinite;">
               </div>
             </button>
           </div>
