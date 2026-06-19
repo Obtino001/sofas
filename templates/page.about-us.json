@@ -23,7 +23,7 @@
         "heading_mNzMzM": {
           "type": "heading",
           "settings": {
-            "heading": ""
+            "heading": "<p>About Us</p>"
           }
         }
       },
@@ -50,49 +50,7 @@
         "text_alignment": "center"
       }
     },
-    "what_we_offer_ArBpTY": {
-      "type": "what-we-offer",
-      "blocks": {
-        "feature_RRQGP7": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/Group_1413372224.svg",
-            "title": "Made for everyday comfort"
-          }
-        },
-        "feature_97Cdwh": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/Vector_33.svg",
-            "title": "Proudly made in UK"
-          }
-        },
-        "feature_FRf7ib": {
-          "type": "feature",
-          "settings": {
-            "icon_image": "shopify://shop_images/Vector_34.svg",
-            "title": "Built to last long"
-          }
-        }
-      },
-      "block_order": [
-        "feature_RRQGP7",
-        "feature_97Cdwh",
-        "feature_FRf7ib"
-      ],
-      "name": "What We Offer",
-      "settings": {
-        "color_scheme": "",
-        "image": "shopify://shop_images/Rectangle_237.png",
-        "decorator_color": "#e7e1d8",
-        "heading": "",
-        "heading_size": "h1",
-        "text": "<p>We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function.</p>",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-"custom_collage_FigmaLayout": {
+    "custom_collage_FigmaLayout": {
       "type": "custom-collage",
       "blocks": {
         "image_1_tall_room": {
@@ -168,6 +126,48 @@
         "mobile_row_height": 120,
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "what_we_offer_ArBpTY": {
+      "type": "what-we-offer",
+      "blocks": {
+        "feature_RRQGP7": {
+          "type": "feature",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1413372224.svg",
+            "title": "Made for everyday comfort"
+          }
+        },
+        "feature_97Cdwh": {
+          "type": "feature",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector_33.svg",
+            "title": "Proudly made in UK"
+          }
+        },
+        "feature_FRf7ib": {
+          "type": "feature",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector_34.svg",
+            "title": "Built to last long"
+          }
+        }
+      },
+      "block_order": [
+        "feature_RRQGP7",
+        "feature_97Cdwh",
+        "feature_FRf7ib"
+      ],
+      "name": "What We Offer",
+      "settings": {
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_237.png",
+        "decorator_color": "#e7e1d8",
+        "heading": "",
+        "heading_size": "h1",
+        "text": "<p>We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function.</p>",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "testimonials_FqAwzT": {
@@ -589,8 +589,8 @@
   "order": [
     "main",
     "custom_banner_A6F9q9",
+    "custom_collage_FigmaLayout",
     "what_we_offer_ArBpTY",
-   "custom_collage_FigmaLayout",
     "testimonials_FqAwzT",
     "bento_categories_aFbwVW",
     "newsletter_pPWpWW",
@@ -599,4 +599,3 @@
     "instagram_gallery_itHmBn"
   ]
 }
-
