@@ -67,3 +67,144 @@
 .newsletter-form__button .icon {
   width: 1.5rem;
 }
+
+/* Custom Newsletter Styles for both standalone section and footer */
+.cn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.cn-text-column {
+  flex: 1 1 400px;
+  max-width: 550px;
+}
+
+.cn-heading {
+  color: rgb(var(--color-foreground));
+  margin-top: 0;
+  line-height: 1.2;
+}
+.cn-subtext {
+  font-size: 14px;
+  color: rgba(var(--color-foreground), 0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cn-form-column {
+  flex: 1 1 500px;
+  max-width: 600px;
+}
+
+.cn-form-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.cn-input {
+  flex: 1;
+  height: 50px;
+  background: transparent;
+  border: 1px solid rgba(var(--color-foreground), 0.15);
+  border-radius: 25px;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: rgb(var(--color-foreground));
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensure it spans available width in footer too */
+}
+
+.cn-input::placeholder {
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.cn-input:focus {
+  border-color: rgb(var(--color-foreground));
+  box-shadow: 0 0 0 1px rgb(var(--color-foreground));
+}
+
+.cn-button {
+  height: 50px;
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: none;
+  border-radius: 25px;
+  padding: 0 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.cn-button:hover {
+  opacity: 0.85;
+}
+
+.cn-button:active {
+  transform: scale(0.98);
+}
+
+.cn-privacy-text {
+  font-size: 11px;
+  color: rgba(var(--color-foreground), 0.65);
+  margin: 12px 0 0 20px;
+  display: block;
+}
+
+.cn-privacy-text a {
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cn-message {
+  margin-top: 15px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cn-message--success { color: #2E8B57; }
+.cn-message--error { color: #D8000C; }
+.cn-message svg { width: 14px; height: 14px; }
+
+@media screen and (max-width: 749px) {
+  .cn-wrapper {
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+  .cn-text-column,
+  .cn-form-column {
+    width: 100%;
+    max-width: 100%;
+  }
+  .cn-heading {
+    margin-bottom: 1.5rem;
+  }
+  .cn-form-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  .cn-input {
+    width: 100%;
+  }
+  .cn-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cn-privacy-text {
+    margin: 20px 0 0 0;
+    text-align: center;
+  }
+}
