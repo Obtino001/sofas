@@ -1583,6 +1583,10 @@ cart-drawer-items {
 }
 
 @media screen and (max-width: 767px) {
+  cart-drawer-items {
+    padding: 0 12px;
+    scrollbar-width: thin;
+}
   .drawer__upsell-container-mobile .hide-on-mobile {
     display: none !important;
   }
