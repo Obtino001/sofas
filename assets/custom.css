@@ -352,7 +352,7 @@ p {
 .cx-promo-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: #00000033;
   z-index: 2;
 }
 
