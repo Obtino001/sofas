@@ -286,30 +286,30 @@
       
     </div>
   {% endif %}
-                              {% when 'collections' %}
-                                <div class="desktopMenu-linkList">
-                                  <div class="desktopMenu-title">{{ block.settings.heading }}</div>
-                                  {% render 'featured-collection', block: block %}
-                                </div>
-                              {% when 'categories' %}
-                                <div class="desktopMenu-linkList">
-                                  <div class="desktopMenu-title">{{ block.settings.heading }}</div>
-                                  {% render 'shop-by-categories', block: block %}
-                                </div>
-                              {% when 'image-cards-grid' %}
-                                <div class="desktopMenu-linkList">
-                                  <div class="desktopMenu-title">{{ block.settings.heading }}</div>
-                                  {% render 'images-grid', block: block %}
-                                </div>
-                              {% when 'text-column' %}
-                                <div class="desktopMenu-linkList">
-                                  <div class="desktopMenu-title">{{ block.settings.heading }}</div>
-                                  {% render 'megamenu-text-column', block: block %}
-                                </div>
-                              {% endcase %}
-                            </div>
-                            {% endif %}
-                      {% endfor %}
+  {% when 'collections' %}
+    <div class="desktopMenu-linkList">
+      <div class="desktopMenu-title">{{ block.settings.heading }}</div>
+      {% render 'featured-collection', block: block %}
+    </div>
+  {% when 'categories' %}
+    <div class="desktopMenu-linkList">
+      <div class="desktopMenu-title">{{ block.settings.heading }}</div>
+      {% render 'shop-by-categories', block: block %}
+    </div>
+  {% when 'image-cards-grid' %}
+    <div class="desktopMenu-linkList">
+      <div class="desktopMenu-title">{{ block.settings.heading }}</div>
+      {% render 'images-grid', block: block %}
+    </div>
+  {% when 'text-column' %}
+    <div class="desktopMenu-linkList">
+      <div class="desktopMenu-title">{{ block.settings.heading }}</div>
+      {% render 'megamenu-text-column', block: block %}
+    </div>
+  {% endcase %}
+</div>
+{% endif %}
+{% endfor %}
                     </div>
                     {% for block in section.blocks %}
                       {% assign matched_link = block.settings.title | downcase %}
