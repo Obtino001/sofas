@@ -13,18 +13,19 @@
 
   .custom-collage__grid {
     display: grid;
-    /* Mobile defaults: 2 columns */
-    grid-template-columns: repeat(2, 1fr);
+    /* Mobile defaults: 4 columns for precise layout */
+    grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: {{ section.settings.mobile_row_height }}px;
-    gap: 1rem;
-    grid-auto-flow: dense; /* Fills in empty gaps automatically */
+    gap: 1.2rem;
+    grid-auto-flow: dense;
   }
 
   .custom-collage__text-block {
-    grid-column: span 2; /* Full width on mobile */
+    grid-column: span var(--m-col);
+    grid-row: span var(--m-row);
     align-self: center;
     color: rgb(var(--color-foreground));
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     margin-bottom: 1rem;
   }
@@ -34,11 +35,10 @@
   }
 
   .custom-collage__item {
-    border-radius: 0.8rem;
+    border-radius: 1.2rem;
     overflow: hidden;
     display: flex;
     position: relative;
-    /* Pull mobile span variables from Liquid */
     grid-column: span var(--m-col);
     grid-row: span var(--m-row);
   }
@@ -73,9 +73,9 @@
   /* Desktop Settings */
   @media screen and (min-width: 750px) {
     .custom-collage__grid {
-      grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+      grid-template-columns: repeat(6, 1fr); /* 6 columns on desktop for perfect 1:1 match */
       grid-auto-rows: {{ section.settings.desktop_row_height }}px;
-      gap: 1.5rem;
+      gap: 1.6rem;
     }
 
     .custom-collage__text-block {
@@ -83,11 +83,11 @@
       grid-row: span var(--d-row);
       margin-bottom: 0;
       padding-right: 2rem;
+      font-size: 1.6rem;
     }
 
     .custom-collage__item {
-      border-radius: 1.2rem;
-      /* Pull desktop span variables from Liquid */
+      border-radius: 1.6rem;
       grid-column: span var(--d-col);
       grid-row: span var(--d-row);
     }
@@ -100,7 +100,7 @@
     <div class="custom-collage__grid">
       
       {%- if section.settings.text != blank -%}
-        <div class="custom-collage__text-block" style="--d-col: {{ section.settings.text_desktop_col_span }}; --d-row: {{ section.settings.text_desktop_row_span }};">
+        <div class="custom-collage__text-block" style="--d-col: {{ section.settings.text_desktop_col_span }}; --d-row: {{ section.settings.text_desktop_row_span }}; --m-col: {{ section.settings.text_mobile_col_span }}; --m-row: {{ section.settings.text_mobile_row_span }};">
           {{ section.settings.text }}
         </div>
       {%- endif -%}
@@ -156,7 +156,7 @@
       "type": "range",
       "id": "text_desktop_col_span",
       "min": 1,
-      "max": 4,
+      "max": 6,
       "step": 1,
       "label": "Text Desktop Column Span",
       "default": 2
@@ -171,29 +171,47 @@
       "default": 1
     },
     {
+      "type": "range",
+      "id": "text_mobile_col_span",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Text Mobile Column Span",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "text_mobile_row_span",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Text Mobile Row Span",
+      "default": 1
+    },
+    {
       "type": "header",
       "content": "Grid Sizing Constraints",
-      "info": "Adjusting the base row height determines how tall a 'Span 1' row is. Increase this if images look too squished."
+      "info": "Desktop is 6 columns, Mobile is 4 columns. Adjust base row heights below."
     },
     {
       "type": "range",
       "id": "desktop_row_height",
       "min": 100,
-      "max": 400,
+      "max": 600,
       "step": 10,
       "unit": "px",
       "label": "Desktop Base Row Height",
-      "default": 180
+      "default": 220
     },
     {
       "type": "range",
       "id": "mobile_row_height",
       "min": 80,
-      "max": 300,
+      "max": 400,
       "step": 10,
       "unit": "px",
       "label": "Mobile Base Row Height",
-      "default": 120
+      "default": 110
     },
     {
       "type": "header",
@@ -232,16 +250,16 @@
         },
         {
           "type": "header",
-          "content": "Desktop Sizing"
+          "content": "Desktop Sizing (6 Column Grid)"
         },
         {
           "type": "range",
           "id": "desktop_col_span",
           "min": 1,
-          "max": 4,
+          "max": 6,
           "step": 1,
           "label": "Column Span (Width)",
-          "default": 1
+          "default": 2
         },
         {
           "type": "range",
@@ -254,17 +272,16 @@
         },
         {
           "type": "header",
-          "content": "Mobile Sizing"
+          "content": "Mobile Sizing (4 Column Grid)"
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "mobile_col_span",
+          "min": 1,
+          "max": 4,
+          "step": 1,
           "label": "Column Span (Width)",
-          "options": [
-            { "value": "1", "label": "1 Column (Half Width)" },
-            { "value": "2", "label": "2 Columns (Full Width)" }
-          ],
-          "default": "1"
+          "default": 2
         },
         {
           "type": "range",
@@ -283,15 +300,19 @@
       "name": "Custom Image Grid",
       "settings": {
         "text_desktop_col_span": 2,
-        "text_desktop_row_span": 1
+        "text_desktop_row_span": 1,
+        "text_mobile_col_span": 4,
+        "text_mobile_row_span": 1,
+        "desktop_row_height": 220,
+        "mobile_row_height": 110
       },
       "blocks": [
         {
           "type": "image",
           "settings": {
-            "desktop_col_span": 1,
+            "desktop_col_span": 2,
             "desktop_row_span": 2,
-            "mobile_col_span": "1",
+            "mobile_col_span": 2,
             "mobile_row_span": 2
           }
         },
@@ -300,17 +321,8 @@
           "settings": {
             "desktop_col_span": 1,
             "desktop_row_span": 1,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 1
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_col_span": 1,
-            "desktop_row_span": 2,
-            "mobile_col_span": "1",
-            "mobile_row_span": 2
           }
         },
         {
@@ -318,17 +330,8 @@
           "settings": {
             "desktop_col_span": 1,
             "desktop_row_span": 1,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 1
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_col_span": 1,
-            "desktop_row_span": 2,
-            "mobile_col_span": "1",
-            "mobile_row_span": 2
           }
         },
         {
@@ -336,7 +339,25 @@
           "settings": {
             "desktop_col_span": 2,
             "desktop_row_span": 1,
-            "mobile_col_span": "2",
+            "mobile_col_span": 2,
+            "mobile_row_span": 1
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 2,
+            "desktop_row_span": 1,
+            "mobile_col_span": 2,
+            "mobile_row_span": 1
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_col_span": 1,
+            "desktop_row_span": 1,
+            "mobile_col_span": 1,
             "mobile_row_span": 1
           }
         }
