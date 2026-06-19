@@ -480,11 +480,11 @@ color: #2B2B2B;
                     {% endif %}
 
                     {% if section.settings.drawer_promo_text != blank %}
-                      <p style="margin: 0; font-size: 1.3rem; opacity: 0.9; line-height: 1.4;">{{ section.settings.drawer_promo_text }}</p>
+                      <p>{{ section.settings.drawer_promo_text }}</p>
                     {% endif %}
 
                     {% if section.settings.drawer_promo_btn_text != blank %}
-                      <a href="{{ section.settings.drawer_promo_btn_link }}" class="woc-drawer-promo__btn woc-drawer-promo__btn--outline" style="margin-top: auto; align-self: center;">
+                      <a href="{{ section.settings.drawer_promo_btn_link }}" class="woc-drawer-promo__btn woc-drawer-promo__btn--outline">
                         {{ section.settings.drawer_promo_btn_text }}
                       </a>
                     {% endif %}
