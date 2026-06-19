@@ -103,9 +103,8 @@
 }
 
 /* Link Lists */
-.footer-block--link_list .list-unstyled {
-  flex-direction: column;
-  gap: 1.2rem;
+.footer-block--link_list .list-unstyled li {
+  padding: 10px 0;
 }
 
 .footer-block__details-content .list-menu__item--link { 
