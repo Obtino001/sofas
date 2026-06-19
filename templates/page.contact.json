@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -19,6 +10,7 @@
     },
     "rich_text_zPTVKA": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "heading_iwLakV": {
           "type": "heading",
@@ -50,7 +42,6 @@
         "text_Rz9jC3",
         "button_7FjEPQ"
       ],
-      "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -63,8 +54,11 @@
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
+        "heading": "Get in touch",
+        "subtext": "Need some help? If you have any questions about our products you can get in touch below and one of our team will be happy to answer your queries.",
+        "email": "hello@sofasnbeds.co.uk",
+        "phone": "01234 567 890",
+        "address": "Sofas n Beds, 205 Kings Road, Tyseley, Birmingham, B11 2AA.",
         "color_scheme": "scheme-1",
         "padding_top": 36,
         "padding_bottom": 36

@@ -12,126 +12,282 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    padding: 50px;
+    margin: 40px auto;
+  }
+
+  .contact-info {
+    flex: 1 1 350px;
+    background: #FAF8F5;
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contact-info-title {
+    font-size: 42px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #272B28;
+    font-family: var(--font-heading-family);
+    line-height: 1.1;
+  }
+
+  .contact-info-desc {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 35px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .contact-detail-icon {
+    width: 44px;
+    height: 44px;
+    background: #EBE1D7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #272B28;
+    flex-shrink: 0;
+  }
+
+  .contact-detail-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  .contact-detail-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #272B28;
+  }
+
+  .contact-detail-content p, .contact-detail-content a {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .contact-detail-content a:hover {
+    color: #D3A77C;
+  }
+
+  .contact-form-section {
+    flex: 2 1 500px;
+    padding: 20px 0;
+  }
+
+  .c-form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .c-form-row {
+      flex-direction: column;
+    }
+  }
+
+  .c-form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .c-form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #272B28;
+  }
+
+  .c-form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #FAFAFA;
+  }
+
+  .c-form-input:focus {
+    outline: none;
+    border-color: #272B28;
+    background: #fff;
+    box-shadow: 0 0 0 1px #272B28;
+  }
+
+  textarea.c-form-input {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .c-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #D3A77C;
+    color: #fff;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+
+  .c-form-btn:hover {
+    background: #b8916a;
+  }
+
+  .c-form-btn svg {
+    margin-left: 10px;
+    width: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .c-form-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  @media screen and (max-width: 990px) {
+    .contact-wrapper {
+      padding: 30px 20px;
+      margin: 20px auto;
+      gap: 40px;
+    }
+    .contact-info {
+      padding: 30px 20px;
+    }
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {{- 'icon-success.svg' | inline_asset_content -}}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {{- 'icon-error.svg' | inline_asset_content -}}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="contact-wrapper">
+      
+      <!-- Left Side Info -->
+      <div class="contact-info">
+        <h2 class="contact-info-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.subtext != blank %}
+          <div class="contact-info-desc">{{ section.settings.subtext }}</div>
+        {% endif %}
+
+        {% if section.settings.email != blank %}
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"/></svg>
+          </div>
+          <div class="contact-detail-content">
+            <h4>Email</h4>
+            <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          </div>
         </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
-      {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+        {% endif %}
+
+        {% if section.settings.phone != blank %}
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.06 21 2 12.94 2 3C2 2.45 2.45 2 3 2H6.5C7.05 2 7.5 2.45 7.5 3C7.5 4.25 7.7 5.45 8.07 6.57C8.18 6.92 8.1 7.31 7.82 7.59L5.62 9.79L6.62 10.79Z"/></svg>
+          </div>
+          <div class="contact-detail-content">
+            <h4>Phone</h4>
+            <a href="tel:{{ section.settings.phone | remove: ' ' | remove: '-' }}">{{ section.settings.phone }}</a>
+          </div>
         </div>
-        <div class="field field--with-error">
-          <input
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            class="field__input"
-            name="contact[email]"
-            spellcheck="false"
-            autocapitalize="off"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            aria-required="true"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
-            {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-          >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                <span class="svg-wrapper">
-                  {{- 'icon-error.svg' | inline_asset_content -}}
-                </span>
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
+        {% endif %}
+
+        {% if section.settings.address != blank %}
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"/></svg>
+          </div>
+          <div class="contact-detail-content">
+            <h4>Address</h4>
+            <p>{{ section.settings.address }}</p>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+
+      <!-- Right Side Form -->
+      <div class="contact-form-section">
+        {%- form 'contact', id: 'ContactForm' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-status form-status-list form__message" tabindex="-1" autofocus style="color: #2E8B57; margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; background: #e8f5e9; padding: 15px; border-radius: 8px;">
+              <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1.85-4.65l-2.5-2.5 1.4-1.4 1.1 1.1 3.4-3.4 1.4 1.4-4.8 4.8z" fill="currentColor"/></svg>
+              {{ 'templates.contact.form.post_success' | t }}
+            </div>
+          {%- elsif form.errors -%}
+            <div class="form__message" style="color: #D8000C; margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 10px; background: #ffebee; padding: 15px; border-radius: 8px;">
+              <svg viewBox="0 0 14 14" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 14A7 7 0 107 0a7 7 0 000 14zm-1-5a1 1 0 112 0 1 1 0 01-2 0zM6.5 3h1v5h-1V3z" fill="currentColor"/></svg>
+              Please check your email and try again.
+            </div>
           {%- endif -%}
-        </div>
+
+          <div class="c-form-row">
+            <div class="c-form-group">
+              <label class="c-form-label" for="ContactForm-name">Your Name</label>
+              <input class="c-form-input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="John Doe" required>
+            </div>
+            <div class="c-form-group">
+              <label class="c-form-label" for="ContactForm-email">Email Address *</label>
+              <input autocomplete="email" type="email" id="ContactForm-email" class="c-form-input" name="contact[email]" spellcheck="false" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" placeholder="john@example.com" required>
+            </div>
+          </div>
+
+          <div class="c-form-row">
+            <div class="c-form-group">
+              <label class="c-form-label" for="ContactForm-phone">Phone Number</label>
+              <input type="tel" id="ContactForm-phone" class="c-form-input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="+44 123 456 789">
+            </div>
+            <div class="c-form-group">
+              <label class="c-form-label" for="ContactForm-subject">Subject</label>
+              <input type="text" id="ContactForm-subject" class="c-form-input" name="contact[subject]" placeholder="How can we help?">
+            </div>
+          </div>
+
+          <div class="c-form-group" style="margin-bottom: 25px;">
+            <label class="c-form-label" for="ContactForm-body">Message *</label>
+            <textarea rows="6" id="ContactForm-body" class="c-form-input" name="contact[{{ 'templates.contact.form.comment' | t }}]" placeholder="Write your message here..." required>{{- form.body -}}</textarea>
+          </div>
+
+          <button type="submit" class="c-form-btn">
+            {{ 'templates.contact.form.send' | t }}
+            <svg fill="none" height="14" viewBox="0 0 16 14" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H15M15 7L9 1M15 7L9 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+          </button>
+        {%- endform -%}
       </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+      
+    </div>
   </div>
 </div>
 
@@ -145,44 +301,40 @@
   },
   "settings": [
     {
-      "type": "richtext",
-      "id": "heading",
-      "default": "t:sections.contact-form.settings.title.default",
-      "label": "t:sections.contact-form.settings.title.label"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
-        },
-        {
-          "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
-        },
-        {
-          "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
-        },
-        {
-          "value": "hxl",
-          "label": "t:sections.all.heading_size.options__4.label"
-        },
-        {
-          "value": "hxxl",
-          "label": "t:sections.all.heading_size.options__5.label"
-        }
-      ],
-      "default": "h1",
-      "label": "t:sections.all.heading_size.label"
-    },
-    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Get in touch",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "default": "Need some help? If you have any questions about our products you can get in touch below and one of our team will be happy to answer your queries.",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "hello@sofasnbeds.co.uk"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "01234 567 890"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Physical Address",
+      "default": "Sofas n Beds, 205 Kings Road, Tyseley, Birmingham, B11 2AA."
     },
     {
       "type": "header",
@@ -216,4 +368,3 @@
   ]
 }
 {% endschema %}
-
