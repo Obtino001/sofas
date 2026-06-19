@@ -23,7 +23,7 @@
         "heading_mNzMzM": {
           "type": "heading",
           "settings": {
-            "heading": ""
+            "heading": "<p>About Us</p>"
           }
         }
       },
@@ -92,7 +92,7 @@
         "padding_bottom": 60
       }
     },
-"custom_collage_FigmaLayout": {
+    "custom_collage_FigmaLayout": {
       "type": "custom-collage",
       "blocks": {
         "image_1_tall_room": {
@@ -590,7 +590,7 @@
     "main",
     "custom_banner_A6F9q9",
     "what_we_offer_ArBpTY",
-   "custom_collage_FigmaLayout",
+    "custom_collage_FigmaLayout",
     "testimonials_FqAwzT",
     "bento_categories_aFbwVW",
     "newsletter_pPWpWW",
@@ -599,4 +599,3 @@
     "instagram_gallery_itHmBn"
   ]
 }
-
