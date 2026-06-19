@@ -789,6 +789,7 @@ border: 0.75px solid #000000;
   .collection-tabs__actions {
     order: 1;
     margin-left: auto;
+    display: none;
   }
 
   .collection-tabs__nav {
