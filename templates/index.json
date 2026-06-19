@@ -163,7 +163,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "title": "<p>The perfect <em>sofa </em>for your <em>space</em></p>",
+        "title": ">The perfect <em>sofa </em>for your <em>space</em>",
         "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
@@ -516,7 +516,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "title": "<p>New<em> arrivals </em></p>",
+        "title": "New<em> arrivals </em>",
         "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
