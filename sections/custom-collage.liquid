@@ -3,7 +3,6 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -11,131 +10,186 @@
     }
   }
 
-  .custom-collage__flex {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -0.6rem; /* Negative margin for gap compensation */
-  }
-  
-  @media screen and (min-width: 750px) {
-    .custom-collage__flex {
-      margin: -0.8rem;
-    }
-  }
-
-  .custom-collage__item-wrapper {
-    box-sizing: border-box;
-    padding: 0.6rem;
-    width: var(--m-width);
+  /* ── Desktop: 4-column flex layout ── */
+  .custom-collage__layout {
+    --col-a: {{ section.settings.col_a_width }}%;
+    --col-b: {{ section.settings.col_b_width }}%;
+    --gap: {{ section.settings.gap }}px;
+    --section-h: {{ section.settings.section_height }}px;
+    --mobile-img-h: {{ section.settings.mobile_image_height }}px;
   }
 
   @media screen and (min-width: 750px) {
-    .custom-collage__item-wrapper {
-      padding: 0.8rem;
-      width: var(--d-width);
+    .custom-collage__layout {
+      display: flex;
+      gap: var(--gap);
+      min-height: var(--section-h);
+      align-items: stretch;
     }
   }
 
-  .custom-collage__item {
-    border-radius: 1.2rem;
-    overflow: hidden;
-    position: relative;
-    height: var(--m-height);
-    width: 100%;
-  }
-
-  @media screen and (min-width: 750px) {
-    .custom-collage__item {
-      border-radius: 1.6rem;
-      height: var(--d-height);
-    }
-  }
-
-  /* Specifically for Text Block */
-  .custom-collage__text-block {
-    color: rgb(var(--color-foreground));
-    font-size: 1.5rem;
-    line-height: 1.6;
-    height: 100%;
+  /* ── Columns (Desktop) ── */
+  .custom-collage__col {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: var(--gap);
   }
 
   @media screen and (min-width: 750px) {
-    .custom-collage__text-block {
-      font-size: 1.6rem;
-      padding-right: 2rem;
+    .custom-collage__col--a { flex: 0 0 var(--col-a); }
+    .custom-collage__col--b { flex: 0 0 var(--col-b); }
+    .custom-collage__col--c { flex: 1; }
+    .custom-collage__col--d { flex: 1; }
+  }
+
+  /* ── Mobile: 2-col grid, columns become invisible ── */
+  @media screen and (max-width: 749px) {
+    .custom-collage__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+    }
+    .custom-collage__col {
+      display: contents;
+    }
+    .custom-collage__text {
+      grid-column: 1 / -1;
+    }
+    /* Reorder items on mobile for best visual flow */
+    .custom-collage__text       { order: 1; }
+    .custom-collage__mob-2      { order: 2; }
+    .custom-collage__mob-3      { order: 3; }
+    .custom-collage__mob-4      { order: 4; }
+    .custom-collage__mob-5      { order: 5; }
+    .custom-collage__mob-6      { order: 6; }
+    .custom-collage__mob-7      { order: 7; }
+  }
+
+  /* ── Text Block ── */
+  .custom-collage__text {
+    flex: 1;
+    color: rgb(var(--color-foreground));
+    font-size: 1.5rem;
+    line-height: 1.7;
+    display: flex;
+    align-items: center;
+  }
+  @media screen and (min-width: 750px) {
+    .custom-collage__text {
+      font-size: 1.5rem;
+      padding-right: 1rem;
     }
   }
+  .custom-collage__text p { margin: 0; }
 
-  .custom-collage__text-block p {
-    margin: 0;
+  /* ── Image Blocks ── */
+  .custom-collage__img {
+    flex: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+  @media screen and (min-width: 750px) {
+    .custom-collage__img { border-radius: 1.4rem; }
+  }
+  @media screen and (max-width: 749px) {
+    .custom-collage__img { min-height: var(--mobile-img-h); }
   }
 
-  .custom-collage__image {
+  .custom-collage__img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
   }
+  .custom-collage__img:hover img { transform: scale(1.03); }
 
-  .custom-collage__item:hover .custom-collage__image {
-    transform: scale(1.03);
-  }
-
+  /* ── Placeholder ── */
   .custom-collage__placeholder {
     width: 100%;
     height: 100%;
-    background-color: rgba(var(--color-foreground), 0.05);
+    min-height: 150px;
+    background-color: rgba(var(--color-foreground), 0.04);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
   .custom-collage__placeholder svg {
     width: 40px;
     height: 40px;
-    fill: rgba(var(--color-foreground), 0.2);
+    fill: rgba(var(--color-foreground), 0.15);
   }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding page-width">
-    
-    <div class="custom-collage__flex">
-      
-      {%- if section.settings.text != blank -%}
-        <div class="custom-collage__item-wrapper" style="--d-width: {{ section.settings.text_desktop_width }}%; --m-width: {{ section.settings.text_mobile_width }}%;">
-          <div class="custom-collage__item custom-collage__item--text" style="--d-height: {{ section.settings.text_desktop_height }}px; --m-height: {{ section.settings.text_mobile_height }}px;">
-            <div class="custom-collage__text-block">
-              {{ section.settings.text }}
-            </div>
-          </div>
-        </div>
-      {%- endif -%}
+    <div class="custom-collage__layout">
 
-      {%- for block in section.blocks -%}
-        <div class="custom-collage__item-wrapper" style="--d-width: {{ block.settings.desktop_width }}%; --m-width: {{ block.settings.mobile_width }}%;" {{ block.shopify_attributes }}>
-          <div class="custom-collage__item" style="--d-height: {{ block.settings.desktop_height }}px; --m-height: {{ block.settings.mobile_height }}px;">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 1200 | image_tag: 
-                loading: 'lazy', 
-                class: 'custom-collage__image', 
-                sizes: '(min-width: 750px) 50vw, 100vw' 
-              }}
-            {%- else -%}
-              <div class="custom-collage__placeholder">
-                {{ 'image' | placeholder_svg_tag }}
-              </div>
-            {%- endif -%}
+      {%- comment -%} ── Column A: Text + Small Bottom Image ── {%- endcomment -%}
+      <div class="custom-collage__col custom-collage__col--a">
+        {%- if section.settings.text != blank -%}
+          <div class="custom-collage__text">
+            {{ section.settings.text }}
           </div>
+        {%- endif -%}
+        <div class="custom-collage__img mob-5">
+          {%- if section.settings.image_under_text != blank -%}
+            {{ section.settings.image_under_text | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 50vw' }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
         </div>
-      {%- endfor -%}
+      </div>
+
+      {%- comment -%} ── Column B: Tall Feature Image (full height) ── {%- endcomment -%}
+      <div class="custom-collage__col custom-collage__col--b">
+        <div class="custom-collage__img custom-collage__mob-2">
+          {%- if section.settings.image_tall != blank -%}
+            {{ section.settings.image_tall | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 15vw, 50vw' }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} ── Column C: Top Image + Bottom Image ── {%- endcomment -%}
+      <div class="custom-collage__col custom-collage__col--c">
+        <div class="custom-collage__img custom-collage__mob-3">
+          {%- if section.settings.image_top_left != blank -%}
+            {{ section.settings.image_top_left | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 50vw' }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+        </div>
+        <div class="custom-collage__img custom-collage__mob-6">
+          {%- if section.settings.image_bottom_left != blank -%}
+            {{ section.settings.image_bottom_left | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 50vw' }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} ── Column D: Top Image + Bottom Image ── {%- endcomment -%}
+      <div class="custom-collage__col custom-collage__col--d">
+        <div class="custom-collage__img custom-collage__mob-4">
+          {%- if section.settings.image_top_right != blank -%}
+            {{ section.settings.image_top_right | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 50vw' }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+        </div>
+        <div class="custom-collage__img custom-collage__mob-7">
+          {%- if section.settings.image_bottom_right != blank -%}
+            {{ section.settings.image_bottom_right | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 50vw' }}
+          {%- else -%}
+            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+        </div>
+      </div>
 
     </div>
-
   </div>
 </div>
 
@@ -151,9 +205,10 @@
       "label": "Color Scheme",
       "default": "background-1"
     },
+
     {
       "type": "header",
-      "content": "Text Block Settings"
+      "content": "Text Block"
     },
     {
       "type": "richtext",
@@ -161,46 +216,118 @@
       "label": "Description Text",
       "default": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
     },
+
     {
-      "type": "range",
-      "id": "text_desktop_width",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Text Desktop Width",
-      "default": 33
+      "type": "header",
+      "content": "Column A — Text & Image Below",
+      "info": "Left column: shows text on top, one image below it."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_under_text",
+      "label": "Image Under Text"
+    },
+
+    {
+      "type": "header",
+      "content": "Column B — Tall Feature Image",
+      "info": "Single tall image spanning the full section height."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_tall",
+      "label": "Tall Feature Image"
+    },
+
+    {
+      "type": "header",
+      "content": "Column C — Two Stacked Images",
+      "info": "Left-center column: top image and bottom image."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_top_left",
+      "label": "Top Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_bottom_left",
+      "label": "Bottom Image"
+    },
+
+    {
+      "type": "header",
+      "content": "Column D — Two Stacked Images",
+      "info": "Right column: top image and bottom image."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_top_right",
+      "label": "Top Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_bottom_right",
+      "label": "Bottom Image"
+    },
+
+    {
+      "type": "header",
+      "content": "Layout Settings"
     },
     {
       "type": "range",
-      "id": "text_desktop_height",
-      "min": 50,
-      "max": 600,
+      "id": "section_height",
+      "min": 300,
+      "max": 800,
       "step": 10,
       "unit": "px",
-      "label": "Text Desktop Height",
-      "default": 250
+      "label": "Desktop Section Height",
+      "default": 480
     },
     {
       "type": "range",
-      "id": "text_mobile_width",
-      "min": 10,
-      "max": 100,
+      "id": "col_a_width",
+      "min": 15,
+      "max": 45,
       "step": 1,
       "unit": "%",
-      "label": "Text Mobile Width",
-      "default": 100
+      "label": "Column A Width (Text)",
+      "default": 28,
+      "info": "Width of the text + small image column."
     },
     {
       "type": "range",
-      "id": "text_mobile_height",
-      "min": 50,
-      "max": 600,
+      "id": "col_b_width",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "%",
+      "label": "Column B Width (Tall Image)",
+      "default": 14,
+      "info": "Width of the tall feature image column."
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 4,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap Between Items",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "min": 100,
+      "max": 400,
       "step": 10,
       "unit": "px",
-      "label": "Text Mobile Height",
-      "default": 150
+      "label": "Mobile Image Height",
+      "default": 180
     },
+
     {
       "type": "header",
       "content": "Section Padding"
@@ -226,132 +353,16 @@
       "default": 40
     }
   ],
-  "blocks": [
-    {
-      "type": "image",
-      "name": "Grid Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "header",
-          "content": "Desktop Sizing"
-        },
-        {
-          "type": "range",
-          "id": "desktop_width",
-          "min": 10,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "label": "Width (%)",
-          "default": 33
-        },
-        {
-          "type": "range",
-          "id": "desktop_height",
-          "min": 100,
-          "max": 800,
-          "step": 10,
-          "unit": "px",
-          "label": "Height (px)",
-          "default": 300
-        },
-        {
-          "type": "header",
-          "content": "Mobile Sizing"
-        },
-        {
-          "type": "range",
-          "id": "mobile_width",
-          "min": 10,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "label": "Width (%)",
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "mobile_height",
-          "min": 100,
-          "max": 600,
-          "step": 10,
-          "unit": "px",
-          "label": "Height (px)",
-          "default": 200
-        }
-      ]
-    }
-  ],
   "presets": [
     {
       "name": "Custom Image Grid",
       "settings": {
-        "text_desktop_width": 33,
-        "text_desktop_height": 250,
-        "text_mobile_width": 100,
-        "text_mobile_height": 150
-      },
-      "blocks": [
-        {
-          "type": "image",
-          "settings": {
-            "desktop_width": 33,
-            "desktop_height": 500,
-            "mobile_width": 100,
-            "mobile_height": 300
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_width": 17,
-            "desktop_height": 240,
-            "mobile_width": 50,
-            "mobile_height": 150
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_width": 17,
-            "desktop_height": 240,
-            "mobile_width": 50,
-            "mobile_height": 150
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_width": 34,
-            "desktop_height": 250,
-            "mobile_width": 100,
-            "mobile_height": 200
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_width": 34,
-            "desktop_height": 250,
-            "mobile_width": 100,
-            "mobile_height": 200
-          }
-        },
-        {
-          "type": "image",
-          "settings": {
-            "desktop_width": 17,
-            "desktop_height": 250,
-            "mobile_width": 50,
-            "mobile_height": 150
-          }
-        }
-      ]
+        "col_a_width": 28,
+        "col_b_width": 14,
+        "section_height": 480,
+        "gap": 16,
+        "mobile_image_height": 180
+      }
     }
   ]
 }

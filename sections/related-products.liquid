@@ -129,16 +129,6 @@
         assign first_collection = first_block.settings.collection
         assign first_url = first_collection.url | default: '#'
       -%}
-      {%- if section.settings.show_view_all -%}
-        <a
-          href="{{ first_url }}"
-          class="collection-tabs__view-all-btn"
-          data-collection-tabs-view-all
-          aria-label="{{ 'sections.featured_collection.view_all' | t }}"
-        >
-          <span>{{ section.settings.view_all_text | default: 'View All' }}</span>
-        </a>
-      {%- endif -%}
 
       <div class="collection-tabs__arrows">
         <button
@@ -300,6 +290,25 @@
         </div>
       {%- endfor -%}
     </div>
+
+    {%- comment -%} ===== View All Button (Bottom) ===== {%- endcomment -%}
+    {%- if section.settings.show_view_all -%}
+      {%- liquid
+        assign first_block = section.blocks | first
+        assign first_collection = first_block.settings.collection
+        assign first_url = first_collection.url | default: '#'
+      -%}
+      <div class="center" style="margin-top: 3rem;">
+        <a
+          href="{{ first_url }}"
+          class="button button--secondary"
+          data-collection-tabs-view-all
+          aria-label="{{ 'sections.featured_collection.view_all' | t }}"
+        >
+          {{ section.settings.view_all_text | default: 'View All' }}
+        </a>
+      </div>
+    {%- endif -%}
 
 
   </div>
