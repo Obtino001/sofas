@@ -851,7 +851,8 @@
 <div id="StickyAddToCart" class="sticky-add-to-cart">
   <div class="sticky-add-to-cart__inner">
     <button type="button" class="sticky-add-to-cart__button" onclick="document.querySelector('.product-form__submit').click();">
-      Add To Cart — <span id="StickyPrice">{{ product.price | money }}</span>
+      <span>Add To Cart — <span id="StickyPrice">{{ product.price | money }}</span></span>
+      {% render 'loading-spinner' %}
     </button>
     <div class="sticky-add-to-cart__timer">
       <div class="delivery-timer-container-sticky">
@@ -912,6 +913,19 @@
   transition: opacity 0.2s;
   letter-spacing: 0.5px;
   font-family: inherit;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sticky-add-to-cart__button.loading > span {
+  visibility: hidden;
+}
+.sticky-add-to-cart__button .loading__spinner {
+  position: absolute;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
 }
 .sticky-add-to-cart__button:hover {
   opacity: 0.9;
