@@ -43,10 +43,44 @@
             "timer_label": "Sale ends in:",
             "timer_date": "2026-12-31T23:59:59"
           }
+        },
+        "megamenu_LdadE7": {
+          "type": "megamenu",
+          "settings": {
+            "column_size": "75%",
+            "title": "Beds",
+            "widget": "image_grid_promo",
+            "menu_heading": "",
+            "menu_link_list_child": "shop-menu",
+            "image": "shopify://shop_images/b4c4eeac9aecb49cd53bb774e8933ff0d9eda51f_1.png",
+            "banner_title": "10% off on corner  sofas",
+            "banner_button": "Explore corner sofas",
+            "banner_link": "",
+            "timer_label": "Sale ends in:",
+            "timer_date": "2026-12-31T23:59:59"
+          }
+        },
+        "megamenu_EDy3kz": {
+          "type": "megamenu",
+          "settings": {
+            "column_size": "75%",
+            "title": "Mattresses",
+            "widget": "image_grid_promo",
+            "menu_heading": "",
+            "menu_link_list_child": "shop-menu",
+            "image": "shopify://shop_images/b4c4eeac9aecb49cd53bb774e8933ff0d9eda51f_1.png",
+            "banner_title": "10% off on corner  sofas",
+            "banner_button": "Explore corner sofas",
+            "banner_link": "",
+            "timer_label": "Sale ends in:",
+            "timer_date": "2026-12-31T23:59:59"
+          }
         }
       },
       "block_order": [
-        "megamenu_D9RgwC"
+        "megamenu_D9RgwC",
+        "megamenu_LdadE7",
+        "megamenu_EDy3kz"
       ],
       "settings": {
         "logo_position": "middle-center",
