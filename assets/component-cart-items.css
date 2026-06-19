@@ -262,7 +262,6 @@ cart-remove-button .icon-remove {
   .cart-item__media {
     grid-row: 1 / 4;
     grid-column: 1 / 2;
-    width: 110px !important;
   }
 
   .cart-item__details {
