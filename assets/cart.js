@@ -308,7 +308,7 @@ window.addEventListener('pageshow', (event) => {
       cartDrawerItems.onCartUpdate();
     }
     
-    fetch(${routes.cart_url}?section_id=cart-icon-bubble)
+    fetch(`${routes.cart_url}?section_id=cart-icon-bubble`)
       .then((response) => response.text())
       .then((text) => {
         const html = new DOMParser().parseFromString(text, 'text/html');
