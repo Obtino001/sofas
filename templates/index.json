@@ -207,7 +207,7 @@
           "settings": {
             "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda_5bfa91d2-874c-48ea-bcde-dd8268a700ef.png",
             "button_label": "Sofas",
-            "link": "",
+            "link": "shopify://collections/all-sofas",
             "col_span": 2,
             "row_span": 2
           }
@@ -217,7 +217,7 @@
           "settings": {
             "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda.png",
             "button_label": "Beds",
-            "link": "",
+            "link": "shopify://collections/beds",
             "col_span": 2,
             "row_span": 1
           }
@@ -227,7 +227,7 @@
           "settings": {
             "image": "shopify://shop_images/9b16c36e20747dacbfe855023c102e44da0233e4.png",
             "button_label": "Mattresses",
-            "link": "",
+            "link": "shopify://collections/matteresses",
             "col_span": 1,
             "row_span": 1
           }
@@ -237,7 +237,7 @@
           "settings": {
             "image": "shopify://shop_images/5cd7e40f10a7341f16cb06c1418a5ef074459af5.png",
             "button_label": "Storage Boxes",
-            "link": "",
+            "link": "shopify://collections/storage-boxes",
             "col_span": 1,
             "row_span": 1
           }
