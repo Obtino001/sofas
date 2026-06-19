@@ -56,27 +56,30 @@
         "image_1_tall_room": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_226.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 2
           }
         },
         "image_2_small_black": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
             "desktop_col_span": 1,
             "desktop_row_span": 1,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 1
           }
         },
         "image_3_tall_arm": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
             "desktop_col_span": 1,
             "desktop_row_span": 2,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 2
           }
         },
@@ -85,16 +88,17 @@
           "settings": {
             "desktop_col_span": 1,
             "desktop_row_span": 1,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 1
           }
         },
         "image_5_tall_corner": {
           "type": "image",
           "settings": {
-            "desktop_col_span": 1,
+            "image": "shopify://shop_images/image_3.png",
+            "desktop_col_span": 2,
             "desktop_row_span": 2,
-            "mobile_col_span": "1",
+            "mobile_col_span": 1,
             "mobile_row_span": 2
           }
         },
@@ -103,7 +107,7 @@
           "settings": {
             "desktop_col_span": 2,
             "desktop_row_span": 1,
-            "mobile_col_span": "2",
+            "mobile_col_span": 2,
             "mobile_row_span": 1
           }
         }
@@ -122,6 +126,8 @@
         "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>",
         "text_desktop_col_span": 2,
         "text_desktop_row_span": 1,
+        "text_mobile_col_span": 4,
+        "text_mobile_row_span": 1,
         "desktop_row_height": 200,
         "mobile_row_height": 120,
         "padding_top": 40,
