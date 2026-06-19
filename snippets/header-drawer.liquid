@@ -474,9 +474,9 @@ color: #2B2B2B;
                 <div class="woc-drawer-promo" style="margin-top: 2rem;">
                   <img src="{{ section.settings.drawer_promo_image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ section.settings.drawer_promo_title }}" loading="lazy">
                   <div class="woc-drawer-promo__overlay"> </div>
-                  <div class="woc-drawer-promo__content" style="gap: 1.5rem;">
+                  <div class="woc-drawer-promo__content">
                     {% if section.settings.drawer_promo_title != blank %}
-                      <h3 class="woc-drawer-promo__heading h1" style="font-size: 2.8rem;">{{ section.settings.drawer_promo_title }}</h3>
+                      <h3 class="woc-drawer-promo__heading h1">{{ section.settings.drawer_promo_title }}</h3>
                     {% endif %}
 
                     {% if section.settings.drawer_promo_text != blank %}
