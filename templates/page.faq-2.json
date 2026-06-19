@@ -11,13 +11,80 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "faq_tabs_aR6MNV": {
+      "type": "faq-tabs",
+      "blocks": {
+        "category_Vq68Fk": {
+          "type": "category",
+          "settings": {
+            "title": "Sofa related questions",
+            "icon": "check_mark",
+            "color_scheme": ""
+          }
+        },
+        "category_8YmjjF": {
+          "type": "category",
+          "settings": {
+            "title": "Bed related questions",
+            "icon": "check_mark",
+            "color_scheme": ""
+          }
+        },
+        "faq_jFDDjC": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How long does delivery take?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+            "color_scheme": ""
+          }
+        },
+        "faq_GPtLrT": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Are your sofas made in the UK?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+            "color_scheme": ""
+          }
+        },
+        "faq_qGLUyX": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What sizes are available?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_Vq68Fk",
+        "category_8YmjjF",
+        "faq_jFDDjC",
+        "faq_GPtLrT",
+        "faq_qGLUyX"
+      ],
+      "name": "FAQ Tabs",
+      "settings": {
+        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "heading_size": "h1",
+        "description": "Browse questions by categories",
+        "answers_label": "answers",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "faq_tabs_aR6MNV"
   ]
 }
