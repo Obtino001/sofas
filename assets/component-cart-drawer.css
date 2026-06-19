@@ -164,6 +164,7 @@ cart-drawer {
   right: 0;
   bottom: 0;
   left: 0;
+  background: #A9A9A999;
 }
 
 .cart-drawer__overlay:empty {
@@ -1603,7 +1604,7 @@ cart-drawer-items {
 }
 
 .cart-item__rating-stars span {
-    color: #108474 ;
+  color: #108474;
 }
 
 
@@ -1630,17 +1631,19 @@ cart-drawer-items {
 .cart-drawer__loading-overlay.is-active {
   opacity: 1;
   visibility: visible;
-  pointer-events: all; /* Blocks clicks to elements underneath */
+  pointer-events: all;
+  /* Blocks clicks to elements underneath */
 }
 
 .cart-drawer__spinner-ring {
   width: 40px;
   height: 40px;
   border: 3px solid rgba(18, 18, 18, 0.1);
-  border-top-color: #121212; /* Theme dark color */
+  border-top-color: #121212;
+  /* Theme dark color */
   border-radius: 50%;
   animation: cartDrawerSpinner 0.8s linear infinite;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 @keyframes cartDrawerSpinner {

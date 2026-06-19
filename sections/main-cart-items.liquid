@@ -178,15 +178,15 @@
 
                     <td class="cart-item__totals right medium-hide large-up-hide">
                       {%- render 'loading-spinner' -%}
-                      <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
+                      <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
                         {%- if item.variant.compare_at_price > item.variant.price -%}
                           {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
-                          <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
+                          <span class="price price--sale" style="font-weight: 600; color: #c0392b; font-size: 15px;">{{ item.final_line_price | money }}</span>
                           <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
-                          {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
-                          <span class="price-discount-badge" style="background: #2B2B2B; color: #FFFFFF; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px;">{{ savings }}% OFF</span>
+                          {%- assign saving = item_compare_at | minus: item.final_line_price -%}
+                          <span class="price-discount-badge" style="color: #c0392b; font-size: 12px; font-weight: 500; margin-left: 4px;">(Save {{ saving | money }})</span>
                         {%- else -%}
-                          <span class="price price--end">
+                          <span class="price price--end" style="font-weight: 600; font-size: 15px;">
                             {{ item.original_line_price | money }}
                           </span>
                         {%- endif -%}
@@ -397,12 +397,12 @@
                       <div class="cart-item__price-wrapper" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
                         {%- if item.variant.compare_at_price > item.variant.price -%}
                           {%- assign item_compare_at = item.variant.compare_at_price | times: item.quantity -%}
-                          <span class="price price--sale" style="font-weight: 600;">{{ item.final_line_price | money }}</span>
+                          <span class="price price--sale" style="font-weight: 600; color: #c0392b; font-size: 15px;">{{ item.final_line_price | money }}</span>
                           <s class="price price--compare" style="color: #888888; font-size: 13px;">{{ item_compare_at | money }}</s>
-                          {%- assign savings = item.variant.compare_at_price | minus: item.variant.price | times: 100 | divided_by: item.variant.compare_at_price | round -%}
-                          <span class="price-discount-badge" style="background: #2B2B2B; color: #FFFFFF; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px;">{{ savings }}% OFF</span>
+                          {%- assign saving = item_compare_at | minus: item.final_line_price -%}
+                          <span class="price-discount-badge" style="color: #c0392b; font-size: 12px; font-weight: 500; margin-left: 4px;">(Save {{ saving | money }})</span>
                         {%- else -%}
-                          <span class="price price--end">
+                          <span class="price price--end" style="font-weight: 600; font-size: 15px;">
                             {{ item.original_line_price | money }}
                           </span>
                         {%- endif -%}

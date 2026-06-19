@@ -3648,5 +3648,4 @@ details-disclosure>details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
-}@ k e y f r a m e s   p r e m i u m - s p i n   {   f r o m   {   t r a n s f o r m :   r o t a t e ( 0 d e g ) ;   }   t o   {   t r a n s f o r m :   r o t a t e ( 3 6 0 d e g ) ;   }   }  
- 
+}@keyframes premium-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
