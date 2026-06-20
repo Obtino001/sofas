@@ -47,6 +47,15 @@
     position: relative;
     flex-shrink: 0;
     align-self: flex-start;
+    max-width: none;
+  }
+
+  .custom-collage-{{ section.id }} .custom-collage__layout--desktop,
+  .custom-collage-{{ section.id }} .custom-collage__layout--desktop .custom-collage__col,
+  .custom-collage-{{ section.id }} .custom-collage__mobile-grid,
+  .custom-collage-{{ section.id }} .custom-collage__mobile-left,
+  .custom-collage-{{ section.id }} .custom-collage__mobile-right {
+    overflow: visible;
   }
 
   .custom-collage-{{ section.id }} .custom-collage__img img,
@@ -106,16 +115,38 @@
         assign block_offset_left = block.settings.offset_left | default: 0
         assign block_gap_below = block.settings.gap_below | default: 0
         assign block_width = block.settings.width_percent | default: 100
+        assign block_width_align = block.settings.width_align | default: 'left'
         assign block_min_height = block.settings.min_height | default: 0
         assign block_max_height = block.settings.max_height | default: 0
+        assign block_desktop_layout = block.settings.desktop_layout | default: 'aspect_ratio'
+        assign block_fixed_height = block.settings.fixed_height | default: 200
       -%}
       .custom-collage-{{ section.id }} #block-{{ block.id }} {
-        aspect-ratio: {{ block_aspect }};
         margin-top: {{ block_offset_top }}px;
         margin-left: {{ block_offset_left }}px;
         margin-bottom: {{ block_gap_below }}px;
         width: {{ block_width }}%;
-        {%- if block_min_height > 0 -%}
+        {%- if block_width > 100 -%}
+          {%- case block_width_align -%}
+            {%- when 'center' -%}
+              align-self: center;
+            {%- when 'right' -%}
+              align-self: flex-end;
+            {%- else -%}
+              align-self: flex-start;
+          {%- endcase -%}
+        {%- endif -%}
+        {%- if block_desktop_layout == 'fixed_height' -%}
+          height: {{ block_fixed_height }}px;
+          aspect-ratio: unset;
+        {%- elsif block_desktop_layout == 'flex_grow' -%}
+          flex: 1 1 0;
+          aspect-ratio: unset;
+          min-height: {{ block_min_height }}px;
+        {%- else -%}
+          aspect-ratio: {{ block_aspect }};
+        {%- endif -%}
+        {%- if block_min_height > 0 and block_desktop_layout != 'flex_grow' -%}
           min-height: {{ block_min_height }}px;
         {%- endif -%}
         {%- if block_max_height > 0 -%}
@@ -171,6 +202,7 @@
       display: flex;
       gap: var(--collage-gap);
       flex-shrink: 0;
+      overflow: visible;
     }
 
     .custom-collage-{{ section.id }} .custom-collage__mobile-pair .custom-collage__img {
@@ -185,6 +217,7 @@
           assign m_offset_left = block.settings.offset_left_mobile | default: 0
           assign m_gap_below = block.settings.gap_below_mobile | default: 0
           assign m_width = block.settings.width_percent_mobile | default: 100
+          assign m_width_align = block.settings.width_align_mobile | default: 'left'
           assign m_min_height = block.settings.min_height_mobile | default: 0
           assign m_max_height = block.settings.max_height_mobile | default: 0
           assign m_layout = block.settings.mobile_layout | default: 'aspect_ratio'
@@ -196,6 +229,16 @@
           margin-left: {{ m_offset_left }}px;
           margin-bottom: {{ m_gap_below }}px;
           width: {{ m_width }}%;
+          {%- if m_width > 100 -%}
+            {%- case m_width_align -%}
+              {%- when 'center' -%}
+                align-self: center;
+              {%- when 'right' -%}
+                align-self: flex-end;
+              {%- else -%}
+                align-self: flex-start;
+            {%- endcase -%}
+          {%- endif -%}
           {%- if m_min_height > 0 -%}
             min-height: {{ m_min_height }}px;
           {%- else -%}
@@ -545,9 +588,20 @@
         { "type": "header", "content": "Desktop layout" },
         { "type": "text", "id": "aspect_ratio", "label": "Aspect ratio (width / height)", "default": "1.1 / 1", "info": "Example: 1.1 / 1 landscape, 0.75 / 1 portrait" },
         { "type": "range", "id": "offset_top", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left", "min": -50, "max": 50, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left", "min": -100, "max": 100, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align", "label": "Wide image alignment", "info": "When width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
+        { "type": "select", "id": "desktop_layout", "label": "Desktop sizing", "options": [
+          { "value": "aspect_ratio", "label": "Aspect ratio" },
+          { "value": "fixed_height", "label": "Fixed height" },
+          { "value": "flex_grow", "label": "Fill remaining space" }
+        ], "default": "aspect_ratio" },
+        { "type": "range", "id": "fixed_height", "min": 80, "max": 800, "step": 10, "unit": "px", "label": "Desktop fixed height", "default": 200, "info": "Used when desktop sizing is Fixed height" },
         { "type": "range", "id": "min_height", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height (0 = auto)", "default": 0 },
         { "type": "range", "id": "max_height", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 },
         { "type": "header", "content": "Mobile layout" },
@@ -558,9 +612,14 @@
         ], "default": "flex_grow" },
         { "type": "text", "id": "aspect_ratio_mobile", "label": "Mobile aspect ratio", "default": "1.1 / 1" },
         { "type": "range", "id": "offset_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left_mobile", "min": -30, "max": 30, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left_mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Mobile width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align_mobile", "label": "Mobile wide image alignment", "info": "When mobile width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
         { "type": "range", "id": "min_height_mobile", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height", "default": 140 },
         { "type": "range", "id": "fixed_height_mobile", "min": 80, "max": 600, "step": 10, "unit": "px", "label": "Fixed height", "default": 220 },
         { "type": "range", "id": "max_height_mobile", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 }
@@ -576,9 +635,20 @@
         { "type": "header", "content": "Desktop layout" },
         { "type": "text", "id": "aspect_ratio", "label": "Aspect ratio (width / height)", "default": "0.75 / 1" },
         { "type": "range", "id": "offset_top", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Offset top", "default": 64 },
-        { "type": "range", "id": "offset_left", "min": -50, "max": 50, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left", "min": -100, "max": 100, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align", "label": "Wide image alignment", "info": "When width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
+        { "type": "select", "id": "desktop_layout", "label": "Desktop sizing", "options": [
+          { "value": "aspect_ratio", "label": "Aspect ratio" },
+          { "value": "fixed_height", "label": "Fixed height" },
+          { "value": "flex_grow", "label": "Fill remaining space" }
+        ], "default": "aspect_ratio" },
+        { "type": "range", "id": "fixed_height", "min": 80, "max": 800, "step": 10, "unit": "px", "label": "Desktop fixed height", "default": 200, "info": "Used when desktop sizing is Fixed height" },
         { "type": "range", "id": "min_height", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height (0 = auto)", "default": 0 },
         { "type": "range", "id": "max_height", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 },
         { "type": "header", "content": "Mobile layout" },
@@ -589,9 +659,14 @@
         ], "default": "aspect_ratio" },
         { "type": "text", "id": "aspect_ratio_mobile", "label": "Mobile aspect ratio", "default": "1 / 1.05" },
         { "type": "range", "id": "offset_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left_mobile", "min": -30, "max": 30, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left_mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Mobile width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align_mobile", "label": "Mobile wide image alignment", "info": "When mobile width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
         { "type": "range", "id": "min_height_mobile", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height", "default": 0 },
         { "type": "range", "id": "fixed_height_mobile", "min": 80, "max": 600, "step": 10, "unit": "px", "label": "Fixed height", "default": 160 },
         { "type": "range", "id": "max_height_mobile", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 }
@@ -607,9 +682,20 @@
         { "type": "header", "content": "Desktop layout" },
         { "type": "text", "id": "aspect_ratio", "label": "Aspect ratio (width / height)", "default": "1.3 / 1" },
         { "type": "range", "id": "offset_top", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left", "min": -50, "max": 50, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left", "min": -100, "max": 100, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align", "label": "Wide image alignment", "info": "When width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
+        { "type": "select", "id": "desktop_layout", "label": "Desktop sizing", "options": [
+          { "value": "aspect_ratio", "label": "Aspect ratio" },
+          { "value": "fixed_height", "label": "Fixed height" },
+          { "value": "flex_grow", "label": "Fill remaining space" }
+        ], "default": "aspect_ratio" },
+        { "type": "range", "id": "fixed_height", "min": 80, "max": 800, "step": 10, "unit": "px", "label": "Desktop fixed height", "default": 200, "info": "Used when desktop sizing is Fixed height" },
         { "type": "range", "id": "min_height", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height (0 = auto)", "default": 0 },
         { "type": "range", "id": "max_height", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 },
         { "type": "header", "content": "Mobile layout" },
@@ -620,9 +706,14 @@
         ], "default": "aspect_ratio" },
         { "type": "text", "id": "aspect_ratio_mobile", "label": "Mobile aspect ratio", "default": "1.4 / 1" },
         { "type": "range", "id": "offset_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left_mobile", "min": -30, "max": 30, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left_mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Mobile width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align_mobile", "label": "Mobile wide image alignment", "info": "When mobile width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
         { "type": "range", "id": "min_height_mobile", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height", "default": 0 },
         { "type": "range", "id": "fixed_height_mobile", "min": 80, "max": 600, "step": 10, "unit": "px", "label": "Fixed height", "default": 120 },
         { "type": "range", "id": "max_height_mobile", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 }
@@ -630,7 +721,7 @@
     },
     {
       "type": "image_4",
-      "name": "Image 4 — Grey",
+      "name": "Image 4 — Grey sofa",
       "limit": 1,
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
@@ -638,9 +729,20 @@
         { "type": "header", "content": "Desktop layout" },
         { "type": "text", "id": "aspect_ratio", "label": "Aspect ratio (width / height)", "default": "1 / 1.1" },
         { "type": "range", "id": "offset_top", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Offset top", "default": 106 },
-        { "type": "range", "id": "offset_left", "min": -50, "max": 50, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left", "min": -100, "max": 100, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align", "label": "Wide image alignment", "info": "When width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
+        { "type": "select", "id": "desktop_layout", "label": "Desktop sizing", "options": [
+          { "value": "aspect_ratio", "label": "Aspect ratio" },
+          { "value": "fixed_height", "label": "Fixed height" },
+          { "value": "flex_grow", "label": "Fill remaining space" }
+        ], "default": "aspect_ratio" },
+        { "type": "range", "id": "fixed_height", "min": 80, "max": 800, "step": 10, "unit": "px", "label": "Desktop fixed height", "default": 200, "info": "Used when desktop sizing is Fixed height" },
         { "type": "range", "id": "min_height", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height (0 = auto)", "default": 0 },
         { "type": "range", "id": "max_height", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 },
         { "type": "header", "content": "Mobile layout" },
@@ -651,9 +753,14 @@
         ], "default": "aspect_ratio" },
         { "type": "text", "id": "aspect_ratio_mobile", "label": "Mobile aspect ratio", "default": "1 / 1.05" },
         { "type": "range", "id": "offset_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left_mobile", "min": -30, "max": 30, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left_mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Mobile width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align_mobile", "label": "Mobile wide image alignment", "info": "When mobile width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
         { "type": "range", "id": "min_height_mobile", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height", "default": 0 },
         { "type": "range", "id": "fixed_height_mobile", "min": 80, "max": 600, "step": 10, "unit": "px", "label": "Fixed height", "default": 160 },
         { "type": "range", "id": "max_height_mobile", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 }
@@ -669,9 +776,20 @@
         { "type": "header", "content": "Desktop layout" },
         { "type": "text", "id": "aspect_ratio", "label": "Aspect ratio (width / height)", "default": "1 / 1" },
         { "type": "range", "id": "offset_top", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left", "min": -50, "max": 50, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left", "min": -100, "max": 100, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align", "label": "Wide image alignment", "info": "When width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
+        { "type": "select", "id": "desktop_layout", "label": "Desktop sizing", "options": [
+          { "value": "aspect_ratio", "label": "Aspect ratio" },
+          { "value": "fixed_height", "label": "Fixed height" },
+          { "value": "flex_grow", "label": "Fill remaining space" }
+        ], "default": "aspect_ratio" },
+        { "type": "range", "id": "fixed_height", "min": 80, "max": 800, "step": 10, "unit": "px", "label": "Desktop fixed height", "default": 200, "info": "Used when desktop sizing is Fixed height" },
         { "type": "range", "id": "min_height", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height (0 = auto)", "default": 0 },
         { "type": "range", "id": "max_height", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 },
         { "type": "header", "content": "Mobile layout" },
@@ -682,9 +800,14 @@
         ], "default": "aspect_ratio" },
         { "type": "text", "id": "aspect_ratio_mobile", "label": "Mobile aspect ratio", "default": "1.35 / 1" },
         { "type": "range", "id": "offset_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left_mobile", "min": -30, "max": 30, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left_mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Mobile width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align_mobile", "label": "Mobile wide image alignment", "info": "When mobile width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
         { "type": "range", "id": "min_height_mobile", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height", "default": 0 },
         { "type": "range", "id": "fixed_height_mobile", "min": 80, "max": 600, "step": 10, "unit": "px", "label": "Fixed height", "default": 120 },
         { "type": "range", "id": "max_height_mobile", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 }
@@ -700,9 +823,20 @@
         { "type": "header", "content": "Desktop layout" },
         { "type": "text", "id": "aspect_ratio", "label": "Aspect ratio (width / height)", "default": "1.4 / 1" },
         { "type": "range", "id": "offset_top", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Offset top", "default": 150 },
-        { "type": "range", "id": "offset_left", "min": -50, "max": 50, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left", "min": -100, "max": 100, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align", "label": "Wide image alignment", "info": "When width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
+        { "type": "select", "id": "desktop_layout", "label": "Desktop sizing", "options": [
+          { "value": "aspect_ratio", "label": "Aspect ratio" },
+          { "value": "fixed_height", "label": "Fixed height" },
+          { "value": "flex_grow", "label": "Fill remaining space" }
+        ], "default": "aspect_ratio" },
+        { "type": "range", "id": "fixed_height", "min": 80, "max": 800, "step": 10, "unit": "px", "label": "Desktop fixed height", "default": 200, "info": "Used when desktop sizing is Fixed height" },
         { "type": "range", "id": "min_height", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height (0 = auto)", "default": 0 },
         { "type": "range", "id": "max_height", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 },
         { "type": "header", "content": "Mobile layout" },
@@ -713,9 +847,14 @@
         ], "default": "aspect_ratio" },
         { "type": "text", "id": "aspect_ratio_mobile", "label": "Mobile aspect ratio", "default": "1.5 / 1" },
         { "type": "range", "id": "offset_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Offset top", "default": 0 },
-        { "type": "range", "id": "offset_left_mobile", "min": -30, "max": 30, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
+        { "type": "range", "id": "offset_left_mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "label": "Offset left", "default": 0 },
         { "type": "range", "id": "gap_below_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Extra gap below", "default": 0 },
-        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 100, "step": 5, "unit": "%", "label": "Width", "default": 100 },
+        { "type": "range", "id": "width_percent_mobile", "min": 50, "max": 200, "step": 5, "unit": "%", "label": "Mobile width (over 100% extends beyond column)", "default": 100 },
+        { "type": "select", "id": "width_align_mobile", "label": "Mobile wide image alignment", "info": "When mobile width is over 100%, choose which direction it extends.", "options": [
+          { "value": "left", "label": "Extend to the right" },
+          { "value": "center", "label": "Extend both sides" },
+          { "value": "right", "label": "Extend to the left" }
+        ], "default": "left" },
         { "type": "range", "id": "min_height_mobile", "min": 0, "max": 600, "step": 10, "unit": "px", "label": "Min height", "default": 0 },
         { "type": "range", "id": "fixed_height_mobile", "min": 80, "max": 600, "step": 10, "unit": "px", "label": "Fixed height", "default": 140 },
         { "type": "range", "id": "max_height_mobile", "min": 0, "max": 800, "step": 10, "unit": "px", "label": "Max height (0 = none)", "default": 0 }
