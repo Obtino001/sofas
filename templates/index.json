@@ -248,7 +248,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "title": "The perfect <em>sofa </em>for your <em>space</em>",
+        "title": "The perfect sofa for your space",
         "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
@@ -337,7 +337,7 @@
       "name": "Bento Categories",
       "settings": {
         "color_scheme": "",
-        "title": "Shop by <em>category</em>",
+        "title": "Shop by category",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -422,7 +422,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "card_color_scheme": "scheme-fc6ff987-8b14-4aae-b16a-d9badae9e57c",
-        "heading": "What our <em>customers</em> say",
+        "heading": "What our customers say",
         "btn_text": "View All",
         "btn_link": "",
         "padding_top": 60,
@@ -489,7 +489,7 @@
       ],
       "name": "Icon Category Grid",
       "settings": {
-        "title": "Sofas for every <em>space</em>",
+        "title": "What our customers say",
         "heading_size": "h1",
         "color_scheme": "",
         "padding_top": 40,
@@ -612,7 +612,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "title": "New<em> arrivals </em>",
+        "title": "New arrivals",
         "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
@@ -692,7 +692,7 @@
       ],
       "name": "Why Choose Us",
       "settings": {
-        "heading": "<p>Why <em>choose</em> Sofas'n'Beds</p>",
+        "heading": "<p>Why choose Sofas'n'Beds</p>",
         "main_image": "shopify://shop_images/ad487d42e8cd67ba6fb4b4fe1213f247a54ee448_1.png",
         "color_scheme": "",
         "padding_top": 60,
@@ -788,7 +788,7 @@
       ],
       "name": "Engineered Sleep Design",
       "settings": {
-        "heading": "Engineered for <em>deeper</em>, better <em>sleep</em>",
+        "heading": "Engineered for deeper, better sleep",
         "main_image": "shopify://shop_images/c87f67ed7d454f2d3ec3c3ec5f6fc1730b7d0743.png",
         "background_image": "shopify://shop_images/Group_1413372214.svg",
         "color_scheme": "",
@@ -964,7 +964,7 @@
       ],
       "name": "FAQ Tabs",
       "settings": {
-        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "title": "Expert answers to common questions",
         "heading_size": "h1",
         "description": "Browse questions by categories",
         "answers_label": "answers",
