@@ -32,40 +32,40 @@
             "button_style_2": "secondary"
           }
         },
-        "slide_aKbfqg": {
+        "slide_YcYXPY": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
             "mobile_image": "shopify://shop_images/image_1_2.png",
             "overlay_opacity": 30,
-            "color_scheme": "",
+            "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
             "desktop_content_position": "center",
             "desktop_text_alignment": "center",
-            "heading": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
+            "heading": "<p>Premium sofas without the wait.</p>",
             "heading_size": "h1",
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you.</p>",
-            "button_label_1": "Explore our products",
-            "button_link_1": "",
+            "text": "<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.</p>",
+            "button_label_1": "Get your comfort sofa now!",
+            "button_link_1": "shopify://collections",
             "button_style_1": "primary",
             "button_label_2": "",
             "button_link_2": "",
             "button_style_2": "secondary"
           }
         },
-        "slide_A9KUnP": {
+        "slide_UnRRHJ": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
             "mobile_image": "shopify://shop_images/image_1_2.png",
             "overlay_opacity": 30,
-            "color_scheme": "",
+            "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
             "desktop_content_position": "center",
             "desktop_text_alignment": "center",
-            "heading": "<p>LESS MAINTENANCE. MORE RIDING.</p>",
+            "heading": "<p>Premium sofas without the wait.</p>",
             "heading_size": "h1",
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you.</p>",
-            "button_label_1": "Explore our products",
-            "button_link_1": "",
+            "text": "<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.</p>",
+            "button_label_1": "Get your comfort sofa now!",
+            "button_link_1": "shopify://collections",
             "button_style_1": "primary",
             "button_label_2": "",
             "button_link_2": "",
@@ -75,13 +75,13 @@
       },
       "block_order": [
         "slide_npzN6m",
-        "slide_aKbfqg",
-        "slide_A9KUnP"
+        "slide_YcYXPY",
+        "slide_UnRRHJ"
       ],
       "name": "Custom Hero Slider",
       "settings": {
         "enable_autoplay": true,
-        "autoplay_interval": 5,
+        "autoplay_interval": 10,
         "desktop_arrows": false,
         "mobile_arrows": false,
         "desktop_dots": false,
@@ -122,6 +122,7 @@
         "subheading_DAaYnw",
         "buttons_qkDF6J"
       ],
+      "disabled": true,
       "name": "Image Custom Banner",
       "settings": {
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
