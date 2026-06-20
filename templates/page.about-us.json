@@ -271,7 +271,7 @@
       "name": "Custom Newsletter Banner",
       "settings": {
         "color_scheme": "scheme-2b94d528-39a1-47d5-b412-16caf9d9759b",
-        "heading": "",
+        "heading": "Sign up & get an additional 10% off now!",
         "subtext": "Be the first to hear about new arrivals, exclusive offers, and home inspiration.",
         "input_placeholder": "Email Address",
         "button_text": "Get 10% off",
@@ -358,7 +358,7 @@
       ],
       "name": "FAQ Tabs",
       "settings": {
-        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "title": "Expert answers to common questions",
         "heading_size": "h1",
         "description": "Browse questions by categories",
         "answers_label": "answers",
