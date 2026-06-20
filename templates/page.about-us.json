@@ -178,8 +178,8 @@
             "offset_left_mobile": 0,
             "gap_below_mobile": 0,
             "width_percent_mobile": 75,
-            "min_height_mobile": 0,
-            "fixed_height_mobile": 120,
+            "min_height_mobile": 150,
+            "fixed_height_mobile": 190,
             "max_height_mobile": 0
           }
         },
@@ -219,8 +219,8 @@
       "name": "Custom Collage",
       "settings": {
         "color_scheme": "",
-        "gap": 16,
-        "image_radius": 12,
+        "gap": 8,
+        "image_radius": 8,
         "col_1_width": 28,
         "col_2_width": 20,
         "col_3_width": 24,
