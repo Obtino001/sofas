@@ -122,7 +122,7 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
-    "search_menu": "main-menu-2",
+    "search_menu": "main-menu",
     "search_product_collection": "3-seater",
     "upsell__container": false,
     "upsell__heading": "We recommend",
