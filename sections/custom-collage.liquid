@@ -217,7 +217,7 @@
       <div class="custom-collage__layout custom-collage__layout--mobile">
         {%- if text_block != blank and text_block.settings.text != blank -%}
           <div
-            class="custom-collage__text custom-collage__text--mobile{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="custom-collage__text custom-collage__text--mobile"
             {{ text_block.shopify_attributes }}
           >
             {{ text_block.settings.text }}
