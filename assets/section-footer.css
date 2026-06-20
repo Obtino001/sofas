@@ -129,7 +129,7 @@
   font-size: 1.4rem;
   line-height: 1.6;
   color: rgba(var(--color-foreground), 0.7);
-  margin-bottom: 2.5rem;
+  margin-block: 2.5rem;
   max-width: 400px;
 }
 
