@@ -83,14 +83,6 @@
     text-decoration: none;
   }
 
-  .custom-collage-{{ section.id }} .custom-collage__text--desktop {
-    display: none;
-  }
-
-  .custom-collage-{{ section.id }} .custom-collage__text--inline {
-    display: block;
-  }
-
   /* Mobile: 2-column grid */
   @media screen and (max-width: 749px) {
     .custom-collage-{{ section.id }} .custom-collage__layout {
@@ -134,28 +126,13 @@
 
     .custom-collage-{{ section.id }} .custom-collage__col--3 {
       flex: {{ section.settings.col_3_width }} 1 0;
-      margin-top: var(--collage-offset);
+      margin-top: calc(var(--collage-offset) * 1.65);
     }
 
     .custom-collage-{{ section.id }} .custom-collage__col--4 {
       flex: {{ section.settings.col_4_width }} 1 0;
-      margin-top: var(--collage-offset);
+      margin-top: calc(var(--collage-offset) * 2.35);
       justify-content: center;
-    }
-  }
-
-  /* Large desktop: centered text above collage */
-  @media screen and (min-width: 990px) {
-    .custom-collage-{{ section.id }} .custom-collage__text--desktop {
-      display: block;
-      text-align: center;
-      max-width: {{ section.settings.text_max_width }}rem;
-      margin: 0 auto calc(var(--collage-gap) * 2);
-      width: 100%;
-    }
-
-    .custom-collage-{{ section.id }} .custom-collage__text--inline {
-      display: none;
     }
   }
 {%- endstyle -%}
@@ -163,13 +140,6 @@
 <div class="{% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }} {% endif %}gradient">
   <div class="section-{{ section.id }}-padding page-width">
     <div class="custom-collage-{{ section.id }}">
-
-      {%- if text_block != blank and text_block.settings.text != blank -%}
-        <div class="custom-collage__text custom-collage__text--desktop">
-          {{ text_block.settings.text }}
-        </div>
-      {%- endif -%}
-
       <div class="custom-collage__layout">
 
         <div class="custom-collage__col custom-collage__col--1">
@@ -195,30 +165,30 @@
             aspect_ratio: section.settings.img_2_aspect
           -%}
           {%- render 'custom-collage-image',
-            block: image_4,
-            index: 4,
-            aspect_ratio: section.settings.img_4_aspect
+            block: image_3,
+            index: 3,
+            aspect_ratio: section.settings.img_3_aspect
           -%}
         </div>
 
         <div class="custom-collage__col custom-collage__col--3">
           {%- render 'custom-collage-image',
-            block: image_3,
-            index: 3,
-            aspect_ratio: section.settings.img_3_aspect
+            block: image_4,
+            index: 4,
+            aspect_ratio: section.settings.img_4_aspect
           -%}
           {%- render 'custom-collage-image',
-            block: image_6,
-            index: 6,
-            aspect_ratio: section.settings.img_6_aspect
+            block: image_5,
+            index: 5,
+            aspect_ratio: section.settings.img_5_aspect
           -%}
         </div>
 
         <div class="custom-collage__col custom-collage__col--4">
           {%- render 'custom-collage-image',
-            block: image_5,
-            index: 5,
-            aspect_ratio: section.settings.img_5_aspect
+            block: image_6,
+            index: 6,
+            aspect_ratio: section.settings.img_6_aspect
           -%}
         </div>
 
@@ -264,16 +234,6 @@
       "default": 12
     },
     {
-      "type": "range",
-      "id": "text_max_width",
-      "min": 40,
-      "max": 90,
-      "step": 2,
-      "unit": "rem",
-      "label": "Desktop text max width",
-      "default": 72
-    },
-    {
       "type": "header",
       "content": "Column widths"
     },
@@ -294,7 +254,7 @@
       "max": 50,
       "step": 1,
       "unit": "fr",
-      "label": "Column 2 — Bed & brown sofa",
+      "label": "Column 2 — Bed & image 3",
       "default": 20
     },
     {
@@ -304,8 +264,8 @@
       "max": 50,
       "step": 1,
       "unit": "fr",
-      "label": "Column 3 — Grey & dark sofa",
-      "default": 44
+      "label": "Column 3 — Image 4 & image 5",
+      "default": 24
     },
     {
       "type": "range",
@@ -314,8 +274,8 @@
       "max": 50,
       "step": 1,
       "unit": "fr",
-      "label": "Column 4 — Grey bed",
-      "default": 47
+      "label": "Column 4 — Image 6",
+      "default": 26
     },
     {
       "type": "range",
@@ -325,8 +285,8 @@
       "step": 2,
       "unit": "px",
       "label": "Image column offset",
-      "info": "Pushes columns 2–4 down to align with the text block.",
-      "default": 0
+      "info": "Staggers columns 2–4 down from the text block.",
+      "default": 64
     },
     {
       "type": "header",
@@ -342,31 +302,31 @@
       "type": "text",
       "id": "img_2_aspect",
       "label": "Image 2 — Bed",
-      "default": "0.9 / 1"
+      "default": "0.75 / 1"
     },
     {
       "type": "text",
       "id": "img_3_aspect",
-      "label": "Image 3 — Grey sofa",
-      "default": "1 / 1.2"
-    },
-    {
-      "type": "text",
-      "id": "img_4_aspect",
-      "label": "Image 4 — Brown sofa",
+      "label": "Image 3 — Brown sofa",
       "default": "1.3 / 1"
     },
     {
       "type": "text",
+      "id": "img_4_aspect",
+      "label": "Image 4 — Grey sofa detail",
+      "default": "1 / 1.1"
+    },
+    {
+      "type": "text",
       "id": "img_5_aspect",
-      "label": "Image 5 — Grey bed",
-      "default": "1.4 / 1"
+      "label": "Image 5 — Dark sofa",
+      "default": "1 / 1"
     },
     {
       "type": "text",
       "id": "img_6_aspect",
-      "label": "Image 6 — Dark sofa",
-      "default": "1 / 1"
+      "label": "Image 6 — Grey bed",
+      "default": "1.4 / 1"
     },
     {
       "type": "header",
@@ -443,7 +403,7 @@
     },
     {
       "type": "image_3",
-      "name": "Image 3 — Grey sofa",
+      "name": "Image 3 — Brown sofa",
       "limit": 1,
       "settings": [
         {
@@ -460,7 +420,7 @@
     },
     {
       "type": "image_4",
-      "name": "Image 4 — Brown sofa",
+      "name": "Image 4 — Grey sofa",
       "limit": 1,
       "settings": [
         {
@@ -477,7 +437,7 @@
     },
     {
       "type": "image_5",
-      "name": "Image 5 — Grey bed",
+      "name": "Image 5 — Dark sofa",
       "limit": 1,
       "settings": [
         {
@@ -494,7 +454,7 @@
     },
     {
       "type": "image_6",
-      "name": "Image 6 — Dark sofa",
+      "name": "Image 6 — Grey bed",
       "limit": 1,
       "settings": [
         {
@@ -516,18 +476,17 @@
       "settings": {
         "gap": 16,
         "image_radius": 12,
-        "text_max_width": 72,
         "col_1_width": 30,
         "col_2_width": 20,
-        "col_3_width": 44,
-        "col_4_width": 47,
-        "images_offset_top": 0,
+        "col_3_width": 24,
+        "col_4_width": 26,
+        "images_offset_top": 64,
         "img_1_aspect": "1.1 / 1",
-        "img_2_aspect": "0.9 / 1",
-        "img_3_aspect": "1 / 1.2",
-        "img_4_aspect": "1.3 / 1",
-        "img_5_aspect": "1.4 / 1",
-        "img_6_aspect": "1 / 1",
+        "img_2_aspect": "0.75 / 1",
+        "img_3_aspect": "1.3 / 1",
+        "img_4_aspect": "1 / 1.1",
+        "img_5_aspect": "1 / 1",
+        "img_6_aspect": "1.4 / 1",
         "padding_top": 40,
         "padding_bottom": 40
       },
