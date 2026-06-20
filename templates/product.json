@@ -333,7 +333,7 @@
       ],
       "name": "Why Choose Us",
       "settings": {
-        "heading": "<p>Why choose <em>Sofas'n'Beds</em></p>",
+        "heading": "<p>Why choose Sofas'n'Beds</p>",
         "main_image": "shopify://shop_images/ad487d42e8cd67ba6fb4b4fe1213f247a54ee448_1.png",
         "color_scheme": "",
         "padding_top": 60,
@@ -420,7 +420,7 @@
       "settings": {
         "color_scheme": "",
         "card_color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
-        "heading": "Hear what our <em>customers</em> say",
+        "heading": "What our customers say",
         "btn_text": "View All",
         "btn_link": "",
         "padding_top": 60,
@@ -477,7 +477,7 @@
         "collection_9xXFdF"
       ],
       "settings": {
-        "title": "You may also <em>like</em>",
+        "title": "You may also like",
         "heading_size": "h1",
         "heading_alignment": "left",
         "description": "",
@@ -518,7 +518,7 @@
           "type": "heading",
           "settings": {
             "heading": "<p>Comfort now, Pay later.</p>",
-            "heading_size": "h1"
+            "heading_size": "h0"
           }
         },
         "text_YDc4BF": {
@@ -650,7 +650,7 @@
       ],
       "name": "FAQ Tabs",
       "settings": {
-        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "title": "Expert answers to common questions",
         "heading_size": "h1",
         "description": "Browse questions by categories",
         "answers_label": "answers",
