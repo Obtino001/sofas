@@ -1,8 +1,19 @@
+{%- liquid
+  assign text_block = section.blocks | where: 'type', 'text' | first
+  assign image_1 = section.blocks | where: 'type', 'image_1' | first
+  assign image_2 = section.blocks | where: 'type', 'image_2' | first
+  assign image_3 = section.blocks | where: 'type', 'image_3' | first
+  assign image_4 = section.blocks | where: 'type', 'image_4' | first
+  assign image_5 = section.blocks | where: 'type', 'image_5' | first
+  assign image_6 = section.blocks | where: 'type', 'image_6' | first
+-%}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -10,98 +21,47 @@
     }
   }
 
-  /* ── Layout Variables ── */
-  .custom-collage__layout {
-    --gap: {{ section.settings.gap }}px;
+  .custom-collage-{{ section.id }} {
+    --collage-gap: {{ section.settings.gap }}px;
+    --collage-radius: {{ section.settings.image_radius }}px;
+    --collage-offset: {{ section.settings.images_offset_top }}px;
   }
 
-  /* ── Desktop: 4-Column Flex Layout ── */
-  @media screen and (min-width: 750px) {
-    .custom-collage__layout {
-      display: flex;
-      gap: var(--gap);
-      align-items: flex-start; /* Do not stretch columns */
-    }
-    
-    .custom-collage__col {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap);
-    }
-
-    /* Column Widths */
-    .custom-collage__col--1 { width: {{ section.settings.col_1_width }}%; }
-    .custom-collage__col--2 { width: {{ section.settings.col_2_width }}%; margin-top: {{ section.settings.images_offset_top }}px; }
-    .custom-collage__col--3 { width: {{ section.settings.col_3_width }}%; margin-top: {{ section.settings.images_offset_top }}px; }
-    .custom-collage__col--4 { width: {{ section.settings.col_4_width }}%; margin-top: {{ section.settings.images_offset_top }}px; }
+  .custom-collage-{{ section.id }} .custom-collage__layout {
+    display: grid;
+    gap: var(--collage-gap);
   }
 
-  /* ── Mobile: 2-Column Grid ── */
-  @media screen and (max-width: 749px) {
-    .custom-collage__layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gap);
-    }
-    .custom-collage__col {
-      display: contents; /* Allows items to flow into the parent grid */
-    }
-    .custom-collage__text {
-      grid-column: 1 / -1;
-      order: 1;
-    }
-    /* Mobile Ordering */
-    .item-img-1 { order: 2; }
-    .item-img-2 { order: 3; }
-    .item-img-3 { order: 4; }
-    .item-img-4 { order: 5; }
-    .item-img-5 { order: 6; }
-    .item-img-6 { order: 7; }
-  }
-
-  /* ── Text Block ── */
-  .custom-collage__text {
+  .custom-collage-{{ section.id }} .custom-collage__text {
     color: rgb(var(--color-foreground));
-font-family: DM Sans;
-font-weight: 400;
-font-style: Regular;
-font-size: 24px;
-leading-trim: NONE;
-line-height: 150%;
-letter-spacing: 0%;
-  }
-  @media screen and (min-width: 750px) {
-    .custom-collage__text {
-      padding-right: 1.5rem;
-      margin-bottom: 0;
-    }
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 0;
   }
 
-  /* ── Image Blocks ── */
-  .custom-collage__img {
-    border-radius: 1rem;
+  .custom-collage-{{ section.id }} .custom-collage__text p {
+    margin: 0;
+  }
+
+  .custom-collage-{{ section.id }} .custom-collage__img {
+    border-radius: var(--collage-radius);
     overflow: hidden;
     position: relative;
     width: 100%;
-    /* Aspect ratio is set inline */
-  }
-  @media screen and (min-width: 750px) {
-    .custom-collage__img { border-radius: 1.4rem; }
   }
 
-  .custom-collage__img img, .custom-collage__img svg {
+  .custom-collage-{{ section.id }} .custom-collage__img img,
+  .custom-collage-{{ section.id }} .custom-collage__img svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
     display: block;
   }
-  .custom-collage__img:hover img { transform: scale(1.03); }
 
-  .custom-collage__placeholder {
+  .custom-collage-{{ section.id }} .custom-collage__placeholder {
     background-color: rgba(var(--color-foreground), 0.04);
     display: flex;
     align-items: center;
@@ -109,247 +69,477 @@ letter-spacing: 0%;
     width: 100%;
     height: 100%;
   }
-  .custom-collage__placeholder svg {
+
+  .custom-collage-{{ section.id }} .custom-collage__placeholder svg {
     width: 40px;
     height: 40px;
     fill: rgba(var(--color-foreground), 0.15);
+  }
+
+  .custom-collage-{{ section.id }} .custom-collage__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  /* Mobile / tablet: 4-column staggered grid */
+  @media screen and (max-width: 989px) {
+    .custom-collage-{{ section.id }} .custom-collage__layout {
+      grid-template-columns: {{ section.settings.col_1_width }}% {{ section.settings.col_2_width }}% {{ section.settings.col_3_width }}% {{ section.settings.col_4_width }}%;
+      grid-template-rows: auto auto auto auto;
+      align-items: start;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__text {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--1 {
+      grid-column: 1;
+      grid-row: 2 / span 2;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--2 {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin-top: var(--collage-offset);
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--3 {
+      grid-column: 3;
+      grid-row: 1 / span 2;
+      margin-top: var(--collage-offset);
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--4 {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--5 {
+      grid-column: 4;
+      grid-row: 2 / span 2;
+      margin-top: calc(var(--collage-offset) + var(--collage-gap));
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--6 {
+      grid-column: 3;
+      grid-row: 3;
+    }
+  }
+
+  /* Desktop: centered text + 2-column collage */
+  @media screen and (min-width: 990px) {
+    .custom-collage-{{ section.id }} .custom-collage__layout {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__text {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      text-align: center;
+      max-width: {{ section.settings.text_max_width }}rem;
+      justify-self: center;
+      width: 100%;
+      margin-bottom: calc(var(--collage-gap) * 0.5);
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--1 {
+      grid-column: 1 / 3;
+      grid-row: 2 / 4;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--2 {
+      grid-column: 3;
+      grid-row: 2;
+      margin-top: 0;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--3 {
+      grid-column: 4;
+      grid-row: 2;
+      margin-top: 0;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--4 {
+      grid-column: 1 / 3;
+      grid-row: 4;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--5 {
+      grid-column: 3 / 5;
+      grid-row: 3;
+      margin-top: 0;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__img--6 {
+      grid-column: 3 / 5;
+      grid-row: 4;
+    }
   }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding page-width">
-    <div class="custom-collage__layout">
+    <div class="custom-collage-{{ section.id }}">
+      <div class="custom-collage__layout">
 
-      {%- comment -%} ── Column 1: Text + White Sofa ── {%- endcomment -%}
-      <div class="custom-collage__col custom-collage__col--1">
-        {%- if section.settings.text != blank -%}
-          <div class="custom-collage__text">
-            {{ section.settings.text }}
+        {%- if text_block != blank and text_block.settings.text != blank -%}
+          <div
+            class="custom-collage__text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ text_block.shopify_attributes }}
+          >
+            {{ text_block.settings.text }}
           </div>
         {%- endif -%}
-        
-        <div class="custom-collage__img item-img-1" style="aspect-ratio: {{ section.settings.img_1_aspect }};">
-          {%- if section.settings.image_1 != blank -%}
-            {{ section.settings.image_1 | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
-          {%- endif -%}
-        </div>
-      </div>
 
-      {%- comment -%} ── Column 2: Tall White Bed ── {%- endcomment -%}
-      <div class="custom-collage__col custom-collage__col--2">
-        <div class="custom-collage__img item-img-2" style="aspect-ratio: {{ section.settings.img_2_aspect }};">
-          {%- if section.settings.image_2 != blank -%}
-            {{ section.settings.image_2 | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
-          {%- endif -%}
-        </div>
-      </div>
+        {%- assign image_blocks = 'image_1,image_2,image_3,image_4,image_5,image_6' | split: ',' -%}
+        {%- for block_type in image_blocks -%}
+          {%- assign block_index = forloop.index -%}
+          {%- assign current_block = nil -%}
+          {%- case block_type -%}
+            {%- when 'image_1' -%}{%- assign current_block = image_1 -%}
+            {%- when 'image_2' -%}{%- assign current_block = image_2 -%}
+            {%- when 'image_3' -%}{%- assign current_block = image_3 -%}
+            {%- when 'image_4' -%}{%- assign current_block = image_4 -%}
+            {%- when 'image_5' -%}{%- assign current_block = image_5 -%}
+            {%- when 'image_6' -%}{%- assign current_block = image_6 -%}
+          {%- endcase -%}
 
-      {%- comment -%} ── Column 3: Grey Pillows + Brown Sofa ── {%- endcomment -%}
-      <div class="custom-collage__col custom-collage__col--3">
-        <div class="custom-collage__img item-img-3" style="aspect-ratio: {{ section.settings.img_3_aspect }};">
-          {%- if section.settings.image_3 != blank -%}
-            {{ section.settings.image_3 | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
-          {%- endif -%}
-        </div>
-        <div class="custom-collage__img item-img-4" style="aspect-ratio: {{ section.settings.img_4_aspect }};">
-          {%- if section.settings.image_4 != blank -%}
-            {{ section.settings.image_4 | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
-          {%- endif -%}
-        </div>
-      </div>
+          {%- assign aspect_setting = 'img_' | append: block_index | append: '_aspect' -%}
+          {%- assign aspect_ratio = section.settings[aspect_setting] -%}
 
-      {%- comment -%} ── Column 4: Grey Bed + Black Sofa ── {%- endcomment -%}
-      <div class="custom-collage__col custom-collage__col--4">
-        <div class="custom-collage__img item-img-5" style="aspect-ratio: {{ section.settings.img_5_aspect }};">
-          {%- if section.settings.image_5 != blank -%}
-            {{ section.settings.image_5 | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
-          {%- endif -%}
-        </div>
-        <div class="custom-collage__img item-img-6" style="aspect-ratio: {{ section.settings.img_6_aspect }};">
-          {%- if section.settings.image_6 != blank -%}
-            {{ section.settings.image_6 | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          {%- else -%}
-            <div class="custom-collage__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
-          {%- endif -%}
-        </div>
-      </div>
+          <div
+            class="custom-collage__img custom-collage__img--{{ block_index }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            style="aspect-ratio: {{ aspect_ratio }};{% if settings.animations_reveal_on_scroll %} --animation-order: {{ block_index }};{% endif %}"
+            {% if current_block %}{{ current_block.shopify_attributes }}{% endif %}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+            {% endif %}
+          >
+            {%- if current_block and current_block.settings.image != blank -%}
+              {%- if current_block.settings.link != blank -%}
+                <a href="{{ current_block.settings.link }}" class="custom-collage__link">
+              {%- endif -%}
+              {{
+                current_block.settings.image
+                | image_url: width: 1600
+                | image_tag: loading: 'lazy', widths: '375, 550, 750, 900, 1100, 1300, 1500, 1600'
+              }}
+              {%- if current_block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+            {%- else -%}
+              <div class="custom-collage__placeholder">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
 
+      </div>
     </div>
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "Custom Image Grid",
+  "name": "Custom Collage",
   "tag": "section",
   "class": "section",
   "settings": [
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color Scheme",
-      "default": "background-1"
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "Text Block (Column 1 Top)"
+      "content": "Layout"
     },
     {
-      "type": "richtext",
-      "id": "text",
-      "label": "Description Text",
-      "default": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last.</p>"
+      "type": "range",
+      "id": "gap",
+      "min": 4,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 16
     },
     {
-      "type": "header",
-      "content": "Images"
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 12
     },
     {
-      "type": "image_picker",
-      "id": "image_1",
-      "label": "Image 1 (Col 1 Bottom - White Sofa)"
-    },
-    {
-      "type": "text",
-      "id": "img_1_aspect",
-      "label": "Image 1 Aspect Ratio",
-      "default": "1.1 / 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Image 2 (Col 2 - Tall White Bed)"
-    },
-    {
-      "type": "text",
-      "id": "img_2_aspect",
-      "label": "Image 2 Aspect Ratio",
-      "default": "0.75 / 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_3",
-      "label": "Image 3 (Col 3 Top - Grey Pillows)"
-    },
-    {
-      "type": "text",
-      "id": "img_3_aspect",
-      "label": "Image 3 Aspect Ratio",
-      "default": "1 / 1.1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_4",
-      "label": "Image 4 (Col 3 Bottom - Brown Sofa)"
-    },
-    {
-      "type": "text",
-      "id": "img_4_aspect",
-      "label": "Image 4 Aspect Ratio",
-      "default": "1.3 / 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_5",
-      "label": "Image 5 (Col 4 Top - Grey Bed)"
-    },
-    {
-      "type": "text",
-      "id": "img_5_aspect",
-      "label": "Image 5 Aspect Ratio",
-      "default": "1.4 / 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_6",
-      "label": "Image 6 (Col 4 Bottom - Black Sofa)"
-    },
-    {
-      "type": "text",
-      "id": "img_6_aspect",
-      "label": "Image 6 Aspect Ratio",
-      "default": "1 / 1"
+      "type": "range",
+      "id": "text_max_width",
+      "min": 40,
+      "max": 90,
+      "step": 2,
+      "unit": "rem",
+      "label": "Desktop text max width",
+      "default": 72
     },
     {
       "type": "header",
-      "content": "Desktop Layout Fine-Tuning"
+      "content": "Mobile column widths"
     },
     {
       "type": "range",
       "id": "col_1_width",
-      "min": 10, "max": 50, "step": 1, "unit": "%",
-      "label": "Column 1 Width",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Column 1 width",
       "default": 30
     },
     {
       "type": "range",
       "id": "col_2_width",
-      "min": 10, "max": 50, "step": 1, "unit": "%",
-      "label": "Column 2 Width",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Column 2 width",
       "default": 20
     },
     {
       "type": "range",
       "id": "col_3_width",
-      "min": 10, "max": 50, "step": 1, "unit": "%",
-      "label": "Column 3 Width",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Column 3 width",
       "default": 24
     },
     {
       "type": "range",
       "id": "col_4_width",
-      "min": 10, "max": 50, "step": 1, "unit": "%",
-      "label": "Column 4 Width",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Column 4 width",
       "default": 26
     },
     {
       "type": "range",
       "id": "images_offset_top",
-      "min": 0, "max": 150, "step": 2, "unit": "px",
-      "label": "Images Offset Top",
-      "info": "Pushes Col 2, 3, 4 down so the text block stays higher.",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile image offset",
+      "info": "Pushes columns 2–4 down to align with the text block.",
       "default": 64
     },
     {
-      "type": "range",
-      "id": "gap",
-      "min": 4, "max": 30, "step": 2, "unit": "px",
-      "label": "Gap Between Items",
-      "default": 16
+      "type": "header",
+      "content": "Image aspect ratios"
+    },
+    {
+      "type": "text",
+      "id": "img_1_aspect",
+      "label": "Image 1 — White sofa",
+      "default": "1.1 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_2_aspect",
+      "label": "Image 2 — Bed",
+      "default": "0.75 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_3_aspect",
+      "label": "Image 3 — Grey sofa",
+      "default": "1 / 1.1"
+    },
+    {
+      "type": "text",
+      "id": "img_4_aspect",
+      "label": "Image 4 — Brown sofa",
+      "default": "1.3 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_5_aspect",
+      "label": "Image 5 — Grey bed",
+      "default": "1.4 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_6_aspect",
+      "label": "Image 6 — Dark sofa",
+      "default": "1 / 1"
     },
     {
       "type": "header",
-      "content": "Section Padding"
+      "content": "t:sections.all.padding.section_padding_heading"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "min": 0, "max": 100, "step": 4, "unit": "px",
-      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
       "default": 40
     },
     {
       "type": "range",
       "id": "padding_bottom",
-      "min": 0, "max": 100, "step": 4, "unit": "px",
-      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
       "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image_1",
+      "name": "Image 1 — White sofa",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "image_2",
+      "name": "Image 2 — Bed",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "image_3",
+      "name": "Image 3 — Grey sofa",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "image_4",
+      "name": "Image 4 — Brown sofa",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "image_5",
+      "name": "Image 5 — Grey bed",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "image_6",
+      "name": "Image 6 — Dark sofa",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Image Grid",
-      "settings": {}
+      "name": "Custom Collage",
+      "blocks": [
+        { "type": "text" },
+        { "type": "image_1" },
+        { "type": "image_2" },
+        { "type": "image_3" },
+        { "type": "image_4" },
+        { "type": "image_5" },
+        { "type": "image_6" }
+      ]
     }
   ]
 }

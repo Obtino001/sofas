@@ -216,6 +216,22 @@
   @media screen and (min-width: 768px) {
     .custom-hero-slider .hide-on-desktop { display: none !important; }
   }
+  /* Prevent FOUC before Swiper initializes */
+  .custom-hero-slider .swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+  .custom-hero-slider .swiper:not(.swiper-initialized) .swiper-slide {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  @media screen and (min-width: 750px) {
+    .custom-hero-slider .swiper:not(.swiper-initialized) .swiper-slide {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
 {%- endstyle -%}
 
 <slider-container class="custom-hero-slider section-{{ section.id }}-padding" data-block-id="{{ section.id }}">
