@@ -1,7 +1,7 @@
 <div
   class="custom-collage__img custom-collage__img--{{ index }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
   style="aspect-ratio: {{ aspect_ratio }};{% if settings.animations_reveal_on_scroll %} --animation-order: {{ index }};{% endif %}"
-  {% if block %}{{ block.shopify_attributes }}{% endif %}
+  {% if block and include_attributes != false %}{{ block.shopify_attributes }}{% endif %}
   {% if settings.animations_reveal_on_scroll %}
     data-cascade
   {% endif %}
