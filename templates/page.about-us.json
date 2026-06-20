@@ -52,86 +52,22 @@
     },
     "custom_collage_FigmaLayout": {
       "type": "custom-collage",
-      "blocks": {
-        "image_1_tall_room": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_226.png",
-            "desktop_col_span": 2,
-            "desktop_row_span": 1,
-            "mobile_col_span": 1,
-            "mobile_row_span": 2
-          }
-        },
-        "image_2_small_black": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
-            "desktop_col_span": 1,
-            "desktop_row_span": 1,
-            "mobile_col_span": 1,
-            "mobile_row_span": 1
-          }
-        },
-        "image_3_tall_arm": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
-            "desktop_col_span": 1,
-            "desktop_row_span": 2,
-            "mobile_col_span": 1,
-            "mobile_row_span": 2
-          }
-        },
-        "image_4_white_sofa": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
-            "desktop_col_span": 1,
-            "desktop_row_span": 1,
-            "mobile_col_span": 1,
-            "mobile_row_span": 1
-          }
-        },
-        "image_5_tall_corner": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_3.png",
-            "desktop_col_span": 2,
-            "desktop_row_span": 2,
-            "mobile_col_span": 1,
-            "mobile_row_span": 2
-          }
-        },
-        "image_6_wide_closeup": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_3.png",
-            "desktop_col_span": 2,
-            "desktop_row_span": 1,
-            "mobile_col_span": 2,
-            "mobile_row_span": 1
-          }
-        }
-      },
-      "block_order": [
-        "image_1_tall_room",
-        "image_2_small_black",
-        "image_3_tall_arm",
-        "image_4_white_sofa",
-        "image_5_tall_corner",
-        "image_6_wide_closeup"
-      ],
       "name": "Custom Image Grid (Figma)",
       "settings": {
         "color_scheme": "",
         "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>",
-        "text_desktop_col_span": 2,
-        "text_desktop_row_span": 1,
-        "text_mobile_col_span": 4,
-        "text_mobile_row_span": 1,
-        "desktop_row_height": 200,
-        "mobile_row_height": 120,
+        "img_1_aspect": "1.1 / 1",
+        "img_2_aspect": "0.75 / 1",
+        "img_3_aspect": "1 / 1.1",
+        "img_4_aspect": "1.3 / 1",
+        "img_5_aspect": "1.4 / 1",
+        "img_6_aspect": "1 / 1",
+        "col_1_width": 30,
+        "col_2_width": 20,
+        "col_3_width": 24,
+        "col_4_width": 26,
+        "images_offset_top": 64,
+        "gap": 16,
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -169,7 +105,7 @@
       "name": "What We Offer",
       "settings": {
         "color_scheme": "",
-        "image": "shopify://shop_images/Rectangle_237.png",
+        "image": "shopify://shop_images/Rectangle_237_1.png",
         "decorator_color": "#e7e1d8",
         "heading": "",
         "heading_size": "h1",
