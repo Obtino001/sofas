@@ -9,6 +9,89 @@
  */
 {
   "sections": {
+    "custom_hero_slider_44VNmc": {
+      "type": "custom-hero-slider",
+      "blocks": {
+        "slide_npzN6m": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
+            "mobile_image": "shopify://shop_images/image_1_2.png",
+            "overlay_opacity": 30,
+            "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+            "desktop_content_position": "center",
+            "desktop_text_alignment": "center",
+            "heading": "<p>Premium sofas without the wait.</p>",
+            "heading_size": "h1",
+            "text": "<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.</p>",
+            "button_label_1": "Get your comfort sofa now!",
+            "button_link_1": "shopify://collections",
+            "button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "secondary"
+          }
+        },
+        "slide_YcYXPY": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
+            "mobile_image": "shopify://shop_images/image_1_2.png",
+            "overlay_opacity": 30,
+            "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+            "desktop_content_position": "center",
+            "desktop_text_alignment": "center",
+            "heading": "<p>Premium sofas without the wait.</p>",
+            "heading_size": "h1",
+            "text": "<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.</p>",
+            "button_label_1": "Get your comfort sofa now!",
+            "button_link_1": "shopify://collections",
+            "button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "secondary"
+          }
+        },
+        "slide_UnRRHJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
+            "mobile_image": "shopify://shop_images/image_1_2.png",
+            "overlay_opacity": 30,
+            "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+            "desktop_content_position": "center",
+            "desktop_text_alignment": "center",
+            "heading": "<p>Premium sofas without the wait.</p>",
+            "heading_size": "h1",
+            "text": "<p>Skip the 8–12 week delays. Get UK-made comfort delivered in just 7–10 days.</p>",
+            "button_label_1": "Get your comfort sofa now!",
+            "button_link_1": "shopify://collections",
+            "button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "slide_npzN6m",
+        "slide_YcYXPY",
+        "slide_UnRRHJ"
+      ],
+      "name": "Custom Hero Slider",
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_interval": 10,
+        "desktop_arrows": false,
+        "mobile_arrows": false,
+        "desktop_dots": true,
+        "mobile_dots": true,
+        "desktop_height": 70,
+        "mobile_height": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "custom_banner_XE8idV": {
       "type": "custom-banner",
       "blocks": {
@@ -39,12 +122,13 @@
         "subheading_DAaYnw",
         "buttons_qkDF6J"
       ],
+      "disabled": true,
       "name": "Image Custom Banner",
       "settings": {
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
         "media_type": "image",
         "image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
-        "mobile_image": "shopify://shop_images/image_1_1_f70417d0-58c7-46ee-ac92-72917a40cbf5.png",
+        "mobile_image": "shopify://shop_images/image_1_2.png",
         "overlay_opacity": 30,
         "heading_size_desktop": 48,
         "subheading_size_desktop": 16,
@@ -1044,6 +1128,7 @@
     }
   },
   "order": [
+    "custom_hero_slider_44VNmc",
     "custom_banner_XE8idV",
     "trust_badges_4dfJAk",
     "collections_tabs_CftkD8",
