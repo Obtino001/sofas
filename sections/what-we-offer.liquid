@@ -156,7 +156,7 @@
     <div class="what-we-offer__image-col">
       <div class="what-we-offer__image-wrapper">
         {%- if section.settings.image != blank -%}
-          {{ section.settings.image | image_url: width: 2200 | image_tag: 
+          {{ section.settings.image | image_url: width: 4200 | image_tag: 
             class: 'what-we-offer__image', 
             loading: 'lazy', 
             sizes: '(min-width: 750px) 50vw, 100vw' 
@@ -239,7 +239,7 @@
       "content": "Text Content"
     },
     {
-      "type": "richtext",
+      "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
       "default": "What we offer"
@@ -259,7 +259,7 @@
       "type": "richtext",
       "id": "text",
       "label": "Description Paragraphs",
-      "default": "We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function."
+      "default": "<p>We offer a carefully curated range of sofas and beds designed for comfort, durability, and everyday living.</p><p>By combining UK manufacturing with efficient processes, we're able to deliver high-quality furniture without the long wait times or inflated prices of traditional retailers.</p><p>From modern sofas to practical storage beds, every piece is made to fit seamlessly into your home—both in style and function.</p>"
     },
     {
       "type": "header",
