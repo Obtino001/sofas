@@ -52,6 +52,59 @@
     },
     "custom_collage_FigmaLayout": {
       "type": "custom-collage",
+      "blocks": {
+        "text_ACyWrW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
+          }
+        },
+        "image_1_hFxWLW": {
+          "type": "image_1",
+          "settings": {
+            "link": ""
+          }
+        },
+        "image_2_zaXM3X": {
+          "type": "image_2",
+          "settings": {
+            "link": ""
+          }
+        },
+        "image_3_npxBxt": {
+          "type": "image_3",
+          "settings": {
+            "link": ""
+          }
+        },
+        "image_4_mdmbhG": {
+          "type": "image_4",
+          "settings": {
+            "link": ""
+          }
+        },
+        "image_5_hMHGCy": {
+          "type": "image_5",
+          "settings": {
+            "link": ""
+          }
+        },
+        "image_6_XbifEy": {
+          "type": "image_6",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_ACyWrW",
+        "image_1_hFxWLW",
+        "image_2_zaXM3X",
+        "image_3_npxBxt",
+        "image_4_mdmbhG",
+        "image_5_hMHGCy",
+        "image_6_XbifEy"
+      ],
       "name": "Custom Image Grid (Figma)",
       "settings": {
         "color_scheme": "",
