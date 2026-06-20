@@ -428,18 +428,10 @@
             "text_size": "text-body"
           }
         },
-        "button_pill_jm9nGX": {
-          "type": "button_pill",
-          "settings": {
-            "button_label": "Explore collection →",
-            "button_link": ""
-          }
-        }
       },
       "block_order": [
         "heading_RjgrTP",
         "text_YwCUcN",
-        "button_pill_jm9nGX"
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
@@ -621,18 +613,10 @@
             "text_size": "text-body"
           }
         },
-        "button_pill_4mTUNk": {
-          "type": "button_pill",
-          "settings": {
-            "button_label": "Explore collection →",
-            "button_link": ""
-          }
-        }
       },
       "block_order": [
         "heading_y63bnF",
         "text_kiy6YL",
-        "button_pill_4mTUNk"
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
