@@ -82,13 +82,13 @@
             "max_height": 0,
             "mobile_layout": "flex_grow",
             "aspect_ratio_mobile": "1.1 / 1",
-            "offset_top_mobile": 0,
+            "offset_top_mobile": 28,
             "offset_left_mobile": 0,
             "gap_below_mobile": 0,
             "width_percent_mobile": 100,
             "min_height_mobile": 140,
-            "fixed_height_mobile": 220,
-            "max_height_mobile": 0
+            "fixed_height_mobile": 170,
+            "max_height_mobile": 170
           }
         },
         "image_2_q7AVTV": {
