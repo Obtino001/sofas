@@ -50,9 +50,68 @@
         "text_alignment": "center"
       }
     },
-    "custom_collage_FigmaLayout": {
+    "custom_collage_K8qNR6": {
       "type": "custom-collage",
-      "name": "Custom Image Grid (Figma)",
+      "blocks": {
+        "text_NEewUR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
+          }
+        },
+        "image_1_zYrYQw": {
+          "type": "image_1",
+          "settings": {
+            "image": "shopify://shop_images/image_1_3.png",
+            "link": ""
+          }
+        },
+        "image_2_q7AVTV": {
+          "type": "image_2",
+          "settings": {
+            "image": "shopify://shop_images/image_1_3.png",
+            "link": ""
+          }
+        },
+        "image_3_dBaMKM": {
+          "type": "image_3",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_237_1.png",
+            "link": ""
+          }
+        },
+        "image_4_xnak9k": {
+          "type": "image_4",
+          "settings": {
+            "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda_5bfa91d2-874c-48ea-bcde-dd8268a700ef.png",
+            "link": ""
+          }
+        },
+        "image_5_WyCwwU": {
+          "type": "image_5",
+          "settings": {
+            "image": "shopify://shop_images/c02149c0468b7069aa459f3ac508384148158eda_5bfa91d2-874c-48ea-bcde-dd8268a700ef.png",
+            "link": ""
+          }
+        },
+        "image_6_8UJwqc": {
+          "type": "image_6",
+          "settings": {
+            "image": "shopify://shop_images/5a06ead1bc5faa12efbfb4eabaa34220c8ae3659.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_NEewUR",
+        "image_1_zYrYQw",
+        "image_2_q7AVTV",
+        "image_3_dBaMKM",
+        "image_4_xnak9k",
+        "image_5_WyCwwU",
+        "image_6_8UJwqc"
+      ],
+      "name": "Custom Collage",
       "settings": {
         "color_scheme": "",
         "gap": 16,
@@ -64,16 +123,10 @@
         "images_offset_top": 64,
         "img_1_aspect": "1.1 / 1",
         "img_2_aspect": "0.75 / 1",
-        "img_3_aspect": "1.3 / 1",
-        "img_4_aspect": "1 / 1.1",
-        "img_5_aspect": "1 / 1",
-        "img_6_aspect": "1.4 / 1",
-        "img_1_aspect_mobile": "0.85 / 1",
-        "img_2_aspect_mobile": "1 / 1.1",
-        "img_3_aspect_mobile": "1.35 / 1",
-        "img_4_aspect_mobile": "1 / 1",
-        "img_5_aspect_mobile": "1.25 / 1",
-        "img_6_aspect_mobile": "1.45 / 1",
+        "img_3_aspect": "1 / 1.1",
+        "img_4_aspect": "1.3 / 1",
+        "img_5_aspect": "1.4 / 1",
+        "img_6_aspect": "1 / 1",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -437,7 +490,7 @@
   "order": [
     "main",
     "custom_banner_A6F9q9",
-    "custom_collage_FigmaLayout",
+    "custom_collage_K8qNR6",
     "what_we_offer_ArBpTY",
     "bento_categories_aFbwVW",
     "newsletter_pPWpWW",
