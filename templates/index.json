@@ -66,7 +66,7 @@
         "badge_NyeRjB": {
           "type": "badge",
           "settings": {
-            "image": "shopify://shop_images/Group_22_3.svg",
+            "image": "shopify://shop_images/security_3_Vectorized.svg",
             "icon": "check_mark",
             "title": "1-Year Warranty Included"
           }
@@ -74,7 +74,7 @@
         "badge_EBVTWy": {
           "type": "badge",
           "settings": {
-            "image": "shopify://shop_images/security_3_Vectorized.svg",
+            "image": "shopify://shop_images/Group_22_3.svg",
             "icon": "check_mark",
             "title": "Fast 7–10 Day Delivery"
           }
@@ -82,7 +82,7 @@
         "badge_cXJ8yT": {
           "type": "badge",
           "settings": {
-            "image": "shopify://shop_images/Group_3_1.svg",
+            "image": "shopify://shop_images/interest_1.png",
             "icon": "check_mark",
             "title": "Interest-Free Payments"
           }
@@ -90,7 +90,7 @@
         "badge_ft6zmw": {
           "type": "badge",
           "settings": {
-            "image": "shopify://shop_images/security_3_Vectorized.svg",
+            "image": "shopify://shop_images/Group_3.svg",
             "icon": "check_mark",
             "title": "Premium Quality at Fair Prices"
           }
