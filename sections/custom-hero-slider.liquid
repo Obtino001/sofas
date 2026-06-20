@@ -1,3 +1,25 @@
+{%- liquid
+  assign padding_bottom_desktop = section.settings.desktop_height | append: 'vh'
+  assign padding_bottom_mobile = section.settings.mobile_height | append: 'vh'
+
+  if section.settings.adapt_height_first_image and section.blocks.size > 0
+    assign first_block = section.blocks.first
+    if first_block.settings.image != blank
+      assign padding_bottom_desktop = 1 | divided_by: first_block.settings.image.aspect_ratio | times: 100 | append: '%'
+    else
+      assign padding_bottom_desktop = '40%'
+    endif
+    
+    if first_block.settings.mobile_image != blank
+      assign padding_bottom_mobile = 1 | divided_by: first_block.settings.mobile_image.aspect_ratio | times: 100 | append: '%'
+    elsif first_block.settings.image != blank
+      assign padding_bottom_mobile = 1 | divided_by: first_block.settings.image.aspect_ratio | times: 100 | append: '%'
+    else
+      assign padding_bottom_mobile = '100%'
+    endif
+  endif
+-%}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -24,7 +46,7 @@
   .custom-hero-slider__slide::before {
     content: '';
     width: 0;
-    padding-bottom: {{ section.settings.mobile_height }}vh;
+    padding-bottom: {{ padding_bottom_mobile }};
   }
 
   .custom-hero-slider__media {
@@ -102,7 +124,7 @@
     }
 
     .custom-hero-slider__slide::before {
-      padding-bottom: {{ section.settings.desktop_height }}vh;
+      padding-bottom: {{ padding_bottom_desktop }};
     }
 
     .custom-hero-slider__box {
@@ -316,6 +338,7 @@
     { "type": "checkbox", "id": "mobile_arrows", "label": "Show Arrows on Mobile", "default": false },
     { "type": "checkbox", "id": "desktop_dots", "label": "Show Dots on Desktop", "default": true },
     { "type": "checkbox", "id": "mobile_dots", "label": "Show Dots on Mobile", "default": true },
+    { "type": "checkbox", "id": "adapt_height_first_image", "label": "Adapt section height to first image size", "default": false },
     { "type": "header", "content": "Desktop Layout" },
     {
       "type": "range",
