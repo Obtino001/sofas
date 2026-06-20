@@ -108,7 +108,7 @@
             "offset_top_mobile": 0,
             "offset_left_mobile": 0,
             "gap_below_mobile": 0,
-            "width_percent_mobile": 100,
+            "width_percent_mobile": 50,
             "min_height_mobile": 0,
             "fixed_height_mobile": 160,
             "max_height_mobile": 0
@@ -154,7 +154,7 @@
             "offset_top_mobile": 0,
             "offset_left_mobile": 0,
             "gap_below_mobile": 0,
-            "width_percent_mobile": 100,
+            "width_percent_mobile": 50,
             "min_height_mobile": 0,
             "fixed_height_mobile": 160,
             "max_height_mobile": 0
@@ -177,7 +177,7 @@
             "offset_top_mobile": 0,
             "offset_left_mobile": 0,
             "gap_below_mobile": 0,
-            "width_percent_mobile": 100,
+            "width_percent_mobile": 75,
             "min_height_mobile": 0,
             "fixed_height_mobile": 120,
             "max_height_mobile": 0
