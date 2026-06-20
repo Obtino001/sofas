@@ -1,6 +1,6 @@
 <div
-  class="custom-collage__img custom-collage__img--{{ index }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-  style="aspect-ratio: {{ aspect_ratio }};{% if settings.animations_reveal_on_scroll %} --animation-order: {{ index }};{% endif %}"
+  class="custom-collage__img custom-collage__img--{{ index }}{% if flex_grow %} custom-collage__img--grow{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  {% unless flex_grow %}style="aspect-ratio: {{ aspect_ratio }};{% if settings.animations_reveal_on_scroll %} --animation-order: {{ index }};{% endif %}"{% else %}{% if settings.animations_reveal_on_scroll %}style="--animation-order: {{ index }};"{% endif %}{% endunless %}
   {% if block and include_attributes != false %}{{ block.shopify_attributes }}{% endif %}
   {% if settings.animations_reveal_on_scroll %}
     data-cascade
