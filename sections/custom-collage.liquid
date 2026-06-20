@@ -83,53 +83,118 @@
     text-decoration: none;
   }
 
-  /* Mobile: 2-column grid */
+  .custom-collage-{{ section.id }} .custom-collage__text--mobile {
+    display: none;
+  }
+
+  .custom-collage-{{ section.id }} .custom-collage__layout--mobile {
+    display: none;
+  }
+
+  /* Mobile: centered text + 2-column Figma collage */
   @media screen and (max-width: 749px) {
-    .custom-collage-{{ section.id }} .custom-collage__layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop {
+      display: none;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile {
+      display: flex;
+      flex-direction: column;
       gap: var(--collage-gap);
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__col {
-      display: contents;
+    .custom-collage-{{ section.id }} .custom-collage__text--mobile {
+      display: block;
+      text-align: center;
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__text--inline {
-      grid-column: 1 / -1;
-    }
-  }
-
-  /* Tablet / desktop: 4-column Figma flex layout */
-  @media screen and (min-width: 750px) {
-    .custom-collage-{{ section.id }} .custom-collage__layout {
+    .custom-collage-{{ section.id }} .custom-collage__mobile-grid {
       display: flex;
       gap: var(--collage-gap);
       align-items: stretch;
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__col {
+    .custom-collage-{{ section.id }} .custom-collage__mobile-left,
+    .custom-collage-{{ section.id }} .custom-collage__mobile-right {
+      display: flex;
+      flex-direction: column;
+      gap: var(--collage-gap);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__mobile-pair {
+      display: flex;
+      gap: var(--collage-gap);
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__mobile-pair .custom-collage__img {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile .custom-collage__img--1 {
+      aspect-ratio: {{ section.settings.img_1_aspect_mobile }};
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile .custom-collage__img--2 {
+      aspect-ratio: {{ section.settings.img_2_aspect_mobile }};
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile .custom-collage__img--3 {
+      aspect-ratio: {{ section.settings.img_3_aspect_mobile }};
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile .custom-collage__img--4 {
+      aspect-ratio: {{ section.settings.img_4_aspect_mobile }};
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile .custom-collage__img--5 {
+      aspect-ratio: {{ section.settings.img_5_aspect_mobile }};
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile .custom-collage__img--6 {
+      aspect-ratio: {{ section.settings.img_6_aspect_mobile }};
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-collage-{{ section.id }} .custom-collage__layout--mobile,
+    .custom-collage-{{ section.id }} .custom-collage__text--mobile {
+      display: none;
+    }
+  }
+
+  /* Tablet / desktop: 4-column Figma flex layout */
+  @media screen and (min-width: 750px) {
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop {
+      display: flex;
+      gap: var(--collage-gap);
+      align-items: stretch;
+    }
+
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop .custom-collage__col {
       display: flex;
       flex-direction: column;
       gap: var(--collage-gap);
       min-width: 0;
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__col--1 {
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop .custom-collage__col--1 {
       flex: {{ section.settings.col_1_width }} 1 0;
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__col--2 {
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop .custom-collage__col--2 {
       flex: {{ section.settings.col_2_width }} 1 0;
       margin-top: var(--collage-offset);
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__col--3 {
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop .custom-collage__col--3 {
       flex: {{ section.settings.col_3_width }} 1 0;
       margin-top: calc(var(--collage-offset) * 1.65);
     }
 
-    .custom-collage-{{ section.id }} .custom-collage__col--4 {
+    .custom-collage-{{ section.id }} .custom-collage__layout--desktop .custom-collage__col--4 {
       flex: {{ section.settings.col_4_width }} 1 0;
       margin-top: calc(var(--collage-offset) * 2.35);
       justify-content: center;
@@ -140,14 +205,71 @@
 <div class="{% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }} {% endif %}gradient">
   <div class="section-{{ section.id }}-padding page-width">
     <div class="custom-collage-{{ section.id }}">
-      <div class="custom-collage__layout">
+
+      {%- comment -%} Mobile layout {%- endcomment -%}
+      <div class="custom-collage__layout custom-collage__layout--mobile">
+        {%- if text_block != blank and text_block.settings.text != blank -%}
+          <div
+            class="custom-collage__text custom-collage__text--mobile{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ text_block.shopify_attributes }}
+          >
+            {{ text_block.settings.text }}
+          </div>
+        {%- endif -%}
+
+        <div class="custom-collage__mobile-grid">
+          <div class="custom-collage__mobile-left">
+            {%- render 'custom-collage-image',
+              block: image_1,
+              index: 1,
+              aspect_ratio: section.settings.img_1_aspect_mobile,
+              include_attributes: false
+            -%}
+            {%- render 'custom-collage-image',
+              block: image_3,
+              index: 3,
+              aspect_ratio: section.settings.img_3_aspect_mobile,
+              include_attributes: false
+            -%}
+          </div>
+
+          <div class="custom-collage__mobile-right">
+            <div class="custom-collage__mobile-pair">
+              {%- render 'custom-collage-image',
+                block: image_2,
+                index: 2,
+                aspect_ratio: section.settings.img_2_aspect_mobile,
+                include_attributes: false
+              -%}
+              {%- render 'custom-collage-image',
+                block: image_4,
+                index: 4,
+                aspect_ratio: section.settings.img_4_aspect_mobile,
+                include_attributes: false
+              -%}
+            </div>
+            {%- render 'custom-collage-image',
+              block: image_6,
+              index: 6,
+              aspect_ratio: section.settings.img_6_aspect_mobile,
+              include_attributes: false
+            -%}
+            {%- render 'custom-collage-image',
+              block: image_5,
+              index: 5,
+              aspect_ratio: section.settings.img_5_aspect_mobile,
+              include_attributes: false
+            -%}
+          </div>
+        </div>
+      </div>
+
+      {%- comment -%} Desktop layout {%- endcomment -%}
+      <div class="custom-collage__layout custom-collage__layout--desktop">
 
         <div class="custom-collage__col custom-collage__col--1">
           {%- if text_block != blank and text_block.settings.text != blank -%}
-            <div
-              class="custom-collage__text custom-collage__text--inline{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-              {{ text_block.shopify_attributes }}
-            >
+            <div class="custom-collage__text custom-collage__text--inline">
               {{ text_block.settings.text }}
             </div>
           {%- endif -%}
@@ -330,6 +452,46 @@
     },
     {
       "type": "header",
+      "content": "Mobile aspect ratios"
+    },
+    {
+      "type": "text",
+      "id": "img_1_aspect_mobile",
+      "label": "Image 1 — White sofa",
+      "default": "0.85 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_2_aspect_mobile",
+      "label": "Image 2 — Bed",
+      "default": "1 / 1.1"
+    },
+    {
+      "type": "text",
+      "id": "img_3_aspect_mobile",
+      "label": "Image 3 — Brown sofa",
+      "default": "1.35 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_4_aspect_mobile",
+      "label": "Image 4 — Grey sofa detail",
+      "default": "1 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_5_aspect_mobile",
+      "label": "Image 5 — Dark sofa",
+      "default": "1.25 / 1"
+    },
+    {
+      "type": "text",
+      "id": "img_6_aspect_mobile",
+      "label": "Image 6 — Grey bed",
+      "default": "1.45 / 1"
+    },
+    {
+      "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
     },
     {
@@ -487,6 +649,12 @@
         "img_4_aspect": "1 / 1.1",
         "img_5_aspect": "1 / 1",
         "img_6_aspect": "1.4 / 1",
+        "img_1_aspect_mobile": "0.85 / 1",
+        "img_2_aspect_mobile": "1 / 1.1",
+        "img_3_aspect_mobile": "1.35 / 1",
+        "img_4_aspect_mobile": "1 / 1",
+        "img_5_aspect_mobile": "1.25 / 1",
+        "img_6_aspect_mobile": "1.45 / 1",
         "padding_top": 40,
         "padding_bottom": 40
       },
