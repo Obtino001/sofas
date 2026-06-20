@@ -428,10 +428,28 @@
             "text_size": "text-body"
           }
         },
+        "button_bzP6xe": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "pill"
+          }
+        },
+        "button_zwd8LW": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "outline"
+          }
+        }
       },
       "block_order": [
         "heading_RjgrTP",
         "text_YwCUcN",
+        "button_bzP6xe",
+        "button_zwd8LW"
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
@@ -612,11 +630,11 @@
             "text": "<p>Upgrade your bedroom with spacious king size beds designed for ultimate comfort and everyday luxury.</p>",
             "text_size": "text-body"
           }
-        },
+        }
       },
       "block_order": [
         "heading_y63bnF",
-        "text_kiy6YL",
+        "text_kiy6YL"
       ],
       "name": "Overlay Banner (Blocks)",
       "settings": {
