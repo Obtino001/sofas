@@ -156,7 +156,7 @@
       {{ 'image' | placeholder_svg_tag: 'why-choose-main-image placeholder-svg' }}
     {%- endif -%}
 
-    <div class="why-choose-slider-container">
+    <div class="why-choose-slider-container page-width">
       <ul class="why-choose-grid" id="Slider-{{ section.id }}">
         {%- for block in section.blocks -%}
           <li class="why-choose-item" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
