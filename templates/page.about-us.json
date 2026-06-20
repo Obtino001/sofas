@@ -50,82 +50,82 @@
         "text_alignment": "center"
       }
     },
-    "custom_collage_FigmaLayout": {
-      "type": "custom-collage",
-      "blocks": {
-        "text_QdQ3yT": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
-          }
-        },
-        "image_1_xiAFiz": {
-          "type": "image_1",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_2_jMzMNt": {
-          "type": "image_2",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_3_3yEf9L": {
-          "type": "image_3",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_4_ffHhnH": {
-          "type": "image_4",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_5_e7yjY7": {
-          "type": "image_5",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_6_wFbHbY": {
-          "type": "image_6",
-          "settings": {
-            "link": ""
-          }
+"custom_collage_FigmaLayout": {
+    "type": "custom-collage",
+    "blocks": {
+      "text_QdQ3yT": {
+        "type": "text",
+        "settings": {
+          "text": "<p>At Sofas n Beds, we believe great furniture should be accessible, reliable, and built to last. We create high-quality sofas and beds designed for real homes—combining comfort, durability, and value without the long wait times of traditional retailers.</p>"
         }
       },
-      "block_order": [
-        "text_QdQ3yT",
-        "image_1_xiAFiz",
-        "image_2_jMzMNt",
-        "image_3_3yEf9L",
-        "image_4_ffHhnH",
-        "image_5_e7yjY7",
-        "image_6_wFbHbY"
-      ],
-      "name": "Custom Image Grid (Figma)",
-      "settings": {
-        "color_scheme": "",
-        "gap": 16,
-        "image_radius": 12,
-        "text_max_width": 72,
-        "col_1_width": 30,
-        "col_2_width": 20,
-        "col_3_width": 44,
-        "col_4_width": 47,
-        "images_offset_top": 0,
-        "img_1_aspect": "1.1 / 1",
-        "img_2_aspect": "0.9 / 1",
-        "img_3_aspect": "1 / 1.2",
-        "img_4_aspect": "1.3 / 1",
-        "img_5_aspect": "1.4 / 1",
-        "img_6_aspect": "1 / 1",
-        "padding_top": 40,
-        "padding_bottom": 40
+      "image_1_xiAFiz": {
+        "type": "image_1",
+        "settings": {
+          "link": ""
+        }
+      },
+      "image_2_jMzMNt": {
+        "type": "image_2",
+        "settings": {
+          "link": ""
+        }
+      },
+      "image_3_3yEf9L": {
+        "type": "image_3",
+        "settings": {
+          "link": ""
+        }
+      },
+      "image_4_ffHhnH": {
+        "type": "image_4",
+        "settings": {
+          "link": ""
+        }
+      },
+      "image_5_e7yjY7": {
+        "type": "image_5",
+        "settings": {
+          "link": ""
+        }
+      },
+      "image_6_wFbHbY": {
+        "type": "image_6",
+        "settings": {
+          "link": ""
+        }
       }
     },
+    "block_order": [
+      "text_QdQ3yT",
+      "image_1_xiAFiz",
+      "image_2_jMzMNt",
+      "image_3_3yEf9L",
+      "image_4_ffHhnH",
+      "image_5_e7yjY7",
+      "image_6_wFbHbY"
+    ],
+    "name": "Custom Image Grid (Figma)",
+    "settings": {
+      "color_scheme": "",
+      "gap": 16,
+      "image_radius": 12,
+      "text_max_width": 72,
+      "col_1_width": 30,
+      "col_2_width": 20,
+      "col_3_width": 44,
+      "col_4_width": 47,
+      "images_offset_top": 0,
+      "img_1_aspect": "1.1 / 1",
+      "img_2_aspect": "0.9 / 1",
+      "img_3_aspect": "1 / 1.3",
+      "img_4_aspect": "1.4 / 1",
+      "img_5_aspect": "1.3 / 1",
+      "img_6_aspect": "1 / 1",
+      "padding_top": 40,
+      "padding_bottom": 40
+    }
+  },
     "what_we_offer_ArBpTY": {
       "type": "what-we-offer",
       "blocks": {
