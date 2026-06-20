@@ -116,14 +116,12 @@
     stroke: currentColor;
   }
   .hero-block-text {
-font-family: DM Sans;
-font-weight: 500;
-font-style: Medium;
-font-size: 16px;
-leading-trim: NONE;
-line-height: 140%;
-letter-spacing: 0%;
-max-width: 400px;
+    font-family: DM Sans;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 140%;
+    max-width: 400px;
   }
   .hero-block-text p {
     margin: 0;
@@ -147,13 +145,14 @@ max-width: 400px;
   /* Mobile Color Scheme Override */
   @media screen and (max-width: 749px) {
     .hero-content-wrapper * {
-    margin: 0;
-    color: white;
-}
+      margin: 0;
+      color: white;
+    }
 
-h2.hero-block-heading.h0 {
-    font-size: 32px;
-}
+    h2.hero-block-heading.h0 {
+      font-size: 32px;
+    }
+    
     .custom-hero-{{ section.id }}.color-mobile-{{ section.settings.color_scheme_mobile }} {
       --color-background: var(--color-{{ section.settings.color_scheme_mobile }}-background);
       --color-foreground: var(--color-{{ section.settings.color_scheme_mobile }}-text);
@@ -200,7 +199,7 @@ h2.hero-block-heading.h0 {
       }}
     {%- endif -%}
 
-    {% comment %} <div class="hero-overlay"> </div> {% endcomment %}
+    <div class="hero-overlay"></div>
 
     <div class="hero-content-wrapper">
       {%- for block in section.blocks -%}
@@ -234,14 +233,13 @@ h2.hero-block-heading.h0 {
 
           {%- when 'button' -%}
             {%- if block.settings.button_label != blank -%}
-              <a href="{{ block.settings.button_link }}" class="button button--primary hero-block-button" {{ block.shopify_attributes }}>
-                {{ block.settings.button_label | escape }}
-              </a>
-            {%- endif -%}
-
-          {%- when 'button_pill' -%}
-            {%- if block.settings.button_label != blank -%}
-              <a href="{{ block.settings.button_link }}" class="button hero-block-button-pill" {{ block.shopify_attributes }}>
+              {%- liquid 
+                assign button_class = 'button button--primary hero-block-button'
+                if block.settings.button_style == 'pill'
+                  assign button_class = 'button hero-block-button-pill'
+                endif
+              -%}
+              <a href="{{ block.settings.button_link }}" class="{{ button_class }}" {{ block.shopify_attributes }}>
                 {{ block.settings.button_label | escape }}
               </a>
             {%- endif -%}
@@ -543,8 +541,8 @@ h2.hero-block-heading.h0 {
     },
     {
       "type": "button",
-      "name": "Primary Button",
-      "limit": 1,
+      "name": "Button",
+      "limit": 2,
       "settings": [
         {
           "type": "text",
@@ -556,24 +554,16 @@ h2.hero-block-heading.h0 {
           "type": "url",
           "id": "button_link",
           "label": "Button Link"
-        }
-      ]
-    },
-    {
-      "type": "button_pill",
-      "name": "Pill Button",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_label",
-          "default": "Explore collection →",
-          "label": "Button Label"
         },
         {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            { "value": "primary", "label": "Primary Button" },
+            { "value": "pill", "label": "Pill Button" }
+          ],
+          "default": "primary"
         }
       ]
     }
@@ -589,7 +579,11 @@ h2.hero-block-heading.h0 {
           "type": "text"
         },
         {
-          "type": "button_pill"
+          "type": "button",
+          "settings": {
+            "button_style": "pill",
+            "button_label": "Explore collection →"
+          }
         }
       ]
     }
