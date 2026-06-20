@@ -17,9 +17,8 @@
     min-height: {{ section.settings.mobile_height }}px;
     align-items: {{ section.settings.mobile_align_y }};
     justify-content: {{ section.settings.mobile_align_x }};
-    /* Removes border-radius if full width is enabled */
     border-radius: {% if section.settings.full_width %}0{% else %}15px{% endif %}; 
-    overflow: hidden;    /* Keeps image inside rounded corners */
+    overflow: hidden; 
   }
 
   @media screen and (min-width: 750px) {
@@ -39,7 +38,6 @@
     z-index: 1;
   }
 
-  /* Mobile vs Desktop Image Display Logic */
   .custom-hero-{{ section.id }} .hero-background-image--mobile {
     display: none;
   }
@@ -118,28 +116,59 @@
   .hero-block-text {
     font-family: DM Sans;
     font-weight: 500;
-    font-style: Medium;
     font-size: 16px;
     line-height: 140%;
-    max-width: 400px;
+    max-width: 500px;
   }
   .hero-block-text p {
     margin: 0;
   }
-  .hero-block-button {
+  
+  /* Button Styles & Grouping */
+  .hero-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-top: 1rem;
-    min-width: 200px;
+    justify-content: inherit; /* Inherits flex alignment from parent wrapper */
   }
+  
+  .hero-block-button,
+  .hero-block-button-pill,
+  .hero-block-button-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 1.2rem 2.4rem;
+    text-decoration: none;
+    font-family: var(--font-body-family);
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Pill Solid */
   .hero-block-button-pill {
     border-radius: 50px !important;
-    background-color: #C19A6B !important;
+    background-color: #D4B895 !important; /* Tan/Gold color from image */
     color: #FFFFFF !important;
-    border: none !important;
-    margin-top: 1rem;
-    min-width: 200px;
+    border: 1px solid #D4B895 !important;
   }
   .hero-block-button-pill:hover {
-    background-color: #a8855a !important;
+    background-color: #be9d76 !important;
+  }
+
+  /* Pill Outline */
+  .hero-block-button-outline {
+    border-radius: 50px !important;
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+    border: 1px solid #FFFFFF !important;
+  }
+  .hero-block-button-outline:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
   }
 
   /* Mobile Color Scheme Override */
@@ -153,6 +182,10 @@
       font-size: 32px;
     }
     
+    .hero-button-group {
+      justify-content: center; /* Center buttons on mobile usually looks best */
+    }
+
     .custom-hero-{{ section.id }}.color-mobile-{{ section.settings.color_scheme_mobile }} {
       --color-background: var(--color-{{ section.settings.color_scheme_mobile }}-background);
       --color-foreground: var(--color-{{ section.settings.color_scheme_mobile }}-text);
@@ -202,50 +235,67 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content-wrapper">
+      {%- assign in_btn_group = false -%}
+      
       {%- for block in section.blocks -%}
-        {%- case block.type -%}
+        {%- if block.type == 'button' -%}
+          {%- unless in_btn_group -%}
+            <div class="hero-button-group">
+            {%- assign in_btn_group = true -%}
+          {%- endunless -%}
           
-          {%- when 'icon' -%}
-            <div class="hero-block-icon" {{ block.shopify_attributes }} style="--icon-width: {{ block.settings.icon_width }}px; margin-bottom: {{ block.settings.margin_bottom }}px;">
-              {%- if block.settings.custom_svg != blank -%}
-                <div class="icon-svg-wrapper">
-                  {{ block.settings.custom_svg }}
-                </div>
-              {%- elsif block.settings.image != blank -%}
-                <img src="{{ block.settings.image | image_url: width: block.settings.icon_width }}" alt="Icon" loading="lazy">
-              {%- else -%}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-wrapper">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                </svg>
-              {%- endif -%}
+          {%- liquid 
+            assign button_class = 'button button--primary hero-block-button'
+            if block.settings.button_style == 'pill'
+              assign button_class = 'button hero-block-button-pill'
+            elsif block.settings.button_style == 'outline'
+              assign button_class = 'button hero-block-button-outline'
+            endif
+          -%}
+          <a href="{{ block.settings.button_link }}" class="{{ button_class }}" {{ block.shopify_attributes }}>
+            {{ block.settings.button_label | escape }}
+          </a>
+
+        {%- else -%}
+          {%- if in_btn_group -%}
             </div>
+            {%- assign in_btn_group = false -%}
+          {%- endif -%}
 
-          {%- when 'heading' -%}
-            <h2 class="hero-block-heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-              {{ block.settings.heading }}
-            </h2>
+          {%- case block.type -%}
+            {%- when 'icon' -%}
+              <div class="hero-block-icon" {{ block.shopify_attributes }} style="--icon-width: {{ block.settings.icon_width }}px; margin-bottom: {{ block.settings.margin_bottom }}px;">
+                {%- if block.settings.custom_svg != blank -%}
+                  <div class="icon-svg-wrapper">
+                    {{ block.settings.custom_svg }}
+                  </div>
+                {%- elsif block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | image_url: width: block.settings.icon_width }}" alt="Icon" loading="lazy">
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-wrapper">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                {%- endif -%}
+              </div>
 
-          {%- when 'text' -%}
-            <div class="hero-block-text {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
-              {{ block.settings.text }}
-            </div>
+            {%- when 'heading' -%}
+              <h2 class="hero-block-heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                {{ block.settings.heading }}
+              </h2>
 
-          {%- when 'button' -%}
-            {%- if block.settings.button_label != blank -%}
-              {%- liquid 
-                assign button_class = 'button button--primary hero-block-button'
-                if block.settings.button_style == 'pill'
-                  assign button_class = 'button hero-block-button-pill'
-                endif
-              -%}
-              <a href="{{ block.settings.button_link }}" class="{{ button_class }}" {{ block.shopify_attributes }}>
-                {{ block.settings.button_label | escape }}
-              </a>
-            {%- endif -%}
-
-        {%- endcase -%}
+            {%- when 'text' -%}
+              <div class="hero-block-text {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+          {%- endcase -%}
+        {%- endif -%}
       {%- endfor -%}
+      
+      {%- if in_btn_group -%}
+        </div>
+      {%- endif -%}
+      
     </div>
   </div>
 </div>
@@ -260,7 +310,7 @@
       "type": "checkbox",
       "id": "full_width",
       "label": "Make section full width",
-      "default": false
+      "default": true
     },
     {
       "type": "color_scheme",
@@ -283,15 +333,13 @@
       "type": "color_background",
       "id": "overlay_background",
       "label": "Overlay Color / Gradient",
-      "default": "linear-gradient(270deg, rgba(0, 0, 0, 0) 24.03%, rgba(0, 0, 0, 0.35) 80.49%)",
-      "info": "Choose a solid color or gradient to overlay on the image."
+      "default": "linear-gradient(270deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.45) 80%)"
     },
     {
       "type": "checkbox",
       "id": "enable_blur",
       "label": "Enable Frosted Glass Blur",
-      "default": false,
-      "info": "Applies a blur effect underneath your chosen overlay color."
+      "default": false
     },
     {
       "type": "header",
@@ -320,7 +368,7 @@
       "step": 20,
       "unit": "px",
       "label": "Desktop Height",
-      "default": 480
+      "default": 500
     },
     {
       "type": "select",
@@ -438,7 +486,7 @@
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
@@ -448,7 +496,7 @@
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
-      "default": 36
+      "default": 0
     }
   ],
   "blocks": [
@@ -498,7 +546,7 @@
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "Sleep <em>bigger</em>. Sleep <em>better</em>.",
+          "default": "Comfort now, Pay later.",
           "label": "Heading"
         },
         {
@@ -510,7 +558,7 @@
             { "value": "h0", "label": "Large" },
             { "value": "hxl", "label": "Extra large" }
           ],
-          "default": "h0",
+          "default": "hxl",
           "label": "Heading Size"
         }
       ]
@@ -523,7 +571,7 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Upgrade your bedroom with spacious king size beds designed for ultimate comfort and everyday luxury.</p>",
+          "default": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>",
           "label": "Description"
         },
         {
@@ -560,10 +608,11 @@
           "id": "button_style",
           "label": "Button Style",
           "options": [
-            { "value": "primary", "label": "Primary Button" },
-            { "value": "pill", "label": "Pill Button" }
+            { "value": "primary", "label": "Primary Block" },
+            { "value": "pill", "label": "Pill Solid" },
+            { "value": "outline", "label": "Pill Outline" }
           ],
-          "default": "primary"
+          "default": "pill"
         }
       ]
     }
@@ -582,7 +631,14 @@
           "type": "button",
           "settings": {
             "button_style": "pill",
-            "button_label": "Explore collection →"
+            "button_label": "Explore our products"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_style": "outline",
+            "button_label": "Learn more"
           }
         }
       ]
