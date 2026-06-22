@@ -183,7 +183,7 @@
       "name": "Bento Categories",
       "settings": {
         "color_scheme": "",
-        "title": "Shop by <em>category</em>",
+        "title": "Shop by category",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -266,7 +266,7 @@
       ],
       "name": "FAQ Tabs",
       "settings": {
-        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "title": "Expert answers to common questions",
         "heading_size": "h1",
         "description": "Browse questions by categories",
         "answers_label": "answers",
