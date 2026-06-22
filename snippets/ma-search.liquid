@@ -581,6 +581,84 @@
       margin-right: 0px;
     }
   }
+
+  /* ── Popular Search SVG Pill Buttons ── */
+  .ma-search-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .ma-search-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px 8px 14px;
+    border-radius: 30px;
+    border: 1px solid #e0ddd8;
+    background: transparent;
+    text-decoration: none !important;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .ma-search-pill:hover {
+    background-color: #efe6d8;
+    border-color: #d4c9b8;
+    transform: translateY(-1px);
+    color: #1a1a1a;
+    text-decoration: none !important;
+  }
+
+  .ma-search-pill__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #666;
+    transition: color 0.3s ease;
+  }
+
+  .ma-search-pill:hover .ma-search-pill__icon {
+    color: #333;
+  }
+
+  .ma-search-pill__icon svg {
+    width: 28px;
+    height: 20px;
+  }
+
+  .ma-search-pill__text {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  @media screen and (max-width: 800px) {
+    .ma-search-pills {
+      gap: 8px;
+    }
+    .ma-search-pill {
+      padding: 6px 14px 6px 10px;
+      font-size: 13px;
+      gap: 8px;
+    }
+    .ma-search-pill__icon {
+      width: 22px;
+      height: 16px;
+    }
+    .ma-search-pill__icon svg {
+      width: 22px;
+      height: 16px;
+    }
+  }
 </style>
 
 <predictive-search>
@@ -663,15 +741,50 @@
   <div class="ma-search-upsell-container">
     <div class="ma-search-upsell-wrapper">
       <div class="ma-search-suggestions-group ma-sugg-desktop">
-        <h3>Popular searches</h3>
-        <div class="ma-search-suggestions-list">
-          {%- if settings.text_a != blank -%}<a href="{{settings.url_a}}">{{settings.text_a}}</a>{%- endif -%}
-          {%- if settings.text_b != blank -%}<a href="{{settings.url_b}}">{{settings.text_b}}</a>{%- endif -%}
-          {%- if settings.text_c != blank -%}<a href="{{settings.url_c}}">{{settings.text_c}}</a>{%- endif -%}
-          {%- if settings.text_d != blank -%}<a href="{{settings.url_d}}">{{settings.text_d}}</a>{%- endif -%}
-          {%- if settings.text_e != blank -%}<a href="{{settings.url_e}}">{{settings.text_e}}</a>{%- endif -%}
+          <h3>Popular searches</h3>
+          <div class="ma-search-suggestions-list ma-search-pills">
+            {%- if settings.text_a != blank -%}
+              <a href="{{settings.url_a}}" class="ma-search-pill">
+                <span class="ma-search-pill__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M3.5 7V3.5C3.5 2.12 4.62 1 6 1h16c1.38 0 2.5 1.12 2.5 2.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1.5 7h25c.55 0 1 .45 1 1v7.5c0 1.38-1.12 2.5-2.5 2.5H3c-1.38 0-2.5-1.12-2.5-2.5V8c0-.55.45-1 1-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18v1.5M23 18v1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="ma-search-pill__text">{{settings.text_a}}</span>
+              </a>
+            {%- endif -%}
+            {%- if settings.text_b != blank -%}
+              <a href="{{settings.url_b}}" class="ma-search-pill">
+                <span class="ma-search-pill__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M3.5 7V3.5C3.5 2.12 4.62 1 6 1h16c1.38 0 2.5 1.12 2.5 2.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1.5 7h25c.55 0 1 .45 1 1v7.5c0 1.38-1.12 2.5-2.5 2.5H3c-1.38 0-2.5-1.12-2.5-2.5V8c0-.55.45-1 1-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18v1.5M23 18v1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="ma-search-pill__text">{{settings.text_b}}</span>
+              </a>
+            {%- endif -%}
+            {%- if settings.text_c != blank -%}
+              <a href="{{settings.url_c}}" class="ma-search-pill">
+                <span class="ma-search-pill__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M3.5 7V3.5C3.5 2.12 4.62 1 6 1h16c1.38 0 2.5 1.12 2.5 2.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1.5 7h25c.55 0 1 .45 1 1v7.5c0 1.38-1.12 2.5-2.5 2.5H3c-1.38 0-2.5-1.12-2.5-2.5V8c0-.55.45-1 1-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18v1.5M23 18v1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="ma-search-pill__text">{{settings.text_c}}</span>
+              </a>
+            {%- endif -%}
+            {%- if settings.text_d != blank -%}
+              <a href="{{settings.url_d}}" class="ma-search-pill">
+                <span class="ma-search-pill__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M3.5 7V3.5C3.5 2.12 4.62 1 6 1h16c1.38 0 2.5 1.12 2.5 2.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1.5 7h25c.55 0 1 .45 1 1v7.5c0 1.38-1.12 2.5-2.5 2.5H3c-1.38 0-2.5-1.12-2.5-2.5V8c0-.55.45-1 1-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18v1.5M23 18v1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="ma-search-pill__text">{{settings.text_d}}</span>
+              </a>
+            {%- endif -%}
+            {%- if settings.text_e != blank -%}
+              <a href="{{settings.url_e}}" class="ma-search-pill">
+                <span class="ma-search-pill__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M3.5 7V3.5C3.5 2.12 4.62 1 6 1h16c1.38 0 2.5 1.12 2.5 2.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1.5 7h25c.55 0 1 .45 1 1v7.5c0 1.38-1.12 2.5-2.5 2.5H3c-1.38 0-2.5-1.12-2.5-2.5V8c0-.55.45-1 1-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18v1.5M23 18v1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="ma-search-pill__text">{{settings.text_e}}</span>
+              </a>
+            {%- endif -%}
+          </div>
         </div>
-      </div>
       <div class="ma-search-upsell-product-section">
         <div class="ma-search-suggestions-group ma-sugg-mobile">
           <div class="ma-search-suggestions-list">
