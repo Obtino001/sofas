@@ -30,8 +30,8 @@
     const tabs = $$('.collection-tabs__tab', section);
     const panels = $$('.collection-tabs__panel', section);
     const viewAllBtns = $$('[data-collection-tabs-view-all]', section);
-    const prevBtn = $('[data-collection-tabs-arrow="prev"]', section);
-    const nextBtn = $('[data-collection-tabs-arrow="next"]', section);
+    const prevBtns = $$('[data-collection-tabs-arrow="prev"]', section);
+    const nextBtns = $$('[data-collection-tabs-arrow="next"]', section);
 
     function getActivePanel() {
       return panels.find((p) => p.classList.contains('is-active')) || panels[0];
@@ -58,19 +58,30 @@
     function refreshArrowState() {
       const sliderContainer = getActiveSliderContainer();
       const swiper = sliderContainer ? sliderContainer.swiperInstance : null;
+      ensureSwiperListeners();
       if (!swiper || swiper.destroyed) {
-        toggleArrow(prevBtn, false);
-        toggleArrow(nextBtn, false);
+        prevBtns.forEach((btn) => toggleArrow(btn, false));
+        nextBtns.forEach((btn) => toggleArrow(btn, false));
         return;
       }
       const enabled = swiper.slides && swiper.slides.length > swiper.params.slidesPerView;
       if (!enabled) {
-        toggleArrow(prevBtn, false);
-        toggleArrow(nextBtn, false);
+        prevBtns.forEach((btn) => toggleArrow(btn, false));
+        nextBtns.forEach((btn) => toggleArrow(btn, false));
         return;
       }
-      toggleArrow(prevBtn, !swiper.isBeginning || swiper.params.loop);
-      toggleArrow(nextBtn, !swiper.isEnd || swiper.params.loop);
+      const prevEnabled = !swiper.isBeginning || swiper.params.loop;
+      const nextEnabled = !swiper.isEnd || swiper.params.loop;
+      prevBtns.forEach((btn) => toggleArrow(btn, prevEnabled));
+      nextBtns.forEach((btn) => toggleArrow(btn, nextEnabled));
+    }
+
+    function ensureSwiperListeners() {
+      const sliderContainer = getActiveSliderContainer();
+      const swiper = sliderContainer ? sliderContainer.swiperInstance : null;
+      if (!swiper || swiper.destroyed || swiper.__collectionTabsListening) return;
+      swiper.__collectionTabsListening = true;
+      swiper.on('slideChange transitionEnd resize init', refreshArrowState);
     }
 
     function toggleArrow(btn, enabled) {
@@ -138,14 +149,22 @@
     }
 
     function bindArrows() {
-      [prevBtn, nextBtn].forEach((btn) => {
-        if (!btn) return;
+      prevBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
           const sliderContainer = getActiveSliderContainer();
           const swiper = sliderContainer ? sliderContainer.swiperInstance : null;
-          if (!swiper || swiper.destroyed) return;
-          if (btn === prevBtn) swiper.slidePrev();
-          else swiper.slideNext();
+          if (!swiper || swiper.destroyed || btn.disabled) return;
+          swiper.slidePrev();
+          requestAnimationFrame(refreshArrowState);
+        });
+      });
+      nextBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const sliderContainer = getActiveSliderContainer();
+          const swiper = sliderContainer ? sliderContainer.swiperInstance : null;
+          if (!swiper || swiper.destroyed || btn.disabled) return;
+          swiper.slideNext();
+          requestAnimationFrame(refreshArrowState);
         });
       });
     }

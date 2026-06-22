@@ -1,5 +1,6 @@
 .collection-tabs {
   position: relative;
+  overflow: visible;
 }
 
 .collection-tabs__container {
@@ -38,6 +39,17 @@
 .collection-tabs__heading-row--center .collection-tabs__description {
   margin-left: auto;
   margin-right: auto;
+}
+
+.collection-tabs__controls-row {
+  margin-bottom: 24px;
+}
+
+.collection-tabs__view-all-mobile {
+  display: none;
+  justify-content: center;
+  margin-top: 2.4rem;
+  padding: 0 1.5rem;
 }
 
 .collection-tabs__nav-wrapper {
@@ -139,7 +151,7 @@
   padding: 15px 25px;
   border: 1px solid var(--ct-accent, #1f1f1f);
   border-radius: 50px;
-  background: transparent;
+  background: #ffffff;
   color: var(--ct-accent, #1f1f1f);
   font-size: 15px;
   font-weight: 500;
@@ -164,8 +176,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--ct-accent, #1f1f1f);
-  background: transparent;
+  border: 1px solid rgba(31, 31, 31, 0.12);
+  background: #f5f2ed;
   color: var(--ct-accent, #1f1f1f);
   display: inline-flex;
   align-items: center;
@@ -184,6 +196,7 @@
 .collection-tabs__arrow.is-disabled {
   opacity: 0.35;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .collection-tabs__arrow svg {
@@ -193,6 +206,7 @@
 
 .collection-tabs__panels {
   position: relative;
+  overflow: visible;
 }
 
 .collection-tabs__panel {
@@ -226,6 +240,11 @@
 
 .collection-tabs__slider {
   display: block;
+  overflow: visible;
+}
+
+.collection-tabs__slider .slider-template-section__container {
+  overflow: visible;
 }
 
 .collection-tabs__slider .swiper-wrapper {
@@ -782,13 +801,7 @@ border: 0.75px solid #000000;
   }
 
   .collection-tabs__nav-wrapper {
-    order: 2;
     flex: 1 1 100%;
-  }
-
-  .collection-tabs__actions {
-    order: 1;
-    margin-left: auto;
   }
 
   .collection-tabs__nav {
@@ -800,9 +813,9 @@ border: 0.75px solid #000000;
     padding: 8px 14px;
   }
 
-.collection-tabs__arrows {
-  display: none;
-}
+  .collection-tabs__view-all-mobile {
+    display: flex;
+  }
 
   .collection-tabs__tab-icon {
     width: calc(var(--ct-icon-size, 32px) * 0.8);

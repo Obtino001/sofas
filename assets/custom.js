@@ -160,6 +160,7 @@ if (!customElements.get('slider-container')) {
                 slidesPerView: this.config.mobileSlides || 1,
                 spaceBetween: this.config.mobileSpacing || 0,
                 loop: this.config.loop || false,
+                speed: 500,
                 grabCursor: true,
                 mousewheel: { forceToAxis: true },
                 breakpoints: {

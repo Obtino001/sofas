@@ -40,8 +40,13 @@
     --ct-accent: rgb(var(--color-foreground));
   }
 
+  .section-{{ section.id }} .slider-template-section__container,
+  .section-{{ section.id }} .slider-template-section__swiper,
+  .section-{{ section.id }} .collection-tabs__panels {
+    overflow: visible;
+  }
+
   .section-{{ section.id }} .slider-template-section__swiper {
-    overflow: visible !important; 
     clip-path: inset(-100vw -100vw -100vw -100vw);
   }
 
@@ -64,7 +69,7 @@
       section-{{ section.id }}
       collection-tabs
       {% unless section.settings.full_width %}page-width{% endunless %}
-      {% if section.settings.overflow %}slider-template-section__overflow-hidden{% endif %}
+      {% unless section.settings.overflow %}slider-template-section__overflow-hidden{% endunless %}
       collection
       section-{{ section.id }}-padding
       {% if section.settings.full_width %}collection--full-width{% endif %}
@@ -120,45 +125,46 @@
             {%- endfor -%}
           </div>
 
-        <div class="collection-tabs__actions collection-tabs__actions--desktop small-hide" style="display: flex; align-items: center; gap: 1rem;">
-          {%- liquid
-            assign first_block = section.blocks | first
-            assign first_collection = first_block.settings.collection
-            assign first_url = first_collection.url | default: '#'
-          -%}
+          <div class="collection-tabs__actions collection-tabs__actions--desktop small-hide">
+            {%- liquid
+              assign first_block = section.blocks | first
+              assign first_collection = first_block.settings.collection
+              assign first_url = first_collection.url | default: '#'
+            -%}
 
-          {%- if section.settings.show_view_all -%}
-            <a
-              href="{{ first_url }}"
-              class="button button--secondary"
-              data-collection-tabs-view-all
-              aria-label="{{ 'sections.featured_collection.view_all' | t }}"
-            >
-              {{ section.settings.view_all_text | default: 'View All' }}
-            </a>
-          {%- endif -%}
+            {%- if section.settings.show_view_all -%}
+              <a
+                href="{{ first_url }}"
+                class="collection-tabs__view-all-btn"
+                data-collection-tabs-view-all
+                aria-label="{{ 'sections.featured_collection.view_all' | t }}"
+              >
+                {{ section.settings.view_all_text | default: 'View All' }}
+              </a>
+            {%- endif -%}
 
-          <div class="collection-tabs__arrows">
-            <button
-              type="button"
-              class="collection-tabs__arrow js-slider-template-prev"
-              data-collection-tabs-arrow="prev"
-              aria-label="{{ 'general.slider.previous_slide' | t }}"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="collection-tabs__arrow js-slider-template-next"
-              data-collection-tabs-arrow="next"
-              aria-label="{{ 'general.slider.next_slide' | t }}"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+            <div class="collection-tabs__arrows">
+              <button
+                type="button"
+                class="collection-tabs__arrow"
+                data-collection-tabs-arrow="prev"
+                aria-label="{{ 'general.slider.previous_slide' | t }}"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="collection-tabs__arrow"
+                data-collection-tabs-arrow="next"
+                aria-label="{{ 'general.slider.next_slide' | t }}"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -298,48 +304,17 @@
       {%- endfor -%}
     </div>
 
-    <div class="collection-tabs__actions collection-tabs__actions--bottom medium-hide">
-      {%- liquid
-        assign first_block = section.blocks | first
-        assign first_collection = first_block.settings.collection
-        assign first_url = first_collection.url | default: '#'
-      -%}
-
-      <div class="collection-tabs__arrows">
-        <button
-          type="button"
-          class="collection-tabs__arrow js-slider-template-prev"
-          data-collection-tabs-arrow="prev"
-          aria-label="{{ 'general.slider.previous_slide' | t }}"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="collection-tabs__arrow js-slider-template-next"
-          data-collection-tabs-arrow="next"
-          aria-label="{{ 'general.slider.next_slide' | t }}"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    {%- comment -%} ===== View All Button (Bottom) ===== {%- endcomment -%}
+    {%- comment -%} ===== View All Button (Mobile — bottom center) ===== {%- endcomment -%}
     {%- if section.settings.show_view_all -%}
       {%- liquid
         assign first_block = section.blocks | first
         assign first_collection = first_block.settings.collection
         assign first_url = first_collection.url | default: '#'
       -%}
-      <div class="center large-up-hide medium-hide" style="margin-top: 3rem;">
+      <div class="collection-tabs__view-all-mobile">
         <a
           href="{{ first_url }}"
-          class="button button--secondary"
+          class="collection-tabs__view-all-btn"
           data-collection-tabs-view-all
           aria-label="{{ 'sections.featured_collection.view_all' | t }}"
         >
