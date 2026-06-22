@@ -34,10 +34,39 @@
     position: relative;
   }
 
-  .ts-nav-wrapper .button {
-    border-radius: 50px; /* Pill shape for the View All button */
+  .ts-nav-wrapper .ts-view-all-btn {
+    border-radius: 50px;
     min-height: 40px;
-    padding: 0 20px;
+    padding: 10px 20px;
+  }
+
+  .ts-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border: 1px solid rgb(var(--color-foreground));
+    border-radius: 50px;
+    background: #ffffff;
+    color: rgb(var(--color-foreground));
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.25s ease, color 0.25s ease;
+    line-height: 1;
+  }
+
+  .ts-view-all-btn:hover {
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+  }
+
+  .ts-view-all-mobile {
+    display: none;
+    justify-content: center;
+    margin-top: 2.4rem;
+    padding: 0 1.5rem;
   }
 
   .ts-swiper-btn {
@@ -154,8 +183,12 @@
   }
 
   @media screen and (max-width: 749px) {
-    .ts-nav-wrapper{
+    .ts-nav-wrapper {
       display: none;
+    }
+
+    .ts-view-all-mobile {
+      display: flex;
     }
     /* Fallback native scrolling in case Swiper JS doesn't fire */
     slider-container:not(.is-initialized) .ts-swiper-{{ section.id }} .swiper-wrapper {
@@ -184,9 +217,9 @@
       <div class="ts-header-flex">
         <h2 class="ts-main-heading h1"> {{ section.settings.heading  }} </h2>
         
-        <div class="ts-nav-wrapper">
-          {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
-            <a href="{{ section.settings.btn_link }}" class="button button--secondary">
+        <div class="ts-nav-wrapper small-hide">
+          {% if section.settings.btn_text != blank %}
+            <a href="{{ section.settings.btn_link | default: '#' }}" class="ts-view-all-btn">
               {{ section.settings.btn_text }}
             </a>
           {% endif %}
@@ -250,6 +283,14 @@
       </div>
       </div>
     </slider-container>
+
+    {% if section.settings.btn_text != blank %}
+      <div class="ts-view-all-mobile">
+        <a href="{{ section.settings.btn_link | default: '#' }}" class="ts-view-all-btn">
+          {{ section.settings.btn_text }}
+        </a>
+      </div>
+    {% endif %}
   </div>
 </div>
 
