@@ -240,7 +240,7 @@ color: #2B2B2B;
   }
 
   /* ============================================
-     SUB PANEL — Promo Banner Card
+     PROMO BANNERS — Shared base
      ============================================ */
   .woc-drawer-promo {
     margin: 0 20px 20px;
@@ -249,7 +249,7 @@ color: #2B2B2B;
     position: relative;
     min-height: 200px;
     display: flex;
-    align-items: center;
+    align-items: stretch;
   }
 
   .woc-drawer-promo__bg {
@@ -261,84 +261,140 @@ color: #2B2B2B;
     z-index: 1;
   }
 
-  {% comment %} .woc-drawer-promo__overlay {
+  .woc-drawer-promo__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 100%);
+    background: #0000004D;
     z-index: 2;
-  } {% endcomment %}
+    pointer-events: none;
+  }
 
-.woc-drawer-promo__content {
+  .woc-drawer-promo__content {
     position: relative;
     z-index: 3;
     padding: 24px;
-    color: #fff;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1rem;
-    min-height: 350px;
-}
-.woc-drawer-promo__content p {
     text-align: center;
-    color: #2B2B2B;
-    line-height: 130%;
-}
-  .woc-drawer-promo__timer-label {
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 4px;
-    opacity: 0.9;
   }
 
-  .woc-drawer-promo__timer {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    letter-spacing: 3.5px;
-  }
-
-  .woc-drawer-promo__timer-block {
-    display: flex;
-    align-items: baseline;
-  }
-
-.woc-drawer-promo__heading.h1 {
-    color: #2B2B2B;
-    font-size: 3.2rem;
+  .woc-drawer-promo__heading {
     margin: 0;
     font-weight: 600;
     text-align: center;
-}
+    line-height: 1.15;
+  }
+
   .woc-drawer-promo__btn {
     display: inline-block;
-    background-color: #D3A77C;
-    color: #fff;
     font-size: 1.3rem;
     font-weight: 500;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 30px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
 
-  .woc-drawer-promo__btn:hover {
-    background-color: #b8916a;
+  /* ============================================
+     MAIN MENU BANNER — dark text, outline CTA
+     ============================================ */
+  .woc-drawer-promo--main {
+    margin-top: 2rem;
+    min-height: 280px;
   }
 
-  .woc-drawer-promo__btn--outline {
+  .woc-drawer-promo--main .woc-drawer-promo__content {
+    justify-content: flex-start;
+    padding-top: 32px;
+    min-height: 280px;
+  }
+
+  .woc-drawer-promo--main .woc-drawer-promo__heading {
+    color: #2B2B2B;
+    font-family: var(--font-heading-family, Georgia, serif);
+    font-size: 3.2rem;
+    font-weight: 400;
+    max-width: 28rem;
+  }
+
+  .woc-drawer-promo--main .woc-drawer-promo__text {
+    color: #2B2B2B;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin: 0;
+    max-width: 26rem;
+  }
+
+  .woc-drawer-promo--main .woc-drawer-promo__btn {
     background-color: transparent;
-    border: 1px solid #fff;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    margin-top: auto;
   }
 
-  .woc-drawer-promo__btn--outline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  .woc-drawer-promo--main .woc-drawer-promo__btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+  }
+
+  /* ============================================
+     SUB-MENU BANNER — white text, timer, solid CTA
+     ============================================ */
+  .woc-drawer-promo--sub {
+    min-height: 240px;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__content {
+    color: #ffffff;
+    min-height: 240px;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__heading {
+    color: #ffffff;
+    font-size: 2.8rem;
+    font-weight: 600;
+    max-width: 24rem;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__timer-label {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 4px;
+    color: #ffffff;
+    opacity: 0.95;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 3.5px;
+    color: #ffffff;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__timer-block {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__btn {
+    background-color: #D3A77C;
+    color: #ffffff;
+    border: 1px solid #D3A77C;
+  }
+
+  .woc-drawer-promo--sub .woc-drawer-promo__btn:hover {
+    background-color: #b8916a;
+    border-color: #b8916a;
   }
 
   /* ============================================
@@ -473,20 +529,20 @@ color: #2B2B2B;
 
               {%- comment -%} Promo Banner for Main Drawer {%- endcomment -%}
               {% if section.settings.drawer_promo_image != blank %}
-                <div class="woc-drawer-promo" style="margin-top: 2rem;">
+                <div class="woc-drawer-promo woc-drawer-promo--main">
                   <img src="{{ section.settings.drawer_promo_image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ section.settings.drawer_promo_title }}" loading="lazy">
-                  <div class="woc-drawer-promo__overlay"> </div>
+                  <div class="woc-drawer-promo__overlay" aria-hidden="true"></div>
                   <div class="woc-drawer-promo__content">
                     {% if section.settings.drawer_promo_title != blank %}
-                      <h3 class="woc-drawer-promo__heading h1">{{ section.settings.drawer_promo_title }}</h3>
+                      <h3 class="woc-drawer-promo__heading">{{ section.settings.drawer_promo_title }}</h3>
                     {% endif %}
 
                     {% if section.settings.drawer_promo_text != blank %}
-                      <p>{{ section.settings.drawer_promo_text }}</p>
+                      <p class="woc-drawer-promo__text">{{ section.settings.drawer_promo_text }}</p>
                     {% endif %}
 
                     {% if section.settings.drawer_promo_btn_text != blank %}
-                      <a href="{{ section.settings.drawer_promo_btn_link }}" class="woc-drawer-promo__btn woc-drawer-promo__btn--outline">
+                      <a href="{{ section.settings.drawer_promo_btn_link }}" class="woc-drawer-promo__btn">
                         {{ section.settings.drawer_promo_btn_text }}
                       </a>
                     {% endif %}
@@ -606,12 +662,12 @@ color: #2B2B2B;
 
                             {%- comment -%} Promo Banner {%- endcomment -%}
                             {% if block.settings.image != blank %}
-                              <div class="woc-drawer-promo">
+                              <div class="woc-drawer-promo woc-drawer-promo--sub">
                                 <img src="{{ block.settings.image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ block.settings.banner_title }}" loading="lazy">
-                                <div class="woc-drawer-promo__overlay"> </div>
+                                <div class="woc-drawer-promo__overlay" aria-hidden="true"></div>
                                 <div class="woc-drawer-promo__content">
                                   {% if block.settings.banner_title != blank %}
-                                    <h3 class="woc-drawer-promo__heading h1">{{ block.settings.banner_title }}</h3>
+                                    <h3 class="woc-drawer-promo__heading">{{ block.settings.banner_title }}</h3>
                                   {% endif %}
 
                                   {% if block.settings.timer_date != blank %}
