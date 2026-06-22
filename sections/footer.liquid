@@ -25,6 +25,34 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* ── Premium footer link hover underline ── */
+  .footer-block--link_list .list-menu__item--link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none !important;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-block--link_list .list-menu__item--link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: currentColor;
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .footer-block--link_list .list-menu__item--link:hover::after {
+    width: 100%;
+  }
+
+  .footer-block--link_list .list-menu__item--link:hover {
+    opacity: 0.85;
+  }
 {%- endstyle -%}
 
 <div class="gradient color-{{ section.settings.color_scheme }}">
