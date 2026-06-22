@@ -49,7 +49,7 @@
           "settings": {
             "collection_ref": "3-seater",
             "title": "",
-            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_image": "shopify://shop_images/Vector_3.svg",
             "custom_url": ""
           }
         },
@@ -58,7 +58,7 @@
           "settings": {
             "collection_ref": "4-seater",
             "title": "",
-            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_image": "shopify://shop_images/Vector_1.png",
             "custom_url": ""
           }
         },
@@ -67,7 +67,7 @@
           "settings": {
             "collection_ref": "arm-chairs",
             "title": "",
-            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_image": "shopify://shop_images/Vector_6.svg",
             "custom_url": ""
           }
         },
@@ -76,7 +76,7 @@
           "settings": {
             "collection_ref": "corner-sofa",
             "title": "Corner Sofas",
-            "custom_image": "shopify://shop_images/Vector_72.svg",
+            "custom_image": "shopify://shop_images/Vector_4.svg",
             "custom_url": ""
           }
         }
