@@ -1,3 +1,8 @@
+{%- assign uses_comma_decimals = false -%}
+{%- if cart.currency.iso_code == 'EUR' or cart.currency.iso_code == 'DKK' or cart.currency.iso_code == 'BRL' or cart.currency.iso_code == 'SEK' or cart.currency.iso_code == 'NOK' -%}
+  {%- assign uses_comma_decimals = true -%}
+{%- endif -%}
+
 <span class="field-currency">{{ cart.currency.symbol }}</span>
 
 <div class="field">
@@ -6,14 +11,20 @@
     name="{{ filter.min_value.param_name }}"
     id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
     {%- if filter.min_value.value -%}
-      value="{{ filter.min_value.value | money_without_currency }}"
+      {%- if uses_comma_decimals -%}
+        value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+      {%- else -%}
+        value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+      {%- endif %}
     {%- endif -%}
-    type="text"
-    inputmode="decimal"
+    type="number"
     placeholder="0"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max | money_without_currency }}"
+    min="0"
+    {%- if uses_comma_decimals -%}
+      max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+    {%- else -%}
+      max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+    {%- endif %}
   >
   <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
     {{- 'products.facets.from' | t -}}
@@ -30,14 +41,21 @@
     name="{{ filter.max_value.param_name }}"
     id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
     {%- if filter.max_value.value -%}
-      value="{{ filter.max_value.value | money_without_currency }}"
+      {%- if uses_comma_decimals -%}
+        value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+      {%- else -%}
+        value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+      {%- endif %}
     {%- endif -%}
-    type="text"
-    inputmode="decimal"
-    placeholder="{{ filter.range_max | money_without_currency }}"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max | money_without_currency }}"
+    type="number"
+    min="0"
+    {%- if uses_comma_decimals -%}
+      placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+      max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+    {%- else -%}
+      placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+      max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+    {%- endif %}
   >
   <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
     {{- 'products.facets.to' | t -}}
