@@ -424,7 +424,7 @@
         "card_color_scheme": "scheme-fc6ff987-8b14-4aae-b16a-d9badae9e57c",
         "heading": "What our customers say",
         "btn_text": "View All",
-        "btn_link": "",
+        "btn_link": "shopify://pages/faq",
         "padding_top": 60,
         "padding_bottom": 60,
         "enable_autoplay": false,
