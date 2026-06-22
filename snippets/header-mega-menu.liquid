@@ -16,8 +16,10 @@
     top: 100%;
     padding-top: 30px;
     background-color: #fff;
-    transition: visibility 0.3s, opacity 0.3s;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+    transition: visibility 0.35s ease, opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
   }
   nav-container{
     height: 100%;
@@ -27,7 +29,48 @@
   nav-container:hover details-menu{
     visibility: visible;
     opacity: 1;
-    transition: all .2s linear;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* ── Arrow rotation on hover ── */
+  .desktopMenu-Item svg.icon-caret,
+  .desktopMenu-Item svg {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  nav-container:hover .desktopMenu-Item svg.icon-caret,
+  nav-container:hover .desktopMenu-Item svg {
+    transform: rotate(180deg);
+  }
+
+  /* ── Staggered content reveal inside dropdown ── */
+  details-menu .desktopMenu-Inner {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  }
+  nav-container:hover details-menu .desktopMenu-Inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Subtle underline animation on menu items ── */
+  .desktopMenu-Item {
+    position: relative;
+  }
+  .desktopMenu-Item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  nav-container:hover > menu-item .desktopMenu-Item::after {
+    width: 100%;
   }
 .desktopMenu-Item {
     display: flex;
