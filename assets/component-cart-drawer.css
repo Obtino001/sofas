@@ -1545,11 +1545,6 @@ cart-drawer-items {
   color: #121212;
 }
 
-.totals-row--small .totals-label {
-  font-size: 13px;
-  color: #555555;
-}
-
 .totals-row--small .totals-value {
   font-size: 13px;
   color: #555555;
