@@ -531,7 +531,7 @@ color: #2B2B2B;
               {% if section.settings.drawer_promo_image != blank %}
                 <div class="woc-drawer-promo woc-drawer-promo--main">
                   <img src="{{ section.settings.drawer_promo_image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ section.settings.drawer_promo_title }}" loading="lazy">
-                  <div class="woc-drawer-promo__overlay" aria-hidden="true"></div>
+                  <div class="woc-drawer-promo__overlay" aria-hidden="true"> </div>
                   <div class="woc-drawer-promo__content">
                     {% if section.settings.drawer_promo_title != blank %}
                       <h3 class="woc-drawer-promo__heading">{{ section.settings.drawer_promo_title }}</h3>
@@ -664,7 +664,7 @@ color: #2B2B2B;
                             {% if block.settings.image != blank %}
                               <div class="woc-drawer-promo woc-drawer-promo--sub">
                                 <img src="{{ block.settings.image | image_url: width: 1800 }}" class="woc-drawer-promo__bg" alt="{{ block.settings.banner_title }}" loading="lazy">
-                                <div class="woc-drawer-promo__overlay" aria-hidden="true"></div>
+                                <div class="woc-drawer-promo__overlay" aria-hidden="true"> </div>
                                 <div class="woc-drawer-promo__content">
                                   {% if block.settings.banner_title != blank %}
                                     <h3 class="woc-drawer-promo__heading">{{ block.settings.banner_title }}</h3>
