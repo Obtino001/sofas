@@ -112,8 +112,6 @@
 
 /* -- Section Container -- */
 .slider-template-section {
-    padding-top: var(--padding-top, 36px);
-    padding-bottom: var(--padding-bottom, 36px);
     color: rgba(var(--color-foreground), 1);
     background-color: rgba(var(--color-background), 1);
 }
