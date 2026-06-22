@@ -122,8 +122,9 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
-    "search_menu": "main-menu",
+    "search_menu": "",
     "search_product_collection": "3-seater",
+    "search_product_collection_limit": 12,
     "upsell__container": false,
     "upsell__heading": "We recommend",
     "upsell__products": [
@@ -251,7 +252,7 @@
       },
       "scheme-fc6ff987-8b14-4aae-b16a-d9badae9e57c": {
         "settings": {
-          "background": "#F5F2ED",
+          "background": "#f5f2ed",
           "background_gradient": "",
           "text": "#2b2b2b",
           "button": "#c8a97e",
