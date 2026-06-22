@@ -1502,6 +1502,7 @@ cart-drawer-items {
 .cart-drawer__footer-shipping {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 16px;
 }
