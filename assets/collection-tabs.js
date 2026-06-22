@@ -47,8 +47,10 @@
       if (!panel) return;
       const url = panel.getAttribute('data-collection-url') || '#';
       if (viewAllBtn) {
-        viewAllBtn.setAttribute('href', url);
-        viewAllBtn.style.display = url && url !== '#' ? '' : 'none';
+        if (url && url !== '#') {
+          viewAllBtn.setAttribute('href', url);
+        }
+        viewAllBtn.style.display = '';
       }
       refreshArrowState();
     }
