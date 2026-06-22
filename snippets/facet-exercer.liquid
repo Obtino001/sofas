@@ -202,6 +202,41 @@
 
                 {%- when 'price_range' -%}
                   {%- comment -%} ── PRICE RANGE ── {%- endcomment -%}
+                  {%- liquid
+                    assign currency_divisor = 100.0
+                    assign currency_divisor_int = 100
+                    if cart.currency.iso_code == 'JPY' or cart.currency.iso_code == 'KRW'
+                      assign currency_divisor = 1.0
+                      assign currency_divisor_int = 1
+                    endif
+
+                    assign min_val = ''
+                    if filter.min_value.value
+                      assign min_val_mod = filter.min_value.value | modulo: currency_divisor_int
+                      if min_val_mod == 0
+                        assign min_val = filter.min_value.value | divided_by: currency_divisor_int
+                      else
+                        assign min_val = filter.min_value.value | divided_by: currency_divisor
+                      endif
+                    endif
+
+                    assign max_val = ''
+                    if filter.max_value.value
+                      assign max_val_mod = filter.max_value.value | modulo: currency_divisor_int
+                      if max_val_mod == 0
+                        assign max_val = filter.max_value.value | divided_by: currency_divisor_int
+                      else
+                        assign max_val = filter.max_value.value | divided_by: currency_divisor
+                      endif
+                    endif
+
+                    assign range_max_mod = filter.range_max | modulo: currency_divisor_int
+                    if range_max_mod == 0
+                      assign range_max_val = filter.range_max | divided_by: currency_divisor_int
+                    else
+                      assign range_max_val = filter.range_max | divided_by: currency_divisor
+                    endif
+                  -%}
                   <div class="exr-price">
                     <div class="exr-price__fields">
                       <div class="exr-price__field">
@@ -211,10 +246,10 @@
                           data-exr-price-input
                           type="number"
                           name="{{ filter.min_value.param_name }}"
-                          value="{{ filter.min_value.value }}"
+                          value="{{ min_val }}"
                           min="0"
-                          max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                          placeholder="{{ filter.min_value.value | default: 0 | money_without_currency }}"
+                          max="{{ range_max_val }}"
+                          placeholder="0"
                         >
                       </div>
                       <span class="exr-price__sep"></span>
@@ -225,10 +260,10 @@
                           data-exr-price-input
                           type="number"
                           name="{{ filter.max_value.param_name }}"
-                          value="{{ filter.max_value.value }}"
+                          value="{{ max_val }}"
                           min="0"
-                          max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                          placeholder="{{ filter.range_max | money_without_currency }}"
+                          max="{{ range_max_val }}"
+                          placeholder="{{ range_max_val }}"
                         >
                       </div>
                     </div>
