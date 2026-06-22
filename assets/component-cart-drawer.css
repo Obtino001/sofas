@@ -1523,10 +1523,6 @@ cart-drawer-items {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 20px;
-  border-top: 1px solid rgba(18, 18, 18, 0.08);
-  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
-  padding: 16px 0;
 }
 
 .totals-row {
