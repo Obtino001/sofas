@@ -29,7 +29,7 @@
 
     const tabs = $$('.collection-tabs__tab', section);
     const panels = $$('.collection-tabs__panel', section);
-    const viewAllBtn = $('[data-collection-tabs-view-all]', section);
+    const viewAllBtns = $$('[data-collection-tabs-view-all]', section);
     const prevBtn = $('[data-collection-tabs-arrow="prev"]', section);
     const nextBtn = $('[data-collection-tabs-arrow="next"]', section);
 
@@ -46,12 +46,12 @@
       const panel = getActivePanel();
       if (!panel) return;
       const url = panel.getAttribute('data-collection-url') || '#';
-      if (viewAllBtn) {
+      viewAllBtns.forEach(btn => {
         if (url && url !== '#') {
-          viewAllBtn.setAttribute('href', url);
+          btn.setAttribute('href', url);
         }
-        viewAllBtn.style.display = '';
-      }
+        btn.style.display = '';
+      });
       refreshArrowState();
     }
 
@@ -221,9 +221,9 @@
               '<div class="price price--on-sale">' +
                 '<div class="price__container">' +
                   '<div class="price__sale">' +
-                    '<span class="price-item price-item--sale">' + matchedVariant.price_formatted + '</span>' +
                     '<span class="visually-hidden">Regular price</span>' +
                     '<s class="price-item price-item--regular">' + matchedVariant.compare_at_price_formatted + '</s>' +
+                    '<span class="price-item price-item--sale price-item--last">' + matchedVariant.price_formatted + '</span>' +
                   '</div>' +
                 '</div>' +
               '</div>';
