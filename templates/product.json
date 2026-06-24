@@ -56,7 +56,7 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle",
-            "show_variant_images_in_swatches": true
+            "show_variant_images_in_swatches": false
           }
         },
         "multi_icon_3wWFJf": {
