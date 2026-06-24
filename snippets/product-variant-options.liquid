@@ -52,7 +52,13 @@
     {%- comment -%} 
       Find variant featured image for this option value
     {%- endcomment -%}
-    {%- if block.settings.show_variant_images_in_swatches -%}
+    {%- assign option_name_downcase = option.name | downcase -%}
+    {%- assign is_color = false -%}
+    {%- if option_name_downcase == 'color' or option_name_downcase == 'colour' -%}
+      {%- assign is_color = true -%}
+    {%- endif -%}
+
+    {%- if block.settings.show_variant_images_in_swatches and is_color == false -%}
       {%- assign option_index = option.position | minus: 1 -%}
       {%- assign value_clean = value | strip | escape -%}
 
@@ -111,7 +117,13 @@
     
     {%- assign variant_image_url = null -%}
     
-    {%- if block.settings.show_variant_images_in_swatches -%}
+    {%- assign option_name_downcase = option.name | downcase -%}
+    {%- assign is_color = false -%}
+    {%- if option_name_downcase == 'color' or option_name_downcase == 'colour' -%}
+      {%- assign is_color = true -%}
+    {%- endif -%}
+
+    {%- if block.settings.show_variant_images_in_swatches and is_color == false -%}
       {%- assign option_index = option.position | minus: 1 -%}
       {%- assign value_clean = value | strip | escape -%}
 
