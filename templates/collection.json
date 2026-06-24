@@ -40,7 +40,9 @@
           "repeater": "{{ collection.metafields.custom.collection_tabs.value }}",
           "settings": {
             "collection_ref": "{{ block.repeater.select_collection.value }}",
-            "custom_image": "{{ block.repeater.select_image.value }}"
+            "title": "",
+            "custom_image": "{{ block.repeater.select_image.value }}",
+            "custom_url": ""
           }
         }
       },
@@ -152,6 +154,7 @@
       "blocks": {
         "category_qpEmBY": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Sofa related questions",
             "image": "shopify://shop_images/b4c43a950f02e72767019441a3ec6201811735a5.png",
@@ -161,6 +164,7 @@
         },
         "category_LmHxAQ": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Bed related questions",
             "image": "shopify://shop_images/764b64359deacc6099f5642086815856812c64a3.png",
@@ -170,6 +174,7 @@
         },
         "category_W9kenj": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Bed related questions",
             "image": "shopify://shop_images/5a51bef4b1218d66927e9c1ff62880d06b4828d9.png",
@@ -179,6 +184,7 @@
         },
         "category_XHbG8A": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Bed related questions",
             "image": "shopify://shop_images/a4a1779b03ec0c98fd0fa5b6b8c6d4fba24e7183.png",
@@ -228,6 +234,7 @@
         "title": "Expert answers to common questions",
         "heading_size": "h1",
         "description": "Browse questions by categories",
+        "show_tabs": true,
         "answers_label": "answers",
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "padding_top": 40,
