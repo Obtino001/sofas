@@ -262,9 +262,17 @@
                   if block.settings.mobile_image == blank
                     assign desktop_class = ''
                   endif
+
+                  assign loading_strategy = 'lazy'
+                  assign fetch_priority = 'auto'
+                  if forloop.first
+                    assign loading_strategy = 'eager'
+                    assign fetch_priority = 'high'
+                  endif
                 -%}
                 {{ block.settings.image | image_url: width: 3840 | image_tag:
-                  loading: 'lazy',
+                  loading: loading_strategy,
+                  fetchpriority: fetch_priority,
                   class: desktop_class,
                   widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
                 }}
@@ -274,7 +282,8 @@
 
               {%- if block.settings.mobile_image != blank -%}
                 {{ block.settings.mobile_image | image_url: width: 1100 | image_tag:
-                  loading: 'lazy',
+                  loading: loading_strategy,
+                  fetchpriority: fetch_priority,
                   class: 'custom-hero-slider__image--mobile',
                   widths: '375, 550, 750, 1100'
                 }}
