@@ -58,16 +58,7 @@
           "settings": {
             "collection_ref": "4-seater",
             "title": "",
-            "custom_image": "shopify://shop_images/Vector_1.png",
-            "custom_url": ""
-          }
-        },
-        "collection_item_9H4DD4": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "arm-chairs",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_6.svg",
+            "custom_image": "shopify://shop_images/Group_1413372227.svg",
             "custom_url": ""
           }
         },
@@ -79,6 +70,15 @@
             "custom_image": "shopify://shop_images/Vector_4.svg",
             "custom_url": ""
           }
+        },
+        "collection_item_9H4DD4": {
+          "type": "collection_item",
+          "settings": {
+            "collection_ref": "arm-chairs",
+            "title": "",
+            "custom_image": "shopify://shop_images/Vector_6.svg",
+            "custom_url": ""
+          }
         }
       },
       "block_order": [
@@ -86,8 +86,8 @@
         "collection_item_WhT8CN",
         "collection_item_GdiWPp",
         "collection_item_63TNdQ",
-        "collection_item_9H4DD4",
-        "collection_item_dCWwrQ"
+        "collection_item_dCWwrQ",
+        "collection_item_9H4DD4"
       ],
       "settings": {
         "products_per_page": 36,
