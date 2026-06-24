@@ -1,7 +1,12 @@
   {%- assign metaobject = blank -%}
   {%- for collection in product.collections -%}
     {%- if collection.metafields.custom.why_you_love_it.value != blank -%}
-      {%- assign metaobject = collection.metafields.custom.why_you_love_it.value -%}
+      {%- assign metaobject_val = collection.metafields.custom.why_you_love_it.value -%}
+      {%- if metaobject_val.first != blank -%}
+        {%- assign metaobject = metaobject_val.first -%}
+      {%- else -%}
+        {%- assign metaobject = metaobject_val -%}
+      {%- endif -%}
       {%- break -%}
     {%- endif -%}
   {%- endfor -%}
@@ -18,10 +23,23 @@
     {% endif %}
     
     <div class="benefit-list-container">
+      {%- assign has_metaobject_items = false -%}
       {%- if metaobject != blank -%}
         {%- for i in (1..5) -%}
           {%- assign item_key = 'item_' | append: i -%}
-          {%- assign benefit_text = metaobject[item_key] -%}
+          {%- assign item_key_alt = 'item' | append: i -%}
+          {%- if metaobject[item_key] != blank or metaobject[item_key_alt] != blank -%}
+            {%- assign has_metaobject_items = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if has_metaobject_items -%}
+        {%- for i in (1..5) -%}
+          {%- assign item_key = 'item_' | append: i -%}
+          {%- assign item_key_alt = 'item' | append: i -%}
+          {%- assign benefit_text = metaobject[item_key] | default: metaobject[item_key_alt] -%}
           {%- if benefit_text != blank -%}
             <div class="benefit-list-item">
               <div class="benefit-icon">
