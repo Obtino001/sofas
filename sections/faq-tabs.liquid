@@ -55,16 +55,15 @@
     transition: all 0.2s ease;
     text-align: left;
     min-width: 24rem;
-    background: transparent;
+    background-color: transparent;
   }
 
   .faq-tabs__tab[aria-selected="true"] {
-    border-color:  #C9B9A5;
-    background: #EAE4D9 !important;
+    border-color: rgb(var(--color-foreground));
   }
   
   .faq-tabs__tab[aria-selected="true"] .faq-tabs__tab-icon {
-    background: #E6D4BF;
+    background: rgba(var(--color-foreground), 0.1);
   }
 
   .faq-tabs__tab-icon {
@@ -73,7 +72,7 @@
     justify-content: center;
     width: 5rem;
     height: 5rem;
-    background: #F9F4EC;
+    background: rgba(var(--color-foreground), 0.05);
     border-radius: 0.6rem;
     transition: background 0.2s ease;
   }
@@ -122,6 +121,7 @@
     overflow: hidden;
     /* Hidden by default, JS reveals matching categories */
     display: none; 
+    background-color: transparent;
   }
 
   .faq-accordion.is-active {
@@ -238,11 +238,12 @@
               {%- endif -%}
             {%- endfor -%}
 
-            <button class="faq-tabs__tab color-{{ block.settings.color_scheme }} gradient" 
+            <button class="faq-tabs__tab {% if first_tab %}color-{{ block.settings.color_scheme }} gradient{% endif %}" 
                     role="tab" 
                     aria-selected="{% if first_tab %}true{% else %}false{% endif %}" 
                     aria-controls="panel-{{ category_handle }}" 
                     data-target="{{ category_handle }}"
+                    data-color-scheme="{{ block.settings.color_scheme }}"
                     {{ block.shopify_attributes }}>
               
               <div class="faq-tabs__tab-icon">
@@ -271,7 +272,7 @@
         {%- if block.type == 'faq' -%}
           {%- assign target_handle = block.settings.category_match | handleize -%}
           
-          <details class="faq-accordion color-{{ block.settings.color_scheme }} gradient" data-category="{{ target_handle }}" {{ block.shopify_attributes }}>
+          <details class="faq-accordion" data-category="{{ target_handle }}" data-color-scheme="{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
             <summary class="faq-accordion__summary">
               {{ block.settings.question | escape }}
               <span class="faq-accordion__icon">
@@ -310,13 +311,42 @@
           // If there are no tabs, show all accordions
           this.accordions.forEach(accordion => accordion.classList.add('is-active'));
         }
+
+        // Add toggle listener for accordions to apply color scheme only when open
+        this.accordions.forEach(accordion => {
+          const updateAccordionColor = () => {
+            const scheme = accordion.dataset.colorScheme;
+            if (!scheme) return;
+            const schemeClass = `color-${scheme}`;
+            if (accordion.open) {
+              accordion.classList.add(schemeClass, 'gradient');
+            } else {
+              accordion.classList.remove(schemeClass, 'gradient');
+            }
+          };
+
+          accordion.addEventListener('toggle', updateAccordionColor);
+          // Initial state
+          updateAccordionColor();
+        });
       }
 
       switchTab(selectedTab) {
-        // Deselect all tabs
-        this.tabs.forEach(tab => tab.setAttribute('aria-selected', 'false'));
-        // Select clicked tab
+        // Deselect all tabs and remove their color schemes
+        this.tabs.forEach(tab => {
+          tab.setAttribute('aria-selected', 'false');
+          const scheme = tab.dataset.colorScheme;
+          if (scheme) {
+            tab.classList.remove(`color-${scheme}`, 'gradient');
+          }
+        });
+        
+        // Select clicked tab and apply its color scheme
         selectedTab.setAttribute('aria-selected', 'true');
+        const activeScheme = selectedTab.dataset.colorScheme;
+        if (activeScheme) {
+          selectedTab.classList.add(`color-${activeScheme}`, 'gradient');
+        }
 
         const targetCategory = selectedTab.dataset.target;
 
