@@ -25,21 +25,20 @@
     <div class="benefit-list-container">
       {%- assign has_metaobject_items = false -%}
       {%- if metaobject != blank -%}
-        {%- for i in (1..5) -%}
-          {%- assign item_key = 'item_' | append: i -%}
-          {%- assign item_key_alt = 'item' | append: i -%}
-          {%- if metaobject[item_key] != blank or metaobject[item_key_alt] != blank -%}
-            {%- assign has_metaobject_items = true -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
+        {%- if metaobject.item_1 != blank or metaobject.item_2 != blank or metaobject.item_3 != blank or metaobject.item_4 != blank or metaobject.item_5 != blank -%}
+          {%- assign has_metaobject_items = true -%}
+        {%- endif -%}
       {%- endif -%}
 
       {%- if has_metaobject_items -%}
         {%- for i in (1..5) -%}
-          {%- assign item_key = 'item_' | append: i -%}
-          {%- assign item_key_alt = 'item' | append: i -%}
-          {%- assign benefit_text = metaobject[item_key] | default: metaobject[item_key_alt] -%}
+          {%- assign benefit_text = blank -%}
+          {%- if i == 1 -%}{%- assign benefit_text = metaobject.item_1 -%}{%- endif -%}
+          {%- if i == 2 -%}{%- assign benefit_text = metaobject.item_2 -%}{%- endif -%}
+          {%- if i == 3 -%}{%- assign benefit_text = metaobject.item_3 -%}{%- endif -%}
+          {%- if i == 4 -%}{%- assign benefit_text = metaobject.item_4 -%}{%- endif -%}
+          {%- if i == 5 -%}{%- assign benefit_text = metaobject.item_5 -%}{%- endif -%}
+          
           {%- if benefit_text != blank -%}
             <div class="benefit-list-item">
               <div class="benefit-icon">
