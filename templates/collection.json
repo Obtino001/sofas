@@ -35,59 +35,18 @@
             "image": "shopify://shop_images/5ed1c4ca042e10f53e3d3c15da82071e64c17895.png"
           }
         },
-        "collection_item_WhT8CN": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "2-seater",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_72.svg",
-            "custom_url": ""
-          }
-        },
-        "collection_item_GdiWPp": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "3-seater",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_3.svg",
-            "custom_url": ""
-          }
-        },
         "collection_item_63TNdQ": {
           "type": "collection_item",
+          "repeater": "{{ collection.metafields.custom.collection_tabs.value }}",
           "settings": {
-            "collection_ref": "4-seater",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_1.png",
-            "custom_url": ""
-          }
-        },
-        "collection_item_9H4DD4": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "arm-chairs",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_6.svg",
-            "custom_url": ""
-          }
-        },
-        "collection_item_dCWwrQ": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "corner-sofa",
-            "title": "Corner Sofas",
-            "custom_image": "shopify://shop_images/Vector_4.svg",
-            "custom_url": ""
+            "collection_ref": "{{ block.repeater.select_collection.value }}",
+            "custom_image": "{{ block.repeater.select_image.value }}"
           }
         }
       },
       "block_order": [
         "feature_promo_WtKGn9",
-        "collection_item_WhT8CN",
-        "collection_item_GdiWPp",
-        "collection_item_63TNdQ",
-        "collection_item_9H4DD4",
-        "collection_item_dCWwrQ"
+        "collection_item_63TNdQ"
       ],
       "settings": {
         "products_per_page": 36,

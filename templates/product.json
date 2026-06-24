@@ -441,7 +441,7 @@
           "type": "collection",
           "settings": {
             "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_4.svg",
+            "tab_image": "shopify://shop_images/Vector_72.svg",
             "collection": "2-seater"
           }
         },
@@ -449,16 +449,16 @@
           "type": "collection",
           "settings": {
             "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_4.svg",
-            "collection": "2-seater"
+            "tab_image": "shopify://shop_images/Vector_3.svg",
+            "collection": "3-seater"
           }
         },
         "collection_d6EMnB": {
           "type": "collection",
           "settings": {
             "tab_title": "",
-            "tab_image": "shopify://shop_images/Vector_4.svg",
-            "collection": "2-seater"
+            "tab_image": "shopify://shop_images/Group_1413372227.svg",
+            "collection": "4-seater"
           }
         },
         "collection_9xXFdF": {
@@ -466,7 +466,15 @@
           "settings": {
             "tab_title": "",
             "tab_image": "shopify://shop_images/Vector_4.svg",
-            "collection": "2-seater"
+            "collection": "corner-sofa"
+          }
+        },
+        "collection_APcntp": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "",
+            "tab_image": "shopify://shop_images/Vector_6.svg",
+            "collection": "arm-chairs"
           }
         }
       },
@@ -474,7 +482,8 @@
         "collection_EhRQK6",
         "collection_qp3F3f",
         "collection_d6EMnB",
-        "collection_9xXFdF"
+        "collection_9xXFdF",
+        "collection_APcntp"
       ],
       "settings": {
         "title": "You may also like",
