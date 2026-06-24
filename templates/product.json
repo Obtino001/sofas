@@ -221,32 +221,8 @@
           "type": "marquee_item",
           "settings": {
             "custom_svg": "",
-            "image": "shopify://shop_images/Vector_33.svg",
+            "image": "shopify://shop_images/Group_1_1.svg",
             "text": "Made in UK"
-          }
-        },
-        "marquee_item_PpkAiV": {
-          "type": "marquee_item",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Vector_33.svg",
-            "text": "Made in UK"
-          }
-        },
-        "marquee_item_TLyzyQ": {
-          "type": "marquee_item",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Group_2.svg",
-            "text": "Delivered in 7-10 Days"
-          }
-        },
-        "marquee_item_HVyg37": {
-          "type": "marquee_item",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Group_2.svg",
-            "text": "Delivered in 7-10 Days"
           }
         },
         "marquee_item_LEeMLE": {
@@ -257,6 +233,14 @@
             "text": "Premium Quality at Fair Prices"
           }
         },
+        "marquee_item_HVyg37": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Group_2.svg",
+            "text": "Delivered in 7-10 Days"
+          }
+        },
         "marquee_item_UtQC7P": {
           "type": "marquee_item",
           "settings": {
@@ -264,15 +248,58 @@
             "image": "shopify://shop_images/Group_35.svg",
             "text": "Premium Quality at Fair Prices"
           }
+        },
+        "marquee_item_TLyzyQ": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Group_2.svg",
+            "text": "Delivered in 7-10 Days"
+          }
+        },
+        "marquee_item_PpkAiV": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Group_1_1.svg",
+            "text": "Made in UK"
+          }
+        },
+        "marquee_item_PAMFbm": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Group_35.svg",
+            "text": "Premium Quality at Fair Prices"
+          }
+        },
+        "marquee_item_f84efj": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Group_1_1.svg",
+            "text": "Made in UK"
+          }
+        },
+        "marquee_item_RdqhjK": {
+          "type": "marquee_item",
+          "settings": {
+            "custom_svg": "",
+            "image": "shopify://shop_images/Group_2.svg",
+            "text": "Delivered in 7-10 Days"
+          }
         }
       },
       "block_order": [
         "marquee_item_m4Mgpw",
-        "marquee_item_PpkAiV",
-        "marquee_item_TLyzyQ",
-        "marquee_item_HVyg37",
         "marquee_item_LEeMLE",
-        "marquee_item_UtQC7P"
+        "marquee_item_HVyg37",
+        "marquee_item_UtQC7P",
+        "marquee_item_TLyzyQ",
+        "marquee_item_PpkAiV",
+        "marquee_item_PAMFbm",
+        "marquee_item_f84efj",
+        "marquee_item_RdqhjK"
       ],
       "name": "Scrolling Marquee",
       "settings": {
