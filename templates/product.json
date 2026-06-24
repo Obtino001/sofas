@@ -43,11 +43,15 @@
           "type": "pills",
           "settings": {
             "title": "",
+            "text_color": "",
+            "icon_color": "#111111",
+            "custom_svg": "",
             "benefit_1": "",
             "benefit_2": "",
             "benefit_3": "",
             "benefit_4": "",
-            "benefit_5": ""
+            "benefit_5": "",
+            "benefit_6": ""
           }
         },
         "variant_picker": {
@@ -82,7 +86,7 @@
         "delivery_payment_mB6BTN": {
           "type": "delivery_payment",
           "settings": {
-            "text": "Buy now & get it delivered in 7-10 days",
+            "text": "<p>Buy now & <strong>get it delivered</strong> in 7-10 days</p>",
             "margin_bottom": 16
           }
         },
@@ -699,6 +703,7 @@
         "show_tabs": true,
         "answers_label": "answers",
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
+        "active_accordion_color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
       }
