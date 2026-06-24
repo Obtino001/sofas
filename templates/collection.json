@@ -37,11 +37,10 @@
         },
         "collection_item_WhT8CN": {
           "type": "collection_item",
+          "repeater": "{{ collection.metafields.custom.collection_tabs.value }}",
           "settings": {
-            "collection_ref": "2-seater",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_72.svg",
-            "custom_url": ""
+            "collection_ref": "{{ block.repeater.select_collection.value }}",
+            "custom_image": "{{ block.repeater.select_image.value }}"
           }
         },
         "collection_item_GdiWPp": {
