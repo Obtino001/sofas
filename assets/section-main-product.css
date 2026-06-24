@@ -2057,3 +2057,12 @@ a.product__text {
     text-align: left;
   }
 }
+
+/* Ensure full product image is visible */
+.product__media-wrapper .media > img {
+  object-fit: contain !important;
+}
+
+.product__media-wrapper .media {
+  background-color: transparent !important;
+}

@@ -323,7 +323,7 @@ p {
 
 .cx-promo-title {
   font-family: var(--font-body-family);
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 500;
   color: rgb(var(--color-foreground));
   text-align: center;
@@ -450,11 +450,13 @@ slider-container.slider-disabled .swiper-slide {
 .collection-tabs__slider .swiper-slide--single {
   flex-shrink: 0 !important;
 }
-  ::slotted(svg),
-  svg {
-    fill: transparent !important;
-    pointer-events: none;
-  }
+
+::slotted(svg),
+svg {
+  fill: transparent !important;
+  pointer-events: none;
+}
+
 @media screen and (min-width: 750px) {
 
 
