@@ -86,7 +86,7 @@
         "delivery_payment_mB6BTN": {
           "type": "delivery_payment",
           "settings": {
-            "text": "Buy now & get it delivered in 2-3 days",
+            "text": "Buy now & get it delivered in 7-10 days",
             "margin_bottom": 16
           }
         },
