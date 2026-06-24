@@ -17,6 +17,7 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "text": "30% OFF Store Wide | Sale ends in:",
+        "auto_restart": "24",
         "hide_on_expire": false,
         "label_hours": "Hours",
         "label_minutes": "Minutes",
@@ -38,7 +39,8 @@
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
-            "timer_label": "Sale ends in:"
+            "timer_label": "Sale ends in:",
+            "auto_restart": "24"
           }
         },
         "megamenu_LdadE7": {
@@ -53,7 +55,8 @@
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
-            "timer_label": "Sale ends in:"
+            "timer_label": "Sale ends in:",
+            "auto_restart": "24"
           }
         },
         "megamenu_EDy3kz": {
@@ -63,12 +66,13 @@
             "title": "Mattresses",
             "widget": "image_grid_promo",
             "menu_heading": "",
-            "menu_link_list_child": "main-menu-2-mobile",
+            "menu_link_list_child": "mattresses",
             "image": "shopify://shop_images/b4c4eeac9aecb49cd53bb774e8933ff0d9eda51f_1.png",
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
-            "timer_label": "Sale ends in:"
+            "timer_label": "Sale ends in:",
+            "auto_restart": "24"
           }
         }
       },
