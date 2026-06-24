@@ -1476,6 +1476,14 @@ cart-drawer.is-empty .cart-drawer__trust-badges-bar {
   align-items: center;
   justify-content: center;
   color: #121212;
+  width: 60px;
+  height: 60px;
+}
+
+.trust-badge__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .trust-badge__content {
