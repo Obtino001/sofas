@@ -57,22 +57,32 @@ variant-selects {
 }
 
 /* Custom styles for Pill display type */
-.product-form__input--pill input[type='radio']+label {
+.product-form__input--pill {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-form__input--pill input[type='radio']+label:not(.woc-variant-img-label) {
   border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
   background-color: rgb(var(--color-background));
   color: rgba(var(--color-foreground));
   border-radius: var(--variant-pills-radius);
   color: rgb(var(--color-foreground));
-  display: inline-block;
-  margin: 0.7rem 0.5rem 0.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: max-content;
+  margin: 0;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
-  line-height: 1;
+  line-height: 1.2;
   text-align: center;
-  transition: border var(--duration-short) ease;
+  transition: border var(--duration-short) ease, background-color var(--duration-short) ease, color var(--duration-short) ease;
   cursor: pointer;
   position: relative;
-  padding: 0px !important;
+  padding: 1.4rem 2rem !important;
 }
 
 .product-form__input--pill input[type='radio']+label:before {
