@@ -1,87 +1,37 @@
-  {%- assign metaobject = blank -%}
-  {%- for collection in product.collections -%}
-    {%- if collection.metafields.custom.why_you_love_it.value != blank -%}
-      {%- assign metaobject_val = collection.metafields.custom.why_you_love_it.value -%}
-      {%- if metaobject_val.first != blank -%}
-        {%- assign metaobject = metaobject_val.first -%}
-      {%- else -%}
-        {%- assign metaobject = metaobject_val -%}
-      {%- endif -%}
-      {%- break -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  {%- assign title = block.settings.title -%}
-  {%- if metaobject != blank and metaobject.heading != blank -%}
-    {%- assign title = metaobject.heading -%}
-  {%- endif -%}
 
   <div class="benefit-list-wrapper block-{{ block.id }}" {{ block.shopify_attributes }}>
     
-    {% if title != blank %}
-      <h3 class="benefit-list-title">{{ title }}</h3>
+    {% if block.settings.title != blank %}
+      <h3 class="benefit-list-title">{{ block.settings.title }}</h3>
     {% endif %}
     
     <div class="benefit-list-container">
-      {%- assign has_metaobject_items = false -%}
-      {%- if metaobject != blank -%}
-        {%- if metaobject.item_1 != blank or metaobject.item_2 != blank or metaobject.item_3 != blank or metaobject.item_4 != blank or metaobject.item_5 != blank -%}
-          {%- assign has_metaobject_items = true -%}
+      {%- for i in (1..6) -%}
+        {%- assign benefit_text_key = 'benefit_' | append: i -%}
+        {%- assign benefit_text = block.settings[benefit_text_key] -%}
+        
+        {%- if benefit_text != blank -%}
+          <div class="benefit-list-item">
+            <div class="benefit-icon">
+              {%- if block.settings.custom_svg != blank -%}
+                {{ block.settings.custom_svg }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              {%- endif -%}
+            </div>
+            <span class="benefit-text">{{ benefit_text }}</span>
+          </div>
         {%- endif -%}
-      {%- endif -%}
-
-      {%- if has_metaobject_items -%}
-        {%- for i in (1..5) -%}
-          {%- assign benefit_text = blank -%}
-          {%- if i == 1 -%}{%- assign benefit_text = metaobject.item_1 -%}{%- endif -%}
-          {%- if i == 2 -%}{%- assign benefit_text = metaobject.item_2 -%}{%- endif -%}
-          {%- if i == 3 -%}{%- assign benefit_text = metaobject.item_3 -%}{%- endif -%}
-          {%- if i == 4 -%}{%- assign benefit_text = metaobject.item_4 -%}{%- endif -%}
-          {%- if i == 5 -%}{%- assign benefit_text = metaobject.item_5 -%}{%- endif -%}
-          
-          {%- if benefit_text != blank -%}
-            <div class="benefit-list-item">
-              <div class="benefit-icon">
-                {%- if block.settings.custom_svg != blank -%}
-                  {{ block.settings.custom_svg }}
-                {%- else -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                {%- endif -%}
-              </div>
-              <span class="benefit-text">{{ benefit_text }}</span>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      {%- else -%}
-        {%- for i in (1..6) -%}
-          {%- assign benefit_text_key = 'benefit_' | append: i -%}
-          {%- assign benefit_text = block.settings[benefit_text_key] -%}
-          
-          {%- if benefit_text != blank -%}
-            <div class="benefit-list-item">
-              <div class="benefit-icon">
-                {%- if block.settings.custom_svg != blank -%}
-                  {{ block.settings.custom_svg }}
-                {%- else -%}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                {%- endif -%}
-              </div>
-              <span class="benefit-text">{{ benefit_text }}</span>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 
   <style>
     .block-{{ block.id }}.benefit-list-wrapper {
       margin: 25px 0;
-      color: {{ block.settings.text_color | default: '#2B2B2B333' }};
+      color: {{ block.settings.text_color | default: '#333333' }};
     }
     
     .block-{{ block.id }} .benefit-list-title {
