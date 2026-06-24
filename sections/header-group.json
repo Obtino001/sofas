@@ -17,9 +17,8 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "text": "30% OFF Store Wide | Sale ends in:",
-        "end_date": "2026/12/31 23:59:59",
+        "end_date": "2026/6/31 23:59:59",
         "hide_on_expire": false,
-        "label_days": "Days",
         "label_hours": "Hours",
         "label_minutes": "Minutes",
         "label_seconds": "Seconds"
