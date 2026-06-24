@@ -59,6 +59,15 @@
   .desktopMenu-Item {
     position: relative;
   }
+  .desktopMenu-Item::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    height: 60px;
+    background: transparent;
+  }
   .desktopMenu-Item::after {
     content: '';
     position: absolute;

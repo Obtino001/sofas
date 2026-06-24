@@ -93,13 +93,6 @@
         <countdown-timer data-datetime="{{ section.settings.end_date | escape }}" data-hide-on-expire="{{ section.settings.hide_on_expire }}">
           <div class="countdown-timer-wrapper">
             <div class="countdown-timer__block">
-              <span class="countdown-timer__digit" data-days>00</span>
-              <span class="countdown-timer__label">{{ section.settings.label_days | escape }}</span>
-            </div>
-            
-            <span class="countdown-timer__colon">:</span>
-            
-            <div class="countdown-timer__block">
               <span class="countdown-timer__digit" data-hours>00</span>
               <span class="countdown-timer__label">{{ section.settings.label_hours | escape }}</span>
             </div>
@@ -134,7 +127,6 @@
         this.hideOnExpire = this.dataset.hideOnExpire === 'true';
         this.parsedDate = new Date(this.endDateString.replace(/-/g, "/")).getTime();
         
-        this.daysEl = this.querySelector('[data-days]');
         this.hoursEl = this.querySelector('[data-hours]');
         this.minutesEl = this.querySelector('[data-minutes]');
         this.secondsEl = this.querySelector('[data-seconds]');
@@ -167,23 +159,21 @@
           return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const hours = Math.floor(distance / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        this.updateElements(days, hours, minutes, seconds);
+        this.updateElements(hours, minutes, seconds);
       }
 
-      updateElements(days, hours, minutes, seconds) {
-        if (this.daysEl) this.daysEl.textContent = String(days).padStart(2, '0');
+      updateElements(hours, minutes, seconds) {
         if (this.hoursEl) this.hoursEl.textContent = String(hours).padStart(2, '0');
         if (this.minutesEl) this.minutesEl.textContent = String(minutes).padStart(2, '0');
         if (this.secondsEl) this.secondsEl.textContent = String(seconds).padStart(2, '0');
       }
 
       setZero() {
-        this.updateElements(0, 0, 0, 0);
+        this.updateElements(0, 0, 0);
       }
     }
     
@@ -228,12 +218,6 @@
     {
       "type": "header",
       "content": "Translations"
-    },
-    {
-      "type": "text",
-      "id": "label_days",
-      "label": "Days label",
-      "default": "Days"
     },
     {
       "type": "text",
