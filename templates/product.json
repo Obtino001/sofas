@@ -56,7 +56,7 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle",
-            "show_variant_images_in_swatches": true
+            "show_variant_images_in_swatches": false
           }
         },
         "multi_icon_3wWFJf": {
@@ -109,25 +109,26 @@
           "type": "faq-blocks",
           "name": "Materials & Care",
           "settings": {
-            "custom_image": "shopify://shop_images/Group_13.svg",
-            "question": "Materials & Care",
+            "custom_image": "shopify://shop_images/Group_14.svg",
+            "question": "Product maintenance",
             "faq_content_type": "manual",
-            "answer": ""
+            "answer": "<ul><li>Clean the stains with a damp cloth/sponge without waiting. Dry with a dry cloth.</li><li>Do not use abrasive and chemical materials such as sandpaper, alcohol, bleach for cleaning the surfaces.</li><li>In case of liquid contact, wipe with a dry cloth and leave at room temperature to dry.</li><li>Protect from contact with sharp and hard objects.</li><li>The thread coming out of any part of the fabrics should never be pulled and torn. It should be cut with scissors without damaging the product.</li></ul>"
           }
         },
         "faq_blocks_FN9CnF": {
           "type": "faq-blocks",
           "name": "Shipping",
           "settings": {
-            "custom_image": "shopify://shop_images/Vector_30.svg",
-            "question": "Shipping",
+            "custom_image": "shopify://shop_images/Group_13.svg",
+            "question": "Warranty Information",
             "faq_content_type": "manual",
-            "answer": ""
+            "answer": "<p>At Sofas'n'Beds you can buy with peace of mind and have no worry about the sofas you buy from us. All of our sofas come with one year manufactures warranty. We believe in our product and it will provide you with the comfort you need.<br/><br/>As for our Beds, our police is similar, you have up to one year warranty which covers for any manufactures fault and a replacement part or a replacement of the item will be provided of free of charge. Each case and item will have its own discretion. However, anything after a year that becomes faulty we will be kind enough to assist you in replacing the faulty part which will be at an extra cost and also subject to the availability of the product or part.<br/><br/></p>"
           }
         },
         "faq_blocks_k8EnCc": {
           "type": "faq-blocks",
           "name": "Size Guide",
+          "disabled": true,
           "settings": {
             "custom_image": "shopify://shop_images/Group_14.svg",
             "question": "Size Guide",
