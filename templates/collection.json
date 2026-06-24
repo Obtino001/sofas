@@ -42,31 +42,11 @@
             "collection_ref": "{{ block.repeater.select_collection.value }}",
             "custom_image": "{{ block.repeater.select_image.value }}"
           }
-        },
-        "collection_item_dCWwrQ": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "corner-sofa",
-            "title": "Corner Sofas",
-            "custom_image": "shopify://shop_images/Vector_4.svg",
-            "custom_url": ""
-          }
-        },
-        "collection_item_9H4DD4": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "arm-chairs",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_6.svg",
-            "custom_url": ""
-          }
         }
       },
       "block_order": [
         "feature_promo_WtKGn9",
-        "collection_item_63TNdQ",
-        "collection_item_dCWwrQ",
-        "collection_item_9H4DD4"
+        "collection_item_63TNdQ"
       ],
       "settings": {
         "products_per_page": 36,
