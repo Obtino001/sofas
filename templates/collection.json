@@ -35,21 +35,12 @@
             "image": "shopify://shop_images/5ed1c4ca042e10f53e3d3c15da82071e64c17895.png"
           }
         },
-        "collection_item_WhT8CN": {
+        "collection_item_GdiWPp": {
           "type": "collection_item",
           "repeater": "{{ collection.metafields.custom.collection_tabs.value }}",
           "settings": {
             "collection_ref": "{{ block.repeater.select_collection.value }}",
             "custom_image": "{{ block.repeater.select_image.value }}"
-          }
-        },
-        "collection_item_GdiWPp": {
-          "type": "collection_item",
-          "settings": {
-            "collection_ref": "3-seater",
-            "title": "",
-            "custom_image": "shopify://shop_images/Vector_3.svg",
-            "custom_url": ""
           }
         },
         "collection_item_63TNdQ": {
@@ -82,7 +73,6 @@
       },
       "block_order": [
         "feature_promo_WtKGn9",
-        "collection_item_WhT8CN",
         "collection_item_GdiWPp",
         "collection_item_63TNdQ",
         "collection_item_dCWwrQ",
