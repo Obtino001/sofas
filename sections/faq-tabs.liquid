@@ -197,7 +197,7 @@
   }
 {%- endstyle -%}
 
-<faq-tabs-component class="display-block color-{{ section.settings.color_scheme }} gradient">
+<faq-tabs-component class="display-block color-{{ section.settings.color_scheme }} gradient" data-active-accordion-scheme="{{ section.settings.active_accordion_color_scheme }}">
   <div class="page-width section-{{ section.id }}-padding">
     
     <div class="faq-tabs__header">
@@ -271,7 +271,7 @@
         {%- if block.type == 'faq' -%}
           {%- assign target_handle = block.settings.category_match | handleize -%}
           
-          <details class="faq-accordion" data-category="{{ target_handle }}" data-color-scheme="{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
+          <details class="faq-accordion" data-category="{{ target_handle }}" {{ block.shopify_attributes }}>
             <summary class="faq-accordion__summary">
               {{ block.settings.question | escape }}
               <span class="faq-accordion__icon">
@@ -311,12 +311,13 @@
           this.accordions.forEach(accordion => accordion.classList.add('is-active'));
         }
 
+        this.activeAccordionScheme = this.dataset.activeAccordionScheme;
+
         // Add toggle listener for accordions to apply color scheme only when open
         this.accordions.forEach(accordion => {
           const updateAccordionColor = () => {
-            const scheme = accordion.dataset.colorScheme;
-            if (!scheme) return;
-            const schemeClass = `color-${scheme}`;
+            if (!this.activeAccordionScheme) return;
+            const schemeClass = `color-${this.activeAccordionScheme}`;
             if (accordion.open) {
               accordion.classList.add(schemeClass, 'gradient');
             } else {
@@ -414,6 +415,12 @@
       "default": "background-1"
     },
     {
+      "type": "color_scheme",
+      "id": "active_accordion_color_scheme",
+      "label": "Active Accordion Color Scheme",
+      "default": "background-2"
+    },
+    {
       "type": "header",
       "content": "Padding"
     },
@@ -497,12 +504,6 @@
           "id": "answer",
           "default": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
           "label": "Answer"
-        },
-        {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "Accordion Color Scheme",
-          "default": "background-2"
         }
       ]
     }
