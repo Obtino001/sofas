@@ -40,7 +40,7 @@
             "banner_button": "Explore corner sofas",
             "banner_link": "",
             "timer_label": "Sale ends in:",
-            "timer_date": "2026-12-31T23:59:59"
+            "timer_date": "2026-6-31T23:59:59"
           }
         },
         "megamenu_LdadE7": {
@@ -50,13 +50,13 @@
             "title": "Beds",
             "widget": "image_grid_promo",
             "menu_heading": "",
-            "menu_link_list_child": "beds-1",
-            "image": "shopify://shop_images/b4c4eeac9aecb49cd53bb774e8933ff0d9eda51f_1.png",
+            "menu_link_list_child": "beds",
+            "image": "shopify://shop_images/5a06ead1bc5faa12efbfb4eabaa34220c8ae3659.png",
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
             "timer_label": "Sale ends in:",
-            "timer_date": "2026-12-31T23:59:59"
+            "timer_date": "2026-6-31T23:59:59"
           }
         },
         "megamenu_EDy3kz": {
@@ -72,7 +72,7 @@
             "banner_button": "Explore corner sofas",
             "banner_link": "",
             "timer_label": "Sale ends in:",
-            "timer_date": "2026-12-31T23:59:59"
+            "timer_date": "2026-6-26T23:59:59"
           }
         }
       },
