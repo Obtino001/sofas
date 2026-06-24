@@ -6,7 +6,8 @@
 
   Usage:
   {% render 'swatch',
-    swatch: value.swatch
+    swatch: value.swatch,
+    value: value,
     shape: 'square'
   %}
 {% endcomment %}
@@ -19,6 +20,8 @@
     assign swatch_focal_point = swatch.image.presentation.focal_point
   elsif swatch.color
     assign swatch_value = 'rgb(' | append: swatch.color.rgb | append: ')'
+  elsif value
+    assign swatch_value = value | downcase | replace: ' ', ''
   endif
 -%}
 
