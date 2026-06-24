@@ -1,30 +1,63 @@
+  {%- assign metaobject = blank -%}
+  {%- for collection in product.collections -%}
+    {%- if collection.metafields.custom.why_you_love_it.value != blank -%}
+      {%- assign metaobject = collection.metafields.custom.why_you_love_it.value -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- assign title = block.settings.title -%}
+  {%- if metaobject != blank and metaobject.heading != blank -%}
+    {%- assign title = metaobject.heading -%}
+  {%- endif -%}
 
   <div class="benefit-list-wrapper block-{{ block.id }}" {{ block.shopify_attributes }}>
     
-    {% if block.settings.title != blank %}
-      <h3 class="benefit-list-title">{{ block.settings.title }}</h3>
+    {% if title != blank %}
+      <h3 class="benefit-list-title">{{ title }}</h3>
     {% endif %}
     
     <div class="benefit-list-container">
-      {%- for i in (1..6) -%}
-        {%- assign benefit_text_key = 'benefit_' | append: i -%}
-        {%- assign benefit_text = block.settings[benefit_text_key] -%}
-        
-        {%- if benefit_text != blank -%}
-          <div class="benefit-list-item">
-            <div class="benefit-icon">
-              {%- if block.settings.custom_svg != blank -%}
-                {{ block.settings.custom_svg }}
-              {%- else -%}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              {%- endif -%}
+      {%- if metaobject != blank -%}
+        {%- for i in (1..5) -%}
+          {%- assign item_key = 'item_' | append: i -%}
+          {%- assign benefit_text = metaobject[item_key] -%}
+          {%- if benefit_text != blank -%}
+            <div class="benefit-list-item">
+              <div class="benefit-icon">
+                {%- if block.settings.custom_svg != blank -%}
+                  {{ block.settings.custom_svg }}
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                {%- endif -%}
+              </div>
+              <span class="benefit-text">{{ benefit_text }}</span>
             </div>
-            <span class="benefit-text">{{ benefit_text }}</span>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..6) -%}
+          {%- assign benefit_text_key = 'benefit_' | append: i -%}
+          {%- assign benefit_text = block.settings[benefit_text_key] -%}
+          
+          {%- if benefit_text != blank -%}
+            <div class="benefit-list-item">
+              <div class="benefit-icon">
+                {%- if block.settings.custom_svg != blank -%}
+                  {{ block.settings.custom_svg }}
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                {%- endif -%}
+              </div>
+              <span class="benefit-text">{{ benefit_text }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 
