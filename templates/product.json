@@ -41,14 +41,13 @@
         },
         "pills_xFGRwJ": {
           "type": "pills",
-          "source": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"] }}",
           "settings": {
-            "title": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_1.value }}",
-            "benefit_1": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_2.value }}",
-            "benefit_2": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_3.value }}",
-            "benefit_3": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_4.value }}",
-            "benefit_4": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_5.value }}",
-            "benefit_5": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].heading.value }}"
+            "title": "",
+            "benefit_1": "",
+            "benefit_2": "",
+            "benefit_3": "",
+            "benefit_4": "",
+            "benefit_5": ""
           }
         },
         "variant_picker": {
