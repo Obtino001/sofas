@@ -41,18 +41,14 @@
         },
         "pills_xFGRwJ": {
           "type": "pills",
-          "source": "{{ product.metafields.custom.why_you_love_it.value }}",
+          "source": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"] }}",
           "settings": {
-            "title": "{{ product.metafields.custom.why_you_love_it.value.heading.value }}",
-            "text_color": "",
-            "icon_color": "#111111",
-            "custom_svg": "",
-            "benefit_1": "{{ product.metafields.custom.why_you_love_it.value.item_1.value }}",
-            "benefit_2": "{{ product.metafields.custom.why_you_love_it.value.item_2.value }}",
-            "benefit_3": "{{ product.metafields.custom.why_you_love_it.value.item_3.value }}",
-            "benefit_4": "{{ product.metafields.custom.why_you_love_it.value.item_4.value }}",
-            "benefit_5": "{{ product.metafields.custom.why_you_love_it.value.item_5.value }}",
-            "benefit_6": ""
+            "title": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_1.value }}",
+            "benefit_1": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_2.value }}",
+            "benefit_2": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_3.value }}",
+            "benefit_3": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_4.value }}",
+            "benefit_4": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].item_5.value }}",
+            "benefit_5": "{{ metaobjects.why_you_love_it[\"premium-solid-foam-cushions-no-chopped-filling-no-sagging\"].heading.value }}"
           }
         },
         "variant_picker": {
@@ -667,8 +663,7 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "How long does delivery take?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": "scheme-2b94d528-39a1-47d5-b412-16caf9d9759b"
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
           }
         },
         "faq_ac4RCN": {
@@ -676,8 +671,7 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "Are your sofas made in the UK?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
           }
         },
         "faq_NVJcEw": {
@@ -685,8 +679,7 @@
           "settings": {
             "category_match": "Bed related questions",
             "question": "What sizes are available?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
           }
         }
       },
