@@ -212,49 +212,59 @@
       {%- endif -%}
     </div>
 
-    <div class="faq-tabs__list" role="tablist">
-      {%- assign first_tab = true -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' -%}
-          {%- assign category_handle = block.settings.title | handleize -%}
-          
-          {%- comment -%} Dynamically count matching FAQs {%- endcomment -%}
-          {%- assign faq_count = 0 -%}
-          {%- for faq_block in section.blocks -%}
-            {%- if faq_block.type == 'faq' -%}
-              {%- assign target_handle = faq_block.settings.category_match | handleize -%}
-              {%- if target_handle == category_handle -%}
-                {%- assign faq_count = faq_count | plus: 1 -%}
-              {%- endif -%}
-            {%- endif -%}
-          {%- endfor -%}
+    {%- assign has_categories = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'category' -%}
+        {%- assign has_categories = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
 
-          <button class="faq-tabs__tab color-{{ block.settings.color_scheme }} gradient" 
-                  role="tab" 
-                  aria-selected="{% if first_tab %}true{% else %}false{% endif %}" 
-                  aria-controls="panel-{{ category_handle }}" 
-                  data-target="{{ category_handle }}"
-                  {{ block.shopify_attributes }}>
+    {%- if section.settings.show_tabs and has_categories -%}
+      <div class="faq-tabs__list" role="tablist">
+        {%- assign first_tab = true -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'category' -%}
+            {%- assign category_handle = block.settings.title | handleize -%}
             
-            <div class="faq-tabs__tab-icon">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
-              {%- elsif block.settings.icon != blank and block.settings.icon != 'none' -%}
-                {% render 'icon-accordion', icon: block.settings.icon %}
-              {%- else -%}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- comment -%} Dynamically count matching FAQs {%- endcomment -%}
+            {%- assign faq_count = 0 -%}
+            {%- for faq_block in section.blocks -%}
+              {%- if faq_block.type == 'faq' -%}
+                {%- assign target_handle = faq_block.settings.category_match | handleize -%}
+                {%- if target_handle == category_handle -%}
+                  {%- assign faq_count = faq_count | plus: 1 -%}
+                {%- endif -%}
               {%- endif -%}
-            </div>
-            
-            <div class="faq-tabs__tab-text-wrap">
-              <span class="faq-tabs__tab-title">{{ block.settings.title | escape }}</span>
-              <span class="faq-tabs__tab-count">{{ faq_count }} {{ section.settings.answers_label | escape }}</span>
-            </div>
-          </button>
-          {%- assign first_tab = false -%}
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+            {%- endfor -%}
+
+            <button class="faq-tabs__tab color-{{ block.settings.color_scheme }} gradient" 
+                    role="tab" 
+                    aria-selected="{% if first_tab %}true{% else %}false{% endif %}" 
+                    aria-controls="panel-{{ category_handle }}" 
+                    data-target="{{ category_handle }}"
+                    {{ block.shopify_attributes }}>
+              
+              <div class="faq-tabs__tab-icon">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 100 | image_tag: loading: 'lazy' }}
+                {%- elsif block.settings.icon != blank and block.settings.icon != 'none' -%}
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              
+              <div class="faq-tabs__tab-text-wrap">
+                <span class="faq-tabs__tab-title">{{ block.settings.title | escape }}</span>
+                <span class="faq-tabs__tab-count">{{ faq_count }} {{ section.settings.answers_label | escape }}</span>
+              </div>
+            </button>
+            {%- assign first_tab = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
 
     <div class="faq-tabs__content">
       {%- for block in section.blocks -%}
@@ -289,13 +299,16 @@
         this.tabs = this.querySelectorAll('[role="tab"]');
         this.accordions = this.querySelectorAll('.faq-accordion');
         
-        this.tabs.forEach(tab => {
-          tab.addEventListener('click', (e) => this.switchTab(e.currentTarget));
-        });
+        if (this.tabs.length > 0) {
+          this.tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => this.switchTab(e.currentTarget));
+          });
 
-        // Initialize first tab visually
-        if(this.tabs.length > 0) {
+          // Initialize first tab visually
           this.switchTab(this.tabs[0]);
+        } else {
+          // If there are no tabs, show all accordions
+          this.accordions.forEach(accordion => accordion.classList.add('is-active'));
         }
       }
 
@@ -350,6 +363,13 @@
       "id": "description",
       "default": "Browse questions by categories",
       "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tabs",
+      "label": "Enable Category Tabs",
+      "default": true,
+      "info": "Uncheck to hide tabs and show all FAQs. Also automatically hides if there are no Category Tab blocks."
     },
     {
       "type": "text",
