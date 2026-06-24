@@ -171,7 +171,7 @@ product-info {
 .product-form__input {
   flex: 0 0 100%;
   padding: 0;
-  margin: 0 0 1.2rem 0;
+  margin: 0 0 2.2rem 0;
   min-width: fit-content;
   border: none;
 }
@@ -2059,7 +2059,7 @@ a.product__text {
 }
 
 /* Ensure full product image is visible */
-.product__media-wrapper .media > img {
+.product__media-wrapper .media>img {
   object-fit: contain !important;
 }
 
