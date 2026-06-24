@@ -315,10 +315,10 @@
             <h3 class="cx-promo-heading">{{ block.settings.banner_title }}</h3>
           {% endif %}
 
-          {% if block.settings.timer_date != blank %}
+          {% if block.settings.auto_restart != '0' %}
             <div class="cx-promo-timer-wrap">
               <span class="cx-promo-timer-label">{{ block.settings.timer_label }}</span>
-              <div class="cx-promo-timer-display" data-end-time="{{ block.settings.timer_date }}">
+              <div class="cx-promo-timer-display" data-auto-restart="{{ block.settings.auto_restart }}">
                 <div class="cx-promo-timer-block"><span class="cx-time-hh">00</span>H</div> 
                 <span class="cx-promo-timer-colon">:</span>
                 <div class="cx-promo-timer-block"><span class="cx-time-mm">00</span>M</div> 

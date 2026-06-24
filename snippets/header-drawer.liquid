@@ -670,10 +670,10 @@ color: #2B2B2B;
                                     <h3 class="woc-drawer-promo__heading">{{ block.settings.banner_title }}</h3>
                                   {% endif %}
 
-                                  {% if block.settings.timer_date != blank %}
+                                  {% if block.settings.auto_restart != '0' %}
                                     <div>
                                       <span class="woc-drawer-promo__timer-label">{{ block.settings.timer_label }}</span>
-                                      <div class="woc-drawer-promo__timer" data-end-time="{{ block.settings.timer_date }}">
+                                      <div class="woc-drawer-promo__timer" data-auto-restart="{{ block.settings.auto_restart }}">
                                         <div class="woc-drawer-promo__timer-block"><span class="cx-time-hh">00</span>H</div>
                                         <span>:</span>
                                         <div class="woc-drawer-promo__timer-block"><span class="cx-time-mm">00</span>M</div>
