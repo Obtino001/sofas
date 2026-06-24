@@ -22,6 +22,7 @@
       "blocks": {
         "category_Vq68Fk": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Sofa related questions",
             "icon": "check_mark",
@@ -30,6 +31,7 @@
         },
         "category_8YmjjF": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Bed related questions",
             "icon": "check_mark",
@@ -73,9 +75,10 @@
       ],
       "name": "FAQ Tabs",
       "settings": {
-        "title": "Expert <em>answers</em> to common <em>questions</em>",
+        "title": "Expert answers to common questions",
         "heading_size": "h1",
         "description": "Browse questions by categories",
+        "show_tabs": true,
         "answers_label": "answers",
         "color_scheme": "",
         "padding_top": 60,
