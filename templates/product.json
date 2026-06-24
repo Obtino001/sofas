@@ -241,14 +241,6 @@
             "text": "Delivered in 7-10 Days"
           }
         },
-        "marquee_item_UtQC7P": {
-          "type": "marquee_item",
-          "settings": {
-            "custom_svg": "",
-            "image": "shopify://shop_images/Group_35.svg",
-            "text": "Premium Quality at Fair Prices"
-          }
-        },
         "marquee_item_KMpVfV": {
           "type": "marquee_item",
           "settings": {
@@ -310,7 +302,6 @@
         "marquee_item_m4Mgpw",
         "marquee_item_LEeMLE",
         "marquee_item_HVyg37",
-        "marquee_item_UtQC7P",
         "marquee_item_KMpVfV",
         "marquee_item_TLyzyQ",
         "marquee_item_PpkAiV",
