@@ -245,9 +245,8 @@ variant-selects {
 }
 
 
-.product-form__input--pill input[type=radio]+label:not(.woc-variant-img-label):hover {
+.product-form__input--pill input[type=radio]:not(:checked)+label:not(.woc-variant-img-label):hover {
   background-color: #e5e5e5;
-  /* Light grey background */
   border-color: #e5e5e5;
-  /* Optional: matches the border to the background */
+  /* Optional */
 }

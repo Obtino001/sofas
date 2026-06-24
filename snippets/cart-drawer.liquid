@@ -394,7 +394,7 @@
 <path d="M12.5417 13.5H7.75M17.3333 13.5H18.0645C18.2754 13.5 18.3808 13.5 18.469 13.4885C18.7862 13.449 19.0812 13.3049 19.3074 13.0789C19.5335 12.8529 19.6779 12.558 19.7177 12.2408C19.7292 12.1516 19.7292 12.0462 19.7292 11.8354V9.1875C19.7292 7.53542 19.0729 5.95101 17.9047 4.78281C16.7365 3.61462 15.1521 2.95833 13.5 2.95833M13.0208 11.5833V3.4375C13.0208 2.08242 13.0208 1.40488 12.5992 0.984167C12.1794 0.5625 11.5019 0.5625 10.1458 0.5625H3.4375C2.08242 0.5625 1.40488 0.5625 0.984167 0.984167C0.5625 1.40392 0.5625 2.08146 0.5625 3.4375V11.1042C0.5625 12.0002 0.5625 12.4477 0.755125 12.7812C0.881287 12.9998 1.06274 13.1812 1.28125 13.3074C1.61475 13.5 2.06229 13.5 2.95833 13.5" stroke="#2B2B2B" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
               </span>
-              <span class="shipping-text">Complete your checkout now & get it by <span id="cart-drawer-delivery-date" style="font-weight:700;">28-29 March</span></span>
+              <span class="shipping-text">Complete your checkout now &amp; get it delivered in 7-10 days</span>
             </div>
 
             <div class="cart-drawer__totals-wrapper">
@@ -428,50 +428,7 @@
               {%- endfor -%}
             </div>
 
-            <script>
-              (function() {
-                function updateDeliveryDates() {
-                  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                  const today = new Date();
-                  
-                  const date1 = new Date(today);
-                  date1.setDate(today.getDate() + 7);
-                  
-                  const date2 = new Date(today);
-                  date2.setDate(today.getDate() + 8);
-                  
-                  const el = document.getElementById('cart-drawer-delivery-date');
-                  if (el) {
-                    let month1 = months[date1.getMonth()];
-                    let month2 = months[date2.getMonth()];
-                    let day1 = date1.getDate();
-                    let day2 = date2.getDate();
-                    
-                    let newText = (month1 === month2) ? `${day1}-${day2} ${month1}` : `${day1} ${month1} - ${day2} ${month2}`;
-                    if (el.innerText !== newText) {
-                      el.innerText = newText;
-                    }
-                  }
-                }
-                updateDeliveryDates();
-                
-                const cartContainer = document.getElementById('CartDrawer');
-                if (cartContainer && !window.cartDeliveryObserverAttached) {
-                  window.cartDeliveryObserverAttached = true;
-                  const observer = new MutationObserver(function(mutations) {
-                    let shouldUpdate = false;
-                    for (let m of mutations) {
-                      if (m.target.id !== 'cart-drawer-delivery-date') {
-                        shouldUpdate = true;
-                        break;
-                      }
-                    }
-                    if (shouldUpdate) updateDeliveryDates();
-                  });
-                  observer.observe(cartContainer, { childList: true, subtree: true });
-                }
-              })();
-            </script>
+
           {%- endif -%}
         </div>
       </div>
