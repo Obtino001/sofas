@@ -5,11 +5,26 @@
       <h3 class="benefit-list-title">{{ block.settings.title }}</h3>
     {% endif %}
     
-    <div class="benefit-list-container">
-  {%- if collection.metafields.custom.why_you_love_it != blank -%}
+    {%- comment -%} Step 1: Find a collection attached to this product that has the metafield {%- endcomment -%}
+{%- assign target_collection = blank -%}
+
+{%- if collection and collection.metafields.custom.why_you_love_it != blank -%}
+  {%- assign target_collection = collection -%}
+{%- else -%}
+  {%- for c in product.collections -%}
+    {%- if c.metafields.custom.why_you_love_it != blank -%}
+      {%- assign target_collection = c -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- comment -%} Step 2: Display the list {%- endcomment -%}
+<div class="benefit-list-container">
+  {%- if target_collection != blank and target_collection.metafields.custom.why_you_love_it != blank -%}
     
-    {%- comment -%} 1. PRIMARY: Loop through the Collection Metafield List {%- endcomment -%}
-    {%- for benefit_text in collection.metafields.custom.why_you_love_it.value -%}
+    {%- comment -%} PRIMARY: Loop through the found Collection Metafield List {%- endcomment -%}
+    {%- for benefit_text in target_collection.metafields.custom.why_you_love_it.value -%}
       <div class="benefit-list-item">
         <div class="benefit-icon">
           {%- if block.settings.custom_svg != blank -%}
@@ -26,7 +41,7 @@
 
   {%- else -%}
     
-    {%- comment -%} 2. FALLBACK: Loop through the Block Settings (1 to 6) {%- endcomment -%}
+    {%- comment -%} FALLBACK: Loop through the Block Settings (1 to 6) {%- endcomment -%}
     {%- for i in (1..6) -%}
       {%- assign benefit_text_key = 'benefit_' | append: i -%}
       {%- assign benefit_text = block.settings[benefit_text_key] -%}
