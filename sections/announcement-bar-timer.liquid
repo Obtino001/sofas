@@ -87,8 +87,8 @@
         </div>
       {%- endif -%}
 
-      {%- if section.settings.end_date != blank -%}
-        <countdown-timer data-datetime="{{ section.settings.end_date | escape }}" data-auto-restart="{{ section.settings.auto_restart }}" data-hide-on-expire="{{ section.settings.hide_on_expire }}">
+      {%- if section.settings.auto_restart != '0' -%}
+        <countdown-timer data-auto-restart="{{ section.settings.auto_restart }}" data-hide-on-expire="{{ section.settings.hide_on_expire }}">
           <div class="countdown-timer-wrapper">
             <div class="countdown-timer__block">
               <span class="countdown-timer__digit"><span data-hours>00</span>H</span>
@@ -118,10 +118,9 @@
     class CountdownTimer extends HTMLElement {
       constructor() {
         super();
-        this.endDateString = this.dataset.datetime;
         this.hideOnExpire = this.dataset.hideOnExpire === 'true';
         this.autoRestartHours = parseInt(this.dataset.autoRestart, 10) || 0;
-        this.parsedDate = new Date(this.endDateString.replace(/-/g, "/")).getTime();
+        this.referenceDate = new Date('2024-01-01T00:00:00Z').getTime();
         
         this.hoursEl = this.querySelector('[data-hours]');
         this.minutesEl = this.querySelector('[data-minutes]');
@@ -129,8 +128,8 @@
       }
 
       connectedCallback() {
-        if (!this.parsedDate || isNaN(this.parsedDate)) {
-          console.error('Countdown Timer: Invalid date format. Please use YYYY/MM/DD HH:MM:SS');
+        if (this.autoRestartHours <= 0) {
+          this.setZero();
           return;
         }
         
@@ -144,23 +143,17 @@
 
       updateTimer() {
         const now = new Date().getTime();
-        let distance = this.parsedDate - now;
+        const diff = now - this.referenceDate;
+        const millisToAdd = this.autoRestartHours * 60 * 60 * 1000;
+        let distance = millisToAdd - (diff % millisToAdd);
 
-        if (distance < 0) {
-          if (this.autoRestartHours > 0) {
-            // Auto-restart based on selected duration
-            const millisToAdd = this.autoRestartHours * 60 * 60 * 1000;
-            const periodsToAdd = Math.floor(Math.abs(distance) / millisToAdd) + 1;
-            this.parsedDate += periodsToAdd * millisToAdd;
-            distance = this.parsedDate - now;
-          } else {
-            clearInterval(this.interval);
-            this.setZero();
-            if (this.hideOnExpire) {
-              this.closest('.announcement-timer-section').classList.add('countdown-timer--hidden');
-            }
-            return;
+        if (this.autoRestartHours === 0) {
+          clearInterval(this.interval);
+          this.setZero();
+          if (this.hideOnExpire) {
+            this.closest('.announcement-timer-section').classList.add('countdown-timer--hidden');
           }
+          return;
         }
 
         const hours = Math.floor(distance / (1000 * 60 * 60));
@@ -205,13 +198,6 @@
     {
       "type": "header",
       "content": "Timer Settings"
-    },
-    {
-      "type": "text",
-      "id": "end_date",
-      "label": "End Date and Time",
-      "info": "Format: YYYY/MM/DD HH:MM:SS (e.g. 2026/12/31 23:59:59). Timezone is based on the user's browser.",
-      "default": "2026/12/31 23:59:59"
     },
     {
       "type": "select",

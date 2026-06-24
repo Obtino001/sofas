@@ -17,7 +17,6 @@
       "settings": {
         "color_scheme": "scheme-c2c81d76-e413-4b43-bf13-d2f10cb3fa41",
         "text": "30% OFF Store Wide | Sale ends in:",
-        "end_date": "2026/6/31 23:59:59",
         "hide_on_expire": false,
         "label_hours": "Hours",
         "label_minutes": "Minutes",
@@ -39,8 +38,7 @@
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
-            "timer_label": "Sale ends in:",
-            "timer_date": "2026-6-31T23:59:59"
+            "timer_label": "Sale ends in:"
           }
         },
         "megamenu_LdadE7": {
@@ -55,8 +53,7 @@
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
-            "timer_label": "Sale ends in:",
-            "timer_date": "2026-6-31T23:59:59"
+            "timer_label": "Sale ends in:"
           }
         },
         "megamenu_EDy3kz": {
@@ -71,8 +68,7 @@
             "banner_title": "10% off on corner  sofas",
             "banner_button": "Explore corner sofas",
             "banner_link": "",
-            "timer_label": "Sale ends in:",
-            "timer_date": "2026-6-26T23:59:59"
+            "timer_label": "Sale ends in:"
           }
         }
       },
