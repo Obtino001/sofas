@@ -42,15 +42,15 @@
         "pills_xFGRwJ": {
           "type": "pills",
           "settings": {
-            "title": "",
+            "title": "Why you will love it:",
             "text_color": "",
             "icon_color": "#111111",
             "custom_svg": "",
-            "benefit_1": "",
-            "benefit_2": "",
-            "benefit_3": "",
-            "benefit_4": "",
-            "benefit_5": "",
+            "benefit_1": "Premium solid foam cushions, no chopped filling, no sagging",
+            "benefit_2": "Fullback/Scatter design with a classic, structured look",
+            "benefit_3": "Soft touch will be easy to clean",
+            "benefit_4": "Solid wood frame with chrome feet for strength and style",
+            "benefit_5": "Medium firm seat height for comfort and posture",
             "benefit_6": ""
           }
         },
