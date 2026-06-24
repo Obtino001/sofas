@@ -5,15 +5,22 @@
       <path d="M5.49378 4.85985C5.13003 3.5436 4.94853 2.8851 5.25753 2.36685C5.56578 1.84785 6.24453 1.6716 7.60203 1.31835L9.04203 0.94485C10.3995 0.59235 11.0783 0.41535 11.613 0.7146C12.1478 1.0146 12.33 1.67235 12.693 2.98935L13.0793 4.38585C13.443 5.7021 13.6253 6.3606 13.3163 6.8796C13.0073 7.39785 12.3285 7.57485 10.971 7.92735L9.53103 8.3016C8.17353 8.6541 7.49478 8.83035 6.96003 8.5311C6.42528 8.2311 6.24378 7.57335 5.88003 6.2571L5.49378 4.85985Z" stroke="#2B2B2B" stroke-width="1.125"/>
     </svg>
     <div class="dt-text">
-      {{ block.settings.text | default: 'Buy now & get it delivered in 7-10 days' }}
+      {{ block.settings.text | default: 'Buy now & get it delivered in 7-10 days, order within:' }}
     </div>
+  </div>
+  <div class="dt-bottom">
+    <span class="dt-countdown" id="countdown-{{ block.id }}">
+      9H : 12M : 29S
+    </span>
   </div>
 </div>
 
 {%- style -%}
   .delivery-timer-container-{{ block.id }} {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-bottom: {{ block.settings.margin_bottom | default: 16 }}px;
     font-family: inherit;
     color: #2B2B2B;
@@ -24,6 +31,7 @@
     align-items: center;
     gap: 8px;
     font-size: 15px;
+    margin-bottom: 8px;
   }
   .dt-top .dt-text {
     line-height: 1.2;
@@ -31,4 +39,35 @@
   .dt-top strong {
     font-weight: 700;
   }
+  .dt-bottom {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    color: #2B2B2B;
+  }
 {%- endstyle -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const countdownEl = document.getElementById('countdown-{{ block.id }}');
+    if (!countdownEl) return;
+    
+    // Set timer to reset every midnight
+    function updateTimer() {
+      const now = new Date();
+      const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      const diff = tomorrow - now;
+      
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+      const m = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
+      const s = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+      
+      // Formatting to match: 9H : 12M : 29S
+      countdownEl.innerHTML = `${h}H : ${m}M : ${s}S`;
+    }
+    
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  });
+</script>
