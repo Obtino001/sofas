@@ -1399,9 +1399,6 @@ cart-drawer-items {
 }
 
 .swatch {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
   border-radius: 50%;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
@@ -1598,6 +1595,7 @@ cart-drawer.is-empty .cart-drawer__trust-badges-bar {
   .cart-drawer__trust-badges-bar {
     padding: 0 12px 12px;
   }
+
   .drawer__upsell-container-mobile .hide-on-mobile {
     display: none !important;
   }
