@@ -1,0 +1,27 @@
+/* Premium native scroll — no section fade (Exercere-style) */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Dawn scroll-trigger fade disabled — content stays visible while scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-trigger.animate--fade-in,
+  .scroll-trigger.animate--slide-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
