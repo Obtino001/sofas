@@ -230,9 +230,59 @@
   .ma-product-result-con {
     width: 100%;
     height: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ma-search-dynamic-results .WI_productResult_con {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    grid-template-columns: none;
+  }
+
+  .ma-search-dynamic-results .WI_productResult_product,
+  .ma-search-dynamic-results .ma-product-result-product {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ma-search-dynamic-results .custom-upsell-card {
+    margin-bottom: 0;
+  }
+
+  .ma-search-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2B2B2B;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .ma-search-section-title--products {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .ma-search-query-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .ma-search-query-list .predictive-search__item-heading {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .WI_suggResult_con {
+    margin-bottom: 8px;
   }
 
   .ma-product-result-product {
@@ -291,7 +341,8 @@
     margin-bottom: 25px;
   }
 
-  #ma-predictive-search-products button {
+  #ma-predictive-search-products button,
+  #ma-sdp-search-btn {
     border: none;
     background-color: #000;
     color: #fff;
@@ -302,7 +353,8 @@
     transition: 0.2s;
   }
 
-  #ma-predictive-search-products button:hover {
+  #ma-predictive-search-products button:hover,
+  #ma-sdp-search-btn:hover {
     background-color: #2B2B2B;
   }
   .ma-search-upsell-container {
@@ -435,7 +487,6 @@
   }
 
   @media screen and (max-width: 1400px) {
-    .ma-product-result-con,
     .ma-search-upsell-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -457,7 +508,6 @@
       display: none;
     }
 
-    .ma-product-result-con,
     .ma-search-upsell-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
@@ -529,7 +579,6 @@
       width: 100%;
     }
 
-    .ma-product-result-con,
     .ma-search-upsell-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
@@ -830,4 +879,5 @@
   <div id="ma-predictive-search-results-container" tabindex="-1" class="ma-search-dynamic-results"></div>
 </predictive-search>
 
-<script src="{{ 'ma-predictiveSearch.js' | asset_url }}" ></script>
+<script src="{{ 'ma-quickAdd.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'ma-predictiveSearch.js' | asset_url }}" defer="defer"></script>

@@ -1,86 +1,54 @@
 {%- if predictive_search.performed -%}
   <div id="predictive-search-results">
-      <div class="WI_suggResult_con">
-        <h3 id="predictive-search-products">
-          Foreslag
-          </h3>
+    <div class="WI_suggResult_con ma-sugg-result-con">
+      <h3 class="ma-search-section-title">{{ 'general.search.search' | t }}</h3>
       {%- if predictive_search.resources.queries.size > 0 -%}
-      <ul
-        id="predictive-search-results-queries-list"
-        class="predictive-search__results-list list-unstyled"
-        role="group"
-        aria-labelledby="predictive-search-queries"
-      >
-        {%- for query in predictive_search.resources.queries -%}
-     
-        <li
-        id="predictive-search-option-query-{{ forloop.index }}"
-        class="predictive-search__list-item"
-        role="option"
-        aria-selected="false"
-      >
-        <a href="{{ query.url }}" class="predictive-search__item link link--text" tabindex="-1">
-          <div class="predictive-search__item-content predictive-search__item-content--centered">
-            <p
-              class="predictive-search__item-heading predictive-search__item-query-result"
-              aria-label="{{ query.text }}"
+        <ul
+          id="predictive-search-results-queries-list"
+          class="predictive-search__results-list list-unstyled ma-search-query-list"
+          role="group"
+          aria-labelledby="predictive-search-queries"
+        >
+          {%- for query in predictive_search.resources.queries -%}
+            <li
+              id="predictive-search-option-query-{{ forloop.index }}"
+              class="predictive-search__list-item"
+              role="option"
+              aria-selected="false"
             >
-              {{ query.styled_text }}
-            </p>
-          </div>
-        </a>
-      </li>
-      {%- endfor -%}
-          </ul>
-        {%- else -%}
-          <!-- <p class="noSugg"> Ingen foreslag fundet</p> -->
-        {%- endif -%}
-        <!-- <h3 id="predictive-search-products">
-          Kollektioner
-        </h3> -->
-        {%- if predictive_search.resources.collections.size > 0 -%}
-          <ul>
-            {%- for collection in predictive_search.resources.collections -%}
-                <li>
-                  <a href="{{ collection.url }}" class="predictive-search__item link link--text" tabindex="-1">
-                    <div class="predictive-search__item-content predictive-search__item-content--centered">
-                      <p class="predictive-search__item-heading">{{ collection.title }}</p>
-                    </div>
-                  </a>
-                </li>
-            {%- endfor -%}
-          </ul>
-          {% else %}
-          <p class="noSugg">Ingen kollektion fundet</p>
-        {%- endif -%}
-      </div>
-      <h3 id="predictive-search-products">
-        Produkter 
-        {% if settings.BTN_check %}
-        <a href="javascript:void(0)" onclick="redirectToSearch()" id="SDP_searchBtn">{{ settings.BTN_text }}</a>
-        {% endif %}
-      </h3>
-    <div class="WI_productResult_con">
-        {%- if predictive_search.resources.products.size > 0 -%}
+              <a href="{{ query.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                <div class="predictive-search__item-content predictive-search__item-content--centered">
+                  <p
+                    class="predictive-search__item-heading predictive-search__item-query-result"
+                    aria-label="{{ query.text }}"
+                  >
+                    {{ query.styled_text }}
+                  </p>
+                </div>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <h3 id="ma-predictive-search-products" class="ma-search-section-title ma-search-section-title--products">
+      {{ 'templates.search.products' | t | upcase }}
+      {% if settings.BTN_check %}
+        <button type="button" onclick="redirectToSearch()" id="ma-sdp-search-btn">{{ settings.BTN_text }}</button>
+      {% endif %}
+    </h3>
+
+    <div class="WI_productResult_con ma-product-result-con">
+      {%- if predictive_search.resources.products.size > 0 -%}
         {%- for product in predictive_search.resources.products -%}
-          <div class="WI_productResult_product">
-              {% render 'card-product',
-                    card_product: product,
-                    media_aspect_ratio: 'square',
-                    image_shape: 'default',
-                    show_secondary_image: true,
-                    show_vendor: false,
-                    show_rating: false,
-                    lazy_load: false,
-                    quick_add: 'standard',
-                    section_id: section.id
-                  %}
+          <div class="WI_productResult_product ma-product-result-product">
+            {% render 'card-product-item', card_product: product %}
           </div>
         {%- endfor -%}
-        {%- else -%}
-        <p class="noSugg">Ingen produkter fundet</p>
-    {%- endif -%}
+      {%- else -%}
+        <p class="ma-no-sugg">{{ 'templates.search.no_results' | t }}</p>
+      {%- endif -%}
     </div>
-  
-    </div>
+  </div>
 {%- endif -%}

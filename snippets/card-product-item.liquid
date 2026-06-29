@@ -59,6 +59,9 @@
       box-shadow: inset 0 0 0 2px #fff;
       display: inline-block;
       cursor: pointer;
+      padding: 0;
+      appearance: none;
+      -webkit-appearance: none;
     }
     
     .custom-upsell-action {
@@ -122,6 +125,31 @@
     .custom-upsell-btn .loading-overlay__spinner .path {
       stroke: #ffffff;
     }
+
+    .custom-upsell-options {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 0;
+    }
+
+    .custom-upsell-option {
+      font-size: 12px;
+      color: #666666;
+      line-height: 1.3;
+    }
+
+    .custom-upsell-option-name {
+      color: #666666;
+    }
+
+    .custom-upsell-option-value {
+      color: #2B2B2B;
+    }
+
+    .custom-upsell-swatch.is-active {
+      box-shadow: inset 0 0 0 2px #fff, 0 0 0 1px #000;
+    }
   </style>
 
   <div class="custom-upsell-card">
@@ -135,9 +163,22 @@
 
     <div class="custom-upsell-details">
       <a href="{{ card_product.url }}" class="custom-upsell-title">{{ card_product.title }}</a>
+
+      <div class="custom-upsell-options">
+        {%- unless card_product.has_only_default_variant -%}
+          {%- for option in card_product.options_with_values -%}
+            <div class="custom-upsell-option">
+              <span class="custom-upsell-option-name">{{ option.name }}:</span>
+              <span class="custom-upsell-option-value" data-option-index="{{ forloop.index0 }}">{{ card_product.selected_or_first_available_variant.options[forloop.index0] }}</span>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+      </div>
+
       {%- for option in card_product.options_with_values -%}
         {%- assign option_name_lower = option.name | downcase -%}
         {%- if option_name_lower == 'color' or option_name_lower == 'colour' -%}
+          {%- assign colour_option_index = forloop.index0 -%}
           <div class="custom-upsell-swatches">
             {%- for value in option.values -%}
               {%- liquid
@@ -150,6 +191,10 @@
                 endif
 
                 assign variant_image = variant_for_value.featured_media | default: card_product.featured_media
+                assign is_selected_swatch = false
+                if card_product.selected_or_first_available_variant.options[colour_option_index] == value
+                  assign is_selected_swatch = true
+                endif
 
                 assign sw_bg = ''
                 if value.swatch.image
@@ -161,14 +206,19 @@
                   assign sw_bg = value | downcase | remove: ' '
                 endif
               -%}
-              <span class="custom-upsell-swatch" 
-                    style="background: {{ sw_bg }}; background-size: cover; background-position: center;" 
-                    title="{{ value }}"
-                    data-variant-id="{{ variant_for_value.id }}"
-                    data-image-url="{{ variant_image | image_url: width: 160 }}"
-                    data-price="{{ variant_for_value.price | money }}"
-                    data-available="{{ variant_for_value.available }}"
-                    onclick="updateUpsellVariant(this)"></span>
+              <button
+                type="button"
+                class="custom-upsell-swatch{% if is_selected_swatch %} is-active{% endif %}"
+                style="background: {{ sw_bg }}; background-size: cover; background-position: center;"
+                title="{{ value }}"
+                aria-label="{{ option.name }}: {{ value }}"
+                data-variant-id="{{ variant_for_value.id }}"
+                data-variant-options="{{ variant_for_value.options | json | escape }}"
+                data-image-url="{{ variant_image | image_url: width: 160 }}"
+                data-price="{{ variant_for_value.price | money }}"
+                data-available="{{ variant_for_value.available }}"
+                onclick="updateUpsellVariant(this)"
+              ></button>
             {%- endfor -%}
           </div>
         {%- endif -%}
@@ -216,6 +266,12 @@
         const imageUrl = element.getAttribute('data-image-url');
         const price = element.getAttribute('data-price');
         const available = element.getAttribute('data-available') === 'true';
+        let variantOptions = [];
+        try {
+          variantOptions = JSON.parse(element.getAttribute('data-variant-options') || '[]');
+        } catch (e) {
+          variantOptions = [];
+        }
 
         // Update image
         const imageEl = card.querySelector('.custom-upsell-image img');
@@ -229,6 +285,13 @@
         if (priceEl && price) {
           priceEl.innerHTML = price;
         }
+
+        // Update selected option labels
+        card.querySelectorAll('.custom-upsell-option-value').forEach((valueEl, index) => {
+          if (variantOptions[index]) {
+            valueEl.textContent = variantOptions[index];
+          }
+        });
 
         // Update variant ID on add button
         const btnEl = card.querySelector('.ma_quickAdd_atc');
@@ -250,8 +313,8 @@
 
         // Update active state visual
         const swatches = card.querySelectorAll('.custom-upsell-swatch');
-        swatches.forEach(s => s.style.boxShadow = 'inset 0 0 0 2px #fff');
-        element.style.boxShadow = 'inset 0 0 0 2px #fff, 0 0 0 1px #000';
+        swatches.forEach((s) => s.classList.remove('is-active'));
+        element.classList.add('is-active');
       }
     }
   </script>
