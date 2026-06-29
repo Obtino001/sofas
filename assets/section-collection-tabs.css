@@ -52,6 +52,20 @@
   padding: 0 1.5rem;
 }
 
+.collection-tabs__view-all-desktop {
+  display: inline-flex;
+}
+
+@media screen and (max-width: 989px) {
+  .collection-tabs__view-all-desktop {
+    display: none !important;
+  }
+
+  .collection-tabs__view-all-mobile {
+    display: flex;
+  }
+}
+
 .collection-tabs__nav-wrapper {
   flex: 1 1 auto;
   min-width: 0;
@@ -813,10 +827,6 @@
   .collection-tabs__tab {
     font-size: 14px;
     padding: 8px 14px;
-  }
-
-  .collection-tabs__view-all-mobile {
-    display: flex;
   }
 
   .collection-tabs__tab-icon {
