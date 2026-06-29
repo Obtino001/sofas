@@ -15,17 +15,6 @@
                     -%}
                 </div>
             </a>
-            {%- assign product_form_id = 'product-form-' | append: product.id -%}
-
-            <div class="cart__drawer__re_info_right">
-                {%- render 'buy-buttons',
-                    block: block,
-                    product: product_obj,
-                    product_form_id: product_form_id,
-                    section_id: section.id,
-                    show_pickup_availability: true
-                -%}
-            </div>
         </div>
     </div>
 </div>
