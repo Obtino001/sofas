@@ -358,12 +358,15 @@
                 </div>
               </div>
             {%- endif -%}
+          {%- endif -%}
+        </cart-drawer-items>
 
-            {% comment %} Custom trust badges box {% endcomment %}
+        {%- if cart != empty -%}
+          <div class="cart-drawer__trust-badges-bar">
             <div class="cart-drawer__trust-badges">
               <div class="trust-badge__item">
                 <div class="trust-badge__icon">
-                 <img src="//sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=1920" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=352 352w, //sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=832 832w, //sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=1200 1200w, //sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=1920 1920w" width="1920" height="1920">
+                  <img src="//sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=1920" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=352 352w, //sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=832 832w, //sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=1200 1200w, //sofasnbeds.co.uk/cdn/shop/files/7489a1e90ef25fb8e6eaa8da5c9eef9c7af65f5b.png?v=1781434342&amp;width=1920 1920w" width="1920" height="1920" loading="lazy">
                 </div>
                 <div class="trust-badge__content">
                   <span class="trust-badge__title">One Year Warranty</span>
@@ -373,7 +376,7 @@
               <div class="trust-badge__divider"></div>
               <div class="trust-badge__item">
                 <div class="trust-badge__icon">
-            <img src="//sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=1920" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=352 352w, //sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=832 832w, //sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=1200 1200w, //sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=1920 1920w" width="1920" height="1920">
+                  <img src="//sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=1920" alt="" srcset="//sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=352 352w, //sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=832 832w, //sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=1200 1200w, //sofasnbeds.co.uk/cdn/shop/files/Group_1413372281.svg?v=1781507966&amp;width=1920 1920w" width="1920" height="1920" loading="lazy">
                 </div>
                 <div class="trust-badge__content">
                   <span class="trust-badge__title">14-Day Returns</span>
@@ -381,8 +384,8 @@
                 </div>
               </div>
             </div>
-          {%- endif -%}
-        </cart-drawer-items>
+          </div>
+        {%- endif -%}
         
         <div class="drawer__footer">
           {%- if cart != empty -%}
