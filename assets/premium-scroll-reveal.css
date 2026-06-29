@@ -1,5 +1,4 @@
 @media (prefers-reduced-motion: no-preference) {
-  /* Section-level reveal replaces Dawn's per-element slide-in to avoid double animation */
   body.premium-scroll-active .scroll-trigger.animate--slide-in,
   body.premium-scroll-active .scroll-trigger.animate--fade-in {
     opacity: 1;
@@ -7,26 +6,41 @@
     transform: none;
   }
 
-  .premium-scroll-reveal {
-    opacity: 0;
-    transform: translate3d(0, 3.5rem, 0);
-    transition:
-      opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+  @keyframes premium-scroll-reveal-keyframes {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 2.75rem, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
-  .premium-scroll-reveal--visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+  /* Scroll-linked reveal — motion follows scroll position */
+  @supports (animation-timeline: view()) {
+    .premium-scroll-reveal:not(.premium-scroll-reveal--static) {
+      animation: premium-scroll-reveal-keyframes linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
   }
 
+  /* Fallback: JS drives --reveal-progress on scroll (no transition lag) */
+  @supports not (animation-timeline: view()) {
+    .premium-scroll-reveal:not(.premium-scroll-reveal--static) {
+      opacity: var(--reveal-opacity, 0);
+      transform: translate3d(0, calc((1 - var(--reveal-progress, 0)) * 2.75rem), 0);
+    }
+  }
+
+  .premium-scroll-reveal--static,
   .premium-scroll-reveal--design-mode,
   .premium-scroll-reveal--no-motion {
     opacity: 1;
     transform: none;
-    transition: none;
-    will-change: auto;
+    animation: none;
   }
 }
 
@@ -34,5 +48,6 @@
   .premium-scroll-reveal {
     opacity: 1;
     transform: none;
+    animation: none;
   }
 }
