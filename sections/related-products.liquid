@@ -54,6 +54,35 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  @media screen and (max-width: 989px) {
+    #collection-{{ section.id }} .collection-tabs__actions [data-collection-tabs-view-all] {
+      display: none !important;
+    }
+
+    #collection-{{ section.id }} .collection-tabs__arrows {
+      display: none !important;
+    }
+
+    #collection-{{ section.id }} .collection-tabs__actions {
+      display: none !important;
+    }
+
+    #collection-{{ section.id }} .collection-tabs__view-all-mobile {
+      display: flex !important;
+      justify-content: center;
+    }
+
+    #collection-{{ section.id }} .collection-tabs__view-all-mobile [data-collection-tabs-view-all] {
+      display: inline-flex !important;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #collection-{{ section.id }} .collection-tabs__view-all-mobile {
+      display: none !important;
+    }
+  }
 </style>
 
 <div
@@ -135,6 +164,7 @@
                 href="{{ first_url }}"
                 class="collection-tabs__view-all-btn collection-tabs__view-all-desktop"
                 data-collection-tabs-view-all
+                data-view-all-placement="desktop"
                 aria-label="{{ 'sections.featured_collection.view_all' | t }}"
               >
                 {{ section.settings.view_all_text | default: 'View All' }}
@@ -313,8 +343,9 @@
       <div class="collection-tabs__view-all-mobile">
         <a
           href="{{ first_url }}"
-          class="collection-tabs__view-all-btn"
+          class="collection-tabs__view-all-btn collection-tabs__view-all-mobile-btn"
           data-collection-tabs-view-all
+          data-view-all-placement="mobile"
           aria-label="{{ 'sections.featured_collection.view_all' | t }}"
         >
           {{ section.settings.view_all_text | default: 'View All' }}

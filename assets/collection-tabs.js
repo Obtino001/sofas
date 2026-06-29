@@ -46,11 +46,10 @@
       const panel = getActivePanel();
       if (!panel) return;
       const url = panel.getAttribute('data-collection-url') || '#';
-      viewAllBtns.forEach(btn => {
+      viewAllBtns.forEach((btn) => {
         if (url && url !== '#') {
           btn.setAttribute('href', url);
         }
-        btn.style.display = '';
       });
       refreshArrowState();
     }

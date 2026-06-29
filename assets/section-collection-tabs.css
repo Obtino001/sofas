@@ -57,12 +57,33 @@
 }
 
 @media screen and (max-width: 989px) {
-  .collection-tabs__view-all-desktop {
+  .collection-tabs__view-all-desktop,
+  [data-view-all-placement='desktop'],
+  .collection-tabs__actions [data-collection-tabs-view-all] {
+    display: none !important;
+  }
+
+  .collection-tabs__arrows {
+    display: none !important;
+  }
+
+  .collection-tabs__actions {
     display: none !important;
   }
 
   .collection-tabs__view-all-mobile {
-    display: flex;
+    display: flex !important;
+  }
+
+  .collection-tabs__view-all-mobile [data-collection-tabs-view-all],
+  [data-view-all-placement='mobile'] {
+    display: inline-flex !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .collection-tabs__view-all-mobile {
+    display: none !important;
   }
 }
 

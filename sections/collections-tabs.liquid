@@ -137,6 +137,7 @@
                 href="{{ first_url }}"
                 class="collection-tabs__view-all-btn collection-tabs__view-all-desktop"
                 data-collection-tabs-view-all
+                data-view-all-placement="desktop"
                 aria-label="{{ 'sections.featured_collection.view_all' | t }}"
               >
                 {{ section.settings.view_all_text | default: 'View All' }}
@@ -314,8 +315,9 @@
       <div class="collection-tabs__view-all-mobile">
         <a
           href="{{ first_url }}"
-          class="collection-tabs__view-all-btn"
+          class="collection-tabs__view-all-btn collection-tabs__view-all-mobile-btn"
           data-collection-tabs-view-all
+          data-view-all-placement="mobile"
           aria-label="{{ 'sections.featured_collection.view_all' | t }}"
         >
           {{ section.settings.view_all_text | default: 'View All' }}
