@@ -10,6 +10,7 @@
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'ma-quickAdd.js' | asset_url }}" defer="defer"></script>
 
 {% comment %} Styles moved to sereluna.css {% endcomment %}
 
@@ -85,7 +86,6 @@
           </div>
           <div class="drawer__upsell-wrapper">
             <div class="drawer__upsell-inner">
-              <script src="{{ 'ma-quickAdd.js' | asset_url }}" defer></script>
               {% for item in settings.upsell__products %}
                 {% render 'card-drawer-product', card_product: item %}
               {% endfor %}
@@ -352,7 +352,6 @@
                 </div>
 
                 <div class="complete-set__items">
-                  <script src="{{ 'ma-quickAdd.js' | asset_url }}" defer></script>
                   {%- for product in upsell_products limit: 2 -%}
                     {% render 'card-product-item', card_product: product %}
                   {%- endfor -%}

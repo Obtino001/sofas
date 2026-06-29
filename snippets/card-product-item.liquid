@@ -102,26 +102,25 @@
       color: #888888;
     }
     
-    .custom-upsell-form {
-      margin: 0;
+    .custom-upsell-btn.loading .ma-span,
+    .custom-upsell-btn .ma-span.hidden {
+      opacity: 0;
     }
 
-    .custom-upsell-btn > .loading__spinner {
+    .custom-upsell-btn .loading-overlay__spinner {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 1.5rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      display: flex;
       align-items: center;
       justify-content: center;
     }
-    
-    .custom-upsell-btn .path {
-      stroke: #FFFFFF;
-    }
-    
-    .custom-upsell-btn.loading > span {
-      color: transparent;
+
+    .custom-upsell-btn .loading-overlay__spinner .path {
+      stroke: #ffffff;
     }
   </style>
 
@@ -181,28 +180,29 @@
         {{ card_product.price | money }}
       </div>
       
-      <product-form>
-        {%- form 'product', card_product, class: 'custom-upsell-form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-          <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" class="product-variant-id">
-          
-          <button type="submit" name="add" class="custom-upsell-btn" aria-live="polite"
-            {% if card_product.selected_or_first_available_variant.available == false %}
-              disabled
-            {% endif %}>
-            <span>
-              {%- if card_product.selected_or_first_available_variant.available -%}
-                Add
-              {%- else -%}
-                Sold
-              {%- endif -%}
-            </span>
-            <span class="sold-out-message hidden">
+      <ma-quickadd>
+        <button
+          type="button"
+          class="custom-upsell-btn ma_Add_atc ma_quickAdd_atc"
+          data-variantid="{{ card_product.selected_or_first_available_variant.id }}"
+          {% if card_product.selected_or_first_available_variant.available == false %}
+            disabled
+          {% endif %}
+        >
+          <span class="ma-span">
+            {%- if card_product.selected_or_first_available_variant.available -%}
+              Add
+            {%- else -%}
               Sold
-            </span>
-            {%- render 'loading-spinner' -%}
-          </button>
-        {%- endform -%}
-      </product-form>
+            {%- endif -%}
+          </span>
+          <div class="loading-overlay__spinner hidden">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+        </button>
+      </ma-quickadd>
     </div>
   </div>
 
@@ -224,28 +224,27 @@
           imageEl.srcset = imageUrl;
         }
 
-        // Update variant ID in form
-        const inputEl = card.querySelector('.product-variant-id');
-        if (inputEl && variantId) {
-          inputEl.value = variantId;
-        }
-
         // Update price
         const priceEl = card.querySelector('.custom-upsell-price');
         if (priceEl && price) {
           priceEl.innerHTML = price;
         }
 
+        // Update variant ID on add button
+        const btnEl = card.querySelector('.ma_quickAdd_atc');
+        if (btnEl && variantId) {
+          btnEl.dataset.variantid = variantId;
+        }
+
         // Update button state
-        const btnEl = card.querySelector('.custom-upsell-btn');
         if (btnEl) {
-          const spanEl = btnEl.querySelector('span:not(.sold-out-message)');
+          const spanEl = btnEl.querySelector('.ma-span');
           if (available) {
             btnEl.removeAttribute('disabled');
-            if(spanEl) spanEl.textContent = 'Add';
+            if (spanEl) spanEl.textContent = 'Add';
           } else {
             btnEl.setAttribute('disabled', 'disabled');
-            if(spanEl) spanEl.textContent = 'Sold';
+            if (spanEl) spanEl.textContent = 'Sold';
           }
         }
 
