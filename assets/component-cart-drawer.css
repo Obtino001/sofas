@@ -1492,16 +1492,16 @@ cart-drawer.is-empty .cart-drawer__trust-badges-bar {
   flex-direction: column;
   gap: 2px;
 }
-
 .trust-badge__title {
   font-size: 13px;
   font-weight: 700;
   color: #121212;
+  white-space: nowrap;
 }
 
 .trust-badge__desc {
   font-size: 10px;
-  color: #2B2B2B666;
+  color: #2B2B2B;
   line-height: 1.3;
 }
 

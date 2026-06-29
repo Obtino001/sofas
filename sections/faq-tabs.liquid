@@ -151,7 +151,8 @@
     height: 2.8rem;
     background: rgba(var(--color-foreground), 0.08);
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
   }
 
   .faq-accordion__icon svg {
@@ -164,11 +165,51 @@
     transform: rotate(180deg);
   }
 
+  .faq-accordion__body-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-accordion[open] .faq-accordion__body-wrap {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-accordion__body-inner {
+    overflow: hidden;
+  }
+
   .faq-accordion__body {
     padding: 0 2rem 2rem 2rem;
     font-size: 1.4rem;
     line-height: 1.6;
     color: rgba(var(--color-foreground), 0.85);
+    opacity: 0;
+    transform: translateY(-0.6rem);
+    transition:
+      opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-accordion[open] .faq-accordion__body {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-accordion__body-wrap {
+      transition: none;
+    }
+
+    .faq-accordion__body {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .faq-accordion__icon {
+      transition: none;
+    }
   }
 
   .faq-accordion__body p:first-child {
@@ -280,8 +321,12 @@
                 </svg>
               </span>
             </summary>
-            <div class="faq-accordion__body">
-              {{ block.settings.answer }}
+            <div class="faq-accordion__body-wrap">
+              <div class="faq-accordion__body-inner">
+                <div class="faq-accordion__body">
+                  {{ block.settings.answer }}
+                </div>
+              </div>
             </div>
           </details>
         {%- endif -%}

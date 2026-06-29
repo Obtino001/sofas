@@ -125,7 +125,7 @@
             {%- endfor -%}
           </div>
 
-          <div class="collection-tabs__actions collection-tabs__actions--desktop small-hide">
+          <div class="collection-tabs__actions collection-tabs__actions--desktop">
             {%- liquid
               assign first_block = section.blocks | first
               assign first_collection = first_block.settings.collection
@@ -135,7 +135,7 @@
             {%- if section.settings.show_view_all -%}
               <a
                 href="{{ first_url }}"
-                class="collection-tabs__view-all-btn"
+                class="collection-tabs__view-all-btn small-hide"
                 data-collection-tabs-view-all
                 aria-label="{{ 'sections.featured_collection.view_all' | t }}"
               >
