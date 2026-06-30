@@ -517,7 +517,7 @@
           "type": "button",
           "settings": {
             "button_label": "Explore our products",
-            "button_link": "",
+            "button_link": "shopify://collections/all",
             "button_style": "pill"
           }
         },
