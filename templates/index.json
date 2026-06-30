@@ -460,7 +460,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_190.png",
             "title": "4 Seater Sofas",
-            "link": ""
+            "link": "shopify://collections/4-seater"
           }
         },
         "category_ThtFMW": {
@@ -468,7 +468,7 @@
           "settings": {
             "image": "shopify://shop_images/image_40_3.png",
             "title": "Corner Sofas",
-            "link": ""
+            "link": "shopify://collections/corner-sofa"
           }
         },
         "category_kthBRn": {
