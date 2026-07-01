@@ -34,13 +34,13 @@
   }
 
   /* ── Arrow rotation on hover ── */
-  .desktopMenu-Item svg.icon-caret,
-  .desktopMenu-Item svg {
+  .desktopMenu-Item-caret svg.icon-caret,
+  .desktopMenu-Item-caret svg {
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
   }
-  nav-container:hover .desktopMenu-Item svg.icon-caret,
-  nav-container:hover .desktopMenu-Item svg {
+  nav-container:hover .desktopMenu-Item-caret svg.icon-caret,
+  nav-container:hover .desktopMenu-Item-caret svg {
     transform: rotate(180deg);
   }
 
@@ -55,11 +55,14 @@
     transform: translateY(0);
   }
 
-  /* ── Subtle underline animation on menu items ── */
-  .desktopMenu-Item {
+  .desktopMenu-Item-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
   }
-  .desktopMenu-Item::before {
+
+  .desktopMenu-Item-group::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -68,7 +71,8 @@
     height: 60px;
     background: transparent;
   }
-  .desktopMenu-Item::after {
+
+  .desktopMenu-Item-group::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -78,11 +82,13 @@
     background: currentColor;
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  nav-container:hover > menu-item .desktopMenu-Item::after {
+
+  nav-container:hover > menu-item .desktopMenu-Item-group::after {
     width: 100%;
   }
-.desktopMenu-Item {
-    display: flex;
+
+  .desktopMenu-Item {
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
     gap: 10px;
@@ -94,21 +100,31 @@
     color: rgb(var(--color-foreground));
     white-space: nowrap;
     text-transform: uppercase;
-}
-  .desktopMenu-Item svg{
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .desktopMenu-Item-caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+  .desktopMenu-Item-caret svg {
     width: 14px;
     height: 12px;
   }
 /* Default state: white icons */
-.header-transparent .desktopMenu-Item svg path {
+.header-transparent .desktopMenu-Item-caret svg path {
   fill: white;
 }
- .desktopMenu-Item svg path {
+ .desktopMenu-Item-caret svg path {
  fill:rgba(var(--color-foreground));
 }
 /* Scrolled or Hovered state: black icons */
-.header-transparent.header-scrolled .desktopMenu-Item svg path, 
-.header-transparent.header-hovered .desktopMenu-Item svg path {
+.header-transparent.header-scrolled .desktopMenu-Item-caret svg path, 
+.header-transparent.header-hovered .desktopMenu-Item-caret svg path {
   fill:rgba(var(--color-foreground));
 }
   .desktopMenu-Inner{
@@ -206,6 +222,26 @@
           {% endif %}
         {% endfor %}
       
+        {%- liquid
+          assign menu_item_url = link.url
+          if menu_item_url == blank or menu_item_url == '#'
+            if link.links.size > 0
+              assign menu_item_url = link.links.first.url
+            else
+              for block in section.blocks
+                assign matched_link = block.settings.title | downcase
+                assign menu_link = link.title | downcase
+                if matched_link == menu_link and block.settings.menu_link_list_child != blank
+                  if block.settings.menu_link_list_child.links.size > 0
+                    assign menu_item_url = block.settings.menu_link_list_child.links.first.url
+                  endif
+                  break
+                endif
+              endfor
+            endif
+          endif
+        -%}
+
         <li>
         {% unless hasBlock == true or link.links != blank %}
           <span
@@ -213,7 +249,7 @@
                 class="header__menu-item list-menu__item link focus-inset header__menu-item_new {% if forloop.first %}header-menu-1{% endif %}" normal
               >
                 <span>
-                  <a class="desktopMenu-Item" href="{{ link.url }}">{{- link.title | strip_html -}}</a>
+                  <a class="desktopMenu-Item" href="{{ menu_item_url }}">{{- link.title | strip_html -}}</a>
                 </span>
           </span>
         {% else %}
@@ -224,10 +260,11 @@
                       id="HeaderMenu-{{ link.handle }}"
                       class="header__menu-item list-menu__item link focus-inset header__menu-item_new {% if forloop.first %}header-menu-1{% endif %}"
                     >
-                      <span>
-                        <a class="desktopMenu-Item" href="{{ link.url }}">{{- link.title | strip_html -}}
+                      <span class="desktopMenu-Item-group">
+                        <a class="desktopMenu-Item" href="{{ menu_item_url }}">{{- link.title | strip_html -}}</a>
+                        <span class="desktopMenu-Item-caret" aria-hidden="true">
                           <svg class="icon icon-caret" fill="none" height="7" viewBox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m1.2334.554688 5.65685 5.656852-.7071.70711-5.656858-5.65686z"></path><path d="m11.8247 1.26221-5.65685 5.65685-.7071-.70711 5.65685-5.65685z"></path></svg>
-                        </a>
+                        </span>
                       </span>
                 </span>
               </menu-item>
@@ -384,10 +421,11 @@
                       id="HeaderMenu-{{ link.handle }}"
                       class="header__menu-item list-menu__item link focus-inset navigation__item {% if forloop.first %}header-menu-1{% endif %}"
                     >
-                      <span>
-                        <a class="desktopMenu-Item" href="{{ link.url }}">{{- link.title | strip_html -}}
+                      <span class="desktopMenu-Item-group">
+                        <a class="desktopMenu-Item" href="{{ menu_item_url }}">{{- link.title | strip_html -}}</a>
+                        <span class="desktopMenu-Item-caret" aria-hidden="true">
                           <svg fill="none" height="7" viewBox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg"><g fill="#000"><path d="m1.2334.554688 5.65685 5.656852-.7071.70711-5.656858-5.65686z"></path><path d="m11.8247 1.26221-5.65685 5.65685-.7071-.70711 5.65685-5.65685z"></path></g></svg>
-                        </a>
+                        </span>
                       </span>
                 </span>
               </menu-item>
