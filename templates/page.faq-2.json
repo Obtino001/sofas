@@ -20,6 +20,14 @@
     "faq_tabs_aR6MNV": {
       "type": "faq-tabs",
       "blocks": {
+        "faq_3BeXzi": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How do I track my order?",
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
         "category_Vq68Fk": {
           "type": "category",
           "disabled": true,
@@ -64,6 +72,7 @@
         }
       },
       "block_order": [
+        "faq_3BeXzi",
         "category_Vq68Fk",
         "category_8YmjjF",
         "faq_jFDDjC",
