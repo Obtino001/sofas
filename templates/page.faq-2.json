@@ -43,8 +43,7 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "How long does delivery take?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
           }
         },
         "faq_GPtLrT": {
@@ -52,8 +51,7 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "Are your sofas made in the UK?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>Yes, all our sofas are proudly manufactured in the UK. We believe in supporting local craftsmanship and ensuring the highest quality standards.</p>"
           }
         },
         "faq_qGLUyX": {
@@ -61,8 +59,7 @@
           "settings": {
             "category_match": "Bed related questions",
             "question": "What sizes are available?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>Our sofas are available in 2 Seater, 3 Seater, 4 Seater, Corner Sofa, Armchair, and other sizes depending on the collection.</p>"
           }
         }
       },
@@ -81,6 +78,7 @@
         "show_tabs": true,
         "answers_label": "answers",
         "color_scheme": "",
+        "active_accordion_color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
