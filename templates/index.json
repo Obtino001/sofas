@@ -985,14 +985,6 @@
             "answer": "<p>Yes, all our sofas come with a comprehensive warranty that covers manufacturing defects.</p>"
           }
         },
-        "faq_r8Pi3B": {
-          "type": "faq",
-          "settings": {
-            "category_match": "Bed related questions",
-            "question": "What sizes are available?",
-            "answer": "<p>Our sofas are available in 2 Seater, 3 Seater, 4 Seater, Corner Sofa, Armchair, and other sizes depending on the collection.</p>"
-          }
-        },
         "faq_GtUEGe": {
           "type": "faq",
           "settings": {
@@ -1022,7 +1014,6 @@
         "faq_FPhRqG",
         "faq_tgCpMi",
         "faq_w7epea",
-        "faq_r8Pi3B",
         "faq_GtUEGe",
         "faq_cw6MtY"
       ],
