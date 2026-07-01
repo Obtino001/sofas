@@ -54,6 +54,14 @@
             "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
           }
         },
+        "faq_ieLKg9": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Can I choose a specific delivery date?",
+            "answer": "<p>Unfortunately, we cannot guarantee a specific delivery date at the time of order. However, our delivery partner will contact you to arrange a convenient delivery slot.</p>"
+          }
+        },
         "faq_GPtLrT": {
           "type": "faq",
           "settings": {
@@ -76,6 +84,7 @@
         "category_Vq68Fk",
         "category_8YmjjF",
         "faq_jFDDjC",
+        "faq_ieLKg9",
         "faq_GPtLrT",
         "faq_qGLUyX"
       ],
