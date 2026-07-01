@@ -977,6 +977,14 @@
             "answer": "<p>Yes, our delivery team can deliver your new sofa to your room of choice. Please ensure there is clear access and sufficient space for the delivery.</p>"
           }
         },
+        "faq_n4Yd9W": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "How do I arrange a return?",
+            "answer": "<p>To arrange a return, please contact our customer support team via live chat or phone. We will guide you through the process and arrange a collection.</p>"
+          }
+        },
         "faq_w7epea": {
           "type": "faq",
           "settings": {
@@ -1013,6 +1021,7 @@
         "faq_J3hx3j",
         "faq_FPhRqG",
         "faq_tgCpMi",
+        "faq_n4Yd9W",
         "faq_w7epea",
         "faq_GtUEGe",
         "faq_cw6MtY"
