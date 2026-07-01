@@ -196,11 +196,27 @@
           "type": "faq",
           "settings": {
             "category_match": "Sofa related questions",
-            "question": "How long does delivery take?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+            "question": "How do I track my order?",
+            "answer": "<p>Once your order is dispatched, you will receive an email with a tracking link.</p>"
           }
         },
-        "faq_ac4RCN": {
+        "faq_M7VdHg": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How long will delivery take?",
+            "answer": "<p>We offer fast delivery within 7-10 working days for most of our products. You will be provided with an estimated delivery date at checkout.</p>"
+          }
+        },
+        "faq_zMXfYE": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Can I choose a specific delivery date?",
+            "answer": "<p>Unfortunately, we cannot guarantee a specific delivery date at the time of order. However, our delivery partner will contact you to arrange a convenient delivery slot.</p>"
+          }
+        },
+        "faq_X7Vbdi": {
           "type": "faq",
           "settings": {
             "category_match": "Sofa related questions",
@@ -208,12 +224,44 @@
             "answer": "<p>Yes, all our sofas are proudly manufactured in the UK. We believe in supporting local craftsmanship and ensuring the highest quality standards.</p>"
           }
         },
+        "faq_zNzWJh": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 14-day risk-free guarantee. If you are not completely satisfied with your purchase, you can return it within 14 days for a full refund, no questions asked.</p>"
+          }
+        },
+        "faq_FnTtt7": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How do I arrange a return?",
+            "answer": "<p>To arrange a return, please contact our customer support team via live chat or phone. We will guide you through the process and arrange a collection.</p>"
+          }
+        },
+        "faq_ac4RCN": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Do you offer a warranty?",
+            "answer": "<p>Yes, all our sofas come with a comprehensive warranty that covers manufacturing defects.</p>"
+          }
+        },
         "faq_NVJcEw": {
           "type": "faq",
           "settings": {
             "category_match": "Bed related questions",
-            "question": "What sizes are available?",
-            "answer": "<p>Our sofas are available in 2 Seater, 3 Seater, 4 Seater, Corner Sofa, Armchair, and other sizes depending on the collection.</p>"
+            "question": "Do you offer financing options?",
+            "answer": "<p>Yes, we offer flexible financing with up to 9 months interest-free. You can choose this option at checkout and complete a simple application.</p>"
+          }
+        },
+        "faq_kwQ3HU": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What materials do you use?",
+            "answer": "<p>We use premium, locally-sourced materials to ensure every sofa is built to last. From the solid wood frames to the high-density foam and durable fabrics, we never compromise on quality.</p>"
           }
         }
       },
@@ -223,8 +271,14 @@
         "category_W9kenj",
         "category_XHbG8A",
         "faq_YdrqCY",
+        "faq_M7VdHg",
+        "faq_zMXfYE",
+        "faq_X7Vbdi",
+        "faq_zNzWJh",
+        "faq_FnTtt7",
         "faq_ac4RCN",
-        "faq_NVJcEw"
+        "faq_NVJcEw",
+        "faq_kwQ3HU"
       ],
       "name": "FAQ Tabs",
       "settings": {
