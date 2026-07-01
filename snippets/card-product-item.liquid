@@ -176,8 +176,8 @@
       </div>
 
       {%- for option in card_product.options_with_values -%}
-        {%- assign option_name_lower = option.name | downcase -%}
-        {%- if option_name_lower == 'color' or option_name_lower == 'colour' -%}
+        {%- assign option_name_lower = option.name | downcase | strip -%}
+        {%- if option_name_lower contains 'colour' or option_name_lower contains 'color' -%}
           {%- assign colour_option_index = forloop.index0 -%}
           <div class="custom-upsell-swatches">
             {%- for value in option.values -%}

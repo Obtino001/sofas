@@ -45,15 +45,32 @@
       assign ratio = 1
     endif
 
-    assign cp_swatch_key = swatch_option | default: 'Color' | downcase
+    assign cp_swatch_names_raw = swatch_option | default: 'Color, Colour, Colours'
+    assign cp_swatch_names = cp_swatch_names_raw | split: ','
     assign cp_found_option = null
     for option in card_product.options_with_values
-      assign option_name_lower = option.name | downcase
-      if option_name_lower == cp_swatch_key
-        assign cp_found_option = option
-        break
+      if cp_found_option == blank
+        assign option_name_lower = option.name | downcase | strip
+        for name_part in cp_swatch_names
+          if cp_found_option == blank
+            assign name_key = name_part | downcase | strip
+            if name_key != blank and option_name_lower == name_key
+              assign cp_found_option = option
+            endif
+          endif
+        endfor
       endif
     endfor
+
+    if cp_found_option == blank
+      for option in card_product.options_with_values
+        assign option_name_lower = option.name | downcase | strip
+        if option_name_lower contains 'colour' or option_name_lower contains 'color'
+          assign cp_found_option = option
+          break
+        endif
+      endfor
+    endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div

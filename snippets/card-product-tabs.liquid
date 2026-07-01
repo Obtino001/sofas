@@ -38,23 +38,42 @@
     assign ratio = 1
   endif
 
-  assign swatch_key = swatch_option | default: 'Color' | downcase
+  assign swatch_names_raw = swatch_option | default: 'Color, Colour, Colours'
+  assign swatch_names = swatch_names_raw | split: ','
   assign found_option = null
   assign found_option_position = nil
   assign size_option = null
   assign size_option_position = nil
   if card_product
     for option in card_product.options_with_values
-      assign option_name = option.name | downcase
-      if option_name == swatch_key
-        assign found_option = option
-        assign found_option_position = option.position
+      assign option_name = option.name | downcase | strip
+      if found_option == blank
+        for name_part in swatch_names
+          if found_option == blank
+            assign name_key = name_part | downcase | strip
+            if name_key != blank and option_name == name_key
+              assign found_option = option
+              assign found_option_position = option.position
+            endif
+          endif
+        endfor
       endif
       if option_name == 'size'
         assign size_option = option
         assign size_option_position = option.position
       endif
     endfor
+
+    if found_option == blank
+      for option in card_product.options_with_values
+        assign option_name = option.name | downcase | strip
+        if option_name contains 'colour' or option_name contains 'color'
+          assign found_option = option
+          assign found_option_position = option.position
+          break
+        endif
+      endfor
+    endif
   endif
 
   assign first_variant = card_product.selected_or_first_available_variant
