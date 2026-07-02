@@ -29,6 +29,31 @@
     box-shadow: 0 0 0 var(--buttons-border-width) rgba(var(--color-button-text), var(--buttons-border-opacity));
   }
 
+  /* Dawn ::after hover ring uses button-text colour — reads as a double white border on filled hovers */
+  body.premium-button-hover .button:not(.button--tertiary):not(.button--secondary):not(:disabled):not([disabled]):hover::after,
+  body.premium-button-hover .shopify-challenge__button:not(:disabled):hover::after,
+  body.premium-button-hover .customer button:not(:disabled):not([disabled]):hover::after,
+  body.premium-button-hover button.shopify-payment-button__button--unbranded:not(:disabled):hover::after,
+  body.premium-button-hover :is(
+    .hero-block-button-pill,
+    .hero-block-button-outline,
+    .hero-block-button,
+    .collection-tabs__view-all-btn,
+    .ts-view-all-btn,
+    .sr-view-all-btn,
+    .cx-promo-btn,
+    .cx-img-btn,
+    .c-form-btn,
+    .woc-drawer-promo__btn,
+    .exr-btn,
+    .cn-button,
+    .newsletter-form__button,
+    .desktopBanner_button,
+    .link-animate
+  ):hover::after {
+    box-shadow: none !important;
+  }
+
   /* Hero / custom CTAs — slide fill via ::before (no Dawn gradient conflict) */
   body.premium-button-hover :is(
     .hero-block-button-pill,
@@ -104,7 +129,7 @@
     .link-animate
   ):hover {
     color: var(--pbh-hover-text, #d4b895) !important;
-    border-color: var(--pbh-hover-fill, #ffffff) !important;
+    border-color: var(--pbh-hover-text, #d4b895) !important;
   }
 
   body.premium-button-hover :is(
