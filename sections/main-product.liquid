@@ -184,8 +184,6 @@
             {%- assign provider_handle = provider_name | downcase | strip -%}
             {%- if provider_handle == 'klarna' -%}
               <span class="product__installments-provider">{{ 'klarna' | payment_type_svg_tag: class: 'product__installments-klarna' }}</span>
-            {%- else -%}
-              <strong>{{ provider_name }}</strong>
             {%- endif -%}.
           </div>
         </div>
