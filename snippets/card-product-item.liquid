@@ -108,6 +108,12 @@
     .custom-upsell-btn.loading .ma-span,
     .custom-upsell-btn .ma-span.hidden {
       opacity: 0;
+      visibility: hidden;
+    }
+
+    .custom-upsell-btn.loading {
+      color: #CBAE8F;
+      pointer-events: none;
     }
 
     .custom-upsell-btn .loading-overlay__spinner {
@@ -117,13 +123,41 @@
       transform: translate(-50%, -50%);
       width: 1.8rem;
       height: 1.8rem;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
+      z-index: 2;
+    }
+
+    .custom-upsell-btn .loading-overlay__spinner:not(.hidden) {
+      display: flex !important;
+    }
+
+    .custom-upsell-btn .loading-overlay__spinner .spinner {
+      width: 1.8rem;
+      height: 1.8rem;
     }
 
     .custom-upsell-btn .loading-overlay__spinner .path {
-      stroke: #ffffff;
+      stroke: currentColor;
+    }
+
+    /* Text-style Add on upsell (PDP + cart drawer) */
+    .drawer__upsell-container-mobile .custom-upsell-btn.ma_quickAdd_atc {
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      color: #CBAE8F;
+      min-width: 48px;
+      min-height: 28px;
+    }
+
+    .drawer__upsell-container-mobile .custom-upsell-btn.ma_quickAdd_atc:hover {
+      opacity: 0.75;
+    }
+
+    .drawer__upsell-container-mobile .custom-upsell-btn.ma_quickAdd_atc.loading {
+      color: #CBAE8F;
     }
 
     .custom-upsell-options {

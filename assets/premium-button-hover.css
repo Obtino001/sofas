@@ -41,7 +41,6 @@
     .cx-img-btn,
     .c-form-btn,
     .woc-drawer-promo__btn,
-    .custom-upsell-btn,
     .exr-btn,
     .cn-button,
     .newsletter-form__button,
@@ -70,7 +69,6 @@
     .cx-img-btn,
     .c-form-btn,
     .woc-drawer-promo__btn,
-    .custom-upsell-btn,
     .exr-btn,
     .cn-button,
     .newsletter-form__button,
@@ -99,7 +97,6 @@
     .cx-img-btn,
     .c-form-btn,
     .woc-drawer-promo__btn,
-    .custom-upsell-btn,
     .exr-btn,
     .cn-button,
     .newsletter-form__button,
@@ -121,7 +118,6 @@
     .cx-img-btn,
     .c-form-btn,
     .woc-drawer-promo__btn,
-    .custom-upsell-btn,
     .exr-btn,
     .cn-button,
     .newsletter-form__button,
@@ -165,11 +161,6 @@
     --pbh-hover-text: #272b28;
   }
 
-  body.premium-button-hover .custom-upsell-btn:not(:disabled) {
-    --pbh-hover-fill: rgb(var(--color-button-text));
-    --pbh-hover-text: rgb(var(--color-button));
-  }
-
   body.premium-button-hover :is(
     .hero-block-button-pill,
     .hero-block-button-outline,
@@ -181,7 +172,6 @@
     .cx-img-btn,
     .c-form-btn,
     .woc-drawer-promo__btn,
-    .custom-upsell-btn,
     .exr-btn,
     .cn-button,
     .newsletter-form__button,

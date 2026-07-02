@@ -1073,7 +1073,7 @@ h3.drawer-line-card__title {
   opacity: 0.8;
 }
 
-.drawer__upsell-container-mobile .ma_quickAdd_atc {
+.drawer__upsell-container-mobile .ma_quickAdd_atc:not(.custom-upsell-btn) {
   background: transparent;
   border: none;
   padding: 0;
@@ -1089,7 +1089,7 @@ h3.drawer-line-card__title {
   display: inline-block;
 }
 
-.drawer__upsell-container-mobile .ma_quickAdd_atc:hover {
+.drawer__upsell-container-mobile .ma_quickAdd_atc:not(.custom-upsell-btn):hover {
   color: #000;
   background: transparent;
 }
