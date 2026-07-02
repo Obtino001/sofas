@@ -557,49 +557,65 @@
         "padding_bottom": 28
       }
     },
-    "custom_hero_banner_EpqzyB": {
-      "type": "custom-hero-banner",
+    "call_to_action_banner_TdeHWD": {
+      "type": "call-to-action-banner",
       "blocks": {
-        "heading_By7mTe": {
+        "heading_RjgrTP": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Comfort now, Pay later.</p>",
+            "heading": "Comfort now, Pay later.",
             "heading_size": "h0"
           }
         },
-        "text_YDc4BF": {
+        "text_YwCUcN": {
           "type": "text",
           "settings": {
-            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>"
+            "text": "<p>Bring home the comfort you love and choose a payment plan that works for you. Simple, flexible, and stress-free.</p>",
+            "text_size": "text-body"
           }
         },
-        "buttons_nyNjni": {
-          "type": "buttons",
+        "button_bzP6xe": {
+          "type": "button",
           "settings": {
-            "button_label_1": "Explore our products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_1": "primary",
-            "button_label_2": "Learn more",
-            "button_link_2": "shopify://collections/all",
-            "button_style_2": "secondary"
+            "button_label": "Explore our products",
+            "button_link": "shopify://collections/all",
+            "button_style": "pill"
+          }
+        },
+        "button_zwd8LW": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "outline"
           }
         }
       },
       "block_order": [
-        "heading_By7mTe",
-        "text_YDc4BF",
-        "buttons_nyNjni"
+        "heading_RjgrTP",
+        "text_YwCUcN",
+        "button_bzP6xe",
+        "button_zwd8LW"
       ],
-      "name": "Custom Hero Banner",
+      "name": "Overlay Banner (Blocks)",
       "settings": {
-        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1.png",
-        "mobile_image": "shopify://shop_images/8c53998630181549b0315333e0f3145b3b7e04fe_2.png",
-        "overlay_opacity": 30,
+        "full_width": true,
         "color_scheme": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
-        "desktop_height": 70,
-        "desktop_content_position": "flex-start",
-        "desktop_text_alignment": "left",
-        "mobile_height": 60,
+        "color_scheme_mobile": "scheme-b2c950b1-7571-4512-9f29-8a1955f48404",
+        "overlay_background": "linear-gradient(270deg, rgba(0, 0, 0, 0) 24.03%, rgba(0, 0, 0, 0.35) 80.49%)",
+        "enable_blur": false,
+        "image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_2.png",
+        "mobile_image": "shopify://shop_images/people-lifestyle-rest-relaxation-concept-picture-handsome-guy-with-bare-feet-resting-indoors-sitting-cozy-couch-closing-eyes-stylish-young-man-with-stubble-relaxing-home-alone_1_1.png",
+        "desktop_height": 480,
+        "desktop_align_y": "center",
+        "desktop_align_x": "flex-start",
+        "desktop_text_align": "left",
+        "desktop_flex_align": "flex-start",
+        "mobile_height": 540,
+        "mobile_align_y": "flex-end",
+        "mobile_align_x": "center",
+        "mobile_text_align": "center",
+        "mobile_flex_align": "center",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -932,7 +948,7 @@
     "why_choose_us_kQm6Yp",
     "testimonials_FqAwzT",
     "related-products",
-    "custom_hero_banner_EpqzyB",
+        "call_to_action_banner_TdeHWD",
     "newsletter_pPWpWW",
     "faq_tabs_rxczBA",
     "instagram_gallery_biMKMB",
