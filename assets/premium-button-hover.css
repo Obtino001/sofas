@@ -4,12 +4,20 @@
  */
 
 @media (prefers-reduced-motion: no-preference) {
-  body.premium-button-hover .button:not(.button--tertiary):not(:disabled):not([disabled]):not(.loading):hover,
+  /* Primary & standard buttons (Dawn gradient slide) */
+  body.premium-button-hover
+    .button:not(.button--tertiary):not(.button--secondary):not(:disabled):not([disabled]):not(.loading):hover,
   body.premium-button-hover .shopify-challenge__button:not(:disabled):hover,
   body.premium-button-hover .customer button:not(:disabled):not([disabled]):hover,
   body.premium-button-hover button.shopify-payment-button__button--unbranded:not(:disabled):hover {
     background-position: 100% 0;
     color: rgb(var(--color-button));
+  }
+
+  /* Secondary — fill becomes button-text colour; text must NOT reuse same white token */
+  body.premium-button-hover .button.button--secondary:not(:disabled):not([disabled]):not(.loading):hover {
+    background-position: 100% 0;
+    color: rgb(var(--pbh-secondary-hover-text, var(--color-button))) !important;
   }
 
   body.premium-button-hover .button:not(.button--tertiary):not(:disabled):not([disabled]):hover > *,
@@ -21,7 +29,7 @@
     box-shadow: 0 0 0 var(--buttons-border-width) rgba(var(--color-button-text), var(--buttons-border-opacity));
   }
 
-  /* Custom CTA / pill / view-all buttons */
+  /* Hero / custom CTAs — slide fill via ::before (no Dawn gradient conflict) */
   body.premium-button-hover :is(
     .hero-block-button-pill,
     .hero-block-button-outline,
@@ -35,9 +43,12 @@
     .woc-drawer-promo__btn,
     .custom-upsell-btn,
     .exr-btn,
+    .cn-button,
+    .newsletter-form__button,
     .desktopBanner_button,
     .link-animate
   ) {
+    background-image: none !important;
     position: relative;
     isolation: isolate;
     overflow: hidden;
@@ -61,6 +72,8 @@
     .woc-drawer-promo__btn,
     .custom-upsell-btn,
     .exr-btn,
+    .cn-button,
+    .newsletter-form__button,
     .desktopBanner_button,
     .link-animate
   )::before {
@@ -88,6 +101,8 @@
     .woc-drawer-promo__btn,
     .custom-upsell-btn,
     .exr-btn,
+    .cn-button,
+    .newsletter-form__button,
     .desktopBanner_button,
     .link-animate
   ):hover {
@@ -108,6 +123,8 @@
     .woc-drawer-promo__btn,
     .custom-upsell-btn,
     .exr-btn,
+    .cn-button,
+    .newsletter-form__button,
     .desktopBanner_button,
     .link-animate
   ):hover::before {
@@ -116,12 +133,15 @@
 
   /* Solid tan/gold CTAs */
   body.premium-button-hover .hero-block-button-pill,
-  body.premium-button-hover .cx-promo-btn {
-    --pbh-hover-fill: #ffffff;
-    --pbh-hover-text: #d4b895;
+  body.premium-button-hover .cx-promo-btn,
+  body.premium-button-hover .cn-button,
+  body.premium-button-hover .newsletter-form__button,
+  body.premium-button-hover .footer__newsletter .button--primary {
+    --pbh-hover-fill: rgb(var(--color-button-text, 255 255 255));
+    --pbh-hover-text: rgb(var(--color-button, 212 184 149));
   }
 
-  /* Outline / ghost CTAs */
+  /* Outline / ghost CTAs on dark heroes */
   body.premium-button-hover .hero-block-button-outline {
     --pbh-hover-fill: #ffffff;
     --pbh-hover-text: #d4b895;
@@ -145,7 +165,7 @@
     --pbh-hover-text: #272b28;
   }
 
-  body.premium-button-hover .custom-upsell-btn:not(:disabled):hover {
+  body.premium-button-hover .custom-upsell-btn:not(:disabled) {
     --pbh-hover-fill: rgb(var(--color-button-text));
     --pbh-hover-text: rgb(var(--color-button));
   }
@@ -163,6 +183,8 @@
     .woc-drawer-promo__btn,
     .custom-upsell-btn,
     .exr-btn,
+    .cn-button,
+    .newsletter-form__button,
     .desktopBanner_button,
     .link-animate
   ) > * {
@@ -175,5 +197,10 @@
   body.premium-button-hover .button:not(.button--tertiary):not(:disabled):hover {
     background-position: 100% 0;
     color: rgb(var(--color-button));
+  }
+
+  body.premium-button-hover .button.button--secondary:not(:disabled):hover {
+    background-position: 100% 0;
+    color: rgb(var(--pbh-secondary-hover-text, var(--color-button))) !important;
   }
 }

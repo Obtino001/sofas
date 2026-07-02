@@ -196,13 +196,9 @@
   font-weight: 600 !important;
   text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.newsletter-form__button:hover {
-  opacity: 0.9;
 }
 .field__label { display: none; }
 
