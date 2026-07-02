@@ -1,0 +1,53 @@
+/* Judge.me preview badge — PDP & product cards */
+
+.judgeme-preview-badge {
+  line-height: 1;
+}
+
+.judgeme-preview-badge .jdgm-widget {
+  display: block;
+}
+
+.judgeme-preview-badge .jdgm-prev-badge {
+  align-items: center;
+  gap: 0.35em;
+}
+
+/* PDP — above product title (matches live theme) */
+.product__title-column > .judgeme-preview-badge {
+  margin-bottom: 8px;
+}
+
+.product__title-column > .judgeme-preview-badge:empty,
+.product__title-column > .judgeme-preview-badge .jdgm-widget:empty {
+  display: none;
+}
+
+/* Collection / tab product cards */
+.card-product-tabs__header .judgeme-preview-badge {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.card-product-tabs__header .judgeme-preview-badge .jdgm-prev-badge {
+  font-size: 13px;
+}
+
+.card-product-tabs__header .judgeme-preview-badge .jdgm-star {
+  font-size: 13px;
+}
+
+.card-information .judgeme-preview-badge {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.product-top-review .judgeme-preview-badge {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 989px) {
+  .product-top-review .reviews-wrapper {
+    display: flex;
+  }
+}

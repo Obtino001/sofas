@@ -1,0 +1,22 @@
+{% comment %}
+  Judge.me preview badge (stars + review count).
+  Requires the Judge.me app embed enabled in the theme.
+
+  Accepts:
+  - product: {Object} Product Liquid object (required)
+  - class: {String} Optional wrapper class
+{% endcomment %}
+
+{%- if product != blank -%}
+  <div class="judgeme-preview-badge{% if class != blank %} {{ class }}{% endif %}">
+    <div
+      class="jdgm-widget jdgm-preview-badge"
+      data-id="{{ product.id }}"
+      data-auto-install="false"
+      data-template="manual-installation"
+      data-widget-name="preview_badge"
+    >
+      {{ product.metafields.judgeme.badge }}
+    </div>
+  </div>
+{%- endif -%}

@@ -109,57 +109,10 @@
   <div class="product__title-price-container" {{ block.shopify_attributes }}>
     
     <div class="product__title-column">
+      {% render 'judgeme-preview-badge', product: product %}
       <h1 class="product__title">
         {{ product.title | escape }}
       </h1>
- {%- if block.settings.review_icon != blank or block.settings.review_text != blank or product.metafields.reviews.rating.value != blank -%}
-  {%- liquid
-    assign rating_value = product.metafields.reviews.rating.value.rating | default: product.metafields.reviews.rating.value
-    assign rating_max = product.metafields.reviews.rating.value.scale_max | default: 5
-    assign rating_count = product.metafields.reviews.rating_count | default: 0
-    
-    if rating_value == blank
-      assign rating_value = 5
-      assign rating_max = 5
-      assign text_fallback = block.settings.review_text
-    endif
-  -%}
-  <style>
-    .pdp-custom-rating {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: rgba(31, 31, 31, 0.7);
-      margin-top: 8px;
-    }
-    .pdp-custom-stars {
-      display: inline-block;
-      width: calc(var(--rating-max, 5) * 1em);
-      height: 1em;
-      background: linear-gradient(90deg, #108474 calc(var(--rating, 0) / var(--rating-max, 5) * 100%), rgba(0, 0, 0, 0.15) calc(var(--rating, 0) / var(--rating-max, 5) * 100%));
-      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><polygon points='12,2 15,9 22,9.3 17,14 18.5,21 12,17.3 5.5,21 7,14 2,9.3 9,9'/></svg>") repeat-x;
-      mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><polygon points='12,2 15,9 22,9.3 17,14 18.5,21 12,17.3 5.5,21 7,14 2,9.3 9,9'/></svg>") repeat-x;
-      -webkit-mask-size: 1em 1em;
-      mask-size: 1em 1em;
-      font-size: 1.4em;
-    }
-    .pdp-custom-rating-count {
-      color: rgba(31, 31, 31, 0.55);
-      font-size: 14px;
-    }
-  </style>
-  <div class="product__review-container pdp-custom-rating" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: rating_value, rating_max: rating_max }}">
-    <span class="pdp-custom-stars" aria-hidden="true" style="--rating: {{ rating_value | floor }}; --rating-max: {{ rating_max }};"></span>
-    {%- if product.metafields.reviews.rating_count > 0 -%}
-      <span class="pdp-custom-rating-count">({{ rating_count }})</span>
-    {%- elsif text_fallback != blank -%}
-      {%- assign default_count = text_fallback | split: '(' | last | split: ' ' | first | remove: ')' -%}
-      <span class="pdp-custom-rating-count">({{ default_count | default: '22' }})</span>
-    {%- endif -%}
-  </div>
-{%- endif -%}
-      
     </div>
 
     <div class="product__price-column">
@@ -583,43 +536,7 @@
                   show_pickup_availability: true
                 -%}
               {%- when 'rating' -%}
-                {%- if product.metafields.reviews.rating.value != blank -%}
-                  <div class="rating-wrapper">
-                    {% liquid
-                      assign rating_decimal = 0
-                      assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
-                      if decimal >= 0.3 and decimal <= 0.7
-                        assign rating_decimal = 0.5
-                      elsif decimal > 0.7
-                        assign rating_decimal = 1
-                      endif
-                    %}
-                    <div
-                      class="rating"
-                      role="img"
-                      aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="rating-star"
-                        style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
-                      ></span>
-                    </div>
-                    <p class="rating-text caption">
-                      <span aria-hidden="true">
-                        {{- product.metafields.reviews.rating.value }} /
-                        {{ product.metafields.reviews.rating.value.scale_max -}}
-                      </span>
-                    </p>
-                    <p class="rating-count caption">
-                      <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
-                      <span class="visually-hidden">
-                        {{- product.metafields.reviews.rating_count }}
-                        {{ 'accessibility.total_reviews' | t -}}
-                      </span>
-                    </p>
-                  </div>
-                {%- endif -%}
+                {% render 'judgeme-preview-badge', product: product, class: 'product__review-container' %}
               {%- when 'complementary' -%}
                 <product-recommendations
                   class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"

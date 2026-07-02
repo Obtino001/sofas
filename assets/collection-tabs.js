@@ -124,6 +124,9 @@
         }
         window.dispatchEvent(new Event('resize'));
         refreshArrowState();
+        if (typeof window.refreshJudgeMeWidgets === 'function') {
+          window.refreshJudgeMeWidgets(getActivePanel());
+        }
       });
     }
 
