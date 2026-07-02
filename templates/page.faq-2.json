@@ -20,6 +20,14 @@
     "faq_tabs_aR6MNV": {
       "type": "faq-tabs",
       "blocks": {
+        "faq_3BeXzi": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "How do I track my order?",
+            "answer": "<p>Once your order is dispatched, you will receive an email with a tracking link.</p>"
+          }
+        },
         "category_Vq68Fk": {
           "type": "category",
           "disabled": true,
@@ -43,8 +51,15 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "How long does delivery take?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>"
+          }
+        },
+        "faq_ieLKg9": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Can I choose a specific delivery date?",
+            "answer": "<p>Unfortunately, we cannot guarantee a specific delivery date at the time of order. However, our delivery partner will contact you to arrange a convenient delivery slot.</p>"
           }
         },
         "faq_GPtLrT": {
@@ -52,26 +67,71 @@
           "settings": {
             "category_match": "Sofa related questions",
             "question": "Are your sofas made in the UK?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "answer": "<p>Yes, all our sofas are proudly manufactured in the UK. We believe in supporting local craftsmanship and ensuring the highest quality standards.</p>"
+          }
+        },
+        "faq_rx6E8r": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 14-day risk-free guarantee. If you are not completely satisfied with your purchase, you can return it within 14 days for a full refund, no questions asked.</p>"
+          }
+        },
+        "faq_BrAbeq": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Sofa related questions",
+            "question": "Do you deliver to my room of choice?",
+            "answer": "<p>Yes, our delivery team can deliver your new sofa to your room of choice. Please ensure there is clear access and sufficient space for the delivery.</p>"
           }
         },
         "faq_qGLUyX": {
           "type": "faq",
           "settings": {
             "category_match": "Bed related questions",
-            "question": "What sizes are available?",
-            "answer": "<p>We offer fast UK delivery within 7-10 days on most sofas, so you don't have to wait weeks like traditional retailers.</p>",
-            "color_scheme": ""
+            "question": "How do I arrange a return?",
+            "answer": "<p>To arrange a return, please contact our customer support team via live chat or phone. We will guide you through the process and arrange a collection.</p>"
+          }
+        },
+        "faq_KWWzgX": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "Do you offer a warranty?",
+            "answer": "<p>Yes, all our sofas come with a comprehensive warranty that covers manufacturing defects.</p>"
+          }
+        },
+        "faq_LekFAK": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "Do you offer financing options?",
+            "answer": "<p>Yes, we offer flexible financing with up to 9 months interest-free. You can choose this option at checkout and complete a simple application.</p><p></p>"
+          }
+        },
+        "faq_UhK6KE": {
+          "type": "faq",
+          "settings": {
+            "category_match": "Bed related questions",
+            "question": "What materials do you use?",
+            "answer": "<p>We use premium, locally-sourced materials to ensure every sofa is built to last. From the solid wood frames to the high-density foam and durable fabrics, we never compromise on quality.</p>"
           }
         }
       },
       "block_order": [
+        "faq_3BeXzi",
         "category_Vq68Fk",
         "category_8YmjjF",
         "faq_jFDDjC",
+        "faq_ieLKg9",
         "faq_GPtLrT",
-        "faq_qGLUyX"
+        "faq_rx6E8r",
+        "faq_BrAbeq",
+        "faq_qGLUyX",
+        "faq_KWWzgX",
+        "faq_LekFAK",
+        "faq_UhK6KE"
       ],
       "name": "FAQ Tabs",
       "settings": {
@@ -81,6 +141,7 @@
         "show_tabs": true,
         "answers_label": "answers",
         "color_scheme": "",
+        "active_accordion_color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 60
       }

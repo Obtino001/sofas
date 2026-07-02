@@ -254,7 +254,7 @@
           <div class="swiper-slide custom-hero-slider__slide color-{{ block.settings.color_scheme }} gradient" {{ block.shopify_attributes }}>
             
             <div class="custom-hero-slider__media">
-              <div class="custom-hero-slider__overlay" style="opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+              <div class="custom-hero-slider__overlay" style="opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"> </div>
               
               {%- if block.settings.image != blank -%}
                 {%- liquid
