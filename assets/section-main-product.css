@@ -1969,9 +1969,29 @@ a.product__text {
   margin-top: 6px;
 }
 
+.product__installments-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35em;
+}
+
 .product__installments strong {
   color: #121212;
   font-weight: 700;
+}
+
+.product__installments-provider {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.product__installments-klarna {
+  height: 18px;
+  width: auto;
+  display: block;
 }
 
 /* In Stock indicator with pulsing dot */

@@ -177,7 +177,17 @@
         {%- assign installment_price = product.selected_or_first_available_variant.price | divided_by: installment_count -%}
         {%- assign provider_name = block.settings.installment_provider | default: 'Klarna' -%}
         <div class="product__installments" id="Installments-{{ section.id }}">
-          <div>or {{ installment_count }} interest-free payments of {{ installment_price | money }} with <strong>{{ provider_name }}</strong>.</div>
+          <div class="product__installments-line">
+            or {{ installment_count }} interest-free payments of {{ installment_price | money_without_trailing_zeros | strip_html -}}
+            {%- if settings.currency_code_enabled %} {{ cart.currency.iso_code }}{% endif -%}
+            with
+            {%- assign provider_handle = provider_name | downcase | strip -%}
+            {%- if provider_handle == 'klarna' -%}
+              <span class="product__installments-provider">{{ 'klarna' | payment_type_svg_tag: class: 'product__installments-klarna' }}</span>
+            {%- else -%}
+              <strong>{{ provider_name }}</strong>
+            {%- endif -%}.
+          </div>
         </div>
       {%- endif -%}
 
