@@ -408,11 +408,6 @@ p {
   text-decoration: none;
   padding: 12px 24px;
   border-radius: 30px;
-  transition: background-color 0.2s ease;
-}
-
-.cx-promo-btn:hover {
-  background-color: #b8916a;
 }
 
 .product__review-container {

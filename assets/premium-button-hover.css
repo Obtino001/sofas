@@ -1,0 +1,179 @@
+/**
+ * Global premium button hover — background/text colour swap.
+ * Loaded site-wide; respects prefers-reduced-motion.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  body.premium-button-hover .button:not(.button--tertiary):not(:disabled):not([disabled]):not(.loading):hover,
+  body.premium-button-hover .shopify-challenge__button:not(:disabled):hover,
+  body.premium-button-hover .customer button:not(:disabled):not([disabled]):hover,
+  body.premium-button-hover button.shopify-payment-button__button--unbranded:not(:disabled):hover {
+    background-position: 100% 0;
+    color: rgb(var(--color-button));
+  }
+
+  body.premium-button-hover .button:not(.button--tertiary):not(:disabled):not([disabled]):hover > *,
+  body.premium-button-hover .button:not(.button--tertiary):not(:disabled):not([disabled]):hover .button-label {
+    color: inherit;
+  }
+
+  body.premium-button-hover .button--secondary:not(:disabled):not([disabled]):hover::after {
+    box-shadow: 0 0 0 var(--buttons-border-width) rgba(var(--color-button-text), var(--buttons-border-opacity));
+  }
+
+  /* Custom CTA / pill / view-all buttons */
+  body.premium-button-hover :is(
+    .hero-block-button-pill,
+    .hero-block-button-outline,
+    .hero-block-button,
+    .collection-tabs__view-all-btn,
+    .ts-view-all-btn,
+    .sr-view-all-btn,
+    .cx-promo-btn,
+    .cx-img-btn,
+    .c-form-btn,
+    .woc-drawer-promo__btn,
+    .custom-upsell-btn,
+    .exr-btn,
+    .desktopBanner_button,
+    .link-animate
+  ) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    z-index: 0;
+    transition:
+      color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  body.premium-button-hover :is(
+    .hero-block-button-pill,
+    .hero-block-button-outline,
+    .hero-block-button,
+    .collection-tabs__view-all-btn,
+    .ts-view-all-btn,
+    .sr-view-all-btn,
+    .cx-promo-btn,
+    .cx-img-btn,
+    .c-form-btn,
+    .woc-drawer-promo__btn,
+    .custom-upsell-btn,
+    .exr-btn,
+    .desktopBanner_button,
+    .link-animate
+  )::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--pbh-hover-fill, #ffffff);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+
+  body.premium-button-hover :is(
+    .hero-block-button-pill,
+    .hero-block-button-outline,
+    .hero-block-button,
+    .collection-tabs__view-all-btn,
+    .ts-view-all-btn,
+    .sr-view-all-btn,
+    .cx-promo-btn,
+    .cx-img-btn,
+    .c-form-btn,
+    .woc-drawer-promo__btn,
+    .custom-upsell-btn,
+    .exr-btn,
+    .desktopBanner_button,
+    .link-animate
+  ):hover {
+    color: var(--pbh-hover-text, #d4b895) !important;
+    border-color: var(--pbh-hover-fill, #ffffff) !important;
+  }
+
+  body.premium-button-hover :is(
+    .hero-block-button-pill,
+    .hero-block-button-outline,
+    .hero-block-button,
+    .collection-tabs__view-all-btn,
+    .ts-view-all-btn,
+    .sr-view-all-btn,
+    .cx-promo-btn,
+    .cx-img-btn,
+    .c-form-btn,
+    .woc-drawer-promo__btn,
+    .custom-upsell-btn,
+    .exr-btn,
+    .desktopBanner_button,
+    .link-animate
+  ):hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Solid tan/gold CTAs */
+  body.premium-button-hover .hero-block-button-pill,
+  body.premium-button-hover .cx-promo-btn {
+    --pbh-hover-fill: #ffffff;
+    --pbh-hover-text: #d4b895;
+  }
+
+  /* Outline / ghost CTAs */
+  body.premium-button-hover .hero-block-button-outline {
+    --pbh-hover-fill: #ffffff;
+    --pbh-hover-text: #d4b895;
+  }
+
+  body.premium-button-hover .collection-tabs__view-all-btn,
+  body.premium-button-hover .ts-view-all-btn,
+  body.premium-button-hover .sr-view-all-btn {
+    --pbh-hover-fill: var(--ct-accent, #1f1f1f);
+    --pbh-hover-text: #ffffff;
+  }
+
+  body.premium-button-hover .collection-tabs__view-all-btn:hover,
+  body.premium-button-hover .ts-view-all-btn:hover,
+  body.premium-button-hover .sr-view-all-btn:hover {
+    background: transparent !important;
+  }
+
+  body.premium-button-hover .woc-drawer-promo__btn {
+    --pbh-hover-fill: #ffffff;
+    --pbh-hover-text: #272b28;
+  }
+
+  body.premium-button-hover .custom-upsell-btn:not(:disabled):hover {
+    --pbh-hover-fill: rgb(var(--color-button-text));
+    --pbh-hover-text: rgb(var(--color-button));
+  }
+
+  body.premium-button-hover :is(
+    .hero-block-button-pill,
+    .hero-block-button-outline,
+    .hero-block-button,
+    .collection-tabs__view-all-btn,
+    .ts-view-all-btn,
+    .sr-view-all-btn,
+    .cx-promo-btn,
+    .cx-img-btn,
+    .c-form-btn,
+    .woc-drawer-promo__btn,
+    .custom-upsell-btn,
+    .exr-btn,
+    .desktopBanner_button,
+    .link-animate
+  ) > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.premium-button-hover .button:not(.button--tertiary):not(:disabled):hover {
+    background-position: 100% 0;
+    color: rgb(var(--color-button));
+  }
+}
